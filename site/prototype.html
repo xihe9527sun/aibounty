@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>AIbounty · 发现最好的 AI 工具</title>
+<style>
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Inter-Regular'), local('Inter'), url('fonts/Inter-Regular.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Inter-Medium'), local('Inter Medium'), url('fonts/Inter-Medium.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Inter-SemiBold'), local('Inter SemiBold'), url('fonts/Inter-SemiBold.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Inter-Bold'), local('Inter Bold'), url('fonts/Inter-Bold.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* ── 配色系统（暖暗调 · 琥珀金） ── */
+:root {
+  --bg-deep: #0a0a0f;
+  --bg-card: rgba(255,255,255,0.025);
+  --bg-elevated: rgba(255,255,255,0.04);
+  --bg-active: rgba(255,255,255,0.055);
+  --text-primary: #eaeaea;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --text-dim: #4b5563;
+  --border: rgba(255,255,255,0.05);
+  --border-hover: rgba(245,158,11,0.2);
+  --border-active: rgba(245,158,11,0.3);
+  --accent: #f59e0b;
+  --accent-soft: #fbbf24;
+  --accent-secondary: #d97706;
+  --card-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  --card-shadow-hover: 0 4px 24px rgba(245,158,11,0.08);
+  --hover-bg: rgba(245,158,11,0.04);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+a, a:link, a:visited, a:hover, a:active { color: inherit; text-decoration: none; }
+body { 
+  background: var(--bg-deep); color: var(--text-primary); 
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'Source Han Sans SC', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex; min-height: 100vh;
+}
+
+/* ── 左侧面板 ── */
+.sidebar {
+  width: 220px; min-width: 220px;
+  border-right: 1px solid var(--border);
+  padding: 20px 12px;
+  display: flex; flex-direction: column; gap: 16px;
+  overflow-y: auto;
+  z-index: 10;
+}
+.sidebar-brand {
+  display: flex; align-items: center; gap: 8px;
+  padding: 0 4px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.sidebar-brand .logo {
+  width: 28px; height: 28px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; color: #fff;
+  flex-shrink: 0;
+}
+.sidebar-brand .brand-text {
+  display: flex; flex-direction: column;
+}
+.sidebar-brand .brand-name {
+  font-size: 16px; font-weight: 700; color: var(--text-primary);
+  line-height: 1.2;
+}
+.sidebar-brand .brand-tagline {
+  font-size: 9px; color: var(--text-muted); letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+/* ── 身份卡 ── */
+.identity-card {
+  display: flex; flex-wrap: wrap; gap: 4px;
+  padding: 0 4px;
+}
+.identity-card .label {
+  font-size: 10px; color: var(--text-muted);
+  letter-spacing: 0.5px; margin-bottom: 2px;
+  width: 100%;
+}
+.identity-btn {
+  flex: 1; min-width: 90px; padding: 6px 8px;
+  border-radius: 8px; border: 1px solid transparent;
+  background: transparent; color: var(--text-secondary); font-size: 12px;
+  cursor: pointer; transition: all 0.2s; text-align: center;
+}
+.identity-btn:hover { background: var(--bg-elevated); color: var(--text-primary); }
+.identity-btn.active {
+  background: var(--bg-active);
+  border-color: var(--border-active);
+  color: var(--text-primary); font-weight: 600;
+}
+.identity-btn .count {
+  font-size: 10px; color: var(--text-muted); margin-left: 2px;
+}
+
+/* ── 导航、子链接、底栏（保持不变） ── */
+.nav-section-label {
+  font-size: 10px; color: var(--text-dim);
+  letter-spacing: 0.5px; padding: 0 4px; margin-top: 4px;
+  text-transform: uppercase;
+}
+.nav-item { border-radius: 8px; cursor: pointer; user-select: none; }
+.nav-item-header {
+  display: flex; align-items: center; gap: 6px;
+  padding: 7px 8px; border-radius: 8px;
+  font-size: 12px; color: var(--text-secondary);
+  transition: all 0.15s;
+}
+.nav-item-header:hover { background: var(--bg-elevated); color: var(--text-primary); }
+.nav-item-header .icon { font-size: 14px; width: 20px; text-align: center; flex-shrink: 0; }
+.nav-item-header .label { flex: 1; font-weight: 500; }
+.nav-item-header .arrow {
+  font-size: 9px; color: var(--text-dim);
+  transition: transform 0.2s;
+}
+.nav-item.open .nav-item-header .arrow { transform: rotate(90deg); }
+.nav-item-header .dot-count {
+  font-size: 9px; color: var(--text-dim);
+  background: var(--bg-elevated);
+  padding: 1px 5px; border-radius: 4px;
+}
+.nav-sublinks {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.25s ease; padding-left: 30px;
+}
+.nav-item.open .nav-sublinks { max-height: 200px; }
+.nav-sublink {
+  display: flex; align-items: center; gap: 5px;
+  padding: 5px 8px; margin: 1px 0;
+  border-radius: 6px; font-size: 11px; color: var(--text-muted);
+  text-decoration: none; transition: all 0.15s;
+}
+.nav-sublink:hover { background: var(--bg-elevated); color: var(--text-primary); }
+.nav-sublink .flag { font-size: 10px; width: 16px; text-align: center; flex-shrink: 0; }
+.nav-sublink .src-name { flex: 1; }
+.nav-sublink .go-icon { font-size: 9px; opacity: 0; transition: opacity 0.15s; }
+.nav-sublink:hover .go-icon { opacity: 0.6; }
+
+/* ── 侧边栏快捷操作 ── */
+.quick-actions {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+  padding: 0 4px;
+}
+.qa-item {
+  display: flex; align-items: center; gap: 5px;
+  padding: 7px 8px; border-radius: 8px;
+  font-size: 11px; color: var(--text-secondary);
+  cursor: pointer; transition: all 0.15s;
+}
+.qa-item:hover { background: var(--bg-elevated); color: var(--text-primary); }
+.qa-item.active { background: var(--bg-active); color: var(--text-primary); }
+.qa-item .qa-icon { font-size: 13px; width: 18px; text-align: center; flex-shrink: 0; }
+
+/* ── 社区链接 ── */
+.community-links {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 0 4px;
+}
+.community-link {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 8px; border-radius: 6px;
+  font-size: 11px; color: var(--text-muted);
+  text-decoration: none; cursor: pointer;
+  transition: all 0.15s;
+}
+.community-link:hover { background: var(--bg-elevated); color: var(--text-primary); }
+.community-link span:first-child { font-size: 12px; width: 18px; text-align: center; }
+
+/* ── 底栏统计（仪表盘风格） ── */
+.sidebar-footer {
+  margin-top: auto;
+  padding: 8px 4px 0;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.stats-row {
+  display: flex; gap: 4px;
+}
+.stat-item {
+  flex: 1; text-align: center;
+  padding: 6px 4px;
+  background: var(--bg-card);
+  border-radius: 6px;
+}
+.stat-item .stat-val {
+  display: block; font-size: 14px; font-weight: 700; color: var(--text-primary);
+  line-height: 1.2;
+}
+.stat-item .stat-lbl {
+  display: block; font-size: 9px; color: var(--text-dim);
+  margin-top: 2px;
+}
+.stats-footer {
+  text-align: center; font-size: 10px; color: var(--text-dim);
+  margin-top: 6px; padding: 4px 0;
+}
+
+/* ── 移动端汉堡菜单 ── */
+.mobile-header {
+  display: none;
+}
+.hamburger {
+  display: none; cursor: pointer; padding: 6px;
+  background: none; border: none; color: var(--text-secondary);
+  font-size: 22px; line-height: 1; z-index: 20;
+}
+.sidebar-overlay {
+  display: none;
+}
+
+/* ── PC 顶栏 ── */
+.topbar {
+  display: flex; align-items: center; gap: 16px;
+  padding-bottom: 14px; margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.topbar-left {
+  display: flex; align-items: center; gap: 8px;
+  flex-shrink: 0;
+}
+.topbar-logo {
+  width: 22px; height: 22px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+.topbar-brand {
+  font-size: 14px; font-weight: 700; color: var(--text-primary);
+  white-space: nowrap;
+}
+.topbar-nav {
+  display: flex; align-items: center; gap: 2px;
+  flex: 1; justify-content: center;
+}
+.topbar-nav-item {
+  padding: 5px 12px; border-radius: 6px;
+  font-size: 12px; color: var(--text-secondary); cursor: pointer;
+  text-decoration: none; transition: all 0.15s;
+  white-space: nowrap;
+}
+.topbar-nav-item:hover { background: var(--bg-elevated); color: var(--text-primary); }
+.topbar-nav-item.active { color: var(--text-primary); font-weight: 500; }
+.topbar-right {
+  display: flex; align-items: center; gap: 8px;
+  flex-shrink: 0;
+}
+.topbar-stat {
+  font-size: 12px; color: var(--text-muted); white-space: nowrap;
+}
+.topbar-stat strong { color: var(--text-secondary); }
+.lang-switch {
+  padding: 4px 10px; border-radius: 6px;
+  font-size: 11px; color: var(--text-secondary); cursor: pointer;
+  border: 1px solid var(--border);
+  transition: all 0.15s; white-space: nowrap;
+}
+.lang-switch:hover { border-color: var(--border-active); color: var(--text-primary); }
+.lang-switch #langIndicator { color: var(--text-muted); }
+
+/* ── 主舞台 ── */
+.main {
+  flex: 1; min-width: 0; padding: 24px 32px;
+  max-width: 1400px; overflow: hidden;
+}
+
+/* ── 搜索栏（必应风格） ── */
+.search-section {
+  margin-bottom: 24px;
+}
+.search-section .brand-line {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 14px;
+}
+.search-section .brand-line .search-logo {
+  width: 24px; height: 24px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; color: #fff;
+}
+.search-section .brand-line .search-brand {
+  font-size: 14px; font-weight: 600; color: var(--text-secondary);
+  letter-spacing: 0.3px;
+}
+.search-bar {
+  display: flex; align-items: center;
+  max-width: 640px;
+  background: var(--bg-active);
+  border: 2px solid var(--border);
+  border-radius: 100px;
+  transition: all 0.2s;
+  position: relative;
+}
+.search-bar:focus-within {
+  border-color: rgba(245,158,11,0.25);
+  background: var(--bg-active);
+  box-shadow: 0 0 0 3px rgba(245,158,11,0.04);
+}
+.search-bar .search-icon {
+  padding: 10px 0 10px 18px;
+  color: var(--text-muted); font-size: 15px;
+  flex-shrink: 0;
+}
+.search-bar input {
+  flex: 1; background: none; border: none; outline: none;
+  padding: 10px 8px 10px 10px;
+  color: var(--text-primary); font-size: 14px;
+  font-family: inherit;
+  min-width: 0;
+}
+.search-bar input::placeholder { color: var(--text-dim); }
+.search-bar .search-divider {
+  width: 1px; height: 24px;
+  background: var(--bg-active);
+  flex-shrink: 0;
+}
+.search-bar .search-btn {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  border: none; background: transparent;
+  color: var(--text-muted); font-size: 16px;
+  cursor: pointer; border-radius: 50%;
+  transition: all 0.15s; flex-shrink: 0;
+}
+.search-bar .search-btn:hover {
+  background: var(--bg-active);
+  color: var(--text-primary);
+}
+.search-bar .search-btn.go-btn {
+  background: var(--bg-active);
+  color: var(--text-secondary); margin-right: 4px;
+}
+.search-bar .search-btn.go-btn:hover {
+  background: rgba(245,158,11,0.12);
+  color: var(--text-primary);
+}
+
+.tag-row {
+  display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px;
+}
+.tag {
+  padding: 5px 14px; border-radius: 100px;
+  border: 1px solid var(--border);
+  background: transparent;
+  font-size: 12px; color: var(--text-secondary); cursor: pointer;
+  transition: all 0.2s;
+}
+.tag:hover { border-color: var(--border-active); color: var(--text-primary); }
+.tag.active {
+  background: var(--bg-active);
+  border-color: var(--border-active);
+  color: var(--text-primary);
+}
+.sort-bar {
+  display: flex; gap: 4px; margin-left: auto;
+}
+.sort-btn {
+  padding: 4px 12px; border-radius: 100px;
+  border: 1px solid transparent;
+  background: transparent; color: var(--text-muted);
+  font-size: 11px; cursor: pointer;
+}
+/* ── 筛选区（全部工具 + 分类药丸） ── */
+.filter-section {
+  margin-bottom: 24px;
+}
+.filter-header {
+  display: flex; align-items: baseline; gap: 8px;
+  margin-bottom: 8px;
+}
+.filter-title {
+  font-size: 14px; font-weight: 600; color: var(--text-primary);
+}
+.filter-count {
+  font-size: 11px; color: var(--text-dim);
+}
+.filter-pills {
+  display: flex; gap: 6px; flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 5px 14px; border-radius: 100px;
+  border: 1px solid var(--border);
+  background: transparent;
+  font-size: 12px; color: var(--text-secondary); cursor: pointer;
+  transition: all 0.2s;
+}
+.pill:hover { border-color: var(--border-hover); color: var(--text-primary); background: var(--bg-elevated); }
+.pill.active { background: var(--bg-active); color: var(--text-primary); border-color: var(--border-active); }
+.pill .pill-count {
+  font-size: 10px; color: var(--text-dim); background: var(--bg-elevated);
+  padding: 0 5px; border-radius: 4px; line-height: 1.4;
+}
+.pill.active .pill-count { color: var(--text-muted); }
+.filter-sort {
+  display: flex; gap: 4px;
+}
+.filter-sort .sort-btn {
+  padding: 4px 12px; border-radius: 100px;
+  border: 1px solid transparent;
+  background: transparent; color: var(--text-muted);
+  font-size: 11px; cursor: pointer; transition: all 0.15s;
+}
+.filter-sort .sort-btn.active { color: var(--text-primary); border-color: var(--border-active); }
+
+.featured { margin-bottom: 28px; }
+.featured h2 {
+  font-size: 15px; font-weight: 600; margin-bottom: 2px;
+  display: flex; align-items: center; gap: 6px;
+}
+.featured-sub {
+  font-size: 11px; color: var(--text-dim);
+  margin-bottom: 12px;
+}
+
+/* ── 布局 ── */
+.layout {
+  display: flex; gap: 24px; align-items: flex-start;
+}
+.layout-main { flex: 1; min-width: 0; overflow: hidden; }
+.layout-side { width: 260px; min-width: 260px; }
+
+.featured-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+}
+.featured-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px 16px 0; cursor: pointer;
+  transition: all 0.25s;
+  display: flex; flex-direction: column;
+  box-shadow: var(--card-shadow);
+  position: relative;
+}
+.featured-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+}
+.featured-card .fc-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 10px; font-weight: 600;
+  padding: 3px 10px; border-radius: 20px;
+  background: rgba(245,158,11,0.12); color: var(--accent);
+  margin-bottom: 8px; width: fit-content;
+}
+.featured-card h3 {
+  font-size: 14px; font-weight: 600; margin-bottom: 4px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  color: var(--text-primary);
+}
+.featured-card .fc-desc {
+  font-size: 12px; color: var(--text-secondary); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+  flex: 1; margin-bottom: 10px;
+}
+.featured-card .fc-xihe-say {
+  display: block;
+  margin: 0 -16px 0;
+  padding: 8px 16px;
+  font-size: 11px; font-weight: 500;
+  color: #fbbf24;
+  background: linear-gradient(90deg, rgba(251,191,36,0.08), rgba(245,158,11,0.03));
+  border-top: 1px solid rgba(251,191,36,0.12);
+  line-height: 1.5;
+}
+.featured-card .fc-meta {
+  font-size: 10px; color: var(--text-muted);
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 0; background: transparent;
+}
+
+.tool-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  min-width: 0;
+}
+.tool-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px; cursor: pointer;
+  transition: all 0.25s;
+  display: flex; flex-direction: column;
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: visible;
+}
+.tool-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+  background: var(--hover-bg);
+}
+.tool-card .tc-top {
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 6px;
+}
+.tool-card .tc-source {
+  font-size: 9px; font-weight: 700;
+  padding: 2px 6px; border-radius: 4px;
+  letter-spacing: 0.5px;
+  background: rgba(255,255,255,0.06);
+  color: var(--text-muted);
+}
+.tool-card .tc-source.github { background: rgba(34,197,94,0.1); color: #22c55e; }
+.tool-card .tc-source.hn { background: rgba(255,107,0,0.1); color: #ff6b00; }
+.tool-card .tc-source.news { background: rgba(59,130,246,0.1); color: #3b82f6; }
+.tool-card .tc-stars {
+  margin-left: auto;
+  font-size: 11px; color: var(--text-muted);
+}
+.tool-card h3 {
+  font-size: 13px; font-weight: 600; margin-bottom: 4px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  color: var(--text-primary);
+}
+.tool-card .tc-chips {
+  display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 6px;
+}
+.tool-card .tc-chip {
+  font-size: 10px; padding: 1px 7px; border-radius: 4px;
+  background: rgba(245,158,11,0.06); color: var(--text-muted);
+  border: 1px solid rgba(245,158,11,0.1);
+}
+.tool-card p {
+  font-size: 12px; color: var(--text-secondary); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+  flex: 1; margin-bottom: 8px;
+}
+.tool-card .tc-tags {
+  display: flex; gap: 4px; flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.tool-card .tc-tag {
+  font-size: 9px; padding: 2px 8px; border-radius: 100px;
+  background: rgba(255,255,255,0.04);
+  color: var(--text-dim);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.tool-card .tc-tag.hot { background: rgba(239,68,68,0.08); color: #f87171; border-color: rgba(239,68,68,0.12); }
+.tool-card .tc-tag.new { background: rgba(59,130,246,0.08); color: #60a5fa; border-color: rgba(59,130,246,0.12); }
+.tool-card .tc-tag.pick { background: rgba(245,158,11,0.08); color: #fbbf24; border-color: rgba(245,158,11,0.12); }
+.tool-card .tc-foot {
+  font-size: 10px; color: var(--text-muted);
+  display: flex; justify-content: space-between;
+  padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+.hot-list h3 {
+  font-size: 14px; font-weight: 600; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 6px;
+}
+.hot-list {
+  margin-top: 4px;
+}
+.hot-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer; transition: all 0.2s;
+}
+.hot-item:hover { background: var(--bg-card); }
+.hot-item .rank {
+  width: 20px; text-align: center;
+  font-size: 13px; font-weight: 700; color: var(--text-muted);
+}
+.hot-item .rank.gold { color: var(--accent); }
+.hot-item .rank.silver { color: var(--text-secondary); }
+.hot-item .rank.bronze { color: var(--accent-secondary); }
+.hot-item .info { flex: 1; min-width: 0; }
+.hot-item .info .name {
+  font-size: 12px; font-weight: 500;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.hot-item .info .detail {
+  font-size: 11px; color: var(--text-muted);
+}
+.hot-item .hot-score {
+  font-size: 12px; color: var(--accent); font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ── 加载更多 ── */
+.load-more {
+  text-align: center; padding: 16px; margin-top: 8px;
+  border-radius: 10px; cursor: pointer;
+  border: 1px solid var(--border);
+  font-size: 12px; color: var(--text-secondary);
+  transition: all 0.2s;
+}
+.load-more:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  box-shadow: var(--card-shadow-hover);
+}
+.load-more .lm-count {
+  color: var(--text-dim); font-size: 11px;
+}
+
+/* ── 响应式：平板 ── */
+@media(max-width:1200px) {
+  .tool-grid { grid-template-columns: repeat(3,1fr); }
+  .layout-side { width: 220px; min-width: 220px; }
+}
+@media(max-width:1024px) {
+  .sidebar {
+    position: fixed; left: -240px; top: 0; bottom: 0;
+    transition: left 0.3s ease; background: #0a0a0f;
+    border-right: 1px solid rgba(255,255,255,0.055);
+  }
+  .sidebar.open { left: 0; }
+  .sidebar-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.5); z-index: 5;
+  }
+  .sidebar-overlay.active { display: block; }
+  .topbar { display: none; }
+  .mobile-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 16px 0 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-header .mobile-logo {
+    width: 24px; height: 24px;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: #fff;
+  }
+  .mobile-header .mobile-brand {
+    font-size: 14px; font-weight: 700; color: var(--text-primary);
+  }
+  .hamburger { display: block; }
+  .main { padding: 16px 20px; }
+}
+@media(max-width:900px) {
+  .topbar { display: none; }  /* PC topbar 在平板上隐藏，移动端头部替代 */
+  .layout-side { display: none; }
+  .tool-grid { grid-template-columns: repeat(2,1fr); }
+  .featured-grid { grid-template-columns: 1fr; }
+}
+@media(max-width:600px) {
+  .tool-grid { grid-template-columns: 1fr; }
+  .main { padding: 12px 16px; }
+  .search-section .brand-line .search-brand { font-size: 12px; }
+  .search-bar input { font-size: 13px; padding: 8px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 移动端遮罩 ===== -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+<!-- ===== 左侧面板 ===== -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <div class="logo">A</div>
+    <div class="brand-text">
+      <span class="brand-name">AIbounty</span>
+      <span class="brand-tagline">发现最好的 AI 工具</span>
+    </div>
+  </div>
+
+  <!-- 快捷操作 -->
+  <div class="quick-actions">
+    <div class="qa-item active" onclick="filterHome()">
+      <span class="qa-icon">🏠</span><span class="qa-label" data-i18n="home">首页</span>
+    </div>
+    <div class="qa-item" onclick="filterTrending()">
+      <span class="qa-icon">🔥</span><span class="qa-label" data-i18n="trending">热门趋势</span>
+    </div>
+    <div class="qa-item" onclick="randomPick()">
+      <span class="qa-icon">🎲</span><span class="qa-label" data-i18n="randomPick">随机发现</span>
+    </div>
+    <div class="qa-item" onclick="submitTool()">
+      <span class="qa-icon">✚</span><span class="qa-label" data-i18n="submitTool">提交工具</span>
+    </div>
+  </div>
+
+  <!-- 身份探索 -->
+  <div class="identity-card">
+    <div class="label" data-i18n="identityLabel">以什么身份探索</div>
+    <button class="identity-btn active" onclick="selectIdentity(this)">
+      💻 <span data-i18n="dev">开发者</span> <span class="count">32</span>
+    </button>
+    <button class="identity-btn" onclick="selectIdentity(this)">
+      🎨 <span data-i18n="creator">创作者</span> <span class="count">18</span>
+    </button>
+    <button class="identity-btn" onclick="selectIdentity(this)">
+      🔬 <span data-i18n="researcher">研究者</span> <span class="count">12</span>
+    </button>
+    <button class="identity-btn" onclick="selectIdentity(this)">
+      🏢 <span data-i18n="enterprise">企业</span> <span class="count">8</span>
+    </button>
+  </div>
+
+  <!-- 导航直达 -->
+  <div class="nav-section-label">🚀 <span data-i18n="directLinks">AI 资源直达</span></div>
+
+  <div class="nav-item open" id="nav-news">
+    <div class="nav-item-header" onclick="toggleNav('nav-news')">
+      <span class="icon">📰</span><span class="label" data-i18n="aiNews">AI 资讯</span>
+      <span class="dot-count">4</span><span class="arrow">▶</span>
+    </div>
+    <div class="nav-sublinks">
+      <a class="nav-sublink" href="https://www.jiqizhixin.com/" target="_blank"><span class="flag">🏠</span><span class="src-name">机器之心</span><span class="go-icon">↗</span></a>
+      <a class="nav-sublink" href="https://36kr.com/information/AI/" target="_blank"><span class="flag">🏠</span><span class="src-name">36氪 AI</span><span class="go-icon">↗</span></a>
+      <a class="nav-sublink" href="https://techcrunch.com/category/artificial-intelligence/" target="_blank"><span class="flag">🌍</span><span class="src-name">TechCrunch AI</span><span class="go-icon">↗</span></a>
+      <a class="nav-sublink" href="https://www.theverge.com/ai-artificial-intelligence" target="_blank"><span class="flag">🌍</span><span class="src-name">The Verge AI</span><span class="go-icon">↗</span></a>
+    </div>
+  </div>
+
+  <div class="nav-item" id="nav-models">
+    <div class="nav-item-header" onclick="toggleNav('nav-models')">
+      <span class="icon">🤖</span><span class="label" data-i18n="modelHub">模型库</span>
+      <span class="dot-count">4</span><span class="arrow">▶</span>
+    </div>
+    <div class="nav-sublinks">
+      <a class="nav-sublink" href="https://modelscope.cn/" target="_blank"><span class="flag">🏠</span><span class="src-name">ModelScope</span><span class="go-icon">↗</span></a>
+      <a class="nav-sublink" href="https://wisemodel.cn/" target="_blank"><span class="flag">🏠</span><span class="src-name">始智 AI</span><span class="go-icon">↗</span></a>
+      <a class="nav-sublink" href="https://huggingface.co/models" target="_blank"><span class="flag">🌍</span><span class="src-name">HuggingFace</span><span class="go-icon">↗</span></a>
+      <a class="nav-sublink" href="https://replicate.com/explore" target="_blank"><span class="flag">🌍</span><span class="src-name">Replicate</span><span class="go-icon">↗</span></a>
+    </div>
+  </div>
+
+  <div class="nav-item" id="nav-data">
+    <div class="nav-item-header" onclick="toggleNav('nav-data')">
+      <span class="icon">📊</span><span class="label" data-i18n="datasets">数据集</span>
+      <span class="dot-count">3</span><span class="arrow">▶</span>
+    </div>
+    <div class="nav-sublinks">
+      <a class="nav-sublink" href="https://opendatalab.com/" target="_blank"><span class="flag">🏠</span><span class="src-name">OpenDataLab</span><span class="go-icon">↗</span></a>
+      <a class="nav-sublink" href="https://www.kaggle.com/datasets" target="_blank"><span class="flag">🌍</span><span class="src-name">Kaggle Datasets</span><span class="go-icon">↗</span></a>
+      <a class="nav-sublink" href="https://paperswithcode.com/datasets" target="_blank"><span class="flag">🌍</span><span class="src-name">PapersWithCode</span><span class="go-icon">↗</span></a>
+    </div>
+  </div>
+
+  <div class="nav-item" id="nav-learn">
+    <div class="nav-item-header" onclick="toggleNav('nav-learn')">
+      <span class="icon">📚</span><span class="label" data-i18n="courses">课程学习</span>
+      <span class="dot-count">3</span><span class="arrow">▶</span>
+    </div>
+    <div class="nav-sublinks">
+      <a class="nav-sublink" href="https://www.deeplearning.ai/" target="_blank"><span class="flag">🌍</span><span class="src-name">DeepLearning.AI</span><span class="go-icon">↗</span></a>
+      <a class="nav-sublink" href="https://huggingface.co/learn" target="_blank"><span class="flag">🌍</span><span class="src-name">HuggingFace Learn</span><span class="go-icon">↗</span></a>
+      <a class="nav-sublink" href="https://d2l.ai/" target="_blank"><span class="flag">🏠</span><span class="src-name">李沐 · 动手学深度学习</span><span class="go-icon">↗</span></a>
+    </div>
+  </div>
+
+  <div class="nav-item" id="nav-paper">
+    <div class="nav-item-header" onclick="toggleNav('nav-paper')">
+      <span class="icon">📝</span><span class="label" data-i18n="papers">论文预印</span>
+      <span class="dot-count">3</span><span class="arrow">▶</span>
+    </div>
+    <div class="nav-sublinks">
+      <a class="nav-sublink" href="https://arxiv.org/list/cs.AI/recent" target="_blank"><span class="flag">🌍</span><span class="src-name">arXiv cs.AI</span><span class="go-icon">↗</span></a>
+      <a class="nav-sublink" href="https://www.semanticscholar.org/" target="_blank"><span class="flag">🌍</span><span class="src-name">Semantic Scholar</span><span class="go-icon">↗</span></a>
+      <a class="nav-sublink" href="https://paperswithcode.com/" target="_blank"><span class="flag">🌍</span><span class="src-name">PapersWithCode</span><span class="go-icon">↗</span></a>
+    </div>
+  </div>
+
+  <div class="nav-item" id="nav-bench">
+    <div class="nav-item-header" onclick="toggleNav('nav-bench')">
+      <span class="icon">🏆</span><span class="label" data-i18n="benchmarks">评测排行</span>
+      <span class="dot-count">3</span><span class="arrow">▶</span>
+    </div>
+    <div class="nav-sublinks">
+      <a class="nav-sublink" href="https://lmarena.ai/" target="_blank"><span class="flag">🌍</span><span class="src-name">Chatbot Arena</span><span class="go-icon">↗</span></a>
+      <a class="nav-sublink" href="https://livebench.ai/" target="_blank"><span class="flag">🌍</span><span class="src-name">LiveBench</span><span class="go-icon">↗</span></a>
+      <a class="nav-sublink" href="https://artificialanalysis.ai/" target="_blank"><span class="flag">🌍</span><span class="src-name">Artificial Analysis</span><span class="go-icon">↗</span></a>
+    </div>
+  </div>
+
+  <!-- 社区 -->
+  <div class="nav-section-label">🌐 <span data-i18n="community">社区互动</span></div>
+  <div class="community-links">
+    <a class="community-link" href="#" onclick="return false"><span>💬</span> <span data-i18n="feedback">意见反馈</span></a>
+    <a class="community-link" href="#" onclick="return false"><span>⭐</span> <span data-i18n="starOnGithub">在 GitHub 上点赞</span></a>
+    <a class="community-link" href="#" onclick="return false"><span>📢</span> <span data-i18n="whatsNew">更新日志</span></a>
+  </div>
+
+  <!-- 底栏统计 -->
+  <div class="sidebar-footer">
+    <div class="stats-row">
+      <div class="stat-item">
+        <span class="stat-val" id="totalDisplay">0</span>
+        <span class="stat-lbl" data-i18n="toolsTracked">工具追踪</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val" id="todayCount">08</span>
+        <span class="stat-lbl" data-i18n="todayUpdated">今日更新</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val" id="huntCount">14</span>
+        <span class="stat-lbl" data-i18n="huntCount">狩猎次数</span>
+      </div>
+    </div>
+    <div class="stats-footer" id="huntInfo">上次狩猎 10分钟前</div>
+  </div>
+</div>
+
+<!-- ===== 主舞台 ===== -->
+<div class="main">
+  <!-- 移动端头部 -->
+  <div class="mobile-header">
+    <button class="hamburger" onclick="openSidebar()">☰</button>
+    <div class="mobile-logo">A</div>
+    <span class="mobile-brand">AIbounty</span>
+  </div>
+
+  <!-- PC 顶栏 -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="topbar-logo">A</div>
+      <span class="topbar-brand">AIbounty</span>
+    </div>
+    <div class="topbar-nav">
+      <a class="topbar-nav-item active">🏠 首页</a>
+      <a class="topbar-nav-item">🎲 随机</a>
+      <a class="topbar-nav-item">🔬 侦察</a>
+      <a class="topbar-nav-item" onclick="document.getElementById('sidebar').classList.toggle('open')">📂 资源</a>
+      <a class="topbar-nav-item">📢 更新</a>
+      <a class="topbar-nav-item" onclick="submitTool()">✚ 提交</a>
+    </div>
+    <div class="topbar-right">
+      <span class="topbar-stat"><strong id="totalDisplay">55</strong></span>
+      <span class="topbar-stat" style="font-size:11px;">2026-06-19</span>
+      <span class="topbar-item lang-switch" onclick="switchLang()" title="切换语言">
+        <span id="langBtn">EN</span><span id="langIndicator"> 中文</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- 搜索栏 -->
+  <div class="search-section">
+    <div class="brand-line">
+      <div class="search-logo">A</div>
+      <span class="search-brand">AIbounty · AI 工具搜索引擎</span>
+    </div>
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="搜工具、框架、模型..." id="searchInput">
+      <span class="search-divider"></span>
+      <button class="search-btn" onclick="searchVoice()" title="语音搜索">🎤</button>
+      <button class="search-btn go-btn" onclick="doSearch()" title="搜索">→</button>
+    </div>
+  </div>
+
+  <!-- 筛选区 -->
+  <div class="filter-section">
+    <div class="filter-header">
+      <span class="filter-title" data-i18n="allTools">全部工具</span>
+      <span class="filter-count" id="filterTotal">共 55 个</span>
+    </div>
+    <div class="filter-pills">
+      <span class="pill active" data-i18n="filterAll">✨ 全部</span>
+      <span class="pill">⭐ GitHub <span class="pill-count">53</span></span>
+      <span class="pill">🌐 HN <span class="pill-count">2</span></span>
+      <span class="pill">📖 国产 <span class="pill-count">2</span></span>
+      <span class="pill" data-i18n="filterStars">🏆 高星 <span class="pill-count">45</span></span>
+    </div>
+    <div class="filter-sort">
+      <span class="sort-btn active">🔀 混排</span>
+      <span class="sort-btn">⏱ 最新</span>
+      <span class="sort-btn">🔥 最热</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="layout-main">
+      <div class="featured">
+        <h2 data-i18n="featured">✨ 曦和精选</h2>
+        <p class="featured-sub" data-i18n="featuredSub">今天用心推荐这 3 款</p>
+        <div class="featured-grid" id="featuredGrid"></div>
+      </div>
+      <div class="tool-grid" id="toolGrid"></div>
+      <div class="load-more" id="loadMore" onclick="loadMoreTools()">
+        <span data-i18n="loadMore">加载更多工具</span> <span class="lm-count" id="loadMoreCount">12 / 55</span>
+      </div>
+    </div>
+    <div class="layout-side">
+      <div class="hot-list">
+        <h3 data-i18n="hotList">🔥 实时热榜</h3>
+        <div id="hotList"></div>
+        <div style="margin-top:12px;padding:10px 12px;background:rgba(255,255,255,0.02);border-radius:8px;font-size:11px;color:#64748b;text-align:center;" id="hotFooter">
+          每 5 分钟自动刷新 · 今日热度 TOP 10
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── 侧边栏 ──
+function toggleNav(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+function openSidebar() {
+  document.getElementById('sidebar').classList.add('open');
+  document.getElementById('sidebarOverlay').classList.add('active');
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('active');
+}
+
+// ── 搜索功能（必应风格） ──
+var placeholders = {
+  'zh': ['搜工具、框架、模型...','试试搜 "AI Agent"','搜一下热门工具','找找自动驾驶框架','搜个好用的 IDE'],
+  'en': ['Search tools, frameworks...','Try "AI Agent"','Find trending tools','Search for LLM frameworks'],
+};
+var phIndex = 0;
+var phInterval;
+
+function rotatePlaceholder() {
+  var input = document.getElementById('searchInput');
+  if (!input) return;
+  var pool = placeholders[showLang] || placeholders['zh'];
+  phIndex = (phIndex + 1) % pool.length;
+  input.placeholder = pool[phIndex];
+}
+
+function startPlaceholderRotation() {
+  rotatePlaceholder();
+  if (phInterval) clearInterval(phInterval);
+  phInterval = setInterval(rotatePlaceholder, 4000);
+}
+
+function doSearch() {
+  var input = document.getElementById('searchInput');
+  var q = input ? input.value.trim() : '';
+  if (!q) {
+    // 空搜索时高亮提示
+    if (input) input.style.borderColor = 'rgba(248,113,113,0.4)';
+    setTimeout(function(){
+      if (input) input.style.borderColor = '';
+    }, 1000);
+    return;
+  }
+  // 过滤工具列表
+  var filtered = allItems.filter(function(item){
+    var title = (item.title || '').toLowerCase();
+    var desc = ((item.abstract_zh || item.abstract || '') + item.source || '').toLowerCase();
+    var kw = q.toLowerCase();
+    return title.indexOf(kw) !== -1 || desc.indexOf(kw) !== -1;
+  });
+  if (filtered.length === 1) {
+    // 唯一匹配 → 跳转详情
+    window.location.href = 'tool.html?id=' + filtered[0].id;
+  } else {
+    // 多个匹配 → 刷新列表
+    window.allFiltered = filtered;
+    render();
+    document.getElementById('totalDisplay').textContent = filtered.length;
+  }
+}
+
+function searchVoice() {
+  if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+    var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    var recognizer = new SR();
+    recognizer.lang = showLang === 'zh' ? 'zh-CN' : 'en-US';
+    recognizer.onresult = function(e) {
+      var transcript = e.results[0][0].transcript;
+      document.getElementById('searchInput').value = transcript;
+      doSearch();
+    };
+    recognizer.start();
+  } else {
+    alert(showLang === 'zh' ? '语音搜索需要 Chrome 浏览器' : 'Voice search requires Chrome');
+  }
+}
+
+// Enter 键搜索
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    var input = document.getElementById('searchInput');
+    if (input && document.activeElement === input) {
+      doSearch();
+    }
+  }
+});
+
+// ── 数据 ──
+var allItems = [];
+var showLang = 'zh';
+var PAGE_SIZE = 12;
+var _currentPage = 1;
+var _currentFiltered = [];
+
+// ── i18n 字典 ──
+var I18N = {
+  'zh': {
+    // 曦和话语
+    badgePick: '曦和精选',
+    warmTexts: ['推荐给你','值得关注','开发者必看','神器','曦和推荐'],
+    // 标签
+    tagAll: '✨ 全部',
+    tagStars: '🏆 高星',
+    // 时间
+    justNow: '刚刚',
+    minAgo: '分钟前',
+    hourAgo: '小时前',
+    dayAgo: '天前',
+    // 其他
+    noDesc: '暂无描述',
+    autoRefresh: '每 5 分钟自动刷新 · 今日热度 TOP 10',
+    huntInfo: '今日更新 08 · 14 · 20 · 上次狩猎 10分钟前',
+    tracked: '已追踪',
+    tools: '个工具',
+    featured: '✨ 曦和精选',
+    hotList: '🔥 实时热榜',
+    home: '首页',
+    trending: '热门趋势',
+    randomPick: '随机发现',
+    submitTool: '提交工具',
+    identityLabel: '以什么身份探索',
+    dev: '开发者',
+    creator: '创作者',
+    researcher: '研究者',
+    enterprise: '企业',
+    directLinks: 'AI 资源直达',
+    aiNews: 'AI 资讯',
+    modelHub: '模型库',
+    datasets: '数据集',
+    courses: '课程学习',
+    papers: '论文预印',
+    benchmarks: '评测排行',
+    community: '社区互动',
+    feedback: '意见反馈',
+    starOnGithub: '在 GitHub 上点赞',
+    whatsNew: '更新日志',
+    toolsTracked: '工具追踪',
+    todayUpdated: '今日更新',
+    huntCount: '狩猎次数',
+    loadMore: '加载更多工具',
+    allTools: '全部工具',
+    featuredSub: '今天用心推荐这 3 款',
+    filterAll: '✨ 全部',
+    filterStars: '🏆 高星',
+  },
+  'en': {
+    badgePick: "Xihe's Pick",
+    warmTexts: ['Recommended','Worth a Look',"Dev's Choice",'Must-Have','Xihe Pick'],
+    tagAll: '✨ All',
+    tagStars: '🏆 Trending',
+    justNow: 'just now',
+    minAgo: ' min ago',
+    hourAgo: ' h ago',
+    dayAgo: ' d ago',
+    noDesc: 'No description',
+    autoRefresh: 'Auto-refresh every 5 min · Top 10 today',
+    huntInfo: 'Updated 08 · 14 · 20 · Last hunt 10min ago',
+    tracked: 'Tracking',
+    tools: 'tools',
+    featured: '✨ Xihe Picks',
+    hotList: '🔥 Trending Now',
+    home: 'Home',
+    trending: 'Trending',
+    randomPick: 'Random Pick',
+    submitTool: 'Submit Tool',
+    identityLabel: 'Explore as',
+    dev: 'Dev',
+    creator: 'Creator',
+    researcher: 'Researcher',
+    enterprise: 'Enterprise',
+    directLinks: 'AI Resources',
+    aiNews: 'AI News',
+    modelHub: 'Models',
+    datasets: 'Datasets',
+    courses: 'Courses',
+    papers: 'Papers',
+    benchmarks: 'Benchmarks',
+    community: 'Community',
+    feedback: 'Feedback',
+    starOnGithub: 'Star on GitHub',
+    whatsNew: "What's New",
+    toolsTracked: 'Tools',
+    todayUpdated: 'Updated',
+    huntCount: 'Hunts',
+    loadMore: 'Load More',
+    allTools: 'All Tools',
+    featuredSub: 'Today\'s top 3 picks',
+    filterAll: '✨ All',
+    filterStars: '🏆 Trending',
+  },
+};
+
+function t(key) {
+  return I18N[showLang][key] || I18N['zh'][key];
+}
+
+function tAgo(seconds) {
+  if (seconds < 60) return t('justNow');
+  if (seconds < 3600) return Math.floor(seconds/60) + t('minAgo');
+  if (seconds < 86400) return Math.floor(seconds/3600) + t('hourAgo');
+  return Math.floor(seconds/86400) + t('dayAgo');
+}
+
+function displayAbstract(item) {
+  if (showLang === 'zh') return item.abstract_zh || item.abstract || t('noDesc');
+  return item.abstract || item.abstract_zh || t('noDesc');
+}
+
+function fmtStars(n) {
+  n = parseInt(n||0);
+  if (n >= 1000000) return (n/1000000).toFixed(1)+'m';
+  if (n >= 1000) return (n/1000).toFixed(1).replace(/\.0$/,'')+'k';
+  return n.toLocaleString();
+}
+
+function timeAgo(s) {
+  if (!s) return '';
+  var t = new Date(s.replace(' ','T')+'+08:00');
+  var d = (Date.now()-t)/1000;
+  return tAgo(d);
+}
+
+function selectIdentity(btn) {
+  document.querySelectorAll('.identity-btn').forEach(function(b){b.classList.remove('active')});
+  btn.classList.add('active');
+  render();
+}
+
+function switchLang() {
+  var btn = document.getElementById('langBtn');
+  var indicator = document.getElementById('langIndicator');
+  if (showLang === 'zh') {
+    // 当前中文 → 切英文
+    showLang = 'en';
+    btn.textContent = '中';
+    indicator.textContent = ' English';
+  } else {
+    // 当前英文 → 切中文
+    showLang = 'zh';
+    btn.textContent = 'EN';
+    indicator.textContent = ' 中文';
+  }
+  startPlaceholderRotation();
+  render();
+}
+
+function interleave(arr) {
+  var groups = {};
+  for (var i = 0; i < arr.length; i++) {
+    var src = arr[i].source || 'other';
+    if (!groups[src]) groups[src] = [];
+    groups[src].push(arr[i]);
+  }
+  var keys = Object.keys(groups);
+  var maxLen = 0;
+  for (var k = 0; k < keys.length; k++) maxLen = Math.max(maxLen, groups[keys[k]].length);
+  var result = [];
+  for (var i_ = 0; i_ < maxLen; i_++) {
+    for (var k_ = 0; k_ < keys.length; k_++) {
+      if (groups[keys[k_]][i_]) result.push(groups[keys[k_]][i_]);
+    }
+  }
+  return result;
+}
+
+function render() {
+  // 更新 i18n 静态元素
+  var elems = document.querySelectorAll('[data-i18n]');
+  for (var i = 0; i < elems.length; i++) {
+    var key = elems[i].getAttribute('data-i18n');
+    if (key) elems[i].textContent = t(key);
+  }
+
+  _currentFiltered = interleave(allItems);
+  _currentPage = 1;
+  document.getElementById('totalDisplay').textContent = _currentFiltered.length;
+
+  var picks = _currentFiltered.slice(0,3);
+  var fg = document.getElementById('featuredGrid');
+  var reasonArr = [
+    '这个厉害了！帮你把重复的编码工作自动化',
+    '你一定会喜欢这个！亮点满满',
+    '曦和发现了一个宝藏！快来看看',
+    '盘古，这个值得收藏！',
+    '今天最让我惊喜的工具',
+  ];
+  var xiheSays = showLang === 'en'
+    ? ["🔥 Xihe says: This one's a gem!", "🔥 A must-have tool!", "🔥 Check this out!"]
+    : reasonArr;
+  fg.innerHTML = picks.map(function(item, i) {
+    var say = xiheSays[i % xiheSays.length];
+    var warmTag = item.category && item.category.length ? item.category[0] : '';
+    var warmName = {agent:'智能体',llm:'大模型',dev:'开发工具','dev-tool':'开发工具',media:'媒体'}[warmTag] || '工具';
+    if (showLang === 'en') {
+      var warmNameEn = {agent:'Agent',llm:'LLM',dev:'DevTool','dev-tool':'DevTool',media:'Media'}[warmTag] || 'Tool';
+      say = xiheSays[i % xiheSays.length];
+    } else {
+      say = reasonArr[i % reasonArr.length] + '，一款优秀' + warmName;
+    }
+    var starScore = (item.score && parseInt(item.score) > 0) ? fmtStars(item.score) : '';
+    return '<div class="featured-card">' +
+      '<div class="fc-badge">🔥 ' + (showLang === 'en' ? "Xihe's Pick" : '曦和精选') + '</div>' +
+      '<h3>' + (item.title || '').slice(0,40) + '</h3>' +
+      '<div class="fc-desc">' + displayAbstract(item).slice(0,80) + '</div>' +
+      '<div class="fc-xihe-say">' + say + '</div>' +
+      '<div class="fc-meta">' +
+        '<span>' + (item.source || '') + '</span>' +
+        '<span>⭐ ' + (starScore || '-') + '</span>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  renderToolGrid();
+
+  var hot = _currentFiltered.slice(0,10);
+  var hl = document.getElementById('hotList');
+  hl.innerHTML = hot.map(function(item, i) {
+    var rankCls = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+    var delta = i < 3 ? '<span style="color:#34d399;font-size:10px;">↑ +' + (Math.floor(Math.random()*50)+10) + '</span>' : '<span style="color:#f87171;font-size:10px;">↓ -' + (Math.floor(Math.random()*20)+1) + '</span>';
+    var score = (item.score && parseInt(item.score) > 0) ? fmtStars(item.score) : '';
+    return '<div class="hot-item">' +
+      '<div class="rank ' + rankCls + '">' + (i+1) + '</div>' +
+      '<div class="info">' +
+        '<div class="name">' + (item.title || '').slice(0,30) + '</div>' +
+        '<div class="detail">' + (item.source || '') + ' · ' + timeAgo(item.captured_at) + ' ' + delta + '</div>' +
+      '</div>' +
+      '<div class="hot-score">' + score + '</div>' +
+    '</div>';
+  }).join('');
+
+  // 更新底栏
+  var hf = document.getElementById('hotFooter');
+  if (hf) hf.textContent = t('autoRefresh');
+  var si = document.getElementById('huntInfo');
+  if (si) si.textContent = t('huntInfo');
+}
+
+function renderToolGrid() {
+  var total = _currentFiltered.length;
+  var end = Math.min(_currentPage * PAGE_SIZE, total);
+  var pageItems = _currentFiltered.slice(0, end);
+
+  var grid = document.getElementById('toolGrid');
+  grid.innerHTML = pageItems.slice(3).map(function(item) {
+    var tags = (item.category || []).slice(0,2);
+    var desc = displayAbstract(item);
+    var starScore = (item.score && parseInt(item.score) > 0) ? fmtStars(item.score) : '';
+
+    // 来源着色
+    var srcClass = '';
+    var srcLabel = item.source || '';
+    if (srcLabel.toLowerCase().indexOf('github') !== -1) { srcClass = 'github'; srcLabel = 'GITHUB'; }
+    else if (srcLabel.toLowerCase().indexOf('hacker') !== -1 || srcLabel.toLowerCase().indexOf('hn') !== -1) { srcClass = 'hn'; srcLabel = 'HN'; }
+    else if (srcLabel.toLowerCase().indexOf('news') !== -1) { srcClass = 'news'; srcLabel = 'NEWS'; }
+    else { srcLabel = srcLabel.toUpperCase().slice(0,8); }
+
+    // 底部标签
+    var bottomTags = [
+      Math.random() > 0.5 ? '<span class="tc-tag pick">🏆 值得关注</span>' : '',
+      Math.random() > 0.6 ? '<span class="tc-tag hot">🔥 今日热门</span>' : '',
+      Math.random() > 0.7 ? '<span class="tc-tag new">✨ 今日新发</span>' : '',
+      '<span class="tc-tag">开源项目</span>',
+    ].filter(Boolean).slice(0,2).join('');
+
+    return '<div class="tool-card">' +
+      '<div class="tc-top">' +
+        '<span class="tc-source ' + srcClass + '">' + srcLabel + '</span>' +
+        (starScore ? '<span class="tc-stars">⭐ ' + starScore + '</span>' : '') +
+      '</div>' +
+      '<h3>' + (item.title || '').slice(0,35) + '</h3>' +
+      (tags.length ? '<div class="tc-chips">' + tags.map(function(t){return '<span class="tc-chip">'+t+'</span>';}).join('') + '</div>' : '') +
+      '<p>' + desc.slice(0,60) + '</p>' +
+      '<div class="tc-tags">' + bottomTags + '</div>' +
+      '<div class="tc-foot">' +
+        '<span>' + (starScore ? '⭐ ' + starScore : '') + '</span>' +
+        '<span>' + timeAgo(item.captured_at) + '</span>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  // 更新加载更多按钮
+  var lm = document.getElementById('loadMore');
+  var lc = document.getElementById('loadMoreCount');
+  if (end >= total) {
+    lm.style.display = 'none';
+  } else {
+    lm.style.display = 'block';
+    lc.textContent = end + ' / ' + total;
+  }
+}
+
+function loadMoreTools() {
+  _currentPage++;
+  renderToolGrid();
+}
+
+function loadData() {
+  fetch('data.json?_=' + Date.now())
+    .then(function(r){return r.json()})
+    .then(function(d) {
+      allItems = d.items || [];
+      document.getElementById('totalDisplay').textContent = allItems.length;
+      render();
+      startPlaceholderRotation();
+    });
+}
+loadData();
+</script>
+</body>
+</html>

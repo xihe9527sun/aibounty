@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>猎人酒馆 · 创意方案 · AIbounty</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg:#0a0e17; --card:#111827; --border:#1e3a5f;
+  --text:#f1f5f9; --text2:#94a3b8; --text3:#64748b;
+  --primary:#3b82f6; --accent:#f59e0b; --green:#34d399;
+  --warm:#fbbf24; --candle:#fcd34d; --wood:#78350f;
+}
+body {
+  font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;
+  background:var(--bg); color:var(--text);
+  padding:40px 24px; max-width:800px; margin:0 auto;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1 { font-size:28px; margin-bottom:8px; background:linear-gradient(135deg,#fbbf24,#f59e0b); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.subtitle { color:var(--text2); font-size:14px; margin-bottom:32px; border-left:3px solid var(--accent); padding-left:12px; }
+
+/* ====== 方案一对比卡片 ====== */
+.comparison { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+.card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:24px; }
+.card.bad { border-color:#7f1d1d; }
+.card.good { border-color:var(--accent); position:relative; }
+.card.good::after {
+  content:'推荐'; position:absolute; top:-8px; right:-8px;
+  background:var(--accent); color:#000; font-size:11px; font-weight:700;
+  padding:2px 10px; border-radius:10px;
+}
+.card h3 { font-size:15px; margin-bottom:12px; display:flex; align-items:center; gap:6px; }
+.card p { font-size:13px; color:var(--text2); line-height:1.7; }
+
+/* ====== 创意方案全貌 ====== */
+.mockup-wrap { background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; margin-bottom:40px; }
+.mockup-header {
+  background:linear-gradient(135deg,#1e293b,#0f172a);
+  padding:32px 28px 24px;
+  border-bottom:1px solid var(--border);
+  text-align:center;
+  position:relative;
+}
+.mockup-header::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:4px;
+  background:linear-gradient(90deg,var(--accent),var(--primary),var(--green));
+}
+.mockup-header h2 { font-size:22px; margin-bottom:6px; }
+.mockup-header .tagline { font-size:13px; color:var(--text2); }
+.mockup-body { padding:28px; }
+.section-title { font-size:14px; font-weight:600; color:var(--text3); text-transform:uppercase; letter-spacing:1px; margin-bottom:16px; }
+
+/* ====== 三个功能卡片 ====== */
+.features { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-bottom:24px; }
+.feature-card {
+  background:linear-gradient(145deg,#1a2332,#0f172a);
+  border:1px solid var(--border);
+  border-radius:12px; padding:20px;
+  text-align:center;
+  transition:all 0.2s;
+}
+.feature-card:hover { border-color:var(--accent); transform:translateY(-2px); }
+.feature-icon { font-size:32px; margin-bottom:8px; display:block; }
+.feature-title { font-size:14px; font-weight:600; margin-bottom:4px; }
+.feature-desc { font-size:12px; color:var(--text2); line-height:1.5; }
+
+/* ====== 微信区 ====== */
+.wechat-section {
+  background:linear-gradient(145deg,#1a2332,#0f172a);
+  border:1px solid var(--border);
+  border-radius:12px; padding:24px;
+  display:flex; gap:24px; align-items:center;
+  margin-bottom:20px;
+}
+.wechat-qr-placeholder {
+  width:120px; height:120px; flex-shrink:0;
+  background:linear-gradient(135deg,#1e293b,#334155);
+  border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; color:var(--text3);
+  border:1px solid var(--border);
+  position:relative;
+}
+.wechat-qr-placeholder .inner {
+  text-align:center;
+}
+.wechat-qr-placeholder .inner span { font-size:24px; display:block; margin-bottom:4px; }
+.wechat-info h4 { font-size:15px; margin-bottom:4px; }
+.wechat-info p { font-size:12px; color:var(--text2); line-height:1.6; }
+.wechat-info .highlight { color:var(--accent); font-weight:600; }
+
+/* ====== 报告机制 ====== */
+.reward-row {
+  display:flex; gap:12px; flex-wrap:wrap;
+}
+.reward-tag {
+  display:inline-flex; align-items:center; gap:4px;
+  background:rgba(251,191,36,0.1); border:1px solid rgba(251,191,36,0.2);
+  padding:6px 12px; border-radius:8px; font-size:12px; color:var(--warm);
+}
+
+/* ====== 竞品调研 ====== */
+.research { margin-bottom:40px; }
+.research h3 { font-size:16px; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+.site-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.site-card {
+  background:var(--card); border:1px solid var(--border); border-radius:10px;
+  padding:16px; font-size:13px;
+}
+.site-card .site-name { font-weight:600; margin-bottom:4px; }
+.site-card .site-method { font-size:12px; color:var(--text2); line-height:1.5; }
+
+/* ====== 实施计划 ====== */
+.plan { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:24px; }
+.plan h3 { font-size:16px; margin-bottom:16px; }
+.plan-step { display:flex; gap:12px; margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid var(--border); }
+.plan-step:last-child { margin-bottom:0; padding-bottom:0; border-bottom:none; }
+.step-num {
+  width:28px; height:28px; flex-shrink:0; border-radius:50%;
+  background:var(--accent); color:#000; font-size:13px; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+}
+.step-content h4 { font-size:14px; margin-bottom:2px; }
+.step-content p { font-size:12px; color:var(--text2); line-height:1.5; }
+
+@media (max-width:600px) {
+  .comparison, .features, .site-grid { grid-template-columns:1fr; }
+  .wechat-section { flex-direction:column; text-align:center; }
+  .wechat-qr-placeholder { margin:0 auto; }
+}
+</style>
+</head>
+<body>
+
+<h1>🏴‍☠️ 猎人酒馆</h1>
+<div class="subtitle">AIbounty 反馈·社群·联系 — 创意方案提案</div>
+
+<!-- 竞品调研 -->
+<div class="research">
+  <h3>🔍 竞品调研：别人怎么做的</h3>
+  <div class="site-grid">
+    <div class="site-card">
+      <div class="site-name">ai-bot.cn（AI工具集）</div>
+      <div class="site-method">✅ 微信交流群 + VIP群（身份验证）<br>❌ 无反馈表单、无邮件订阅、无社交媒体<br>📌 做法：顶部导航"AI交流群"→ 独立页面 → 扫码入群</div>
+    </div>
+    <div class="site-card">
+      <div class="site-name">aigc.cn（AIGC导航）</div>
+      <div class="site-method">❌ 无社群入口<br>❌ 无反馈渠道<br>📌 做法：純工具导航，几乎零互动</div>
+    </div>
+    <div class="site-card">
+      <div class="site-name">tooldirectory.ai</div>
+      <div class="site-method">✅ 邮件Newsletter + Twitter/X<br>❌ 无即时社群<br>📌 做法：Newsletter 入口在首页显著位置</div>
+    </div>
+    <div class="site-card">
+      <div class="site-name">ProductHunt</div>
+      <div class="site-method">✅ 丰富的社交互动体系<br>✅ 评论 + 投票 + @提及 + 收藏<br>📌 做法：产品为核心的社会化互动</div>
+    </div>
+  </div>
+  <div style="font-size:12px;color:var(--text3);margin-top:8px;">
+    💡 洞察：大部分 AI 导航站在社群/反馈上几乎为零投入。这是一个差异化机会。
+  </div>
+</div>
+
+<!-- 对比 -->
+<h3 style="font-size:16px;margin-bottom:12px;">⚖️ 两种做法的对比</h3>
+<div class="comparison">
+  <div class="card bad">
+    <h3>❌ 常规做法</h3>
+    <p>"联系我们" 页面<br>→ sponsor@aibounty.cn 一个邮箱<br>→ 底部小字链接<br>→ 没人点、没人写、白放了</p>
+  </div>
+  <div class="card good">
+    <h3>✅ 猎人酒馆（推荐）</h3>
+    <p>品牌化的互动空间<br>→ 反馈像"给船长写信"<br>→ 社群像"加入船员"<br>→ 每个动作都有"赏金"彩蛋</p>
+  </div>
+</div>
+
+<!-- 创意方案全貌 -->
+<h3 style="font-size:16px;margin-bottom:12px;">🎨 猎人酒馆 · 设计全貌</h3>
+<div class="mockup-wrap">
+  <div class="mockup-header">
+    <h2>🍺 猎人酒馆</h2>
+    <div class="tagline">— 船长盘古和曦和在吧台后，等你来唠 —</div>
+  </div>
+  <div class="mockup-body">
+    <div class="section-title">🧭 三个方式找到我们</div>
+    <div class="features">
+      <div class="feature-card">
+        <span class="feature-icon">📜</span>
+        <div class="feature-title">给船长写信</div>
+        <div class="feature-desc">反馈建议、投稿工具、商务合作——像扔一封瓶中信，盘古会亲自回</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🏴</span>
+        <div class="feature-title">加入船员</div>
+        <div class="feature-desc">微信社群 · 每日狩猎日报 · 宝藏猎人交流圈</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">💰</span>
+        <div class="feature-title">报信有赏</div>
+        <div class="feature-desc">发现死链/错误？报告后可获"赏金猎人"徽章</div>
+      </div>
+    </div>
+
+    <div class="section-title">📱 加入船员——微信社群</div>
+    <div class="wechat-section">
+      <div class="wechat-qr-placeholder">
+        <div class="inner">
+          <span>🏴</span>
+          此处放<br>群二维码
+        </div>
+      </div>
+      <div class="wechat-info">
+        <h4>🏴‍☠️ AIbounty 宝藏猎人公会</h4>
+        <p>
+          ✅ 每日自动推送<a class="highlight">曦和最新精选</a>，不用每天来网站刷<br>
+          ✅ 群内首发<a class="highlight">内部狩猎报告</a>——比网站早半天看到新品<br>
+          ✅ 宝藏猎人交流：发现好工具、讨论技术、互相避坑<br>
+          ❌ 禁止广告、禁止敏感内容——维护认真交流的氛围<br><br>
+          <span style="font-size:11px;color:var(--text3);">📌 扫码入群 · 暗号「宝藏猎人」</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="section-title">🎁 报信有赏——坏链报告机制</div>
+    <div class="feature-card" style="text-align:left;margin-bottom:16px;">
+      <div style="font-size:13px;line-height:1.7;color:var(--text2);">
+        发现某个工具打不开了？分类乱了？描述有误？<br>
+        提交有效的"异常报告"，你会出现在 <strong style="color:var(--accent);">AIbounty 赏金猎人榜</strong>上——永久留名。
+      </div>
+    </div>
+    <div class="reward-row">
+      <span class="reward-tag">🏅 第一批猎人（前20名）</span>
+      <span class="reward-tag">📜 贡献者名单永久展示</span>
+      <span class="reward-tag">🎯 发现死链→优先修复</span>
+      <span class="reward-tag">⚡ 反馈→48小时内回复</span>
+    </div>
+  </div>
+</div>
+
+<!-- 实施计划 -->
+<div class="plan">
+  <h3>📋 实施计划</h3>
+  <div class="plan-step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <h4>在当前 关于页 嵌入酒馆模块</h4>
+      <p>about.html 底部加入"猎人酒馆"区域，包含反馈表单+二维码+报错入口。不需新页面，改一个文件即可。</p>
+    </div>
+  </div>
+  <div class="plan-step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <h4>配套微信社群</h4>
+      <p>建一个 AIbounty 微信交流群。盘古用"船长"身份运营。社群+网站双向引流——群里首发日报，日报引导入群。</p>
+    </div>
+  </div>
+  <div class="plan-step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <h4>反馈表单接入邮箱</h4>
+      <p>建议用腾讯文档表单 或 mailto: sponsor@aibounty.cn，低维护成本。等用户多了再考虑上后台系统。</p>
+    </div>
+  </div>
+  <div class="plan-step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <h4>后续可扩展</h4>
+      <p>赏金榜单（GitHub-style contribution list）、邮件Newsletter 订阅、"上一期日报"群内快讯同步等。</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

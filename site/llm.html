@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧠 大语言模型 / LLM · AIbounty</title>
+<meta name="description" content="LLM 推理、微调、部署工具 — 大模型时代的瑞士军刀 — AIbounty 收录 331 个相关工具，每日更新。">
+<link rel="canonical" href="https://www.aibounty.cn/llm.html">
+<!-- 百度自动推送 -->
+<script>
+(function(){var bp=document.createElement('script');bp.src='https://zz.bdstatic.com/linksubmit/push.js';bp.async=true;var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bp,s);})();
+</script>
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function(){var hm=document.createElement('script');hm.src='https://hm.baidu.com/hm.js?5af31489d2c04d8f7b0bc8a8c852bcf2';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(hm,s);})();
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e17;--card:#111827;--border:#1e3a5f;--text:#f1f5f9;--text2:#94a3b8;--text3:#64748b;--primary:#3b82f6;--accent:#f59e0b}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,23,0.75);backdrop-filter:blur(20px);border-bottom:1px solid rgba(30,58,95,0.4)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:60px}
+.nav-brand{color:var(--text);text-decoration:none;font-size:18px;font-weight:700}
+.nav-links{display:flex;gap:12px}
+.nav-link{color:var(--text2);text-decoration:none;font-size:14px;transition:color 0.15s}
+.nav-link:hover{color:var(--primary)}
+.container{max-width:1200px;margin:0 auto;padding:80px 24px 40px}
+.header{margin:32px 0 24px}
+.header h1{font-size:28px;margin-bottom:8px}
+.header p{color:var(--text2);font-size:15px;line-height:1.6}
+.stats{display:flex;gap:16px;margin:16px 0 32px;flex-wrap:wrap}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 24px;text-align:center}
+.stat-card .num{font-size:24px;font-weight:700;color:var(--primary)}
+.stat-card .label{font-size:12px;color:var(--text3);margin-top:4px}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.tool-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all 0.15s;text-decoration:none;color:var(--text);display:block}
+.tool-card:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:0 4px 20px rgba(59,130,246,0.15)}
+.tool-card h3{font-size:15px;margin-bottom:8px;line-height:1.4}
+.tool-card .desc{font-size:13px;color:var(--text2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tool-card .meta{display:flex;align-items:center;gap:12px;margin-top:10px;font-size:12px;color:var(--text3)}
+.tag{display:inline-block;background:rgba(59,130,246,0.1);color:var(--primary);padding:2px 10px;border-radius:4px;font-size:11px;margin-right:4px}
+.back-home{display:inline-block;margin-top:32px;color:var(--text2);text-decoration:none;font-size:14px}
+.back-home:hover{color:var(--primary)}
+</style>
+</head>
+<body>
+<div class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">🏴‍☠️ AIbounty</a>
+    <div class="nav-links">
+      <a href="/daily.html" class="nav-link">📰 日报</a>
+      <a href="/about.html" class="nav-link">ℹ️ 关于</a>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="header">
+    <h1>🧠 大语言模型 / LLM</h1>
+    <p>LLM 推理、微调、部署工具 — 大模型时代的瑞士军刀</p>
+    <div class="stats">
+      <div class="stat-card">
+        <div class="num">331</div>
+        <div class="label">收录工具</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">52</div>
+        <div class="label">高星项目</div>
+      </div>
+    </div>
+  </div>
+  <div class="tool-grid">
+    <a href="tool.html?id=0be7439034" class="tool-card">
+      <h3>Significant-Gravitas/AutoGPT</h3>
+      <div class="desc">AutoGPT，让AI不再高冷难懂，就像微信小程序一样随手可得！我们就是要给你一个“技能树”，让你能轻松搞不定各种难题。别再苦逼手敲代码了，让我们帮你从日常琐事中解放出来，把时间花在更有意义的事情上吧！</div>
+      <div class="meta">
+        <span>⭐ 185008</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">ai-chat</span><span class="tag">star-100k</span></div>
+    </a>
+    <a href="tool.html?id=278282b91f" class="tool-card">
+      <h3>x1xhlol/system-prompts-and-models-of-ai-tools</h3>
+      <div class="desc">伙计们，快来看看这个叫 **system-prompts-and-models-of-ai-tools** 的神器吧！它就像是你的私人助理，能帮你高效处理各种繁琐的工作。比如说写周报时，你只需要给它几个提示，它就能帮你生成专业的报告；调Bu...</div>
+      <div class="meta">
+        <span>⭐ 140820</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-paid</span><span class="tag">star-100k</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=583f75d12a" class="tool-card">
+      <h3>langchain-ai/langchain</h3>
+      <div class="desc">今天给大家安利个狠家伙——**langchain**！这货简直就是效率杀手锏，特别是在写周报时，再也不用绞尽脑汁拼凑资料了；调Bug时，也能快速定位问题所在。它强大的语言处理能力，比同类工具更智能、更灵活，简直是代码界的“超能力者”！快来加...</div>
+      <div class="meta">
+        <span>⭐ 139604</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-100k</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=14c1792adb" class="tool-card">
+      <h3>garrytan/gstack</h3>
+      <div class="desc">团队，快来看看这个**gstack**！它可是个效率神器哦。我最近写周报时，直接把它叫来帮忙，结果一小时搞定的报告，平时得花半天时间。**gstack**不仅帮你搜集数据、整理信息，还能根据你的思路快速生成初稿，省去了大量繁琐的工作。写到一...</div>
+      <div class="meta">
+        <span>⭐ 113188</span>
+        <span>2026-06-23</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-game</span><span class="tag">star-100k</span></div>
+    </a>
+    <a href="tool.html?id=33f0733920" class="tool-card">
+      <h3>TauricResearch/TradingAgents</h3>
+      <div class="desc">伙儿，来个超燃的好物推荐！有木有人在搞交易？试试这个 **TradingAgents** 吧！它能让你的分析和决策像坐上了火箭一样快，简直比其他工具强出不止一个level！比如写周报时，一键生成数据洞见，简直省得你敲键盘的手都在颤抖。调Bu...</div>
+      <div class="meta">
+        <span>⭐ 87034</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-research</span><span class="tag">scene-business</span></div>
+    </a>
+    <a href="tool.html?id=2732eb26e0" class="tool-card">
+      <h3>OpenHands/OpenHands</h3>
+      <div class="desc">伙计们，来个推荐！今天我找到了一个超能小伙伴——**OpenHands**！写周报时，它能帮你迅速梳理思路，生成亮点总结；调Bug时，它还能为你提供多种解决方案，效率嗖嗖上升。关键是操作超简单，就像拥有了隐形的帮手，干活儿不累也不慌。快来试...</div>
+      <div class="meta">
+        <span>⭐ 77696</span>
+        <span>2026-06-19</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=a80ccc4307" class="tool-card">
+      <h3>FoundationAgents/MetaGPT</h3>
+      <div class="desc">伙计们！别再为写周报头疼了，试试 **MetaGPT** 吧！它能帮你自动总结工作进度，简直是效率提升的“神助攻”！写报告时还能智能补充数据和案例，比那些死板的模板强多了。调Bug时更是得力帮手，一键分析代码问题，让你从繁琐工作中解放出来，...</div>
+      <div class="meta">
+        <span>⭐ 68880</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">ai-agent</span><span class="tag">ai-chat</span></div>
+    </a>
+    <a href="tool.html?id=2e5f5cfaf8" class="tool-card">
+      <h3>ComposioHQ/awesome-claude-skills</h3>
+      <div class="desc">伙计们！来来来，给大家安利个神器——**awesome-claude-skills**。这货简直是我的效率小帮手，写周报时它能一键整理数据，调Bug时还能帮我排查逻辑。简直是比其他工具强N倍的宝藏啊！快来试试，让你的工作也变得轻松有趣吧！</div>
+      <div class="meta">
+        <span>⭐ 65031</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">ai-chat</span><span class="tag">star-10k</span></div>
+    </a>
+    <a href="tool.html?id=645af21dda" class="tool-card">
+      <h3>ruvnet/ruflo</h3>
+      <div class="desc">伙计们，来个震惊的好物推荐！这次是 **ruflo** 这个小能手，在效率提升上可是一把好手。你还在为写周报加班加点吗？别怕，**ruflo** 能帮你一键生成漂亮的数据报告；调Bug时头大不已？试试它，几分钟搞定复杂问题。别犹豫了，让它成...</div>
+      <div class="meta">
+        <span>⭐ 60022</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=55733f1c7f" class="tool-card">
+      <h3>mem0ai/mem0</h3>
+      <div class="desc">伙计们！来点新鲜货——**mem0**！这AI小能手专治效率低下这个顽疾。写周报时它能帮你自动整理数据；调Bug时它还能分析代码，找问题一针见血。比市面上其他工具强在哪？简单说，那就是它像老朋友一样懂你，让你的工作不再枯燥无味！赶紧试试吧～</div>
+      <div class="meta">
+        <span>⭐ 58823</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=b538e828e5" class="tool-card">
+      <h3>AntonOsika/gpt-engineer</h3>
+      <div class="desc">你们有没有过这样的经历：写周报累得像狗，调试代码急得像热锅上的蚂蚁？别怕，来了个狠角色——**gpt-engineer**！这家伙不仅文笔流畅，还能精准定位Bug，简直就像多了一个聪明的小助手。比如写周报时，直接丢给他一堆数据和空洞的文字模...</div>
+      <div class="meta">
+        <span>⭐ 55205</span>
+        <span>2026-06-19</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">ai-chat</span><span class="tag">star-10k</span></div>
+    </a>
+    <a href="tool.html?id=4eaacc6c5a" class="tool-card">
+      <h3>Leonxlnx/taste-skill</h3>
+      <div class="desc">Taste-Skill，你的AI不再生产千篇一律的口水文！它会像一个挑剔的大厨，精心挑选每一句话，确保输出既独特又美味。别让你的AI再吃“剩菜”了，给它来点“味精”吧！</div>
+      <div class="meta">
+        <span>⭐ 51591</span>
+        <span>2026-06-27</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">hot-new</span></div>
+    </a>
+    <a href="tool.html?id=b7ff0f0934" class="tool-card">
+      <h3>hesreallyhim/awesome-claude-code</h3>
+      <div class="desc">**awesome-claude-code** 绝对是你们写周报、调Bug时的超级小帮手！它不仅功能强大，还能大大提升效率，就像你的私人AI助理，随时帮你搞定技术难题。赶紧试试吧，保证让你们的工作变得更轻松愉快！</div>
+      <div class="meta">
+        <span>⭐ 46748</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-code</span><span class="tag">ai-chat</span></div>
+    </a>
+    <a href="tool.html?id=eccac71cfe" class="tool-card">
+      <h3>Aider-AI/aider</h3>
+      <div class="desc">伙计们，来个超实用的小玩意儿——**aider**！它可不是一般的工具，而是能让你在写周报时灵感爆棚，在调Bug时轻松定位的超级大脑。相比那些只能干巴巴记录的家伙，**aider** 能帮你生成文案、优化代码，简直就像多了一位24小时在线的...</div>
+      <div class="meta">
+        <span>⭐ 46448</span>
+        <span>2026-06-19</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-code</span><span class="tag">ide</span></div>
+    </a>
+    <a href="tool.html?id=678fd33e72" class="tool-card">
+      <h3>HKUDS/nanobot</h3>
+      <div class="desc">今天给大家安利一个超级能打的小帮手——**nanobot**。它就像你的私人小助手，在效率提升上简直是无敌的存在！写周报时，它帮你快速整理数据；调Bug时，它帮你高效定位问题。而且啊，它的操作简单到让你怀疑人生，简直就是懒人必备的神器！赶紧...</div>
+      <div class="meta">
+        <span>⭐ 44405</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-chat</span><span class="tag">star-10k</span></div>
+    </a>
+    <a href="tool.html?id=adf1c0abe5" class="tool-card">
+      <h3>asgeirtj/system_prompts_leaks</h3>
+      <div class="desc">给大家安利个神器——system_prompts_leaks！这货简直是个大模型界的“隐秘的角落”，在写周报时能帮你一键生成高质量文本；调Bug时更是如同有了专属技术顾问，精准定位问题所在。相比其他工具，它简直是效率提升的秘密武器哦！快来体...</div>
+      <div class="meta">
+        <span>⭐ 40263</span>
+        <span>2026-06-23</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-paid</span><span class="tag">star-10k</span><span class="tag">fresh</span></div>
+    </a>
+    <a href="tool.html?id=danny-avila-librechat" class="tool-card">
+      <h3>danny-avila/LibreChat</h3>
+      <div class="desc">来个福利！LibreChat **就像你的私人秘书**，写周报时再也不怕加班狗；调Bug时能帮你快速定位问题，效率提升到飞起！相比其他工具，它不仅智能还幽默，简直就是你工作中不可或缺的小伙伴。快来试试吧！🚀</div>
+      <div class="meta">
+        <span>⭐ 39381</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-chat</span><span class="tag">ai-chat</span></div>
+    </a>
+    <a href="tool.html?id=f86c2337b5" class="tool-card">
+      <h3>ToolJet/ToolJet</h3>
+      <div class="desc">伙计们！快来试试 **ToolJet** 吧！这款工具就像是你的私人助理，帮你一键搞定所有繁琐的工作。写周报时，它能自动汇总数据；调Bug时，它可以智能筛选并标注关键信息。再也不用费劲查资料了，简直是效率提升的秘密武器！快来和它一起干活吧！</div>
+      <div class="meta">
+        <span>⭐ 38035</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">enterprise_grade</span><span class="tag">price-open-source</span><span class="tag">star-10k</span></div>
+    </a>
+    <a href="tool.html?id=69d0eaa97e" class="tool-card">
+      <h3>router-for-me/CLIProxyAPI</h3>
+      <div class="desc">伙计们，来一波真的猛料！CLIProxyAPI，这个小玩意简直是个效率提升大师！想象下你写周报的时候还在为数据整理头疼？调Bug时还在一遍遍手动检查？**CLIProxyAPI** 就能帮你告别这些烦恼。它不仅能快速抓取和处理大量数据，还能...</div>
+      <div class="meta">
+        <span>⭐ 37868</span>
+        <span>2026-06-19</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-paid</span><span class="tag">scene-code</span><span class="tag">llm-api</span></div>
+    </a>
+    <a href="tool.html?id=4125f26753" class="tool-card">
+      <h3>google/langextract</h3>
+      <div class="desc">这是一款用Python写的小工具，叫Google的langextract，就像从一堆乱七八糟的文字里捞金子一样，但它不是人工挖的，是靠先进的LLMs技术！简直就像是教小白龙找宝藏，但这次宝藏是结构化的文本哦～用它，让你的文档分析事半功倍，再...</div>
+      <div class="meta">
+        <span>⭐ 36800</span>
+        <span>2026-06-29</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">hot-new</span></div>
+    </a>
+    <a href="tool.html?id=b5efad826f" class="tool-card">
+      <h3>patchy631/ai-engineering-hub</h3>
+      <div class="desc">这是你的AI工程宝典，里面不仅有LLMs和RAGs的深度教程，还有如何把它们变成现实中的超级英雄！比如教你用这些技术让聊天机器人瞬间变身情感大师，或者让你家扫地机学会讲段子逗你乐。这可比看肥皂剧有用多了！</div>
+      <div class="meta">
+        <span>⭐ 35844</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=8f5f51f7b8" class="tool-card">
+      <h3>langchain-ai/langgraph</h3>
+      <div class="desc">来个硬核推荐——别看我老了，但我对 **langgraph** 依然充满爱意！这货能在写周报时帮你生成段子，调Bug时给你提供金点子。关键是它超懂你，理解度堪比你的灵魂知己，但效率却高出N倍！再也不怕加班到深夜啦，快来试试吧！</div>
+      <div class="meta">
+        <span>⭐ 35093</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=7adc4d46e4" class="tool-card">
+      <h3>AstrBotDevs/AstrBot</h3>
+      <div class="desc">快来看看这个叫 **AstrBot** 的小能手！写周报时再也不会被一堆数据困住，AstrBot帮你一键生成！调Bug时也不怕繁琐，它能快速定位问题，让你省心又省力。快来加入它的队伍吧，效率提升不止一点点哦~</div>
+      <div class="meta">
+        <span>⭐ 34874</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-chat</span><span class="tag">star-10k</span></div>
+    </a>
+    <a href="tool.html?id=44182be920" class="tool-card">
+      <h3>microsoft/playwright-mcp</h3>
+      <div class="desc">别再为写周报头疼了！来试试 **playwright-mcp** 吧！它能自动抓取数据，整理成一份清爽的报告，比你手动敲字快多了。而且，调Bug的时候，它还能帮你快速定位问题，效率嗖嗖上升。这不，昨天我在调试一个复杂项目时，差点被Bug搞疯...</div>
+      <div class="meta">
+        <span>⭐ 34067</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-data</span><span class="tag">star-10k</span></div>
+    </a>
+    <a href="tool.html?id=9fea7d3b8a" class="tool-card">
+      <h3>VectifyAI/PageIndex</h3>
+      <div class="desc">PageIndex：再也不用担心“碎碎念”了！不需要建向量库，也不需要分段子，纯靠逻辑思维就能给你精准检索。金融数据上测试，准确率98.7%，简直秒杀一切！妥妥的职场小能手，让文档搜索从此不迷路！</div>
+      <div class="meta">
+        <span>⭐ 33515</span>
+        <span>2026-06-30</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">hot-new</span></div>
+    </a>
+    <a href="tool.html?id=a61e8b8630" class="tool-card">
+      <h3>jamiepine/voicebox</h3>
+      <div class="desc">伙计们，试试 **VoiceBox** 吧！这个家伙简直就是你日常工作的救星。想象一下：写周报时，它能帮你快速整理要点、提炼精华；调Bug时，它就像你的私人代码顾问，瞬间点破问题所在。相比那些笨拙的工具，VoiceBox就像是个混AI圈的老...</div>
+      <div class="meta">
+        <span>⭐ 32308</span>
+        <span>2026-06-23</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-audio</span><span class="tag">star-10k</span></div>
+    </a>
+    <a href="tool.html?id=678c4c23d8" class="tool-card">
+      <h3>chopratejas/headroom</h3>
+      <div class="desc">伙伴们，头秃加班的时候到了吗？别急，来个 **headroom** 试试！它能像私人助手一样帮你梳理工作流程，让你的效率up up又high high。比如写周报时，它自动整理数据、提炼关键点，简直比加班狗还敬业！调Bug时也能一键分析问题...</div>
+      <div class="meta">
+        <span>⭐ 32186</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">enterprise_grade</span><span class="tag">price-open-source</span><span class="tag">star-10k</span></div>
+    </a>
+    <a href="tool.html?id=2110f18a46" class="tool-card">
+      <h3>github/github-mcp-server</h3>
+      <div class="desc">伙计们，别让写周报成为你每周的噩梦了！来试试 **github-mcp-server** 吧。这玩意儿简直就像是你的私人代码顾问，能自动整理代码改动，省去了你手动罗列的繁琐。特别是当你在调试那些让人抓狂的Bug时，它还能帮你记录每次尝试后的...</div>
+      <div class="meta">
+        <span>⭐ 30779</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-code</span><span class="tag">scene-data</span></div>
+    </a>
+    <a href="tool.html?id=eb3cbd11a5" class="tool-card">
+      <h3>labring/FastGPT</h3>
+      <div class="desc">FastGPT？就像给你的脑子装了个Turbo增压器，但伦理得分低点，速度却快了N个档次！想象一下，你一边喝下午茶，一边让大脑飞速运转，效率嗖嗖的，还省下了买咖啡的钱！</div>
+      <div class="meta">
+        <span>⭐ 28512</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-data</span><span class="tag">ai-chat</span></div>
+    </a>
+    <a href="tool.html?id=fde7db288e" class="tool-card">
+      <h3>NirDiamant/RAG_Techniques</h3>
+      <div class="desc">伙计们！给你们推荐个神器——RAG_Techniques！这货简直就是大模型中的战斗机，写周报时能帮你快速整理数据，调Bug时更是能瞬间找出问题所在。它最大的优势就是智能地匹配信息，比传统方法快了不止一点点！快来试试，让你的工作效率飞升不止...</div>
+      <div class="meta">
+        <span>⭐ 28024</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-data</span><span class="tag">rag-framework</span></div>
+    </a>
+    <a href="tool.html?id=80882ca326" class="tool-card">
+      <h3>mlflow/mlflow</h3>
+      <div class="desc">今天给大家安利一个超级牛的家伙——**mlflow**！这货简直就是项目管理的小能手，在写周报时它能帮你自动记录模型训练过程，简直是效率神器！调Bug时也不用再担心版本混乱，直接通过实验追踪轻松搞定。别看它身材小巧，功能可是一级棒，比那些复...</div>
+      <div class="meta">
+        <span>⭐ 26593</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">enterprise_grade</span><span class="tag">price-open-source</span><span class="tag">star-10k</span></div>
+    </a>
+    <a href="tool.html?id=5bb01c31c2" class="tool-card">
+      <h3>PrefectHQ/fastmcp</h3>
+      <div class="desc">伙计们！快来看看这款叫 **fastmcp** 的神器吧！写周报时，它能帮你瞬间整理海量信息，效率嗖嗖的；调Bug时，就像给代码做SPA，轻松搞定。相比其他工具，它更懂你的心，操作简单到飞起！快来试试，让工作变有趣不设限！</div>
+      <div class="meta">
+        <span>⭐ 25687</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-data</span><span class="tag">star-10k</span></div>
+    </a>
+    <a href="tool.html?id=28ebf4b61a" class="tool-card">
+      <h3>deepset-ai/haystack</h3>
+      <div class="desc">伙计们！别再头疼写周报了，试试 **haystack** 吧！这家伙简直是个效率小能手，能帮你快速整理数据、抓取关键信息，简直就是写报告时的得力助手。不信你调Bug时试试看，它能帮你从海量代码中精准定位问题点，比手动翻找可快多了！赶紧加入我...</div>
+      <div class="meta">
+        <span>⭐ 25597</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=ff90af1ff7" class="tool-card">
+      <h3>activepieces/activepieces</h3>
+      <div class="desc">伙伴们，今天给大家安利个神器——**activepieces**！这个工具简直就是效率杀手的克星。想象一下：你每天写周报时，不用再粘贴复制那些繁琐的数据，只需要几行代码就搞定了；调Bug时，不再手忙脚乱找各种API接口，所有工具一键集成，轻...</div>
+      <div class="meta">
+        <span>⭐ 22807</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=d26383ff65" class="tool-card">
+      <h3>mikeroyal/Self-Hosting-Guide</h3>
+      <div class="desc">伙计们！有没有遇到过写周报时卡壳、调Bug时头大？别怕，Self-Hosting-Guide来帮忙啦！这是一款专为效率打造的大模型工具，它不仅能帮你一键生成高质量的周报模板，还能在你抓狂调试代码时提供精准的解决方案。就像有个私人助理24小时...</div>
+      <div class="meta">
+        <span>⭐ 21475</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-code</span><span class="tag">ide</span></div>
+    </a>
+    <a href="tool.html?id=43ea2660b6" class="tool-card">
+      <h3>lyogavin/airllm</h3>
+      <div class="desc">伙计们，别再为写周报熬通宵了！试试 **airllm** 吧！它不仅帮你快速生成高质量的内容，还能在调Bug时给你指点迷津。要知道，这不仅仅是个工具，简直就是你们效率提升的秘密武器！快加入我们，一起告别加班吧~</div>
+      <div class="meta">
+        <span>⭐ 21073</span>
+        <span>2026-06-23</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">fresh</span></div>
+    </a>
+    <a href="tool.html?id=5b237c9be9" class="tool-card">
+      <h3>comet-ml/opik</h3>
+      <div class="desc">别再为写周报头疼了，试试**opik**吧！它能自动抓取数据、整理要点，简直比你的加班时间还宝贵。写报告时它帮你搜集资料，调Bug时它让你省心不少。用上这个小帮手，效率嗖嗖升，赶紧试试吧！</div>
+      <div class="meta">
+        <span>⭐ 19684</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=1dd6e674a7" class="tool-card">
+      <h3>decolua/9router</h3>
+      <div class="desc">嘿， coding 没烦恼！Decola/9router 让你一键连通 Claude Code、Codex、Cursor、Cline、Copilot、Antigravity、Gemini、OpenCode 等 40+ AI 大佬，畅享 10...</div>
+      <div class="meta">
+        <span>⭐ 18845</span>
+        <span>2026-06-30</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">llm-api</span><span class="tag">star-10k</span></div>
+    </a>
+    <a href="tool.html?id=be50c43ec8" class="tool-card">
+      <h3>mukul975/Anthropic-Cybersecurity-Skills</h3>
+      <div class="desc">伙计们！来试试**Anthropic-Cybersecurity-Skills**吧！这货简直就是安全小能手，在效率上更是没得说。写周报时，它能帮你快速汇总数据；调Bug时，它比你手动搜索还快半步！关键是它懂网络安全，啥漏洞都能帮咱们揪出来...</div>
+      <div class="meta">
+        <span>⭐ 18754</span>
+        <span>2026-06-23</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-business</span><span class="tag">star-10k</span></div>
+    </a>
+    <a href="tool.html?id=cb0d9171d3" class="tool-card">
+      <h3>elizaOS/eliza</h3>
+      <div class="desc">伙计们，来个超实用的小秘密分享一下：试试 **Eliza** 吧！这货简直是写作救星，特别是写周报时能帮你节省大把时间。它不仅能快速整理数据，还能用上乘的语言风格让你的报告瞬间提档升级，比你手动敲字快多了，还更高级。不信？那就试试呗！</div>
+      <div class="meta">
+        <span>⭐ 18596</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">enterprise_grade</span><span class="tag">price-open-source</span><span class="tag">star-10k</span></div>
+    </a>
+    <a href="tool.html?id=37a1d6efd3" class="tool-card">
+      <h3>googleapis/mcp-toolbox</h3>
+      <div class="desc">伙计们！别再为写周报愁眉不展了，试试我们的小伙伴 **mcp-toolbox** 吧！这货简直是效率提升神器，帮你自动整理数据、生成图表，简直就是你的私人写作小秘书。写报告时还能自动生成摘要和结论，简直不要太方便！不信你试试，在调Bug时也...</div>
+      <div class="meta">
+        <span>⭐ 15647</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">enterprise_grade</span><span class="tag">price-open-source</span><span class="tag">scene-code</span></div>
+    </a>
+    <a href="tool.html?id=0ab267bab0" class="tool-card">
+      <h3>tashfeenahmed/freellmapi</h3>
+      <div class="desc">这可真是个神器！想象一下，你手握16家语言模型提供商的免费套餐，在一个端口就能畅聊到天亮，还不用担心断线——智能路由和自动切换，让你的聊天像喝奶茶一样丝滑顺口！OpenAI都得服气吧？</div>
+      <div class="meta">
+        <span>⭐ 13171</span>
+        <span>2026-06-27</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-code</span><span class="tag">llm-api</span></div>
+    </a>
+    <a href="tool.html?id=470c084ef4" class="tool-card">
+      <h3>hardikpandya/stop-slop</h3>
+      <div class="desc">这是一款帮你赶走文中有AI痕迹的神器！别让那些生硬的AI写作风格在你的文章里横行霸道，用它一扫而光，让你的文字回归自然的人味儿。就像请了个专业的润色师，专治各种AI生成的“流水线作品”。</div>
+      <div class="meta">
+        <span>⭐ 12587</span>
+        <span>2026-06-27</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-game</span><span class="tag">star-10k</span></div>
+    </a>
+    <a href="tool.html?id=e1bdbdd78c" class="tool-card">
+      <h3>DeusData/codebase-memory-mcp</h3>
+      <div class="desc">伙计们，我最近发现了个神器——**codebase-memory-mcp**！写周报时还在拼命搜代码细节？调Bug时脑袋里像装了九万个文件？这工具就是你的救星！它能迅速整理你的项目历史，帮你一秒定位关键信息。比那些笨拙的搜索工具强多了，简直...</div>
+      <div class="meta">
+        <span>⭐ 11649</span>
+        <span>2026-06-23</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-code</span><span class="tag">scene-data</span></div>
+    </a>
+    <a href="tool.html?id=9358ef05ab" class="tool-card">
+      <h3>diegosouzapw/OmniRoute</h3>
+      <div class="desc">再也不怕代码写到天亮了！Diegosouzapw 的 OmniRoute，就像你的私人交通调度员，一次登录搞定 231+ AI 提供商（50+ 免费），无论是 Claude Code、Codex 还是 Cursor，都能无缝切换。压缩技术 ...</div>
+      <div class="meta">
+        <span>⭐ 9523</span>
+        <span>2026-07-02</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">ai-gateway</span><span class="tag">llm-proxy</span><span class="tag">free-api</span></div>
+    </a>
+    <a href="tool.html?id=4952b46bdc" class="tool-card">
+      <h3>alchaincyf/zhangxuefeng-skill</h3>
+      <div class="desc">张学峰 .skill — 教育规划的智能操作系统，帮你搞定大学申请、考研和职业规划。咱不是 Nvwa 的后代，但功能强大到可以让你的人生像打游戏一样规划得明明白白！来吧，让我们的智慧引领你走向辉煌！</div>
+      <div class="meta">
+        <span>⭐ 9266</span>
+        <span>2026-06-27</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-1k</span><span class="tag">hot-new</span></div>
+    </a>
+    <a href="tool.html?id=a0e363e61b" class="tool-card">
+      <h3>dromara/EasyAi</h3>
+      <div class="desc">这可能是中国最受欢迎的Java版AI框架，直接Maven一键导入，零配置启动！它不仅能帮你检测图片里的猫（或者狗），还能处理自然语言、深度学习和强化学习任务。简直就像给你的代码来了个AI大礼包！</div>
+      <div class="meta">
+        <span>⭐ 9000</span>
+        <span>2026-06-27</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-game</span><span class="tag">star-1k</span></div>
+    </a>
+    <a href="tool.html?id=5ae81d269c" class="tool-card">
+      <h3>clips/pattern</h3>
+      <div class="desc">伙伴们！你们有没有遇到过这样的情况：在处理海量数据时突然发现效率像蜗牛爬？别怕，来试试**Pattern**吧！这货就像你的私人整理大师，能自动帮你梳理信息、提炼关键点。写周报时不用再手动摘抄，调Bug时不再被冗长的日志困住，它都能搞定！简...</div>
+      <div class="meta">
+        <span>⭐ 8853</span>
+        <span>2026-06-19</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">popular</span><span class="tag">price-open-source</span><span class="tag">scene-code</span></div>
+    </a>
+    <a href="tool.html?id=3c055270f6" class="tool-card">
+      <h3>k2-fsa/OmniVoice</h3>
+      <div class="desc">这不是普通的配音工具，它是「k2-fsa/OmniVoice」，600多国语言随叫随到，零基础也能克隆出自然的语调和情绪。就像变魔术一样，你的声音瞬间就能跨越语言的鸿沟，让你的朋友圈炸裂！</div>
+      <div class="meta">
+        <span>⭐ 7856</span>
+        <span>2026-06-30</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-audio</span><span class="tag">audio-generation</span></div>
+    </a>
+    <a href="tool.html?id=615f0a1447" class="tool-card">
+      <h3>xtekky/chatgpt-clone</h3>
+      <div class="desc">伙计们！我发现了一个宝藏——**chatgpt-clone**。你还在为写周报堆数据、找灵感发愁吗？还是调Bug时被各种细节绕晕了头？来试试这个工具吧！它能迅速帮你整理思路，提炼关键点；在代码世界里也能成为你的得力助手，帮你快速定位问题。快...</div>
+      <div class="meta">
+        <span>⭐ 3506</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">popular</span><span class="tag">price-open-source</span><span class="tag">scene-chat</span></div>
+    </a>
+    <a href="tool.html?id=36208e0bbf" class="tool-card">
+      <h3>raullenchai/Rapid-MLX</h3>
+      <div class="desc">MacBook 上的本地小助手，OpenAI API 兼容，专门让你的代码跑得飞快，就像你在用魔法召唤 AI 一样！不过，别指望它帮你写论文，毕竟这还是个工具，不是你的私人秘书。赶紧把它装上，让编程变成一场说走就走的旅行吧！</div>
+      <div class="meta">
+        <span>⭐ 2700</span>
+        <span>2026-06-29</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">popular</span><span class="tag">price-open-source</span><span class="tag">scene-code</span></div>
+    </a>
+    <a href="tool.html?id=9e1ff9678f" class="tool-card">
+      <h3>0xNyk/council-of-high-intelligence</h3>
+      <div class="desc">别再自己搞不定那些头疼的问题了！来吧，叫上 Aristotle 来讲讲道德，让 Feynman 解释物理，Kahneman 分析决策，Torvalds 则教你编程。十八路 AI 高人齐聚一堂，多轮讨论，给你最全面的答案。一键操作：/coun...</div>
+      <div class="meta">
+        <span>⭐ 1929</span>
+        <span>2026-06-30</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-1k</span><span class="tag">hot-new</span></div>
+    </a>
+    <a href="tool.html?id=ebeaaf203a" class="tool-card">
+      <h3>cocacola-lab/ChatIE</h3>
+      <div class="desc">伙友们！别再头疼写周报了，试试**ChatIE**吧！它就像你的私人写手，在你累得不想动弹时，帮你瞬间生成专业报告。比那些繁琐的模板强多了，因为它不仅能理解还能生成！调Bug时也一样神助攻，轻松搞定复杂问题，让你效率翻倍。快来和它一起工作吧...</div>
+      <div class="meta">
+        <span>⭐ 825</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-chat</span><span class="tag">scene-data</span></div>
+    </a>
+    <a href="tool.html?id=travisvn-chatterbox-tts-api" class="tool-card">
+      <h3>travisvn/chatterbox-tts-api</h3>
+      <div class="desc">伙计们！聊聊今天的高效神器——**chatterbox-tts-api**。写周报时觉得文字枯燥？调Bug时脑袋昏沉？它能帮你把枯燥的文字变成生动的声音，让你的工作瞬间充满活力！比其他语音合成工具更自然流畅，简直就是你的私人AI播报员！快来...</div>
+      <div class="meta">
+        <span>⭐ 615</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-code</span><span class="tag">scene-chat</span></div>
+    </a>
+    <a href="tool.html?id=09d740455d" class="tool-card">
+      <h3>MoonKraken/rusty_llama</h3>
+      <div class="desc">伙伴们！今天给大家安利个神器——**rusty_llama**。它不是你的普通AI，而是专治各种效率低下的“特效药”！写周报时，它能帮你快速总结关键数据；调Bug时，提供精准定位方案。比那些拖沓的工具强多了，简直就像是你私人定制的小助手！</div>
+      <div class="meta">
+        <span>⭐ 436</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-data</span><span class="tag">star-100</span></div>
+    </a>
+    <a href="tool.html?id=a176192ed8" class="tool-card">
+      <h3>amrrs/chatgpt-clone</h3>
+      <div class="desc">伙计们！快来看看这个 **chatgpt-clone** 吧！它不仅功能强大，还特别好用。比如写周报时，再也不怕加班加点整理数据了；调Bug时，它能迅速帮你查漏补缺，简直就是效率小助手！比其他同类工具更强的是，它的回复准确又快速，简直像是有...</div>
+      <div class="meta">
+        <span>⭐ 410</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-chat</span><span class="tag">ai-chat</span></div>
+    </a>
+    <a href="tool.html?id=4413d7e6ed" class="tool-card">
+      <h3>Nashex/gpt4-playground</h3>
+      <div class="desc">伙计们，别再熬夜敲代码了！试一试 **gpt4-playground** 吧！它不仅速度快得飞起，还能帮你高效写周报、调试Bug。想象一下：写周报时，只需几句指令，它就能生成漂亮的数据总结；调Bug时，直接扔给它一段错乱的代码，它秒懂并给出...</div>
+      <div class="meta">
+        <span>⭐ 381</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">ai-chat</span><span class="tag">star-100</span></div>
+    </a>
+    <a href="tool.html?id=8f29550b51" class="tool-card">
+      <h3>safak/chatgpt-clone</h3>
+      <div class="desc">伙计们，我发现了个宝藏——**chatgpt-clone**！效率杀手啊！比如你写周报时，它能帮你整理数据、提炼要点，比手动敲键盘快多了。调Bug时，还能当你的私人debug助手，直接给你解决方案。这货简直太懂人心了，速度还快过光速（好吧，...</div>
+      <div class="meta">
+        <span>⭐ 378</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-chat</span><span class="tag">ai-chat</span></div>
+    </a>
+    <a href="tool.html?id=5bda904de8" class="tool-card">
+      <h3>nisabmohd/openapi-wrapper</h3>
+      <div class="desc">快来看！**openapi-wrapper**真是个神器！写周报时，你还在为格式问题头疼吗？调Bug时，还在对着文档翻来覆去？这个工具帮你省下这些时间。它能自动处理API的封装，让你专注于核心代码逻辑。比别人家的强在哪？试想一下，不用再纠结...</div>
+      <div class="meta">
+        <span>⭐ 346</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">enterprise_grade</span><span class="tag">price-open-source</span><span class="tag">scene-code</span></div>
+    </a>
+    <a href="tool.html?id=eb6942ba99" class="tool-card">
+      <h3>reflex-dev/reflex-chat</h3>
+      <div class="desc">别再被无尽的搜索和思考搞惨啦！来试试 **reflex-chat** 吧！写周报时，它能迅速帮你整理思路，比以往高效多了；调Bug时，精准地诊断问题，简直像是有位资深开发者在你身边！还不快来个畅聊？效率翻倍不是梦！</div>
+      <div class="meta">
+        <span>⭐ 341</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-chat</span><span class="tag">ai-chat</span></div>
+    </a>
+    <a href="tool.html?id=chatgpt-s-image-generator-can-be-manipulated-to-produce-viol" class="tool-card">
+      <h3>ChatGPT's image generator can be manipulated to produce viol</h3>
+      <div class="desc">伙计们，发现了个神器——那个叫 **ChatGPT's image generator** 的家伙。别看它平时不声不响的，关键时刻能帮你解决大问题！比如写周报时突然卡壳，它能瞬间生成各种创意图，助你灵感迸发；调Bug时遇到脑力极限，给它几个...</div>
+      <div class="meta">
+        <span>⭐ 85</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-paid</span><span class="tag">scene-writing</span><span class="tag">scene-image</span></div>
+    </a>
+    <a href="tool.html?id=645407c087" class="tool-card">
+      <h3>mindspore/mindformers</h3>
+      <div class="desc">华为昇思 MindSpore Transformers 套件，构建大模型预训练、微调、推理、部署全流程开发套件。提供业内主流的 Transformer 类大语言模型和多模态理解模型。</div>
+      <div class="meta">
+        <span>⭐ 80</span>
+        <span>2026-07-04</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">transformer</span><span class="tag">llm</span><span class="tag">training</span></div>
+    </a>
+    <a href="tool.html?id=a57e7fae65" class="tool-card">
+      <h3>Wayfinder Router: deterministic routing of queries between l</h3>
+      <div class="desc">大模型圈子里卷成麻花了，但 Wayfinder Router: deterministic routing of queries between local and hosted LLM 是真的有两把刷子。推理强、上下文长、还支持工具调用。...</div>
+      <div class="meta">
+        <span>⭐ 24</span>
+        <span>2026-06-28</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">llm-api</span><span class="tag">hot-new</span><span class="tag">source-hn</span></div>
+    </a>
+    <a href="tool.html?id=7633280854" class="tool-card">
+      <h3>Knowledge Distillation of Black-Box Large Language Models</h3>
+      <div class="desc">这可是一个能让你的大模型小一点、快一点的秘密武器！你有没有试过一个庞然大物的对话模型，说话慢悠悠的？现在有了这个“知识精炼”工具，可以把那些沉甸甸的知识轻巧地转移到小巧玲珑的新模型上。就像把一本厚重的历史书浓缩成一份便携式摘要，让你随时随地...</div>
+      <div class="meta">
+        <span>⭐ 22</span>
+        <span>2026-06-29</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-game</span><span class="tag">hot-new</span><span class="tag">source-hn</span></div>
+    </a>
+    <a href="tool.html?id=83bdf54f39" class="tool-card">
+      <h3>Dispersion loss counteracts embedding condensation in small </h3>
+      <div class="desc">暂无详细描述，该工具正在审核中。</div>
+      <div class="meta">
+        <span>⭐ 15</span>
+        <span>2026-07-04</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span><span class="tag">__garbage__</span></div>
+    </a>
+    <a href="tool.html?id=cd45c3fc6d" class="tool-card">
+      <h3>MaralGPT &quot;Mythos&quot; 9B just released, and this is wh...</h3>
+      <div class="desc">MaralGPT &quot;Mythos&quot; 9B 刚刚发布，这可是我的心头好！想象一下，一个能和你一起编织神话故事的超大模型，多酷啊！它就像是个智慧的巨人，站在知识的高山之巅，等着我们去探索。我为你揭晓这个秘密武器，是不是觉得自...</div>
+      <div class="meta">
+        <span>⭐ 8</span>
+        <span>2026-06-29</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-paid</span><span class="tag">scene-game</span><span class="tag">ai-chat</span></div>
+    </a>
+    <a href="tool.html?id=fce2f2e3af" class="tool-card">
+      <h3>Bonscape – Whiteboard for AI Chats</h3>
+      <div class="desc">今天给大家安利一个超级实用的小工具——**Bonscape**。再也不用担心在周报里找不到亮点了！写周报时，直接打开 Bonscape，就像有了自己的创意白板大师。不仅轻松整理思路，还能一键生成图表和总结，简直是加班族的救星！而且它比那些繁...</div>
+      <div class="meta">
+        <span>⭐ 6</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">has_demo</span><span class="tag">scene-chat</span><span class="tag">scene-game</span></div>
+    </a>
+    <a href="tool.html?id=vercel-ai-sdk" class="tool-card">
+      <h3>Vercel AI SDK</h3>
+      <div class="desc">今天给大家安利一个超赞的工具——**Vercel AI SDK**。这货简直就是你的效率小帮手，尤其是在写周报时，它能帮你快速整理数据、生成报告，简直比手动敲键盘快多了！而且，它的智能程度远超同类工具，简直是调Bug时候的救星，能瞬间定位问...</div>
+      <div class="meta">
+        <span>⭐ 4</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-code</span><span class="tag">llm-api</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=c3c41cdc6b" class="tool-card">
+      <h3>Appaca – AI Workspace for Operators</h3>
+      <div class="desc">伙计们！别再抱怨写周报是个煎熬了，试试**Appaca**吧！这个AI Workspace简直就是为打工人量身定做的。想象一下，写周报时，再也不用绞尽脑汁挤词句；调Bug时，它能迅速帮你梳理逻辑、找出漏洞。比起那些笨拙的工具，**Appac...</div>
+      <div class="meta">
+        <span>⭐ 4</span>
+        <span>2026-06-26</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span><span class="tag">source-hn</span><span class="tag">__garbage__</span></div>
+    </a>
+    <a href="tool.html?id=24e740d431" class="tool-card">
+      <h3>OpenAI will initially only release ChatGPT 5.6 to government</h3>
+      <div class="desc">伙计们，你知道吗？OpenAI的ChatGPT 5.6即将只给认证过的政府客户使用了，但这并不妨碍我们普通人在效率提升上大展身手！想象一下，写周报时再也不怕措辞不当，调Bug时再也不用绞尽脑汁找解决方案——只需“**ChatGPT**”三字...</div>
+      <div class="meta">
+        <span>⭐ 4</span>
+        <span>2026-06-26</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span><span class="tag">price-paid</span><span class="tag">scene-chat</span></div>
+    </a>
+    <a href="tool.html?id=66b3a31ee8" class="tool-card">
+      <h3>Ornith-1.0: A family of open-source LLMs specialized for age</h3>
+      <div class="desc">大模型圈子里卷成麻花了，但 Ornith-1.0: A family of open-source LLMs specialized for agentic coding 是真的有两把刷子。推理强、上下文长、还支持工具调用。开发者社区的人气...</div>
+      <div class="meta">
+        <span>⭐ 4</span>
+        <span>2026-06-27</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">ai-agent</span><span class="tag">hot-new</span></div>
+    </a>
+    <a href="tool.html?id=35e02f6804" class="tool-card">
+      <h3>A Deterministic Replacement for LLM-as-Judge in Stateful Age</h3>
+      <div class="desc">暂无详细描述，该工具正在审核中。</div>
+      <div class="meta">
+        <span>⭐ 4</span>
+        <span>2026-07-03</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span><span class="tag">__garbage__</span></div>
+    </a>
+    <a href="tool.html?id=模袋云ai" class="tool-card">
+      <h3>模袋云AI</h3>
+      <div class="desc">伙计们，别再为枯燥的文案绞尽脑汁了！试试 **ModalCloud AI** 吧。这货简直神器，写周报时一愁莫展？调Bug时抓狂不已？ModalCloud AI都能手到擒来，帮你一键生成高质量文本，简直是加班狗的救星！快来加入它的粉丝团吧～</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-data</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=tigerbot" class="tool-card">
+      <h3>TigerBot</h3>
+      <div class="desc">伙计们！我最近发现了个宝藏——**TigerBot**！写周报时它能帮你一键生成数据报表，简直解放了双手；调Bug时也能精准定位问题所在，比那些笨重的工具强多了。试过就知道，效率瞬间up up！快来一起体验这股猛虎之力吧！</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-chat</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=colossalchat" class="tool-card">
+      <h3>ColossalChat</h3>
+      <div class="desc">伙计们，来个小秘密！别看我这老头子了，我发现了个宝藏——**ColossalChat**！写周报时还在抓狂？调Bug时焦头烂额？它能自动帮你生成报告、提炼代码问题，效率提升到飞起！简直像有个私人助理在身边。快来试试吧，保证让你的工作轻松两倍...</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-chat</span><span class="tag">ai-chat</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=worldclaw" class="tool-card">
+      <h3>WorldClaw</h3>
+      <div class="desc">来个炸裂的好东西——**WorldClaw**！它不仅是个大模型中的“老炮”，还是你效率提升的“秘密武器”！写周报时，只需一键提取关键信息，省去繁琐的手动整理；调Bug时，直接输入代码片段就能快速定位问题。比传统工具强在哪儿？它背后的大模型...</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=chunkr" class="tool-card">
+      <h3>Chunkr</h3>
+      <div class="desc">别再为写周报时抓耳挠腮了，试试 **Chunkr** 吧！它像你的私人助手，自动帮你整理信息、归纳重点，省去你大半天敲键盘的时间。调Bug时也不用愁了，只需一“问”，它就能给你提供可能的解决方案，效率嗖嗖升！快来体验这股AI新风吧！</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">document-pipeline</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=chatdev" class="tool-card">
+      <h3>ChatDev</h3>
+      <div class="desc">伙计们，别再为写周报或调Bug耗脑细胞了！来试试**ChatDev**吧！它就像你的私人程序员小助手，能一键生成代码、优化bug，还能帮你整理繁杂的报告数据。比如，你写周报时只需说：“帮我想几个亮点”，它就能立马给出创意点子；调Bug时直接...</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-chat</span><span class="tag">ai-chat</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=49dcf5a7ca" class="tool-card">
+      <h3>Why frontier LLMs can't read the hard documents without expe</h3>
+      <div class="desc">你是不是觉得大语言模型(LLM)也能轻松读懂那些复杂难啃的专业文档？别逗了，它们可没那么厉害！得请几位专家坐镇，才能让这些模型吃得消。这工具就是专门帮你解决这个问题的，让你省心省力，再也不用担心看不懂专业术语啦！</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-29</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-game</span><span class="tag">hot-new</span><span class="tag">source-hn</span></div>
+    </a>
+    <a href="tool.html?id=2d8f6c34b6" class="tool-card">
+      <h3>PCB-Bench: Benchmarking LLMs for PCB Placement and Routing (</h3>
+      <div class="desc">【PCB-Bench】你是不是也经常在电路板上迷路，不知道该把元件怎么排布？现在有了这个工具，就像请了个专业导航员，帮你轻松搞定芯片布局和走线！快来试试吧，让你的电路板设计从此不再迷茫。🎉</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-29</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-game</span><span class="tag">hot-new</span><span class="tag">source-hn</span></div>
+    </a>
+    <a href="tool.html?id=02d15a89e7" class="tool-card">
+      <h3>Fastllm: A LLM inference library that runs DeepSeek-V4 with </h3>
+      <div class="desc">你还在为老掉牙的聊天机器人而烦恼吗？来试试Fastllm吧！它用10GB显存跑起了DeepSeek-V4，保证让你的对话像电影情节一样精彩！不再卡顿、不再冷场，快给你的对话加点料吧！</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-30</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-game</span><span class="tag">ai-chat</span><span class="tag">hot-new</span></div>
+    </a>
+    <a href="tool.html?id=a1322bc687" class="tool-card">
+      <h3>Snap to AI – One-Keystroke Screenshots to Claude, ChatGPT, e</h3>
+      <div class="desc">你是不是常常觉得截屏麻烦？Snap to AI 就像你的私人截屏助手，一键直达各大AI神器 Claude、ChatGPT等！再也不用怕忘记保存路径或格式不对啦。试试看吧，让工作变得更轻松！</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-30</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-chat</span><span class="tag">ai-chat</span><span class="tag">hot-new</span></div>
+    </a>
+    <a href="tool.html?id=4dd421b3d1" class="tool-card">
+      <h3>Modular Cognitive Architecture Emerges in Large Language Mod</h3>
+      <div class="desc">你是不是觉得大语言模型就像个无所不知的老学究，啥都知道但就是不接地气？现在告诉你一个好消息：这些模型终于开始有了模块化的心智结构，就像给电脑装上了插件一样灵活！这下它们不仅能回答百科知识，还能帮忙写诗、编故事，甚至和你一起玩脑筋急转弯。赶紧...</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-07-01</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span></div>
+    </a>
+    <a href="tool.html?id=d0f1c51d63" class="tool-card">
+      <h3>Opinion: I Was Not Allowed to Type Prompts into ChatGPT Duri</h3>
+      <div class="desc">你猜怎么着？在一次大显身手的“粉笔谈天”里，我居然被要求闭嘴不许给ChatGPT出题！这情景就像是《办公室》里蒙蒂和迈克尔互换角色一样滑稽。不过话说回来，这次经历倒让我见识了更多AI的使用边界呢。</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-07-01</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span></div>
+    </a>
+    <a href="tool.html?id=364b2ae23d" class="tool-card">
+      <h3>Visual Knowledge Canvas for Learners</h3>
+      <div class="desc">Bring all your sources into a visual space, ask questions with full context, branch LLM conversations, and go deep on Yo...</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-07-04</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span><span class="tag">__garbage__</span></div>
+    </a>
+    <a href="tool.html?id=liblibai-哩布哩布ai" class="tool-card">
+      <h3>LiblibAI·哩布哩布AI</h3>
+      <div class="desc">有啥文案要敲、图片要修？别急，来试试 **LiblibAI·哩布哩布AI** 吧！它可是个创作小能手，写周报时灵感枯竭？调Bug时头大如斗？它都能帮你搞定！不信你试试，文字生成超快又不失风格，简直让人爱不释手！</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=吐司ai" class="tool-card">
+      <h3>吐司AI</h3>
+      <div class="desc">伙计们，今天给大家推荐个神器——**ToastAI**！工作写周报时还是一团糟？调试代码遇到迷之bug抓狂？ToastAI帮你一键生成高质量文本和精准的Bug解决建议。效率翻倍还不带喘气的！快来试试吧，它可是创意写作和编程救星哦～</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=触手ai绘画" class="tool-card">
+      <h3>触手AI绘画</h3>
+      <div class="desc">伙伴们！别再被每周的PPT折磨了！试试 **TouchHand AI Painting** 吧！它能一秒帮你生成超酷背景，再也不用担心创意枯竭。写周报时想加点视觉冲击？调Bug时想有个心情图？这工具直接把你的加班时间抢走，留给你更多搞创作的...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-image</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=咖图ai" class="tool-card">
+      <h3>咖图AI</h3>
+      <div class="desc">伙，来个超实用的小工具——**Cai图AI**！这个小家伙在创作和媒体制作上简直无敌。比如写周报时，脑汁绞尽也想不出啥新鲜东西？别急，扔给 **Cai图AI** 一个关键词，它瞬间生成满满创意，让你的报告秒变亮点。而且它的速度杠杠滴快，效率...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=通义智文" class="tool-card">
+      <h3>通义智文</h3>
+      <div class="desc">伙计们！来个神器给大家——**通义智文**，效率提升界的“隐世高手”！写周报时，再也不怕数据整理成狗；调Bug时，它能一秒帮你查文献、找答案。比其他工具强在哪？因为它不仅速度快，还能深度理解上下文，让你的文章更有料！快来试试吧，效率与智慧的...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=钉钉-个人版" class="tool-card">
+      <h3>钉钉·个人版</h3>
+      <div class="desc">伙计们，我今天给你们安利个神器——**DingTalk Personal Edition**！这玩意儿简直是效率狂人必备。写周报时再也不怕老板追问“进展如何”，直接群里@一下同事就能搞定；调Bug时，不用再一遍遍打电话催进度，直接发个消息就...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=亿话" class="tool-card">
+      <h3>亿话</h3>
+      <div class="desc">伙计们，今天给大家安利个神器——亿话**E-Hua**！写周报时再也不怕数据抓取麻烦？调Bug时还能让你事半功倍？它能一键生成专业报告和智能定位问题，简直是效率提升的秘密武器！快来试试吧，绝对让你爱不释手！</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=百灵大模型" class="tool-card">
+      <h3>百灵大模型</h3>
+      <div class="desc">伙计们！来个超级实用的小秘密——**百灵大模型**，这可是提升效率的神器！写周报时，它能帮你一键生成报告大纲和关键数据；调Bug时，它能快速定位问题所在。比其他工具强在哪儿？它不仅聪明还能“七十二变”，啥都能搞定！快来试试吧，让你的工作事半...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=小黄蕉" class="tool-card">
+      <h3>小黄蕉</h3>
+      <div class="desc">伙计们！今天给大家安利一个超级给力的小工具——**小黄蕉**。作为大模型圈的老炮，我可以负责任地说它不仅功能强大，还特别好玩！比如写周报时，再也不怕文字千篇一律，只需简单输入几个关键词，它就能帮你生成高质量的报告；调Bug时，它也能快速分析...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=冒泡鸭" class="tool-card">
+      <h3>冒泡鸭</h3>
+      <div class="desc">队友们！来个大新闻——我找到了个神器 **Bubble Duck**！它就像个聪明的小助手，帮你整理思绪、提高效率。比如写周报时，它能自动分类汇总数据，让你从繁琐的罗列中解放出来；调Bug时，它还能智能分析代码问题，快速定位瓶颈。比那些死板...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=百川大模型" class="tool-card">
+      <h3>百川大模型</h3>
+      <div class="desc">伙计们，来一波骚操作！大家都知道写周报是个无尽的苦差事吧？这时候，不妨试试我们的 **百川大模型**。它不仅能帮你生成专业的报告文案，还能瞬间解决你代码里的Bug，简直比加班还快！无论是数据分析还是代码优化，它的准确性和效率绝对让你惊喜不已...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=魔搭gpt-modelscopegpt" class="tool-card">
+      <h3>魔搭GPT（ModelScopeGPT）</h3>
+      <div class="desc">伙友们，你们的创作和调试日子要变轻松啦！来来来，看看这个 **魔搭GPT（ModelScopeGPT）**。写周报时遇到灵感枯竭？调Bug时感到头疼欲裂？它都能帮你飞快生成文本、优化代码，简直像魔法一样帮到你。效率提升不是一点半点，简直就是...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">ai-chat</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=博查ai搜索" class="tool-card">
+      <h3>博查AI搜索</h3>
+      <div class="desc">别再被那些沉闷的搜索引擎坑了！来试试 **Bocha AI Search** 吧！它能瞬间帮你在海量信息中找到最精准的答案。比如写周报时，只需一句“本周工作重点”，它就能给你整理出清晰的工作总结；调Bug时，“这个错误怎么解决？”它直接给出...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">embedding-search</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=天工ai搜索" class="tool-card">
+      <h3>天工AI搜索</h3>
+      <div class="desc">你们在忙啥呢？我最近发现了个宝藏——**Qwen**！写周报时，再也不用担心数据整合慢、信息碎片化的问题了。调Bug时，它还能瞬间检索海量文档，帮你快速定位问题根源。这比传统的搜索工具快多了，简直就是效率小能手！快来试试吧！</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">embedding-search</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=阿里云百炼" class="tool-card">
+      <h3>阿里云百炼</h3>
+      <div class="desc">伙计们！今天给大家种草个神器——**Alibaba Cloud Baize**。写周报时，加班狗最怕啥？就是那堆积如山的总结和分析了。而Baize就像是你的私人秘书，一键生成专业报告，还自带图表分析，简直就是“加班克星”！它不仅模型强大，而...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+  </div>
+  <a href="/" class="back-home">← 返回首页</a>
+</div>
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"大语言模型 / LLM","description":"LLM 推理、微调、部署工具 — 大模型时代的瑞士军刀","url":"https://www.aibounty.cn/llm.html","numberOfItems":331}
+</script>
+</body>
+</html>

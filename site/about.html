@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AIbounty · AI 赏金猎人 —— 每日自动狩猎全球 AI 工具，一站式发现最新人工智能框架、Agent、LLM 与开发工具。由曦和系统驱动。">
+<title>关于 · AIbounty 赏金猎人</title>
+<!-- 百度自动推送 -->
+<script>
+(function(){var bp=document.createElement('script');bp.src='https://zz.bdstatic.com/linksubmit/push.js';bp.async=true;var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bp,s);})();
+</script>
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?5af31489d2c04d8f7b0bc8a8c852bcf2";var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(hm,s);})();
+</script>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --bg:#0a0e17; --card:#111827; --border:#1e3a5f;
+    --text:#f1f5f9; --text2:#94a3b8; --text3:#64748b;
+    --primary:#3b82f6; --accent:#f59e0b; --green:#34d399;
+  }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;
+    background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased;
+  }
+  .nav {
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(10,14,23,0.75);backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(30,58,95,0.4);
+  }
+  .nav-inner {
+    max-width:960px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 24px;height:60px;
+  }
+  .nav-brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800;}
+  .nav-brand a{color:var(--text);text-decoration:none;}
+  .nav-links{display:flex;gap:24px;font-size:14px;}
+  .nav-links a{color:var(--text2);text-decoration:none;transition:0.2s;}
+  .nav-links a:hover,.nav-links a.active{color:var(--text);}
+  .container{max-width:800px;margin:100px auto 60px;padding:0 24px;}
+  h1{font-size:36px;font-weight:800;margin-bottom:8px;}
+  h1 .g{background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .subtitle{color:var(--text2);font-size:16px;margin-bottom:40px;line-height:1.6;}
+  .section{margin-bottom:48px;}
+  .section h2{font-size:20px;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+  .section p,.section li{color:var(--text2);line-height:1.8;font-size:15px;}
+  .section ul{list-style:none;padding:0;}
+  .section li{padding:8px 0;border-bottom:1px solid rgba(30,58,95,0.3);}
+  .section li:last-child{border:none;}
+  .section li::before{content:'→ ';color:var(--primary);}
+
+  /* Stats grid */
+  .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:32px;}
+  .stat-card{
+    background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;
+    transition:all 0.2s;
+  }
+  .stat-card:hover{border-color:rgba(59,130,246,0.3);}
+  .stat-number{font-size:32px;font-weight:800;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .stat-label{font-size:13px;color:var(--text3);margin-top:4px;}
+  .stat-loading{font-size:14px;color:var(--text3);}
+
+  /* Source grid */
+  .src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;}
+  .src-item{
+    background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .src-icon{font-size:22px;flex-shrink:0;}
+  .src-info{min-width:0;}
+  .src-name{font-size:13px;font-weight:600;}
+  .src-count{font-size:11px;color:var(--text3);}
+
+  .card{
+    background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:16px;
+  }
+  .card h3{font-size:16px;margin-bottom:8px;}
+  .card p{font-size:14px;color:var(--text2);line-height:1.8;}
+  .footer{
+    border-top:1px solid var(--border);padding:24px;
+    text-align:center;color:var(--text3);font-size:13px;
+  }
+  .footer a{color:var(--primary);text-decoration:none;}
+  .btn{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:10px 24px;border-radius:100px;font-size:14px;font-weight:600;
+    text-decoration:none;transition:0.2s;
+  }
+  .btn-primary{background:var(--primary);color:white;}
+  .btn-primary:hover{background:#2563eb;transform:translateY(-1px);}
+  .btn-secondary{background:var(--card);border:1px solid var(--border);color:var(--text2);margin-left:10px;}
+  .btn-secondary:hover{border-color:var(--primary);color:var(--text);}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0;}
+
+  /* ===== 猎人酒馆 ===== */
+  .tavern {
+    background:linear-gradient(145deg,#0f1923,#0a0e17);
+    border:1px solid rgba(245,158,11,0.15);
+    border-radius:16px;padding:36px 32px 32px;
+    margin:48px 0;position:relative;overflow:hidden;
+  }
+  .tavern::before {
+    content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,transparent,#f59e0b,#fbbf24,transparent);
+  }
+  .tavern::after {
+    content:'🏴';position:absolute;top:12px;right:20px;font-size:36px;opacity:0.12;
+  }
+  .tavern-header{text-align:center;margin-bottom:28px;}
+  .tavern-header h2{font-size:24px;display:flex;align-items:center;justify-content:center;gap:10px;}
+  .tavern-header h2 .whisky{color:#fbbf24;font-size:26px;}
+  .tavern-tagline{color:var(--text3);font-size:13px;margin-top:4px;}
+  .tavern-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:24px;}
+  .tavern-card{
+    background:linear-gradient(145deg,#1a2332,#0f172a);
+    border:1px solid rgba(30,58,95,0.5);
+    border-radius:12px;padding:20px 18px;text-align:center;
+    transition:all 0.25s;cursor:default;
+  }
+  .tavern-card:hover{border-color:rgba(245,158,11,0.3);transform:translateY(-2px);}
+  .tavern-icon{font-size:28px;display:block;margin-bottom:8px;}
+  .tavern-card h3{font-size:14px;margin-bottom:4px;}
+  .tavern-card p{font-size:12px;color:var(--text2);line-height:1.6;margin:0;}
+  .tavern-card .action-link{
+    display:inline-block;margin-top:10px;padding:6px 16px;
+    border-radius:6px;font-size:12px;font-weight:500;text-decoration:none;
+    transition:0.2s;
+  }
+  .tavern-card .action-link.letter{background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.2);}
+  .tavern-card .action-link.letter:hover{background:rgba(59,130,246,0.25);}
+  .tavern-card .action-link.crew{background:rgba(251,191,36,0.15);color:#fbbf24;border:1px solid rgba(251,191,36,0.2);}
+  .tavern-card .action-link.crew:hover{background:rgba(251,191,36,0.25);}
+  .tavern-card .action-link.bounty{background:rgba(52,211,153,0.15);color:#34d399;border:1px solid rgba(52,211,153,0.2);}
+  .tavern-card .action-link.bounty:hover{background:rgba(52,211,153,0.25);}
+  .tavern-wechat{
+    background:linear-gradient(145deg,#1a2332,#0f172a);
+    border:1px solid rgba(30,58,95,0.5);
+    border-radius:12px;padding:20px 24px;
+    display:flex;gap:20px;align-items:center;margin-bottom:16px;
+  }
+  .tavern-qr{
+    width:100px;height:100px;flex-shrink:0;
+    background:linear-gradient(135deg,#1e293b,#334155);
+    border-radius:8px;display:flex;align-items:center;justify-content:center;
+    font-size:10px;color:var(--text3);text-align:center;line-height:1.4;
+    border:1px solid var(--border);
+  }
+  .tavern-qr .qr-inner{text-align:center;}
+  .tavern-qr .qr-inner .qr-icon{font-size:22px;display:block;margin-bottom:2px;}
+  .tavern-qr.loaded{background:white;padding:4px;}
+  .tavern-qr.loaded img{width:100%;height:100%;object-fit:contain;border-radius:4px;}
+  .tavern-wechat-info h4{font-size:14px;margin-bottom:4px;}
+  .tavern-wechat-info p{font-size:12px;color:var(--text2);line-height:1.6;margin:0;}
+  .tavern-wechat-info .hl{color:#fbbf24;font-weight:600;}
+  .tavern-rewards{display:flex;gap:8px;flex-wrap:wrap;}
+  .tavern-reward{
+    display:inline-flex;align-items:center;gap:4px;
+    background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.15);
+    padding:5px 10px;border-radius:6px;font-size:11px;color:#fcd34d;
+  }
+  @media(max-width:768px){
+    .tavern-grid{grid-template-columns:1fr;}
+    .tavern-wechat{flex-direction:column;text-align:center;}
+    .tavern-qr{margin:0 auto;}
+    .tavern{padding:28px 18px 24px;}
+  }
+  @media(max-width:768px){
+    h1{font-size:28px;}
+    .nav-links{gap:14px;font-size:13px;}
+    .stat-number{font-size:26px;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .cta-row{flex-direction:column;}
+    .btn{justify-content:center;}
+  }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand"><a href="/">🏴‍☠️ AIbounty</a></div>
+    <div class="nav-links">
+      <a href="/">首页</a>
+      <a href="/about.html" class="active">关于</a>
+      <a href="/daily.html">日报</a>
+      <a href="https://github.com/xihe9527sun/aibounty" target="_blank">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>关于 <span class="g">AIbounty</span></h1>
+  <p class="subtitle">一个由 AI 驱动的 AI 工具情报站。每日自动狩猎全球 9 大社区，聚合、去重、分类、评分，让你 5 分钟了解今天 AI 圈发生了什么。</p>
+
+  <!-- Live stats -->
+  <div class="stats-grid" id="statsGrid">
+    <div class="stat-card"><div class="stat-loading">加载中...</div></div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 为什么做这个</h2>
+    <div class="card">
+      <p>AI 工具每天爆炸式增长。HackerNews、GitHub Trending、掘金、ProductHunt……每个平台各有侧重，每天全部刷一遍要一两个小时。而且刷完也记不住。</p>
+      <p style="margin-top:12px;">AIbounty 的想法很简单：<strong style="color:var(--text);">把工具发现这件事自动化</strong>。多源聚合 → AI 分类 → 智能评分 → 每日精选。你只需要打开一个页面，5 分钟就能抓住今天最有价值的 AI 工具。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔍 狩猎渠道（9 大来源）</h2>
+    <div class="src-grid" id="sourceGrid">
+      <div class="src-item"><span class="src-icon">🌐</span><div class="src-info"><div class="src-name">HackerNews</div><div class="src-count">AI 热门讨论</div></div></div>
+      <div class="src-item"><span class="src-icon">⭐</span><div class="src-info"><div class="src-name">GitHub</div><div class="src-count">高星 AI 项目</div></div></div>
+      <div class="src-item"><span class="src-icon">📖</span><div class="src-info"><div class="src-name">掘金</div><div class="src-count">中文技术文章</div></div></div>
+      <div class="src-item"><span class="src-icon">🎯</span><div class="src-info"><div class="src-name">nav_hunter</div><div class="src-count">AI 工具导航</div></div></div>
+      <div class="src-item"><span class="src-icon">📡</span><div class="src-info"><div class="src-name">RSS 订阅</div><div class="src-count">LangChain/HF 等</div></div></div>
+      <div class="src-item"><span class="src-icon">🐙</span><div class="src-info"><div class="src-name">Gitee</div><div class="src-count">国产开源项目</div></div></div>
+      <div class="src-item"><span class="src-icon">📦</span><div class="src-info"><div class="src-name">ProductHunt</div><div class="src-count">每日新品发布</div></div></div>
+      <div class="src-item"><span class="src-icon">📚</span><div class="src-info"><div class="src-name">arXiv</div><div class="src-count">AI 学术论文</div></div></div>
+      <div class="src-item"><span class="src-icon">📕</span><div class="src-info"><div class="src-name">少数派</div><div class="src-count">效率工具推荐</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>⚙️ 核心功能</h2>
+    <div class="card">
+      <h3>🏴‍☠️ 自动狩猎引擎</h3>
+      <p>每日 08:00 / 15:00 / 21:00 三次自动采集 9 个来源的最新工具，AI 聚合并打分。</p>
+    </div>
+    <div class="card">
+      <h3>🏷️ 6 层智能标签系统</h3>
+      <p>子分类（23种）、技术雷达（Star 热度）、使用场景、价格模式、来源认证、死链检测。每个工具自动打标，多维筛选。</p>
+    </div>
+    <div class="card">
+      <h3>🔍 AI 智能搜索</h3>
+      <p>支持自然语言查询（"开源AI编程工具"），AI 匹配推荐 + 匹配理由展示。</p>
+    </div>
+    <div class="card">
+      <h3>🌏 中英双语</h3>
+      <p>界面 + 工具描述双语覆盖，面向全球 AI 开发者。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>💝 背后的人</h2>
+    <div class="card" style="display:flex;gap:16px;align-items:flex-start;">
+      <div style="font-size:40px;flex-shrink:0;">🧑‍💻</div>
+      <div>
+        <h3>盘古 · 创造者</h3>
+        <p>定方向、做决策、给灵魂。每款工具上架前都经过他的判断。</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;gap:16px;align-items:flex-start;">
+      <div style="font-size:40px;flex-shrink:0;">🏛️</div>
+      <div>
+        <h3>曦和 · AI 智能体</h3>
+        <p>自动狩猎引擎、数据管道、前端渲染、日更运维——24/7 不停歇的全栈智能体。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 猎人酒馆 ===== -->
+  <div class="tavern" id="tavern">
+    <div class="tavern-header">
+      <h2>🍺 猎人酒馆 <span class="whisky">🥃</span></h2>
+      <div class="tavern-tagline">— 船长盘古和曦和在吧台后，等你来唠 —</div>
+    </div>
+
+    <div class="tavern-grid">
+      <div class="tavern-card">
+        <span class="tavern-icon">📜</span>
+        <h3>给船长写信</h3>
+        <p>吐槽、建议、投稿工具、商务合作——像扔一封瓶中信，盘古会亲自看</p>
+        <a href="mailto:sponsor@aibounty.cn?subject=猎人酒馆·来信" class="action-link letter">✉️ 写封信</a>
+      </div>
+      <div class="tavern-card">
+        <span class="tavern-icon">🏴</span>
+        <h3>加入船员</h3>
+        <p>微信社群 · 每日狩猎日报首发 · 和同好交流宝藏工具</p>
+        <a href="#tavern-wechat" class="action-link crew">📱 扫码入群</a>
+      </div>
+      <div class="tavern-card">
+        <span class="tavern-icon">💰</span>
+        <h3>报信有赏</h3>
+        <p>发现死链、分类错误、信息过时？报告后可登上赏金猎人榜</p>
+        <a href="mailto:sponsor@aibounty.cn?subject=报信有赏·异常报告" class="action-link bounty">🏅 去报信</a>
+      </div>
+    </div>
+
+    <div class="tavern-wechat" id="tavern-wechat">
+      <div class="tavern-qr loaded">
+        <img src="/assets/qrcode-wechat-group-live.png" alt="AIbounty 宝藏猎人公会 - 永久入群码" loading="lazy">
+      </div>
+      <div class="tavern-wechat-info">
+        <h4>🏴‍☠️ AIbounty 宝藏猎人公会</h4>
+        <p>
+          ✅ 每日群内首发 <span class="hl">曦和最新精选</span>——比网站早半天看到新品<br>
+          ✅ 宝藏猎人交流圈：发现好工具、讨论技术、互相避坑<br>
+          ❌ 禁止广告与敏感内容
+        </p>
+        <p style="font-size:11px;color:var(--text3);margin-top:6px;">
+          📌 扫码入群 · 永久有效活码 · 过期自动更新
+        </p>
+      </div>
+    </div>
+
+    <div class="tavern-rewards">
+      <span class="tavern-reward">🏅 首批猎人专属徽章</span>
+      <span class="tavern-reward">📜 贡献者名单永久展示</span>
+      <span class="tavern-reward">⚡ 反馈 48h 内回复</span>
+      <span class="tavern-reward">🎯 死链优先修复</span>
+    </div>
+  </div>
+
+  <div class="cta-row">
+    <a href="/" class="btn btn-primary">🏴‍☠️ 浏览工具</a>
+    <a href="/daily.html" class="btn btn-secondary">📰 今日日报</a>
+    <a href="https://github.com/xihe9527sun/aibounty" class="btn btn-secondary" target="_blank">⭐ GitHub</a>
+  </div>
+</div>
+
+<div class="footer">
+  🏴‍☠️ AIbounty · 由 <a href="/about.html#tavern">曦和系统</a> 全自动驱动 ·
+  <a href="mailto:sponsor@aibounty.cn">📜 给船长写信</a> ·
+  <a href="/about.html#tavern-wechat">🏴 加入船员</a>
+</div>
+
+<script>
+// Load live stats from data.json
+fetch('data.json?_=' + Date.now())
+  .then(r => r.json())
+  .then(d => {
+    const items = d.items || [];
+    const total = items.length;
+    const sources = {};
+    const cats = {};
+    let osCount = 0, paidCount = 0;
+    for (const it of items) {
+      const s = it.source; if (s) sources[s] = (sources[s]||0) + 1;
+      const c = it.category;
+      if (Array.isArray(c)) { for (const cat of c) { if (cat) cats[cat] = (cats[cat]||0) + 1; } }
+      if (it.price_model === 'open-source') osCount++;
+      else if (it.price_model === 'paid') paidCount++;
+    }
+    const catCount = Object.keys(cats).length;
+    const srcCount = Object.keys(sources).length;
+
+    document.getElementById('statsGrid').innerHTML = [
+      { n: total.toLocaleString(), l: '收录工具' },
+      { n: srcCount, l: '数据来源' },
+      { n: osCount, l: '开源项目' },
+      { n: paidCount, l: '付费工具' },
+      { n: catCount, l: '技术分类' },
+      { n: '每日3次', l: '自动更新' },
+    ].map(s => `<div class="stat-card"><div class="stat-number">${s.n}</div><div class="stat-label">${s.l}</div></div>`).join('');
+
+    // Update source counts
+    const srcMap = {
+      hn:'HackerNews', github:'GitHub', juejin:'掘金',
+      nav_hunter:'nav_hunter', rss:'RSS', gitee:'Gitee',
+      producthunt:'ProductHunt', arxiv:'arXiv', sspai:'少数派'
+    };
+    document.querySelectorAll('.src-item').forEach(el => {
+      const name = el.querySelector('.src-name').textContent;
+      for (const [key, label] of Object.entries(srcMap)) {
+        if (label === name && sources[key]) {
+          el.querySelector('.src-count').textContent = sources[key] + ' 个工具';
+        }
+      }
+    });
+  })
+  .catch(() => {
+    document.getElementById('statsGrid').innerHTML = '<div class="stat-card"><div style="color:var(--text3);font-size:14px;">数据加载中，请刷新页面</div></div>';
+  });
+</script>
+</body>
+</html>

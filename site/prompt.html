@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIbounty Prompt Explorer — AI 编程工具 System Prompt 对比</title>
+<meta name="description" content="浏览、搜索、对比 30+ AI 编程工具的 System Prompt。收录自 x1xhlol/system-prompts-and-models-of-ai-tools">
+<style>
+:root {
+  --bg: #0a0e17; --bg2: #111827; --bg3: #1a2332;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --accent: #f59e0b; --accent2: #7F77DD;
+  --border: rgba(30,58,95,0.4); --radius: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, system-ui, sans-serif; min-height: 100vh; }
+a { color: var(--accent); text-decoration: none; }
+
+/* ── Nav ── */
+.nav { border-bottom: 1px solid var(--border); background: rgba(10,14,23,0.85); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 16px; padding: 0 16px; height: 52px; }
+.nav-brand { font-weight: 500; font-size: 15px; display: flex; align-items: center; gap: 6px; }
+.nav-brand span:first-child { font-size: 18px; }
+.nav-right { margin-left: auto; display: flex; gap: 12px; font-size: 13px; }
+.nav-link { color: var(--text2); transition: color 0.15s; }
+.nav-link:hover { color: var(--accent); }
+
+/* ── Hero ── */
+.hero { text-align: center; padding: 48px 16px 32px; }
+.hero h1 { font-size: 28px; font-weight: 600; margin-bottom: 8px; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero p { color: var(--text2); font-size: 14px; max-width: 560px; margin: 0 auto 24px; line-height: 1.6; }
+.hero-stats { display: flex; justify-content: center; gap: 24px; font-size: 13px; color: var(--text3); }
+
+/* ── Search + Filter ── */
+.controls { max-width: 800px; margin: 0 auto 20px; padding: 0 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+.search-bar { flex: 1; min-width: 200px; }
+.search-bar input { width: 100%; height: 42px; padding: 0 16px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg2); color: var(--text); font-size: 14px; outline: none; }
+.search-bar input:focus { border-color: rgba(245,158,11,0.3); }
+.filter-bar { display: flex; gap: 4px; flex-wrap: wrap; }
+.filter-btn { padding: 6px 14px; border-radius: 100px; border: 1px solid var(--border); background: transparent; color: var(--text2); font-size: 12px; cursor: pointer; transition: all 0.15s; }
+.filter-btn:hover { border-color: rgba(245,158,11,0.3); color: var(--text); }
+.filter-btn.active { background: var(--accent); border-color: var(--accent); color: #000; }
+
+/* ── Tool Grid ── */
+.grid { max-width: 1200px; margin: 0 auto; padding: 0 16px 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
+.card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; cursor: pointer; transition: all 0.2s; }
+.card:hover { border-color: rgba(245,158,11,0.2); transform: translateY(-2px); }
+.card h3 { font-size: 14px; font-weight: 500; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+.card h3 .tag { font-size: 9px; background: rgba(127,119,221,0.15); color: #AFA9EC; padding: 1px 6px; border-radius: 4px; font-weight: 400; }
+.card .files { font-size: 11px; color: var(--text3); margin-bottom: 4px; }
+.card .preview { font-size: 12px; color: var(--text2); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.card .actions { margin-top: 10px; display: flex; gap: 6px; }
+.card .actions span { font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--bg3); color: var(--text3); }
+
+/* ── Detail Panel ── */
+.panel-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200; }
+.panel-overlay.show { display: block; }
+.panel { display: none; position: fixed; top: 0; right: -480px; width: 480px; max-width: 90vw; height: 100vh; background: var(--bg2); border-left: 1px solid var(--border); z-index: 201; overflow-y: auto; transition: right 0.3s cubic-bezier(0.22,1,0.36,1); }
+.panel.show { right: 0; }
+.panel-header { position: sticky; top: 0; background: var(--bg2); border-bottom: 1px solid var(--border); padding: 16px; display: flex; align-items: center; gap: 12px; z-index: 2; }
+.panel-header h2 { flex: 1; font-size: 16px; font-weight: 500; }
+.panel-close { width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--border); background: transparent; color: var(--text2); cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; }
+.panel-body { padding: 16px; }
+.panel-body .file-list { margin-bottom: 16px; }
+.panel-body .file-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; color: var(--text2); transition: background 0.15s; }
+.panel-body .file-item:hover { background: var(--bg3); }
+.panel-body .file-item.active { background: var(--bg3); color: var(--accent); }
+.panel-body .file-item .icon { font-size: 14px; }
+.panel-body .content { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; background: var(--bg); padding: 16px; border-radius: 8px; border: 1px solid var(--border); color: var(--text2); max-height: 60vh; overflow-y: auto; }
+.content-loading { text-align: center; padding: 40px; color: var(--text3); }
+
+/* ── Compare Mode ── */
+.compare-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--bg2); border-top: 1px solid var(--border); padding: 10px 16px; z-index: 150; justify-content: space-between; align-items: center; }
+.compare-bar.show { display: flex; }
+.compare-bar .info { font-size: 13px; color: var(--text2); }
+.compare-btn { padding: 6px 16px; border-radius: 8px; border: none; background: var(--accent); color: #000; font-size: 13px; font-weight: 500; cursor: pointer; }
+.compare-btn:disabled { opacity: 0.4; cursor: default; }
+.compare-panel { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 300; overflow-y: auto; }
+.compare-panel.show { display: block; }
+.compare-header { position: sticky; top: 0; background: var(--bg2); border-bottom: 1px solid var(--border); padding: 12px 16px; display: flex; align-items: center; gap: 12px; z-index: 2; }
+.compare-header h2 { flex: 1; font-size: 16px; font-weight: 500; }
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; max-width: 1600px; margin: 0 auto; }
+.compare-col { border-right: 1px solid var(--border); padding: 16px; min-height: 80vh; }
+.compare-col:last-child { border-right: none; }
+.compare-col h3 { font-size: 14px; font-weight: 500; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+.compare-col pre { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px; line-height: 1.5; white-space: pre-wrap; background: var(--bg); padding: 12px; border-radius: 8px; border: 1px solid var(--border); color: var(--text2); }
+
+/* ── Footer ── */
+.footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); color: var(--text3); font-size: 12px; }
+.footer a { color: var(--accent); }
+
+/* ── Tab Navigation ── */
+.tabs { display: flex; gap: 0; margin: 0 auto 24px; max-width: 800px; padding: 0 16px; border-bottom: 1px solid var(--border); }
+.tab { padding: 10px 20px; font-size: 13px; color: var(--text3); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.15s; }
+.tab:hover { color: var(--text2); }
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ── Patterns ── */
+.pattern-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 12px; }
+.pattern-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.pattern-card .meta { font-size: 11px; color: var(--text3); margin-bottom: 10px; }
+.pattern-card .desc { font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 12px; }
+.pattern-card .example-label { font-size: 11px; color: var(--text3); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+.pattern-card .example { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; line-height: 1.6; white-space: pre-wrap; background: var(--bg); padding: 12px; border-radius: 8px; border: 1px solid var(--border); color: var(--text2); max-height: 200px; overflow-y: auto; margin-bottom: 12px; }
+.pattern-card .source-tag { font-size: 10px; padding: 2px 8px; border-radius: 4px; background: rgba(127,119,221,0.12); color: #AFA9EC; }
+.empty { text-align: center; padding: 60px 16px; color: var(--text3); font-size: 14px; }
+
+/* ── Loading ── */
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.8} }
+.loading { animation: pulse 1.5s ease-in-out infinite; }
+
+@media (max-width: 640px) {
+  .hero h1 { font-size: 22px; }
+  .grid { grid-template-columns: 1fr; }
+  .panel { width: 100%; max-width: 100vw; right: -100vw; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .compare-col { border-right: none; border-bottom: 1px solid var(--border); }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand"><span>🏴‍☠️</span> AIbounty</a>
+    <span style="font-size:12px;color:var(--text3);">/ Prompt Explorer</span>
+    <div class="nav-right">
+      <a href="/" class="nav-link">工具库</a>
+      <a href="/daily.html" class="nav-link">日报</a>
+      <a href="https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools" target="_blank" class="nav-link" style="color:var(--accent2);">⭐ GitHub 源仓库</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>🧠 AI 编程工具 · System Prompt 浏览器</h1>
+  <p>收录自 <a href="https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools" target="_blank">x1xhlol/system-prompts-and-models-of-ai-tools</a>（140.8k ⭐），覆盖主流 AI 编程助手的底层 Prompt 指令。搜索、浏览、对比，看透每家 AI 的大脑。</p>
+  <div class="hero-stats">
+    <span id="toolCount">--</span> 个工具
+    <span id="fileCount">--</span> 个 Prompt 文件
+    <span>每日自动同步</span>
+  </div>
+</div>
+
+<!-- Tabs -->
+<div class="tabs">
+  <span class="tab active" onclick="switchTab('browse')">🔍 浏览</span>
+  <span class="tab" onclick="switchTab('patterns')">📐 设计模式</span>
+  <span class="tab" onclick="switchTab('compare')">🔁 对比</span>
+</div>
+
+<!-- Tab: Browse -->
+<div class="tab-content active" id="tabBrowse">
+<div class="controls">
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="搜索工具名... Cursor / Windsurf / CodeBuddy" autocomplete="off" oninput="filterTools()">
+  </div>
+  <div class="filter-bar" id="sourceFilter">
+    <span class="filter-btn active" data-src="all" onclick="setSource('all')">全部</span>
+    <span class="filter-btn" data-src="github" onclick="setSource('github')">🐙 GitHub</span>
+    <span class="filter-btn" data-src="proprietary" onclick="setSource('proprietary')">🔒 闭源</span>
+  </div>
+</div>
+
+<!-- Grid -->
+<div class="grid" id="toolGrid"></div>
+
+<!-- Detail Panel -->
+<div class="panel-overlay" id="panelOverlay" onclick="closePanel()"></div>
+<div class="panel" id="detailPanel">
+  <div class="panel-header">
+    <h2 id="panelTitle">Loading...</h2>
+    <button class="panel-close" onclick="closePanel()">✕</button>
+  </div>
+  <div class="panel-body" id="panelBody">
+    <div class="file-list" id="panelFiles"></div>
+    <div class="content" id="panelContent">选择文件查看 Prompt 内容</div>
+  </div>
+</div>
+
+<!-- Compare Bar -->
+<div class="compare-bar" id="compareBar">
+  <div class="info" id="compareInfo">点击卡片上的 + 加入对比</div>
+  <div>
+    <button class="compare-btn" id="compareBtn" onclick="openCompare()" disabled>对比 (0)</button>
+  </div>
+</div>
+
+<!-- Compare Panel -->
+<div class="compare-panel" id="comparePanel">
+  <div class="compare-header">
+    <h2>🔁 Prompt 对比</h2>
+    <button class="panel-close" onclick="closeCompare()">✕</button>
+  </div>
+  <div class="compare-grid" id="compareGrid"></div>
+</div>
+
+<!-- Tab: Patterns -->
+<div class="tab-content" id="tabPatterns"></div>
+
+<!-- Tab: Compare (existing compare bar + panel kept, we just toggle visibility) -->
+
+<!-- Footer -->
+<div class="footer">
+  <p>数据来源 <a href="https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools" target="_blank">GitHub</a> · 由 <a href="https://www.aibounty.cn">AIbounty</a> 曦和系统自动同步 · <span id="footerUpdated">--</span></p>
+</div>
+
+<script>
+// ── 工具数据 ──
+const TOOLS = [
+  { name:'Amp', desc:'AI 编程助手，支持 Claude/GPT 双模型', source:'github', icon:'⚡', files:['Amp/README.md','Amp/claude-4-sonnet.yaml','Amp/gpt-5.yaml'] },
+  { name:'Anthropic', desc:'Claude 系列完整 Prompt，含 Fable 5 / Sonnet 4.6', source:'proprietary', icon:'🧠', files:['Anthropic/Claude Fable 5.txt','Anthropic/Claude Sonnet 4.6.txt'] },
+  { name:'Augment Code', desc:'AI 驱动的代码增强，支持多模型', source:'proprietary', icon:'🔧', files:['Augment Code/claude-4-sonnet-tools.json','Augment Code/gpt-5-tools.json'] },
+  { name:'Cluely', desc:'团队协作 AI 助手，企业级 Prompt', source:'proprietary', icon:'👥', files:['Cluely/Enterprise Prompt.txt','Cluely/Default Prompt.txt'] },
+  { name:'CodeBuddy', desc:'AI 代码审查与协作，链路追踪 Agent', source:'github', icon:'🤖', files:['CodeBuddy Prompts/Craft Prompt.txt','CodeBuddy Prompts/Chat Prompt.txt'] },
+  { name:'Comet Assistant', desc:'数据科学 AI 编程助手', source:'proprietary', icon:'☄️', files:['Comet Assistant/System Prompt.txt','Comet Assistant/tools.json'] },
+  { name:'Cursor', desc:'最流行的 AI 代码编辑器，Agent 2.0', source:'proprietary', icon:'🖱️', files:['Cursor Prompts/Agent Prompt 2.0.txt','Cursor Prompts/Agent Prompt v1.2.txt','Cursor Prompts/Agent CLI Prompt 2025-08-07.txt'] },
+  { name:'Devin AI', desc:'全自主 AI 软件工程师', source:'proprietary', icon:'👨‍💻', files:['Devin AI/Prompt.txt','Devin AI/DeepWiki Prompt.txt'] },
+  { name:'Emergent', desc:'构建可发布 MVP 的 Agent', source:'github', icon:'🌱', files:['Emergent/Prompt.txt','Emergent/Tools.json'] },
+  { name:'Google', desc:'Google AI Studio / Antigravity 模式', source:'proprietary', icon:'🔍', files:['Google/Gemini/AI Studio vibe-coder.txt','Google/Antigravity/Fast Prompt.txt'] },
+  { name:'Junie', desc:'JetBrains AI 编程 Agent', source:'proprietary', icon:'🚀', files:['Junie/Prompt.txt'] },
+  { name:'Kiro', desc:'多模式 AI 编程助手', source:'github', icon:'🎯', files:['Kiro/Spec_Prompt.txt','Kiro/Vibe_Prompt.txt','Kiro/Mode_Clasifier_Prompt.txt'] },
+  { name:'Leap.new', desc:'描述到部署的 AI 应用生成', source:'proprietary', icon:'🦘', files:['Leap.new/Prompts.txt','Leap.new/tools.json'] },
+  { name:'Lovable', desc:'全栈 AI 构建器', source:'proprietary', icon:'💛', files:['Lovable/Agent Prompt.txt','Lovable/Agent Tools.json'] },
+  { name:'Manus', desc:'通用 AI Agent 框架', source:'github', icon:'🖐️', files:['Manus Agent Tools & Prompt/Modules.txt','Manus Agent Tools & Prompt/tools.json','Manus Agent Tools & Prompt/Agent loop.txt'] },
+  { name:'NotionAI', desc:'Notion 内置 AI 助手', source:'proprietary', icon:'📝', files:['NotionAi/Prompt.txt','NotionAi/tools.json'] },
+  { name:'Orchids.app', desc:'AI 应用构建平台', source:'proprietary', icon:'🌸', files:['Orchids.app/System Prompt.txt','Orchids.app/Decision-making prompt.txt'] },
+  { name:'Perplexity', desc:'AI 搜索引擎，深度研究', source:'proprietary', icon:'🔮', files:['Perplexity/Prompt.txt'] },
+  { name:'Poke', desc:'轻量级 AI 编程助手', source:'github', icon:'🐦', files:['Poke/Poke agent.txt','Poke/Poke_p1.txt'] },
+  { name:'Qoder', desc:'Qodo 编码 Agent', source:'proprietary', icon:'📐', files:['Qoder/Quest Design.txt','Qoder/prompt.txt'] },
+  { name:'Replit', desc:'在线 IDE AI 助手', source:'proprietary', icon:'🔄', files:['Replit/Prompt.txt','Replit/Tools.json'] },
+  { name:'Same.dev', desc:'全栈 Web 应用生成器', source:'proprietary', icon:'🌐', files:['Same.dev/Prompt.txt','Same.dev/Tools.json'] },
+  { name:'Trae', desc:'字节跳动 AI 编程 IDE', source:'proprietary', icon:'🎵', files:['Trae/Builder Prompt.txt','Trae/Chat Prompt.txt'] },
+  { name:'Traycer AI', desc:'AI 代码架构分析', source:'github', icon:'🔬', files:['Traycer AI/phase_mode_tools.json','Traycer AI/plan_mode_tools.json','Traycer AI/phase_mode_prompts.txt'] },
+  { name:'VSCode Agent', desc:'VS Code 内置 AI Agent', source:'proprietary', icon:'💻', files:['VSCode Agent/gpt-5.txt','VSCode Agent/gpt-5-mini.txt'] },
+  { name:'Warp.dev', desc:'AI 原生终端 Agent', source:'proprietary', icon:'⚙️', files:['Warp.dev/Prompt.txt'] },
+  { name:'Windsurf', desc:'流式 AI 编程体验 Wave 11', source:'proprietary', icon:'🏄', files:['Windsurf/Prompt Wave 11.txt','Windsurf/Tools Wave 11.txt'] },
+  { name:'Xcode', desc:'Apple Xcode AI 助手', source:'proprietary', icon:'🍎', files:['Xcode/System.txt','Xcode/DocumentAction.txt','Xcode/PreviewAction.txt'] },
+  { name:'Z.ai Code', desc:'智谱 AI 代码生成', source:'github', icon:'🔵', files:['Z.ai Code/prompt.txt'] },
+  { name:'dia', desc:'设计到代码转换', source:'proprietary', icon:'🎨', files:['dia/Prompt.txt'] },
+  { name:'v0', desc:'Vercel AI UI 生成器', source:'proprietary', icon:'▲', files:['v0 Prompts and Tools/Prompt.txt','v0 Prompts and Tools/Tools.json'] },
+  { name:'Cline', desc:'开源 VS Code AI Agent (Open Source prompts)', source:'github', icon:'🧩', files:['Open Source prompts/Cline/Prompt.txt','Open Source prompts/RooCode/Prompt.txt'] },
+];const CDN_BASE = 'https://cdn.jsdelivr.net/gh/x1xhlol/system-prompts-and-models-of-ai-tools@main/';
+let currentSource = 'all';
+let compareList = [];
+let panelLoadedFile = '';
+
+function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+function escAttr(s) { return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;'); }
+
+function filterTools() {
+  var q = document.getElementById('searchInput').value.toLowerCase().trim();
+  var grid = document.getElementById('toolGrid');
+  var html = '';
+  var count = 0;
+  for (var i = 0; i < TOOLS.length; i++) {
+    var t = TOOLS[i];
+    if (currentSource !== 'all' && t.source !== currentSource) continue;
+    if (q && !t.name.toLowerCase().includes(q) && !t.desc.toLowerCase().includes(q)) continue;
+    count++;
+    var isCompared = compareList.includes(t.name);
+    html += '<div class="card" data-tool-idx="'+i+'">' +
+      '<h3><span>'+t.icon+'</span> '+escHtml(t.name)+' <span class="tag">'+(t.source==='github'?'🐙 Open Source':'🔒')+'</span></h3>' +
+      '<div class="files">'+t.files.length+' 个 Prompt 文件</div>' +
+      '<div class="preview">'+escHtml(t.desc)+'</div>' +
+      '<div class="actions"><span class="cmp-btn" data-tool-idx="'+i+'">' +
+      (isCompared ? '✅ 已选' : '+ 对比') + '</span></div></div>';
+  }
+  grid.innerHTML = html || '<div class="empty">没有找到匹配的工具</div>';
+  document.getElementById('toolCount').textContent = count;
+}
+
+function setSource(src) {
+  currentSource = src;
+  document.querySelectorAll('#sourceFilter .filter-btn').forEach(function(el) {
+    el.classList.toggle('active', el.dataset.src === src);
+  });
+  filterTools();
+}
+
+// ── 事件委托 ──
+document.getElementById('toolGrid').addEventListener('click', function(e) {
+  var card = e.target.closest('.card');
+  if (!card) return;
+  var idx = parseInt(card.dataset.toolIdx);
+  var btn = e.target.closest('.cmp-btn');
+  if (btn) {
+    // 对比按钮
+    toggleCompare(idx);
+    return;
+  }
+  // 卡片主体 → 打开详情
+  openTool(idx);
+});
+
+function openTool(idx) {
+  var t = TOOLS[idx];
+  if (!t) return;
+  document.getElementById('panelTitle').innerHTML = '<span>'+t.icon+'</span> '+escHtml(t.name);
+  var fileHtml = t.files.map(function(f, fi) { 
+    return '<div class="file-item" data-tool-idx="'+idx+'" data-file-idx="'+fi+'"><span class="icon">📄</span>'+escHtml(f.split('/').pop())+'</div>';
+  }).join('');
+  document.getElementById('panelFiles').innerHTML = fileHtml;
+  document.getElementById('panelContent').textContent = '选择文件查看 Prompt 内容';
+  document.getElementById('detailPanel').classList.add('show');
+  document.getElementById('panelOverlay').classList.add('show');
+  panelLoadedFile = '';
+  // 自动加载第一个文件
+  if (t.files.length > 0) {
+    var firstEl = document.querySelector('.file-item[data-tool-idx="'+idx+'"][data-file-idx="0"]');
+    if (firstEl) loadPrompt(idx, 0, firstEl);
+  }
+}
+
+// 文件列表点击委托
+document.getElementById('panelFiles').addEventListener('click', function(e) {
+  var item = e.target.closest('.file-item');
+  if (!item) return;
+  var idx = parseInt(item.dataset.toolIdx);
+  var fi = parseInt(item.dataset.fileIdx);
+  loadPrompt(idx, fi, item);
+});
+
+function closePanel() {
+  document.getElementById('detailPanel').classList.remove('show');
+  document.getElementById('panelOverlay').classList.remove('show');
+}
+
+function loadPrompt(toolIdx, fileIdx, el) {
+  var t = TOOLS[toolIdx];
+  if (!t || !t.files[fileIdx]) return;
+  var filePath = t.files[fileIdx];
+  if (el) {
+    document.querySelectorAll('.file-item').forEach(function(e) { e.classList.remove('active'); });
+    el.classList.add('active');
+  }
+  panelLoadedFile = filePath;
+  document.getElementById('panelContent').textContent = '⏳ 加载中...';
+  document.getElementById('panelContent').className = 'content loading';
+  
+  var url = CDN_BASE + encodeURI(filePath);
+  fetch(url, {mode:'cors'}).then(function(r) {
+    if (!r.ok) throw new Error('HTTP '+r.status);
+    return r.text();
+  }).then(function(text) {
+    document.getElementById('panelContent').textContent = text || '(空文件)';
+    document.getElementById('panelContent').className = 'content';
+  }).catch(function() {
+    document.getElementById('panelContent').textContent = '⚠️ 加载失败，该文件可能不在仓库中';
+    document.getElementById('panelContent').className = 'content';
+  });
+}
+
+function toggleCompare(toolIdx) {
+  var name = TOOLS[toolIdx].name;
+  var idx = compareList.indexOf(name);
+  if (idx >= 0) {
+    compareList.splice(idx, 1);
+  } else if (compareList.length < 2) {
+    compareList.push(name);
+  } else {
+    return;
+  }
+  document.getElementById('compareInfo').textContent = compareList.length === 0 ? '点击卡片上的 + 加入对比' : '已选 '+compareList.join(' vs ');
+  document.getElementById('compareBtn').textContent = '对比 ('+compareList.length+'/2)';
+  document.getElementById('compareBtn').disabled = compareList.length < 2;
+  filterTools();
+}
+
+function openCompare() {
+  if (compareList.length < 2) return;
+  var a = TOOLS.find(function(t) { return t.name === compareList[0]; });
+  var b = TOOLS.find(function(t) { return t.name === compareList[1]; });
+  if (!a || !b) return;
+  
+  var html = '';
+  [a, b].forEach(function(t) {
+    var col = '<div class="compare-col"><h3>'+t.icon+' '+t.name+'</h3>';
+    col += '<p style="font-size:12px;color:var(--text3);margin-bottom:12px;">'+t.desc+'</p>';
+    col += '<pre>加载中...</pre></div>';
+    html += col;
+  });
+  document.getElementById('compareGrid').innerHTML = html;
+  document.getElementById('comparePanel').classList.add('show');
+  
+  // 加载两者的第一个文件
+  [a, b].forEach(function(t, idx) {
+    if (t.files.length > 0) {
+      var url = CDN_BASE + encodeURI(t.files[0]);
+      fetch(url).then(function(r) { return r.text(); }).then(function(text) {
+        var cols = document.querySelectorAll('.compare-col');
+        if (cols[idx]) cols[idx].querySelector('pre').textContent = text || '(空文件)';
+      }).catch(function() {
+        var cols = document.querySelectorAll('.compare-col');
+        if (cols[idx]) cols[idx].querySelector('pre').textContent = '加载失败';
+      });
+    }
+  });
+}
+
+function closeCompare() {
+  document.getElementById('comparePanel').classList.remove('show');
+}
+
+// ── Tab Switching ──
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach(function(t) { t.classList.toggle('active', t.getAttribute('onclick').includes(name)); });
+  document.querySelectorAll('.tab-content').forEach(function(tc) { tc.classList.toggle('active', tc.id === 'tab' + name.charAt(0).toUpperCase() + name.slice(1)); });
+  if (name === 'patterns') renderPatterns();
+}
+
+// ── Prompt 设计模式 ──
+const PATTERNS = [
+  {
+    title:'🎭 角色定义模式', icon:'🎭',
+    from:'Warp.dev, Windsurf, Cursor',
+    desc:'最基础的 Prompt 结构。定义 AI 的身份、能力边界、行为准则。几乎所有 32 个工具都包含这个模式，但写法差异很大。',
+    example:'You are Agent Mode, an AI agent running within Warp, the AI terminal.\nYour purpose is to assist the user with software development tasks.\n\nYou operate in a terminal environment and have access to:\n- File system operations\n- Shell commands\n- Git operations\n- Package management\n\nConstraints:\n- You cannot access the internet\n- You cannot run interactive commands\n- Always ask for confirmation before destructive operations',
+    source:'Warp.dev'
+  },
+  {
+    title:'🔧 工具调用模式', icon:'🔧',
+    from:'Cursor, CodeBuddy, Windsurf, Claude',
+    desc:'定义 AI 可以使用的工具（函数/API）及其调用规范。Claude Code 的工具体系最完整（读/写/搜索/测试/Git），Cursor 的 Agent 2.0 加了项目理解工具。',
+    example:'<tool_calls>\nYou have access to the following tools:\n1. Read: Read file contents\n   - path: string (required)\n   - offset: number (optional)\n   \n2. Edit: Modify file contents  \n   - file: string (required)\n   - old_string: string (required)\n   - new_string: string (required)\n   \n3. Search: Find in files\n   - query: string (required)\n   - path: string (optional)',
+    source:'Cursor Prompts/Agent Prompt 2.0.txt'
+  },
+  {
+    title:'🧠 思维链路控制', icon:'🧠',
+    from:'Emergent, Junie, CodeBuddy, dia',
+    desc:'控制 AI 如何思考。Emergent 要求"先理解需求再动手"，CodeBuddy 的 Checkpoint 机制让 AI 在出错时回溯，而不是重来。',
+    example:'Before taking any action:\n1. UNDERSTAND the user\'s request\n   - What is the goal?\n   - What are the constraints?\n   - What files are involved?\n\n2. PLAN the approach\n   - Outline the steps\n   - Identify potential issues\n   \n3. EXECUTE step by step\n   - One change at a time\n   - Verify after each step\n\n4. If something goes wrong:\n   - Rollback to last known good state\n   - Report what happened\n   - Suggest alternative approach',
+    source:'Emergent/Prompt.txt'
+  },
+  {
+    title:'⛑️ 安全护栏模式', icon:'⛑️',
+    from:'Anthropic/Claude, Perplexity, Comet Assistant',
+    desc:'定义 AI 不能做什么。Anthropic 的 Prompt 有最详尽的安全约束（57KB 的原因就在这里），Perplexity 强调信息来源可信度。',
+    example:'Safety Guidelines:\n- Do NOT execute commands that could harm the system\n- Do NOT access files outside the workspace\n- Do NOT share sensitive information like API keys\n- Do NOT provide legal, medical, or financial advice\n- Do NOT generate misleading or false information\n- If unsure about a request, ask for clarification\n- When in doubt, prioritize user safety over speed',
+    source:'Anthropic/Claude Fable 5.txt'
+  },
+  {
+    title:'📊 输出结构化模式', icon:'📊',
+    from:'Windsurf, Replit, Cline, v0',
+    desc:'控制 AI 输出的格式和风格。Windsurf 的"流式思维"强调连续不间断的输出，v0 要求严格的 JSON 格式输出以便解析。',
+    example:'Output Format:\n- Use markdown for readability\n- Code blocks must specify language\n- Error messages: `[ERROR] description`\n- Warnings: `[WARN] description`\n- Success: `[OK] description`\n\nWhen responding to questions:\n1. Direct answer first (1-2 sentences)\n2. Supporting details\n3. Code examples if applicable\n\nKeep responses concise. No filler phrases.',
+    source:'Windsurf/Prompt Wave 11.txt'
+  },
+  {
+    title:'🔄 迭代改进模式', icon:'🔄',
+    from:'Cursor 2.0, Lovable, Augment Code',
+    desc:'让 AI 不断自我改进。Cursor 2.0 的 Agent 会主动检查自己的输出质量，Lovable 的 Prompt 要求"如果第一次不对，再试一次"。',
+    example:'After completing a task:\n1. Self-review: Check if the solution meets requirements\n2. If issues found:\n   - Identify what went wrong\n   - Correct the approach\n   - Re-run\n3. Quality checks:\n   - Does the code compile/run?\n   - Are edge cases handled?\n   - Is the code clean and documented?\n4. Only mark complete when ALL checks pass',
+    source:'Cursor Prompts/Agent Prompt 2.0.txt'
+  }
+];
+
+function renderPatterns() {
+  var container = document.getElementById('tabPatterns');
+  var html = '<div style="max-width:800px;margin:0 auto;padding:0 16px 24px;">';
+  html += '<h2 style="font-size:18px;font-weight:500;margin-bottom:4px;">📐 System Prompt 设计模式</h2>';
+  html += '<p style="color:var(--text3);font-size:13px;margin-bottom:20px;">从 32 个 AI 编程工具的 Prompt 中提炼出的 6 种核心设计模式。每个模式都附有真实工具的例子。</p>';
+  for (var p of PATTERNS) {
+    html += '<div class="pattern-card">' +
+      '<h3>'+p.title+' <span class="source-tag">'+p.from+'</span></h3>' +
+      '<div class="meta">示例来源: '+p.source+'</div>' +
+      '<div class="desc">'+p.desc+'</div>' +
+      '<div class="example-label">📋 Prompt 示例</div>' +
+      '<div class="example">'+escHtml(p.example)+'</div>' +
+      '</div>';
+  }
+  html += '<p style="text-align:center;color:var(--text3);font-size:12px;padding:20px 0;">基于 '+TOOLS.length+' 个工具的 System Prompt 分析提炼 · 持续更新中</p>';
+  html += '</div>';
+  container.innerHTML = html;
+}
+filterTools();
+document.getElementById('fileCount').textContent = TOOLS.reduce(function(s, t) { return s + t.files.length; }, 0);
+document.getElementById('footerUpdated').textContent = '同步于 ' + new Date().toLocaleDateString('zh-CN');
+
+// 键盘导航
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closePanel(); closeCompare(); }
+});
+</script>
+</body>
+</html>

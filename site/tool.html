@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AIbounty - AI tool details page. Explore handpicked AI tools, frameworks, and applications curated by Xihe.">
+<link rel="canonical" href="" id="canonicalLink">
+<title>🏴‍☠️ AIbounty · <span id="pageTitleSuffix">工具详情</span></title>
+<!-- 百度自动推送 -->
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  bp.async = true;
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?5af31489d2c04d8f7b0bc8a8c852bcf2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --bg:#0a0e17; --card:#111827; --border:#1e3a5f; --border-light:#1e293b;
+    --text:#f1f5f9; --text2:#94a3b8; --text3:#64748b;
+    --primary:#3b82f6; --accent:#f59e0b; --green:#34d399;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg); color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+  .nav {
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(10,14,23,0.75);backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(30,58,95,0.4);
+  }
+  .nav-inner {
+    max-width:1200px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 24px;height:60px;
+  }
+  .nav-brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800;}
+  .nav-brand a{color:var(--text);text-decoration:none;}
+  .nav-back{font-size:14px;color:var(--text2);text-decoration:none;}
+  .nav-back:hover{color:var(--text);}
+  .container{max-width:800px;margin:80px auto 40px;padding:0 24px;}
+
+  .tool-header{margin-bottom:32px;}
+  .tool-source{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12px;font-weight:600;text-transform:uppercase;
+    padding:4px 12px;border-radius:6px;margin-bottom:12px;
+  }
+  .tool-source.hn{background:rgba(245,158,11,0.12);color:#fbbf24;}
+  .tool-source.github{background:rgba(52,211,153,0.12);color:#34d399;}
+  .tool-source.juejin{background:rgba(59,130,246,0.12);color:#60a5fa;}
+  .tool-header h1{font-size:28px;font-weight:700;margin-bottom:8px;line-height:1.3;}
+  .tool-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--text2);}
+  .tool-meta span{display:flex;align-items:center;gap:4px;}
+  .tool-meta .stars{color:var(--accent);font-weight:600;}
+
+  .tool-desc{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:12px;padding:24px;margin-bottom:24px;
+    font-size:15px;line-height:1.8;color:var(--text2);
+  }
+  .tool-desc strong{color:var(--text);font-weight:600;}
+
+  .tool-actions{display:flex;gap:12px;margin-bottom:32px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:10px 24px;border-radius:100px;font-size:14px;font-weight:600;
+    text-decoration:none;transition:0.2s;
+  }
+  .btn-primary{background:var(--primary);color:white;}
+  .btn-primary:hover{background:#2563eb;transform:translateY(-1px);}
+  .btn-secondary{
+    background:var(--card);border:1px solid var(--border);color:var(--text2);
+  }
+  .btn-secondary:hover{border-color:var(--primary);color:var(--text);}
+
+  .section-title{font-size:16px;font-weight:700;margin-bottom:16px;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px;}
+  .tag{
+    font-size:12px;padding:4px 12px;border-radius:6px;
+    background:rgba(59,130,246,0.08);color:var(--primary-light);
+    border:1px solid rgba(59,130,246,0.15);
+  }
+  .tag.scene{background:rgba(245,158,11,0.08);color:#fbbf24;border-color:rgba(245,158,11,0.15);}
+
+  .similar-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;}
+  .similar-card{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:10px;padding:16px;cursor:pointer;transition:0.2s;
+  }
+  .similar-card:hover{border-color:rgba(59,130,246,0.3);transform:translateY(-2px);}
+  .similar-card h3{font-size:14px;font-weight:600;margin-bottom:4px;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .similar-card p{font-size:12px;color:var(--text2);
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .similar-meta{font-size:12px;color:var(--text3);margin-top:8px;}
+
+  .loading{text-align:center;padding:80px 20px;color:var(--text2);}
+  .loading .icon{font-size:48px;margin-bottom:12px;}
+  .loading .warm-text{font-size:14px;color:var(--text3);margin-top:4px;}
+
+  /* ── Warm Details ── */
+  .warm-banner {
+    background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(139,92,246,0.06));
+    border: 1px solid rgba(59,130,246,0.12);
+    border-radius: 10px; padding: 14px 18px; margin-bottom: 20px;
+    font-size: 13px; color: var(--text2); line-height: 1.6;
+  }
+  .warm-banner strong{color:var(--text);}
+  .warm-banner .emoji{font-size:16px;}
+
+  .error-warm {
+    text-align:center;padding:60px 20px;
+  }
+  .error-warm .icon{font-size:48px;margin-bottom:12px;}
+  .error-warm h3{font-size:18px;font-weight:600;margin-bottom:8px;color:var(--text);}
+  .error-warm p{font-size:14px;color:var(--text2);margin-bottom:16px;}
+
+  .footer{
+    border-top:1px solid var(--border);padding:24px;
+    text-align:center;color:var(--text3);font-size:13px;
+  }
+  .footer .warm{color:var(--primary-light);}
+  @media(max-width:768px){
+    .nav-inner{padding:0 12px;}
+    .nav-brand{font-size:16px;}
+    .container{padding:0 12px;margin:70px auto 24px;}
+    .tool-header h1{font-size:20px;}
+    .tool-actions{flex-direction:column;}
+    .btn{justify-content:center;padding:10px 20px;}
+    .tool-desc{padding:16px;font-size:14px;}
+    .similar-grid{grid-template-columns:1fr 1fr;gap:8px;}
+    .warm-banner{font-size:12px;padding:10px 14px;}
+    .tool-header h1{font-size:20px;line-height:1.3;}
+    .tool-meta{gap:8px;font-size:13px;}
+  }
+  @media(max-width:480px){
+    .similar-grid{grid-template-columns:1fr;}
+    .container{padding:0 8px;}
+    .btn{font-size:13px;}
+  }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand"><a href="/">🏴‍☠️ AIbounty</a></div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span id="langBtn" style="cursor:pointer;color:#818cf8;font-size:12px;font-weight:700;" onclick="switchLang()">EN</span>
+      <span style="color:#64748b;font-size:12px;">🏠 <a href="/" style="color:#64748b;text-decoration:none;" data-i18n="navHome">首页</a></span>
+      <span style="color:#64748b;font-size:12px;">/</span>
+      <span style="color:#94a3b8;font-size:12px;" id="breadcrumbTitle">工具详情</span>
+      <a class="nav-back" href="/" style="margin-left:12px;" data-i18n="backHome">← 返回首页</a>
+    </div>
+  </div>
+</nav>
+<div class="container" id="app">
+  <div class="loading" id="loading">
+    <div class="icon">🔍</div>
+    <p data-i18n="loadingDetail">加载工具详情...</p>
+    <p class="warm-text" data-i18n="loadingWarm">好的工具值得等待 🌟</p>
+  </div>
+</div>
+<div class="footer" data-i18n="footerDetail">🏴‍☠️ AIbounty · 用心推荐每一款工具 <span class="warm">❤️</span></div>
+
+<script>
+// ── 中英文语言包 ──
+const I18N = {
+  zh: {
+    navHome: '首页', breadcrumbDetail: '工具详情', backHome: '← 返回首页',
+    loadingDetail: '加载工具详情...', loadingWarm: '好的工具值得等待 🌟',
+    footerDetail: '🏴‍☠️ AIbounty · 用心推荐每一款工具 ❤️',
+    noToolTitle: '未选择工具', noToolText: '请从首页选择一个工具查看详情',
+    notFoundTitle: '这个工具好像不见了', notFoundText: '可能是数据更新了，回去看看其他好工具吧',
+    sourceHN: '🌐 HackerNews', sourceGitHub: '⭐ GitHub', sourceJuejin: '📖 掘金',
+    dateUnknown: '未知', visitLink: '访问链接', descDefault: '暂无详细描述。',
+    recTitle: '💝 曦和推荐语：',
+    recFallback: '这款工具来自 {0} 社区，经 AIbounty 狩猎引擎筛选推荐。',
+    visitTool: '🚀 访问工具', backList: '← 返回列表',
+    catSection: '🏷️ 技术分类', sceneSection: '🎯 适用场景',
+    similarSection: '🔗 相似工具推荐', errorTitle: '加载出了点小问题',
+    errorText: '别担心，刷新一下就好了 🙏',
+    noTitle: '无标题', noDesc: '暂无描述',
+    catAgent: '🤖 Agent', catLLM: '🧠 LLM', catRAG: '🔗 RAG',
+    catDevTool: '🛠 Dev Tool', catMedia: '🎨 媒体', catDataScience: '📊 数据科学',
+    langSwitch: '中',
+  },
+  en: {
+    navHome: 'Home', breadcrumbDetail: 'Tool Details', backHome: '← Back to Home',
+    loadingDetail: 'Loading tool details...', loadingWarm: 'Great tools are worth waiting for 🌟',
+    footerDetail: '🏴‍☠️ AIbounty · Every tool handpicked ❤️',
+    noToolTitle: 'No tool selected', noToolText: 'Please select a tool from the homepage',
+    notFoundTitle: 'Tool not found', notFoundText: 'Data may have been updated, check out other tools',
+    sourceHN: '🌐 HackerNews', sourceGitHub: '⭐ GitHub', sourceJuejin: '📖 Juejin',
+    dateUnknown: 'Unknown', visitLink: 'Visit Link', descDefault: 'No detailed description available.',
+    recTitle: '💝 Xihe says:',
+    recFallback: 'This tool is from {0}, recommended by AIbounty hunting engine.',
+    visitTool: '🚀 Visit Tool', backList: '← Back to List',
+    catSection: '🏷️ Categories', sceneSection: '🎯 Use Cases',
+    similarSection: '🔗 Similar Tools', errorTitle: 'Something went wrong',
+    errorText: 'No worries, just refresh the page 🙏',
+    noTitle: 'Untitled', noDesc: 'No description',
+    catAgent: '🤖 Agent', catLLM: '🧠 LLM', catRAG: '🔗 RAG',
+    catDevTool: '🛠 Dev Tool', catMedia: '🎨 Media', catDataScience: '📊 Data Science',
+    langSwitch: 'EN',
+  }
+};
+let currentLang = localStorage.getItem('aibounty_lang') || 'zh';
+// 智能语言检测：如果浏览器是中文但设置是英文，自动切回中文
+(function autoDetectLang() {
+  var browserLang = (navigator.language || '').toLowerCase();
+  if (browserLang.startsWith('zh') && currentLang === 'en') {
+    currentLang = 'zh';
+    localStorage.setItem('aibounty_lang', 'zh');
+  }
+})();
+function t(key) { return I18N[currentLang][key] || key; }
+function tpl(key) {
+  const val = I18N[currentLang][key];
+  if (!val) return key;
+  const args = Array.prototype.slice.call(arguments, 1);
+  return val.replace(/\{(\d+)\}/g, (_, idx) => args[parseInt(idx)] !== undefined ? args[parseInt(idx)] : _);
+}
+function applyLang() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (key) el.textContent = t(key);
+  });
+  // 语言切换按钮
+  const lb = document.getElementById('langBtn');
+  if (lb) lb.textContent = t('langSwitch');
+}
+function switchLang() {
+  currentLang = currentLang === 'zh' ? 'en' : 'zh';
+  localStorage.setItem('aibounty_lang', currentLang);
+  applyLang();
+  // 重新加载工具（re-render 动态内容）
+  loadTool();
+}
+// ── 语言感知摘要 + 中文兜底翻译 ──
+function isChineseText(s) {
+  if (!s || typeof s !== 'string') return false;
+  var cn = s.match(/[\u4e00-\u9fff\u3400-\u4dbf]/g);
+  return cn && cn.length >= Math.max(3, s.length * 0.15);
+}
+var _translatedCache = {};
+function displayAbstract(item) {
+  if (currentLang === 'zh') {
+    const zh = item.abstract_zh;
+    // abstract_zh 存在且像真正的中文 → 直接用
+    if (zh && typeof zh === 'string' && zh.trim().length > 3 && isChineseText(zh)) return cleanHtml(zh);
+    // abstract 是真正的描述 → 直接用（即使英文）
+    if (looksLikeRealDescription(item.abstract)) {
+      tryTranslateAbstract(item.id, item.abstract || '');
+      return cleanHtml(item.abstract);
+    }
+    // 没有真正描述 → 显示友好提示 + 翻译尝试
+    tryTranslateAbstract(item.id, item.abstract || '');
+    return '<span style="color:var(--text3);">' + t('descDefault') +
+      (item.url ? '<br><a href="' + item.url + '" target="_blank" style="color:var(--primary);font-size:13px;">' + t('visitLink') + ' →</a>' : '') +
+      '</span>';
+  }
+  // 英文模式：有真描述就用，没有就兜底
+  if (looksLikeRealDescription(item.abstract)) return cleanHtml(item.abstract);
+  return '<span style="color:var(--text3);">' + t('descDefault') + '</span>';
+}
+
+// 清理 HTML 标签，只保留纯文本
+function cleanHtml(s) {
+  if (!s) return '';
+  var div = document.createElement('div');
+  div.innerHTML = s;
+  return div.textContent || div.innerText || s;
+}
+
+// 判断文本是否像"真正的"描述（不是 HN/RSS 原始标题）
+function looksLikeRealDescription(text) {
+  if (!text || text.length < 15) return false;
+  // 排除明显的非描述模式
+  var junkPatterns = [
+    /^HN\s*(show\s+)?(ask|tell|launch|discussion)/i,
+    /^Ask\s+HN/i,
+    /^Show\s+HN/i,
+    /^Tell\s+HN/i,
+    /^\d+\s*pts?\b/i,
+    /^HN:/i,
+    /^(Show|Ask|Tell)\s+/i,
+  ];
+  for (var i = 0; i < junkPatterns.length; i++) {
+    if (junkPatterns[i].test(text.trim())) return false;
+  }
+  // 至少包含一个完整句子（句号、问号、感叹号）
+  var hasSentence = text.indexOf('.') > -1 || text.indexOf('?') > -1 || text.indexOf('!') > -1;
+  if (!hasSentence && text.length < 40) return false;
+  return true;
+}
+
+// 调本地 Ollama 即时翻译（缓存结果，避免重复请求）
+// 注：仅在 localhost 开发环境生效，CDN 环境下自动跳过
+async function tryTranslateAbstract(toolId, text) {
+  if (!text || !toolId || _translatedCache[toolId] || text.length < 10) return;
+  if (isChineseText(text)) { _translatedCache[toolId] = true; return; }
+  // CDN 环境下跳过 localhost 请求
+  if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') { _translatedCache[toolId] = true; return; }
+  _translatedCache[toolId] = true;
+  try {
+    var ac = new AbortController();
+    var tm = setTimeout(function() { ac.abort(); }, 3000);
+    var resp = await fetch('http://localhost:11434/api/generate', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        model: 'qwen2.5:7b',
+        prompt: '把以下英文工具描述翻译成简洁的中文，保持技术术语不翻译，不要加任何前缀后缀，直接输出翻译结果：\n\n' + text,
+        stream: false,
+        options: { temperature: 0.3, num_predict: 300 }
+      }),
+      signal: ac.signal
+    });
+    clearTimeout(tm);
+    var data = await resp.json();
+    if (data && data.response) {
+      var descEl = document.querySelector('.tool-desc');
+      if (descEl) descEl.textContent = data.response.trim();
+    }
+  } catch(e) { /* 静默失败 */ }
+}
+
+async function loadTool() {
+  // 超时保护：8秒后如果 loading 还在就显示错误
+  var timeoutId = setTimeout(function() {
+    var ld = document.getElementById('loading');
+    if (ld && ld.style.display !== 'none') {
+      ld.style.display = 'none';
+      var app = document.getElementById('app');
+      if (app) {
+        app.innerHTML = '<div class="error-warm"><div class="icon">⏱️</div><h3>'+t('errorTitle')+'</h3><p>'+t('errorText')+'</p><a href="/" style="color:var(--primary);">'+t('backHome')+'</a></div>';
+      }
+    }
+  }, 8000);
+
+  const params = new URLSearchParams(window.location.search);
+  let toolId = params.get('id');
+  // 支持 /tool/{id} 路径式URL（SEO友好）
+  if (!toolId) {
+    const pathMatch = window.location.pathname.match(/\/tool\/([^\/]+)/);
+    if (pathMatch) toolId = pathMatch[1];
+  }
+  if (!toolId) {
+    document.getElementById('app').innerHTML = `<div class="error-warm"><div class="icon">🔍</div><h3>${t('noToolTitle')}</h3><p>${t('noToolText')}</p><a href="/" style="color:var(--primary);">${t('backHome')}</a></div>`;
+    const ld1 = document.getElementById('loading'); if (ld1) ld1.style.display = 'none';
+    clearTimeout(timeoutId);
+    return;
+  }
+
+  try {
+    const cacheKey = new Date().toISOString().slice(0,10);
+    var item = null;
+    var similarPool = [];
+
+    // ── Phase 1: 加载当前工具详情 ──
+    // 优先加载单个工具文件（~600 bytes），彻底绕开 CDN 大文件限制
+    var toolResp = await fetch('data/tool-' + toolId + '.json?_=' + cacheKey);
+    if (toolResp.ok) {
+      item = await toolResp.json();
+      // 异步加载索引用于相似推荐（不阻塞主渲染）
+      try {
+        var idxResp = await fetch('data/tools-index.json?_=' + cacheKey);
+        if (idxResp.ok) similarPool = await idxResp.json();
+      } catch(e) { /* 静默 */ }
+    } else {
+      // 降级：全量 data.json（兼容旧部署）
+      var r = await fetch('data.json?_=' + cacheKey);
+      if (!r.ok) {
+        var errText = await r.text().catch(function(){return '';});
+        throw new Error('HTTP ' + r.status + (errText ? ': ' + errText.slice(0,60) : ''));
+      }
+      var data = await r.json();
+      item = data.items.find(function(i) { return i.id === toolId; });
+      similarPool = data.items || [];
+    }
+
+    if (!item) {
+      document.getElementById('app').innerHTML = `<div class="error-warm"><div class="icon">🤔</div><h3>${t('notFoundTitle')}</h3><p>${t('notFoundText')}</p><a href="/" style="color:var(--primary);">${t('backHome')}</a></div>`;
+      const ld2 = document.getElementById('loading'); if (ld2) ld2.style.display = 'none';
+      return;
+    }
+
+    const cls = {hn:'hn',github:'github',juejin:'juejin'}[item.source]||'';
+    clearTimeout(timeoutId);
+    const SOURCE_LABEL = {hn:t('sourceHN'),github:t('sourceGitHub'),juejin:t('sourceJuejin')};
+    const label = SOURCE_LABEL[item.source]||item.source;
+    const LABELS = {hn:'HackerNews',github:'GitHub',juejin:'掘金'};
+    const stars = item.score ? (parseInt(item.score) >= 1000 ? (parseInt(item.score)/1000).toFixed(1).replace(/\.0$/,'') + 'k' : parseInt(item.score).toLocaleString()) : null;
+
+    // ── Phase 2: 相似工具推荐（多维度匹配） ──
+    const arr = v => Array.isArray(v) ? v : (v ? [v] : []);
+    var similar = [];
+    if (similarPool.length > 0) {
+      similar = similarPool
+        .filter(function(i) { return i.id !== toolId; })
+        .map(function(i) {
+          var s = 0;
+          var catMatch = arr(i.category).filter(function(c) { return arr(item.category).includes(c); }).length;
+          s += catMatch * 3;
+          var sceneMatch = arr(i.scene).filter(function(s2) { return arr(item.scene).includes(s2); }).length;
+          s += sceneMatch * 2;
+          var roleMatch = arr(i.roles).filter(function(r) { return arr(item.roles).includes(r); }).length;
+          s += roleMatch * 1.5;
+          if (i.source === item.source) s += 1;
+          var itemWords = new Set((item.title||'').toLowerCase().split(/[\s\/\-_]+/));
+          var iWords = (i.title||'').toLowerCase().split(/[\s\/\-_]+/);
+          var wordMatch = iWords.filter(function(w) { return w.length > 2 && itemWords.has(w); }).length;
+          s += wordMatch * 2;
+          return {id:i.id, title:i.title, score:i.score, captured_at:i.captured_at,
+                  category:i.category, source:i.source, simScore: s};
+        })
+        .sort(function(a,b) { return (b.simScore || 0) - (a.simScore || 0) || (b.score||0) - (a.score||0); })
+        .slice(0, 6);
+    }
+
+    function fmt(n){return n>=1000?(n/1000).toFixed(1).replace(/\.0$/,'')+'k':n.toLocaleString();}
+
+    document.getElementById('breadcrumbTitle').textContent = item.title || t('breadcrumbDetail');
+    // 动态更新SEO元数据
+    document.title = item.title + ' - 🏴‍☠️ AIbounty';
+    const canonical = document.getElementById('canonicalLink');
+    if (canonical) canonical.href = 'https://aibounty.cn/tool/' + toolId;
+    // Open Graph
+    let ogDesc = document.querySelector('meta[property="og:description"]');
+    if (!ogDesc) {
+      ogDesc = document.createElement('meta'); ogDesc.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDesc);
+    }
+    ogDesc.setAttribute('content', (item.abstract_zh || item.abstract || '').slice(0, 200));
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    if (!ogTitle) {
+      ogTitle = document.createElement('meta'); ogTitle.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitle);
+    }
+    ogTitle.setAttribute('content', item.title + ' - AIbounty');
+    let ogUrl = document.querySelector('meta[property="og:url"]');
+    if (!ogUrl) {
+      ogUrl = document.createElement('meta'); ogUrl.setAttribute('property', 'og:url');
+      document.head.appendChild(ogUrl);
+    }
+    ogUrl.setAttribute('content', 'https://aibounty.cn/tool/' + toolId);
+    // 动态 JSON-LD：每个工具独立的结构化数据，让搜索结果展示星级/描述
+    let oldLd = document.getElementById('toolLdJson');
+    if (oldLd) oldLd.remove();
+    let ldScript = document.createElement('script');
+    ldScript.id = 'toolLdJson';
+    ldScript.type = 'application/ld+json';
+    ldScript.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      'name': item.title,
+      'description': (item.abstract_zh || item.abstract || '').slice(0, 300),
+      'url': item.url || 'https://aibounty.cn/tool/' + toolId,
+      'applicationCategory': Array.isArray(item.category) ? item.category[0] : (item.category || 'AIApplication'),
+      'operatingSystem': 'Web',
+      'aggregateRating': item.score ? {
+        '@type': 'AggregateRating',
+        'ratingValue': Math.min(5, Math.round((parseInt(item.score)||0) / 2000 * 10) / 10),
+        'bestRating': 5,
+        'ratingCount': Math.max(1, Math.floor((parseInt(item.score)||0) / 100))
+      } : undefined
+    });
+    document.head.appendChild(ldScript);
+    const CAT_MAP = {agent:t('catAgent'),llm:t('catLLM'),rag:t('catRAG'),'dev-tool':t('catDevTool'),media:t('catMedia'),'data-science':t('catDataScience'),uncategorized:'其他','ai_framework':'AI框架','agent_tools':'Agent工具','ai_application':'AI应用','llm_tools':'LLM工具','data_tool':'数据工具','multimodal':'多模态','education':'教育'};
+    document.getElementById('app').innerHTML = `
+      <div class="tool-header">
+        <div class="tool-source ${cls}">${label}</div>
+        <h1>${item.title || t('noTitle')}</h1>
+        <div class="tool-meta">
+          ${stars ? `<span class="stars">⭐ ${stars}</span>` : ''}
+          <span>📅 ${item.captured_at || t('dateUnknown')}</span>
+          ${item.url ? `<span>🔗 <a href="${item.url}" target="_blank" style="color:var(--primary);">${t('visitLink')}</a></span>` : ''}
+        </div>
+      </div>
+
+      <div class="tool-desc">
+        ${displayAbstract(item)}
+      </div>
+
+      <div class="warm-banner">
+        <span class="emoji">💝</span> <strong>${t('recTitle')}</strong>
+        ${item.reason ? item.reason : tpl('recFallback', LABELS[item.source]||item.source)}
+      </div>
+
+      <div class="tool-actions">
+        ${item.url ? `<a href="${item.url}" target="_blank" class="btn btn-primary">${t('visitTool')}</a>` : ''}
+        <a href="/" class="btn btn-secondary">${t('backList')}</a>
+      </div>
+
+      ${arr(item.category).length ? `
+        <div class="section-title">${t('catSection')}</div>
+        <div class="tags">
+          ${arr(item.category).map(c => `<span class="tag">${CAT_MAP[c]||c}</span>`).join('')}
+        </div>
+      ` : ''}
+
+      ${arr(item.scene).length ? `
+        <div class="section-title">${t('sceneSection')}</div>
+        <div class="tags">
+          ${arr(item.scene).map(s => `<span class="tag scene">${s}</span>`).join('')}
+        </div>
+      ` : ''}
+
+      ${similar.length ? `
+        <div class="section-title" style="font-size:18px;">${t('similarSection')}</div>
+        <div class="similar-grid">
+          ${similar.map(s => `
+            <div class="similar-card" onclick="location.href='tool.html?id=${s.id}'" style="cursor:pointer;">
+              <h3>${s.title}</h3>
+              <p style="font-size:12px;color:var(--text3);">${arr(s.category).slice(0,2).map(c => CAT_MAP[c]||c).join(' · ') || s.source || 'AI'}</p>
+              <div class="similar-meta">
+                ${s.score && s.score !== '0' ? '⭐ ' + fmt(parseInt(s.score)) : ''}
+                ${s.captured_at ? ' · ' + s.captured_at.slice(0,10) : ''}
+              </div>
+              <div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:6px;">
+                ${arr(s.category).slice(0,2).map(c => `<span class="tag" style="font-size:10px;padding:2px 8px;">${c}</span>`).join('')}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      ` : ''}
+    `;
+    const ld = document.getElementById('loading');
+    if (ld) ld.style.display = 'none';
+    // 应用语言（覆盖可能存在的 data-i18n 元素）
+    applyLang();
+    // 尝试翻译英文描述为中文（仅当 abstract_zh 不是真正中文时）
+    tryTranslateAbstract(item.id, item.abstract || '');
+    clearTimeout(timeoutId);
+  } catch(e) {
+    document.getElementById('app').innerHTML = `<div class="error-warm"><div class="icon">⚠️</div><h3>${t('errorTitle')}</h3><p>${t('errorText')}</p><p style="font-size:11px;color:#64748b;margin-top:8px;">${e.message}</p><a href="/" style="color:var(--primary);">${t('backHome')}</a></div>`;
+    const ldE = document.getElementById('loading'); if (ldE) ldE.style.display = 'none';
+    clearTimeout(timeoutId);
+  }
+}
+applyLang();
+loadTool();
+
+// ── 语言切换快捷键 ──
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'l') { e.preventDefault(); switchLang(); }
+});
+</script>
+</body>
+</html>

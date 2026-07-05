@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📚 RAG / 检索增强生成 · AIbounty</title>
+<meta name="description" content="知识库问答、文档检索、向量数据库 — 让 AI 连接你的数据 — AIbounty 收录 154 个相关工具，每日更新。">
+<link rel="canonical" href="https://www.aibounty.cn/rag.html">
+<!-- 百度自动推送 -->
+<script>
+(function(){var bp=document.createElement('script');bp.src='https://zz.bdstatic.com/linksubmit/push.js';bp.async=true;var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bp,s);})();
+</script>
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function(){var hm=document.createElement('script');hm.src='https://hm.baidu.com/hm.js?5af31489d2c04d8f7b0bc8a8c852bcf2';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(hm,s);})();
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e17;--card:#111827;--border:#1e3a5f;--text:#f1f5f9;--text2:#94a3b8;--text3:#64748b;--primary:#3b82f6;--accent:#f59e0b}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,23,0.75);backdrop-filter:blur(20px);border-bottom:1px solid rgba(30,58,95,0.4)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:60px}
+.nav-brand{color:var(--text);text-decoration:none;font-size:18px;font-weight:700}
+.nav-links{display:flex;gap:12px}
+.nav-link{color:var(--text2);text-decoration:none;font-size:14px;transition:color 0.15s}
+.nav-link:hover{color:var(--primary)}
+.container{max-width:1200px;margin:0 auto;padding:80px 24px 40px}
+.header{margin:32px 0 24px}
+.header h1{font-size:28px;margin-bottom:8px}
+.header p{color:var(--text2);font-size:15px;line-height:1.6}
+.stats{display:flex;gap:16px;margin:16px 0 32px;flex-wrap:wrap}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 24px;text-align:center}
+.stat-card .num{font-size:24px;font-weight:700;color:var(--primary)}
+.stat-card .label{font-size:12px;color:var(--text3);margin-top:4px}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.tool-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all 0.15s;text-decoration:none;color:var(--text);display:block}
+.tool-card:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:0 4px 20px rgba(59,130,246,0.15)}
+.tool-card h3{font-size:15px;margin-bottom:8px;line-height:1.4}
+.tool-card .desc{font-size:13px;color:var(--text2);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tool-card .meta{display:flex;align-items:center;gap:12px;margin-top:10px;font-size:12px;color:var(--text3)}
+.tag{display:inline-block;background:rgba(59,130,246,0.1);color:var(--primary);padding:2px 10px;border-radius:4px;font-size:11px;margin-right:4px}
+.back-home{display:inline-block;margin-top:32px;color:var(--text2);text-decoration:none;font-size:14px}
+.back-home:hover{color:var(--primary)}
+</style>
+</head>
+<body>
+<div class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">🏴‍☠️ AIbounty</a>
+    <div class="nav-links">
+      <a href="/daily.html" class="nav-link">📰 日报</a>
+      <a href="/about.html" class="nav-link">ℹ️ 关于</a>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="header">
+    <h1>📚 RAG / 检索增强生成</h1>
+    <p>知识库问答、文档检索、向量数据库 — 让 AI 连接你的数据</p>
+    <div class="stats">
+      <div class="stat-card">
+        <div class="num">154</div>
+        <div class="label">收录工具</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">15</div>
+        <div class="label">高星项目</div>
+      </div>
+    </div>
+  </div>
+  <div class="tool-grid">
+    <a href="tool.html?id=d866b424f7" class="tool-card">
+      <h3>fighting41love/funNLP</h3>
+      <div class="desc">伙伴们，别再为查资料发愁了！**funNLP** 让你瞬间变身知识小能手，效率翻倍不是梦，快来体验不一样的“速成”快乐吧！</div>
+      <div class="meta">
+        <span>⭐ 81326</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=65379a2427" class="tool-card">
+      <h3>bytedance/deer-flow</h3>
+      <div class="desc">伙伴们，别再被繁琐的工作缠身了！试试咱们的**deer-flow**吧。它能帮你自动抓取数据、生成周报，调Bug也不在话下。以前写周报得熬夜苦思，现在只需一键搞定，岂不美哉？快来一起告别加班狗的日子，享受高效生活！</div>
+      <div class="meta">
+        <span>⭐ 71442</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=3fce13de50" class="tool-card">
+      <h3>run-llama/llama_index</h3>
+      <div class="desc">如果你在写周报时还在苦恼如何整理海量资料，或者在调Bug时翻箱倒柜找文档——试试 **llama_index** 吧！它就像一个私人知识库，帮你一键检索所有相关信息。相比那些老式工具，**llama_index** 响应速度更快，还能智能过...</div>
+      <div class="meta">
+        <span>⭐ 50200</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-data</span><span class="tag">star-10k</span></div>
+    </a>
+    <a href="tool.html?id=b5efad826f" class="tool-card">
+      <h3>patchy631/ai-engineering-hub</h3>
+      <div class="desc">这是你的AI工程宝典，里面不仅有LLMs和RAGs的深度教程，还有如何把它们变成现实中的超级英雄！比如教你用这些技术让聊天机器人瞬间变身情感大师，或者让你家扫地机学会讲段子逗你乐。这可比看肥皂剧有用多了！</div>
+      <div class="meta">
+        <span>⭐ 35844</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=b762c34c37" class="tool-card">
+      <h3>PDFMathTranslate/PDFMathTranslate</h3>
+      <div class="desc">PDFMathTranslate？别名PDF数学魔术师，专治学术论文里的高深魔咒！啥是高数符号堆成的天书？它来了，一键破解，让你瞬间秒懂那些让人头秃的公式和定理。再也不用担心被复杂的PDF文档唬住，轻松掌握知识的真谛！</div>
+      <div class="meta">
+        <span>⭐ 34938</span>
+        <span>2026-06-19</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">document-pipeline</span><span class="tag">star-10k</span></div>
+    </a>
+    <a href="tool.html?id=microsoft-graphrag" class="tool-card">
+      <h3>microsoft/graphrag</h3>
+      <div class="desc">伙计们！有波好玩的好东西要安利给你们——**GraphRag**！你知道的，写周报时抓狂找数据？调Bug时翻半天没头绪？这货简直是个救星！它能快速从海量知识库中抓取信息，让你的工作效率嗖嗖提升。相比其他工具，GraphRag简直就是搜索神器...</div>
+      <div class="meta">
+        <span>⭐ 33829</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-business</span><span class="tag">rag-framework</span></div>
+    </a>
+    <a href="tool.html?id=9fea7d3b8a" class="tool-card">
+      <h3>VectifyAI/PageIndex</h3>
+      <div class="desc">PageIndex：再也不用担心“碎碎念”了！不需要建向量库，也不需要分段子，纯靠逻辑思维就能给你精准检索。金融数据上测试，准确率98.7%，简直秒杀一切！妥妥的职场小能手，让文档搜索从此不迷路！</div>
+      <div class="meta">
+        <span>⭐ 33515</span>
+        <span>2026-06-30</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">hot-new</span></div>
+    </a>
+    <a href="tool.html?id=fde7db288e" class="tool-card">
+      <h3>NirDiamant/RAG_Techniques</h3>
+      <div class="desc">伙计们！给你们推荐个神器——RAG_Techniques！这货简直就是大模型中的战斗机，写周报时能帮你快速整理数据，调Bug时更是能瞬间找出问题所在。它最大的优势就是智能地匹配信息，比传统方法快了不止一点点！快来试试，让你的工作效率飞升不止...</div>
+      <div class="meta">
+        <span>⭐ 28024</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-data</span><span class="tag">rag-framework</span></div>
+    </a>
+    <a href="tool.html?id=5b237c9be9" class="tool-card">
+      <h3>comet-ml/opik</h3>
+      <div class="desc">别再为写周报头疼了，试试**opik**吧！它能自动抓取数据、整理要点，简直比你的加班时间还宝贵。写报告时它帮你搜集资料，调Bug时它让你省心不少。用上这个小帮手，效率嗖嗖升，赶紧试试吧！</div>
+      <div class="meta">
+        <span>⭐ 19684</span>
+        <span>2026-06-18</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-10k</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=5835c88345" class="tool-card">
+      <h3>allenai/olmocr</h3>
+      <div class="desc">这是一款让你的PDF文档变成机器爱吃的“文字大餐”的神器！它能把那些复杂难啃的PDF文件，一键转换成清爽可口的文字序列，专为训练大型语言模型设计。从此，你的LLM再也不用愁吃啥了！</div>
+      <div class="meta">
+        <span>⭐ 18267</span>
+        <span>2026-07-02</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">pdf-processing</span><span class="tag">llm-training</span><span class="tag">data-prep</span></div>
+    </a>
+    <a href="tool.html?id=e1bdbdd78c" class="tool-card">
+      <h3>DeusData/codebase-memory-mcp</h3>
+      <div class="desc">伙计们，我最近发现了个神器——**codebase-memory-mcp**！写周报时还在拼命搜代码细节？调Bug时脑袋里像装了九万个文件？这工具就是你的救星！它能迅速整理你的项目历史，帮你一秒定位关键信息。比那些笨拙的搜索工具强多了，简直...</div>
+      <div class="meta">
+        <span>⭐ 11649</span>
+        <span>2026-06-23</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-code</span><span class="tag">scene-data</span></div>
+    </a>
+    <a href="tool.html?id=320ad74d56" class="tool-card">
+      <h3>alibaba/zvec</h3>
+      <div class="desc">阿里巴巴出品的轻量级“空中飞人”向量数据库，说server再见！再也不用担心服务器占地儿了，你的数据就在你身边飘着呢！随时随地，想查就查！</div>
+      <div class="meta">
+        <span>⭐ 9800</span>
+        <span>2026-06-29</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-1k</span><span class="tag">hot-new</span></div>
+    </a>
+    <a href="tool.html?id=1bfeacf718" class="tool-card">
+      <h3>ageerle/ruoyi-ai</h3>
+      <div class="desc">企业AI开发框架「ageerle/ruoyi-ai」，就像给你的公司装了个超级智能管家！多供应商LLM随意切换，知识库检索精准得吓人，流程图拖拽就能搞定，自主代理还能互相协作。这简直就是给老板的福利，让你手下那帮程序猿都变成无所不能的小超人...</div>
+      <div class="meta">
+        <span>⭐ 4600</span>
+        <span>2026-06-27</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-1k</span><span class="tag">hot-new</span></div>
+    </a>
+    <a href="tool.html?id=f86fed218c" class="tool-card">
+      <h3>aiflowy/AIFlowy</h3>
+      <div class="desc">嘿，各位程序员小伙伴们，如果你们还在为那些复杂的企业级AI项目发愁，那来试试咱们的“aiflowy/AIFlowy”吧！它就像是你的私人定制小帮手，专攻国内IT基础设施，让你的代码飞一般地运行起来。这回不用再羡慕Dify和Coze了，我们有...</div>
+      <div class="meta">
+        <span>⭐ 4300</span>
+        <span>2026-06-27</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">star-1k</span><span class="tag">hot-new</span></div>
+    </a>
+    <a href="tool.html?id=8738b9fd46" class="tool-card">
+      <h3>TabularisDB/tabularis</h3>
+      <div class="desc">TabularisDB，你的数据小助手！一个开源的桌面SQL工作站，支持PostgreSQL、MySQL/MariaDB、SQLite等12+数据库。内置SQL笔记本，AI帮你写代码，还有MCP认证的AI代理来助你一臂之力。再也不怕数据乱炖...</div>
+      <div class="meta">
+        <span>⭐ 3466</span>
+        <span>2026-06-30</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-open-source</span><span class="tag">scene-game</span><span class="tag">star-1k</span></div>
+    </a>
+    <a href="tool.html?id=83bdf54f39" class="tool-card">
+      <h3>Dispersion loss counteracts embedding condensation in small </h3>
+      <div class="desc">暂无详细描述，该工具正在审核中。</div>
+      <div class="meta">
+        <span>⭐ 15</span>
+        <span>2026-07-04</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span><span class="tag">__garbage__</span></div>
+    </a>
+    <a href="tool.html?id=330ee3607b" class="tool-card">
+      <h3>14× faster embeddings: how we rebuilt the ONNX path in Manti</h3>
+      <div class="desc">暂无详细描述，该工具正在审核中。</div>
+      <div class="meta">
+        <span>⭐ 13</span>
+        <span>2026-07-03</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span><span class="tag">__garbage__</span></div>
+    </a>
+    <a href="tool.html?id=5d2f596b98" class="tool-card">
+      <h3>Git-lazy-mount mount a repo without cloning it. Works with o</h3>
+      <div class="desc">嘿，各位！这是一款让你在不需要克隆整个仓库的情况下就能开工的小工具——Git-lazy-mount。想象一下，你面前摆着一个超大的代码仓库，而你需要的只是一个角落里的小文件来完成你的AI魔法，这时，Git-lazy-mount就从你袖子里“...</div>
+      <div class="meta">
+        <span>⭐ 6</span>
+        <span>2026-06-26</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-code</span><span class="tag">scene-game</span><span class="tag">fresh</span></div>
+    </a>
+    <a href="tool.html?id=ebd8c9b311" class="tool-card">
+      <h3>Are Claude models broken with the Fable 5 update?</h3>
+      <div class="desc">Fable 5 又回来了（一周时间），但我刚刚发现所有 Claude 模型突然都无法使用所有工具（搜索、检索、阅读、编写）。其他人也有同样的问题吗？</div>
+      <div class="meta">
+        <span>⭐ 5</span>
+        <span>2026-07-02</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span></div>
+    </a>
+    <a href="tool.html?id=4b7bf36fe7" class="tool-card">
+      <h3>Fortune 500 bosses demanding staff RTO share 1 trait: Narcis</h3>
+      <div class="desc">快来看！Fortune 500 bosses的共同特质竟然是这种性格——听起来是不是有点让人发笑？但其实这个工具 **Fortune 500 bosses demanding staff RTO share 1 trait: Narciss...</div>
+      <div class="meta">
+        <span>⭐ 4</span>
+        <span>2026-06-26</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span><span class="tag">scene-research</span><span class="tag">scene-game</span></div>
+    </a>
+    <a href="tool.html?id=ace72806f2" class="tool-card">
+      <h3>Starglyphs - A constellation puzzle game based on Euler path</h3>
+      <div class="desc">嘿，各位《龙腾世纪》的铁粉们！我可是沉迷于《净化者》的时长足以绕地球好几圈。现在我把那星图迷宫搬到了屏幕上，让你用手指当罗盘，解这些动态星座谜题。而且这回你不是一个人类，而是整个宇宙在帮你生成新关卡！来吧，让我们一起在星辰大海中找寻出路！</div>
+      <div class="meta">
+        <span>⭐ 4</span>
+        <span>2026-06-28</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-game</span><span class="tag">hot-new</span><span class="tag">source-hn</span></div>
+    </a>
+    <a href="tool.html?id=803e7cc478" class="tool-card">
+      <h3>A Berkeley AI professor makes provocative argument for decel</h3>
+      <div class="desc">这可真是个让人挠头的问题：你是不是也觉得AI发展太快，有点跟不上？别急，有个Berkeley的AI教授说，咱们得慢点研究！这不是在说要停下来不搞AI，而是在提醒我们，技术的发展也需要考虑伦理和社会影响。快来听听这位大佬怎么说吧！这可比看肥宅...</div>
+      <div class="meta">
+        <span>⭐ 4</span>
+        <span>2026-06-30</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-paid</span><span class="tag">scene-research</span><span class="tag">scene-game</span></div>
+    </a>
+    <a href="tool.html?id=e5397c0913" class="tool-card">
+      <h3>GeoSpoof – your VPN hides your IP, but the browser leaks you</h3>
+      <div class="desc">Hello HN,&lt;p&gt;I started building GeoSpoof after I noticed my IP says one country, but the browser still hands sites ...</div>
+      <div class="meta">
+        <span>⭐ 4</span>
+        <span>2026-07-03</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span><span class="tag">__garbage__</span></div>
+    </a>
+    <a href="tool.html?id=网易见外" class="tool-card">
+      <h3>网易见外</h3>
+      <div class="desc">伙计们！有没有遇到过这样的尴尬：忙着写周报突然发现国外客户的邮件没翻过来？别急，这时候 **See(shell)** 就像你的私人翻译官，瞬间帮你搞定语言障碍。它不仅速度快得惊人，还能保持原汁原味的语感，比那些死板的机器强多了！调Bug时也...</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=coda" class="tool-card">
+      <h3>Coda</h3>
+      <div class="desc">你们的创作小帮手 **Coda** 来啦！写周报时，别再为表格和文本来回切换抓狂了；调Bug时，不用每次都去翻代码历史。**Coda** 一档子事全搞定，轻量级文档、协作板和数据库都能一手包办。来试试，让效率up up，生活不再emo！</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=qdrant" class="tool-card">
+      <h3>Qdrant</h3>
+      <div class="desc">来个强力安利——**Qdrant**！这货就像是你的私人智能小助手，在知识库里飞速检索，比你翻文件柜快多了。写周报时想找资料？调Bug时要找代码？它都能秒回答案，简直比别人多了一双发现宝藏的眼睛！赶紧试试吧，效率up up，懒癌不药而愈！</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-data</span><span class="tag">vector-database</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=chunkr" class="tool-card">
+      <h3>Chunkr</h3>
+      <div class="desc">别再为写周报时抓耳挠腮了，试试 **Chunkr** 吧！它像你的私人助手，自动帮你整理信息、归纳重点，省去你大半天敲键盘的时间。调Bug时也不用愁了，只需一“问”，它就能给你提供可能的解决方案，效率嗖嗖升！快来体验这股AI新风吧！</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">document-pipeline</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=badda5d999" class="tool-card">
+      <h3>Working around dragons with the Lemote Yeeloong laptop and O</h3>
+      <div class="desc">搜索+大模型的黄金组合，Working around dragons with the Lemote Yeeloong laptop and OpenBSD 做得特别扎实。不是那种&quot;看起来很美用起来翻车&quot;的产品，检索精度...</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-28</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-game</span><span class="tag">rag-framework</span><span class="tag">hot-new</span></div>
+    </a>
+    <a href="tool.html?id=6012d6f0a4" class="tool-card">
+      <h3>Delete Google</h3>
+      <div class="desc">喂喂，各位HN小伙伴们！你叔公想买个乡下养老房，结果谷歌告诉他那地方老爱淹水。天哪，就因为50年前有一次暴雨，这鬼谷歌记到现在！要是能删了它，说不定叔公就能找到理想家园啦！快用「Tell HN: Delete Google」吧，一键操作，告...</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-29</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">hot-new</span><span class="tag">source-hn</span><span class="tag">__garbage__</span></div>
+    </a>
+    <a href="tool.html?id=da06931556" class="tool-card">
+      <h3>Vaghenu, a meter aware sloka-to-chant, TTS for Sanskrit</h3>
+      <div class="desc">十五年前的:'.$(\text{闭眼冥想一秒钟})$梦想今天终于实现了！我从博士起点出发，立志为所有人带来完美诵读梵文格言的技术。现在，我要向你们介绍Vaghenu——一个会计量韵律的开源TTS工具，让你在家就能感受古印度文字的魅力！快来试...</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-06-30</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-data</span><span class="tag">scene-game</span><span class="tag">audio-generation</span></div>
+    </a>
+    <a href="tool.html?id=98e6d5efeb" class="tool-card">
+      <h3>MothRAG - Graph-free multi-hop RAG without the rebuild bill</h3>
+      <div class="desc">暂无详细描述，该工具正在审核中。</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-07-03</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">open_source</span><span class="tag">__garbage__</span></div>
+    </a>
+    <a href="tool.html?id=49c95886b5" class="tool-card">
+      <h3>I'm trying to map all vacation rentals you can book direct</h3>
+      <div class="desc">Hi HN,&lt;p&gt;StayThere.ai started because I was trying to get more repeat guests to book directly instead of through A...</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-07-04</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span><span class="tag">__garbage__</span></div>
+    </a>
+    <a href="tool.html?id=976fe636c7" class="tool-card">
+      <h3>Local privacy-first Microsoft Recall alternative with Gemma </h3>
+      <div class="desc">hi author here, Screenmind is privacy first Microsoft recall alternative .
+It runs on gemma 4 which is one of the fewer ...</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-07-04</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">open_source</span><span class="tag">__garbage__</span></div>
+    </a>
+    <a href="tool.html?id=364b2ae23d" class="tool-card">
+      <h3>Visual Knowledge Canvas for Learners</h3>
+      <div class="desc">Bring all your sources into a visual space, ask questions with full context, branch LLM conversations, and go deep on Yo...</div>
+      <div class="meta">
+        <span>⭐ 3</span>
+        <span>2026-07-04</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span><span class="tag">__garbage__</span></div>
+    </a>
+    <a href="tool.html?id=5118-seo优化精灵" class="tool-card">
+      <h3>5118 SEO优化精灵</h3>
+      <div class="desc">伙计们！今天给大家安利个神器——**5118 SEO优化精灵**。你知道的，写周报的时候，数据堆成山，让人头大如斗。但有了它，一键抓取关键词、优化内容变得轻而易举，简直就像请了个SEO大师在旁边指导一样！这工具不仅操作简单，还能帮你大幅提高...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=元典智库" class="tool-card">
+      <h3>元典智库</h3>
+      <div class="desc">群友们，我发现了个宝藏工具——**Element AI**！你知道吗？这货简直就是你的私人知识库，无论是写周报还是调试代码，都能让你效率翻倍。比如你正在赶周报，但数据查了半天还没找到头绪？别急，Element AI一秒帮你从海量资料中筛选出...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=通义智文" class="tool-card">
+      <h3>通义智文</h3>
+      <div class="desc">伙计们！来个神器给大家——**通义智文**，效率提升界的“隐世高手”！写周报时，再也不怕数据整理成狗；调Bug时，它能一秒帮你查文献、找答案。比其他工具强在哪？因为它不仅速度快，还能深度理解上下文，让你的文章更有料！快来试试吧，效率与智慧的...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=百川大模型" class="tool-card">
+      <h3>百川大模型</h3>
+      <div class="desc">伙计们，来一波骚操作！大家都知道写周报是个无尽的苦差事吧？这时候，不妨试试我们的 **百川大模型**。它不仅能帮你生成专业的报告文案，还能瞬间解决你代码里的Bug，简直比加班还快！无论是数据分析还是代码优化，它的准确性和效率绝对让你惊喜不已...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=玻尔" class="tool-card">
+      <h3>玻尔</h3>
+      <div class="desc">伙计们！这次给大家推荐个神器——**Bole**！作为一个知识库/RAG工具，它简直就是写周报时的救星、调Bug时的得力助手。为啥？因为它能瞬间从海量信息中抓取你所需的精华，比传统搜索引擎快多了！上次我写周报急着找数据，一通操作猛如虎，结果...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=知乎直答" class="tool-card">
+      <h3>知乎直答</h3>
+      <div class="desc">伙计们，来个超实用的推荐——**Quizz Answer**！写周报时突然卡壳？调Bug时抓狂无措？这货一上线，秒变你的私人AI智囊团。不仅速度快得飞起，还能精准匹配你所需的知识点，比那些老掉牙的手册强多了。快来试试吧，让效率提升到新高度！</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=百度ai探索版" class="tool-card">
+      <h3>百度AI探索版</h3>
+      <div class="desc">快来看看这个**BaDreamAI**探索版吧！它简直就是你工作中的私人助手。写周报时，再也不怕数据不够用了；调Bug时，它能迅速帮你找到相关资料，比别人家的工具快多了！赶紧试试，你的工作效率要翻倍哦～</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=博查ai搜索" class="tool-card">
+      <h3>博查AI搜索</h3>
+      <div class="desc">别再被那些沉闷的搜索引擎坑了！来试试 **Bocha AI Search** 吧！它能瞬间帮你在海量信息中找到最精准的答案。比如写周报时，只需一句“本周工作重点”，它就能给你整理出清晰的工作总结；调Bug时，“这个错误怎么解决？”它直接给出...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">embedding-search</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=天工ai搜索" class="tool-card">
+      <h3>天工AI搜索</h3>
+      <div class="desc">你们在忙啥呢？我最近发现了个宝藏——**Qwen**！写周报时，再也不用担心数据整合慢、信息碎片化的问题了。调Bug时，它还能瞬间检索海量文档，帮你快速定位问题根源。这比传统的搜索工具快多了，简直就是效率小能手！快来试试吧！</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">embedding-search</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=博简智慧专利" class="tool-card">
+      <h3>博简智慧专利</h3>
+      <div class="desc">伙友们，别再为写周报而头疼啦！试试我们的 **BlazeWisdom Patent** 吧。它就像你的私人图书馆，海量知识一搜即得，还能自动提炼关键点，比那些死板的百科全书强多了！比如你在写技术周报时，遇到某个难题，只需几秒就能找到最前沿的...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=360ai搜索" class="tool-card">
+      <h3>360AI搜索</h3>
+      <div class="desc">伙计们！有没有遇到过写周报加班加点抓狂的时候？或者是调试Bug头大如牛的时候？这时候，不妨试试**360AI Search**吧！这货就像你的私人知识库，啥都能搜到，还能自动生成摘要，效率嗖嗖的！比那些老旧的知识引擎强多了，简直就是你的工作...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=开搜ai" class="tool-card">
+      <h3>开搜AI</h3>
+      <div class="desc">伙计们！今天给大家安利个超级给力的工具——**SearchAI**！它就像是你的私人搜索引擎，不仅能帮你快速找到所需资料，还能自动整理归纳。写周报时，再也不用加班加点了；调Bug时，也能瞬间揪出问题所在。比其他搜索工具快了不止一点点，简直不...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=博查万象" class="tool-card">
+      <h3>博查万象</h3>
+      <div class="desc">伙计们，快来看看这波 **博查万象**！作为一个混AI圈的老炮，我必须说它真的很牛。你还在为写周报时找不到灵感而抓狂吗？还是在调Bug时被各种问题缠得头大？别急，用 **Bogcha Omniscient** 一秒帮你搞定！它能快速整理海量...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=flowus-ai" class="tool-card">
+      <h3>FlowUs AI</h3>
+      <div class="desc">今天给你们安利个神器——**FlowUs AI**。你还在为写周报、做报告愁眉不展吗？还在手忙脚乱地找资料调Bug吗？它能瞬间帮你整合海量信息，让你的数据和观点一目了然！尤其是在写周报时，不用再翻遍整个文档库，只需几秒钟就能生成精美的内容。...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=vibeknow" class="tool-card">
+      <h3>VibeKnow</h3>
+      <div class="desc">伙友们，来个超级实用的小工具——**VibeKnow**！它能帮你瞬间从混乱的文件中筛选出有用的信息，再也不用担心周报写到一半突然发现上周的会议纪要找不到了。调Bug时，它还能迅速定位问题所在，比你手动翻资料快多了。赶紧试试，让你的工作效率...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=quivr" class="tool-card">
+      <h3>Quivr</h3>
+      <div class="desc">伙计们！别再被那些老套的知识库工具折磨了，试试**Quivr**吧！它不仅能帮你一键获取最新资料，还能智能整合信息，简直是效率提升的神器！比如写周报时，你再也不用翻箱倒柜找资料，直接调出**Quivr**，瞬间搞定！而且它的响应速度超快，比...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-game</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=hoarder" class="tool-card">
+      <h3>Hoarder</h3>
+      <div class="desc">伙计们！来点福利啦！推荐一下**Hoarder**，这可是个宝藏工具！你还在为写周报时搜罗资料、调Bug时找代码而头疼吗？别急，**Hoarder**来了，它就像是你的私人图书馆，知识一应俱全，检索速度快到飞起。比如写周报时，直接扔进去几个...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-game</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=masteragent" class="tool-card">
+      <h3>MasterAgent</h3>
+      <div class="desc">群！今天给你们安利个神器——**MasterAgent**！写周报时，它能帮你自动整理数据，简直比你加班还要卖力；调Bug时，它就像你的私人侦探，快速定位问题，效率嗖嗖的！相比其他工具，MasterAgent就像那个老司机，不仅路线熟，还知...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">ai-agent</span><span class="tag">rag-framework</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=neeva" class="tool-card">
+      <h3>Neeva</h3>
+      <div class="desc">伙计们！今天给大家种草个神器——**Neeva**！你知道的，信息量大的时候大脑就像宕机了。而Neeva就像你的私人图书馆，帮你一键检索海量知识。写周报时想引用数据？调Bug时需要排查资料？它都能瞬间让你拨开云雾见青天！而且比其他工具快多了...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=perplexity" class="tool-card">
+      <h3>Perplexity</h3>
+      <div class="desc">Perplexity就像一个知识界的魔术师，既能准确地在海量文档中找到你需要的那根针，又能用LLM生成让你眼前一亮的答案。面对复杂问题，它从不胡言乱语，而是像喝了杯定心茶，稳稳给你答案。简直是文档海洋里的救生圈！</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=searchgpt" class="tool-card">
+      <h3>SearchGPT</h3>
+      <div class="desc">伙计们！来点新鲜货色——**SearchGPT**！这玩意儿就像你的私人搜索引擎plus版。写周报时，它能帮你瞬间扫描海量信息；调Bug时，它秒速揪出问题所在，比你手动找还快两倍有余。简直是效率小能手，快来试试吧，让工作变得不那么痛苦！</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-game</span><span class="tag">ai-chat</span><span class="tag">embedding-search</span></div>
+    </a>
+    <a href="tool.html?id=devv" class="tool-card">
+      <h3>Devv</h3>
+      <div class="desc">伙伴们，来个爽歪歪的推荐！大家知道吗？有这么一个叫 **Devv** 的小天才，简直就是知识库中的“大力神”！写周报时它能帮你快速梳理项目进展；调Bug时它能瞬间拉出相关文档和案例。关键是，它比同类工具快了N个level，就像在信息的海洋里...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=felo" class="tool-card">
+      <h3>Felo</h3>
+      <div class="desc">Felo？ more like fail-o！但别急，当它不失败时，那就是魔法！比如你设定的提醒，本该在早上7点响，结果在凌晨3点准时闹了场“梦中醒世钟”，这叫一个惊喜吧！</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=exa-ai" class="tool-card">
+      <h3>Exa AI</h3>
+      <div class="desc">伙计们，Exa AI来了！写周报时它能帮你瞬间生成亮点总结，调Bug时它能迅速找出问题所在。相比那些笨重的工具，Exa AI就像一个脑洞大开的小助手，帮助你提升效率又不显山露水。赶紧试试吧，让你的工作像开挂一样顺畅！🚀✨</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=glean" class="tool-card">
+      <h3>Glean</h3>
+      <div class="desc">给个彩蛋！最近发现了个新欢——**Glean**。这货简直是个效率神器，尤其写周报时能帮你自动汇总数据和关键点，省得你天天盯着报表抓狂。调Bug时也能一键生成错误报告，比其他工具强太多，简直就是加班党的救星啊！快来试试吧～</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=globe-explorer" class="tool-card">
+      <h3>Globe Explorer</h3>
+      <div class="desc">伙计们，快来看看这款神器——**Globe Explorer**！它就像你的私人图书馆，啥都知道。写周报时想查点冷门数据？调Bug时需要背景知识？一键搞定，比翻一堆资料强多了。简直就是效率小能手，快来试试吧！</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=phind" class="tool-card">
+      <h3>Phind</h3>
+      <div class="desc">伙计们！有没有遇到过加班到深夜还在为写周报发愁的情况？别怕，有个神器叫 **Phind** 能帮你解决这个难题。它就像一个全能的创作伙伴，在你需要的时候提供灵感和素材。比如，你正在调Bug时卡住了，输入几个关键词，就能迅速找到相关问题和解决...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=iask-ai" class="tool-card">
+      <h3>iAsk AI</h3>
+      <div class="desc">你们是否在写周报时觉得信息搜集太费劲？或者调试代码时查文档头绪不清？那我可得推荐个宝藏工具——**iAsk AI**。这家伙不仅像知识的宝库一样丰富，还能智能检索、快速匹配答案。比如你写周报时可以直接问它最近的工作成果和项目进展；调Bug时...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=reportify" class="tool-card">
+      <h3>Reportify</h3>
+      <div class="desc">给大家种草一个高效神器——**Reportify**！你还在为写周报时搜集信息太费劲、调Bug时查资料像大海捞针而烦恼吗？别急，**Reportify**来了！它不仅整合了海量知识库，还能快速抓取最新资讯，让你轻轻松松搞定各种报告和调试工作...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-writing</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=consensus" class="tool-card">
+      <h3>Consensus</h3>
+      <div class="desc">伙计们，来个硬核推荐！🌟这个叫 **Consensus** 的小工具简直就是知识界的“大侦探”！它就像一个私人图书馆，能迅速从海量信息中筛选出最靠谱的答案。写周报时，再也不用抓耳挠腮找数据了；调Bug时，也能秒速找到同类问题的解决方案。赶紧...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=komo-search" class="tool-card">
+      <h3>Komo Search</h3>
+      <div class="desc">伙计们，来个超赞的工具——**Komo Search**！写周报时突然卡壳？调Bug时一头雾水？别急，它就像你的私人图书馆，秒速检索海量知识，给你最精确的答案。速度与准确性的双重buff加成，比传统搜索引擎快多了，简直就是效率提升的小能手！</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-game</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=searcholic" class="tool-card">
+      <h3>Searcholic</h3>
+      <div class="desc">伙计们！有福同享了——我最近发现了一个神器 **Searcholic**，简直是个宝藏工具！写周报时，你还在为数据不够新而发愁吗？调Bug时，被海量信息淹没找不到重点？它都能帮你轻松搞定！通过整合各种知识库，无论是技术难题还是市场趋势，它都...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-game</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=songtell" class="tool-card">
+      <h3>Songtell</h3>
+      <div class="desc">伙计们，别再为写周报加班到半夜了！试试 **Songtell** 吧！它不仅能快速整理数据，还能帮你一键生成有条理的报告。关键是，它的知识库超强大，调Bug时也能迅速为你找到解决方案，比那些老一套工具强多了！快来感受一下吧！</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-audio</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=miku" class="tool-card">
+      <h3>Miku</h3>
+      <div class="desc">快来看看这波操作！**Miku** 了解一下？它就像是你的私人知识助手，帮你快速检索海量信息，提高效率不是一点两点。比如写周报时卡壳了，调Bug时无从下手？直接丢给 **Miku** ，秒回你所需资料！不仅速度快，内容还超级精准，绝对是你工...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=andi" class="tool-card">
+      <h3>Andi</h3>
+      <div class="desc">伙计们！这次给大家种草一个神器——**Andi**。这货是大模型里的老司机，专门帮你提升效率的高手！写周报时，它能帮你一键生成模板，省得你天天啃笔头；调Bug时，它不仅能快速定位问题，还能提供多种解决方案。比那些只会死板回答问题的小工具强多...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=thinkany" class="tool-card">
+      <h3>ThinkAny</h3>
+      <div class="desc">伙计们，来个炸裂的好东西——**ThinkAny**！这货简直就像是你的私人知识小助手，写周报时查资料、调Bug时找代码样例，它都能飞快帮你搞定。关键是，它的搜索精准度和自学习能力比其他工具强太多，简直就是你的科研与编程救星！别犹豫了，快来...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=adot" class="tool-card">
+      <h3>Adot</h3>
+      <div class="desc">伙计们！你们是否曾经在写周报时愁眉苦脸？或者在调Bug时抓狂不已？别担心，现在有救星了——**Adot**来帮大忙啦！它能像私人助手一样，秒速从海量知识库中为你提取关键信息，让你的报告内容丰富又精准，调试代码也得心应手。简直比自己查资料快了...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=prompthero" class="tool-card">
+      <h3>PromptHero</h3>
+      <div class="desc">伙伴们，有木有遇到过这样的糟心事——写周报时头秃般抓狂？或者调Bug时如同大海捞针？这时候就需要来个救星——PromptHero（别名：**大模型小能手**)！它不仅帮你快速生成高质量的内容，还能精准定位问题核心，让你的工作效率嗖嗖直线上升...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">price-paid</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=1b3087ca80" class="tool-card">
+      <h3>AI in research: we need to stop treating every AI-related is</h3>
+      <div class="desc">给你们安利个超赞的AI工具：**AI in research: we need to stop treating every AI-related issue as misconduct**。这玩意儿简直是个效率小能手！比如你在写周报时突然...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-26</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span><span class="tag">scene-research</span><span class="tag">scene-game</span></div>
+    </a>
+    <a href="tool.html?id=81f6579ab1" class="tool-card">
+      <h3>Codex can track external events with respect to internal dat</h3>
+      <div class="desc">别让世界大事蒙蔽了你的双眼！大多数数据分析工具只会盯着你自己的数据转，完全无视外界风云变幻——比如全球新闻、平台更新、疫情动态、OpenAI的新动向等等。我的新工具Codex来了，它能同时监控你内部的数据和外部的世界事件，让你在大好机会面前...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-27</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-code</span><span class="tag">scene-data</span><span class="tag">hot-new</span></div>
+    </a>
+    <a href="tool.html?id=0298255bc7" class="tool-card">
+      <h3>Arbitraging the global trademark treaty system</h3>
+      <div class="desc">这个工具就像是商标条约系统里的“股市淘金者”，它能将冷冰冰的文档变成互动问答，让你像玩游戏一样穿梭于PDF、网站和代码之间。每答一题都有出处，就像翻阅了一本活的法律百科全书！</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-27</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-data</span><span class="tag">scene-game</span><span class="tag">rag-framework</span></div>
+    </a>
+    <a href="tool.html?id=429202e20c" class="tool-card">
+      <h3>Local CJK/Latin entity extraction without shipping a model?</h3>
+      <div class="desc">我正在开发一个本地优先的Mac写作软件，但卡在了“故事记忆层”。别问我为什么叫它“故事记忆层”，因为我就是想让程序员头疼一下。问题是：给个长篇小说，得把人物、别名、关系、地点、时间线和未解情节都揪出来，还得兼顾汉字和拉丁字母。这不就是让我在...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-29</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-automation</span><span class="tag">hot-new</span><span class="tag">source-hn</span></div>
+    </a>
+    <a href="tool.html?id=a3de794f0d" class="tool-card">
+      <h3>Hawkeye – local code search for MS/Linux, fast 500k+ file co</h3>
+      <div class="desc">我们构建了Hawkeye，因为grep、IDE和TC搜索在我们的内部代码库（约500k文件）中失效。每次“查找所有引用”都需要足够长的时间以致于打断专注——现在AI代理花费更多时间重新grep相同的文件而不是实际编写代码。</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-06-30</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-code</span><span class="tag">scene-game</span><span class="tag">hot-new</span></div>
+    </a>
+    <a href="tool.html?id=c81c15bf47" class="tool-card">
+      <h3>Why do teams keep losing context, and why hasn't any tool fi</h3>
+      <div class="desc">团队协作就像一场接力赛，但每次交接棒都像是从迷雾中摸索。Confluence 上的要求像是一张看不见的网，架构决策藏在某人的脑袋里或长达六个月的 Notion 页面背后，代码埋在 Git 仓库里，而 Slack 线索少得就像深夜食堂排队的人...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-07-01</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span></div>
+    </a>
+    <a href="tool.html?id=636f97a011" class="tool-card">
+      <h3>Is it practical to host a real production app on a Mac mini?</h3>
+      <div class="desc">想在家用 Mac mini 主机上搞个个人项目，梦想是几十万用户也能流畅运行？别急，CockroachDB 和 Supabase 的免费 tier 就像你妈妈做的牛肉面，味道一般般，量还不足。不过话说回来，Mac mini 咋整也得有点儿门...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-07-01</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span></div>
+    </a>
+    <a href="tool.html?id=ae7f41f829" class="tool-card">
+      <h3>What will you work on when Fable 5 comes back online today?</h3>
+      <div class="desc">昨晚看到这个了：https://x.com/AnthropicAI/status/2072163884430229756  
+本来周末要和女朋友约会，结果一大早就跑到甲板上，开始调试那个被迫中断的Fable 5模拟器。这可比去海边吹海风刺激...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-07-01</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span><span class="tag">__garbage__</span></div>
+    </a>
+    <a href="tool.html?id=d2285559ce" class="tool-card">
+      <h3>Leverage Research 1.0</h3>
+      <div class="desc">暂无详细描述，该工具正在审核中。</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-07-03</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span><span class="tag">__garbage__</span></div>
+    </a>
+    <a href="tool.html?id=db66e47406" class="tool-card">
+      <h3>Rage of the Falling Elite: How downward mobility fuels radic</h3>
+      <div class="desc">暂无详细描述，该工具正在审核中。</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-07-04</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span><span class="tag">__garbage__</span></div>
+    </a>
+    <a href="tool.html?id=5025adfce1" class="tool-card">
+      <h3>Reading Assistant Physical Books Meta RayBans</h3>
+      <div class="desc">Reading technical books is hard. Unknown words, confusing phrases, and misunderstood concepts requires opening your phon...</div>
+      <div class="meta">
+        <span>⭐ 2</span>
+        <span>2026-07-04</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">fresh</span><span class="tag">__garbage__</span></div>
+    </a>
+    <a href="tool.html?id=都ai时代了-我为何还在学习前端基础知识" class="tool-card">
+      <h3>都AI时代了，我为何还在学习前端基础知识？</h3>
+      <div class="desc">都AI时代了，我为何还在学前端？别急，内建的 **Qwen** 能帮你搞定！效率翻倍，轻松应对一切！</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-education</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=别再优化-rag-了-适配-agent-的-llm-wiki-知识库理念" class="tool-card">
+      <h3>别再优化 RAG 了，适配 Agent 的 LLM Wiki 知识库理念</h3>
+      <div class="desc">别再为RAG头疼了！试试我们的**Agent-LLM Wiki**吧，就像给大模型装了个私人图书馆，瞬间提升效率，妥妥的生产力小能手！🚀</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">ai-agent</span><span class="tag">rag-framework</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=面试官-rag-不用向量数据库-用-mysql-硬扛-我-100-万向量不是很轻松" class="tool-card">
+      <h3>面试官：RAG 不用向量数据库，用 MySQL 硬扛？我：100 万向量不是很轻松？</h3>
+      <div class="desc">RAG 不用啥向量数据库？MySQL 就能搞定？哈哈，它处理 100 万向量就像吃三明治一样轻松！MYSQL君，你真会给自己加戏～ 🍞💪</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-data</span><span class="tag">rag-framework</span><span class="tag">vector-database</span></div>
+    </a>
+    <a href="tool.html?id=调查研究-182-turbovec-项目解析-把-rag-向量索引从-内存怪兽-拉回本地工程" class="tool-card">
+      <h3>调查研究-182 turbovec 项目解析：把 RAG 向量索引从“内存怪兽“拉回本地工程</h3>
+      <div class="desc">内存小清新们有福了！turbovec来了，它让RAG从占用你所有内存的“怪兽”变成你的“本地小能手”，从此告别内存焦虑，轻松研究！</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-research</span><span class="tag">rag-framework</span><span class="tag">document-pipeline</span></div>
+    </a>
+    <a href="tool.html?id=ai-能写代码了-为什么我反而开始要求它先写文档" class="tool-card">
+      <h3>AI 能写代码了，为什么我反而开始要求它先写文档？</h3>
+      <div class="desc">哎呀，AI已经开始写代码了，为啥还要它写文档？因为只有人才能搞砸文档啊！不信你试试，让AI写段代码轻松搞定，但要它写篇注释还得你自己上！ 😂✍️👉💡</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">document-pipeline</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=译-设计生产级-rag-架构" class="tool-card">
+      <h3>译：设计生产级 RAG 架构</h3>
+      <div class="desc">伙友们！有没有遇到过写周报或是调试代码的时候，英语资料怎么翻都找不到中文对应？别急，来试试**Trans: Design Production-Level RAG Architecture**吧！这货简直是个翻译界的“救星”，不仅能帮你快速...</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-image</span><span class="tag">design-tools</span><span class="tag">rag-framework</span></div>
+    </a>
+    <a href="tool.html?id=办公小浣熊" class="tool-card">
+      <h3>办公小浣熊</h3>
+      <div class="desc">今天给你们种草个超有料的办公神器——**BearOffice**！写周报的时候再也不怕数据混乱，因为它能快速整理、美化你的文字；调Bug时也不用愁代码堆成山，它能帮你高效归类和追踪问题。简直就是你工作中的得力小助手，让繁琐的工作变得轻松有趣...</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=字符狂飙" class="tool-card">
+      <h3>字符狂飙</h3>
+      <div class="desc">伙计们！别再为查资料费劲找宝了，试试我们新晋的**Character Blaster**吧！这玩意儿简直就是知识界的火箭推进器，让你写周报时瞬间秒变百科全书达人，调Bug时不再手忙脚乱。比传统的搜索引擎强在哪？它能理解上下文，智能匹配信息，...</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=百度文库ai助手" class="tool-card">
+      <h3>百度文库AI助手</h3>
+      <div class="desc">伙儿！今天给大家安利一个超棒的工具——**BaDong Doc AI Helper**！你还在为写周报、调Bug愁眉苦脸吗？它能瞬间帮你整理资料、提炼关键信息，简直就是你的私人知识小助手！尤其是在大项目中，它的智能检索功能简直秒杀其他同类工...</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-chat</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=得理法搜" class="tool-card">
+      <h3>得理法搜</h3>
+      <div class="desc">伙计们！来个超实用的工具——**Deputy法搜**！它就像你的私人知识库，帮你瞬间找到一切难题的答案。写周报时查数据烦？调Bug时翻文档累？别怕，**Deputy法搜**统统hold住！它不仅快如闪电，还能理解你那不太标准的提问方式，简直...</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=智写流程" class="tool-card">
+      <h3>智写流程</h3>
+      <div class="desc">来试试**Writely Flow**吧！别再被繁琐的文案整到头秃了。写周报、报告啥的，直接扔进它，转眼间结构清晰、亮点满满！而且它智能归类、自动润色，比你加班加点自己敲还给力。调Bug时也不用急得抓狂，直接一键生成调试文档，简直不要太爽！...</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-automation</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=腾讯文档智能助手" class="tool-card">
+      <h3>腾讯文档智能助手</h3>
+      <div class="desc">伙伴们！我发现了一个超级棒的工具——**Tencent Docs Assistant**！它是你的私人效率小助手，在写周报时帮你搜集数据和整理思路，简直是救星；调Bug时还能提供相关知识库，让你迅速定位问题。这个智能文档神器不仅功能强大，而...</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-chat</span><span class="tag">document-pipeline</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=有道速读" class="tool-card">
+      <h3>有道速读</h3>
+      <div class="desc">伙计们！来来来，我给你们安利个神器——**Youdao Super Reader**！写周报时，别再被海量资料卡着脖子；调Bug时，不再头疼抓耳挠腮。它能快速提取重点，让你瞬间消化大量信息。比传统的阅读工具强多了，简直就是效率小能手！赶紧试...</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=星火文档问答" class="tool-card">
+      <h3>星火文档问答</h3>
+      <div class="desc">伙计们，有没有遇到过这种尴尬？写周报时翻箱倒柜找资料，或者调试Bug时抓耳挠腮查文档？这时候，试试我们的小帮手——**SparkleDocQA**吧！它能瞬间扫描海量文档，精准给你答案。比别人家快两倍还不带喘的，快来加入它的行列，效率提升看...</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-chat</span><span class="tag">rag-framework</span><span class="tag">document-pipeline</span></div>
+    </a>
+    <a href="tool.html?id=司马阅" class="tool-card">
+      <h3>司马阅</h3>
+      <div class="desc">friends, 如果你还在为“写周报”或“调Bug”这类工作头疼，那就试试 **司马阅** 吧！作为知识库/RAG新贵，它不仅帮你快速积累信息，还能智能生成专业报告和代码优化建议。简直比你的团队成员还靠谱！特别是当你加班到凌晨，灵感却如流...</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">scene-data</span><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=知我ai" class="tool-card">
+      <h3>知我AI</h3>
+      <div class="desc">来个硬核推荐！🚀
+
+如果你在写作周报、报告时总感觉词穷，或者调试代码时像走迷宫找不到出路，不妨试试 **KnowMe AI**。它不仅能帮你快速生成高质量文本，还能帮你找到问题的关键点，简直是效率神器！🌟
+
+写周报时，一键生成的段落让你省心...</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+    <a href="tool.html?id=万知" class="tool-card">
+      <h3>万知</h3>
+      <div class="desc">伙计们！我发现了个神器叫 **万知** ，简直不要太好用！大家还记得写周报时头疼收集数据的场景吗？别急，**万知** 一秒帮你搞定！无论是公司动态、行业资讯还是技术进展，它都能快速为你找齐资料。而且啊，它的搜索准确度比其他工具高出一大截，简...</div>
+      <div class="meta">
+        <span>⭐ 1</span>
+        <span>2026-06-21</span>
+      </div>
+      <div style="margin-top:6px"><span class="tag">recent</span></div>
+    </a>
+  </div>
+  <a href="/" class="back-home">← 返回首页</a>
+</div>
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"RAG / 检索增强生成","description":"知识库问答、文档检索、向量数据库 — 让 AI 连接你的数据","url":"https://www.aibounty.cn/rag.html","numberOfItems":154}
+</script>
+</body>
+</html>

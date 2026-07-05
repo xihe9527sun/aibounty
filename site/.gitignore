@@ -1,0 +1,28 @@
+# 环境变量
+.env
+.env.local
+
+# 数据文件
+site/data.json
+prey/
+reports/
+*.log
+
+# 系统
+__pycache__/
+*.pyc
+node_modules/
+.vscode/
+.idea/
+
+# 操作系统
+Thumbs.db
+.DS_Store
+
+# 备份与归档
+_backup/
+_archive/
+aibounty-v2/
+
+# 内部工作目录
+.workbuddy/

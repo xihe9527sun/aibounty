@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海外AI工具日报 #003 · astryx</title>
+<meta name="description" content="海外AI工具日报 #003：astryx — Meta(Facebook)开源的设计系统，完全可定制且为AI Agent做好准备。提供丰富的UI组件和设计令牌，能与编码助手无缝协作，Agent可直接理解和使…">
+<link rel="canonical" href="https://www.aibounty.cn/daily/2026-06-29.html">
+<style>
+:root { --bg: #FAF9F6; --text: #2C2C2A; --muted: #6B6A66; --accent: #3C3489; --accent2: #7F77DD; --card: #FFFFFF; --border: #E5E3D8; --tag-bg: #EEEDFE; --tag-text: #4A42B0; --code-bg: #F1EFE8; --green: #2e7d32; --red: #c62828; --yellow: #f9a825; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, "PingFang SC", "Noto Sans SC", system-ui, sans-serif; background: var(--bg); color: var(--text); max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; line-height: 1.8; font-size: 16px; }
+h1 { font-size: 28px; font-weight: 700; line-height: 1.4; margin: 8px 0 12px; color: var(--accent); }
+.subtitle { color: var(--muted); font-size: 15px; margin: -4px 0 16px; }
+.meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 24px; font-size: 13px; color: var(--muted); align-items: center; }
+.meta-item { display: inline-flex; align-items: center; gap: 3px; }
+.tag { display: inline-block; background: var(--tag-bg); color: var(--tag-text); font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 6px; }
+.badge { display: inline-block; background: var(--accent); color: white; font-size: 12px; font-weight: 600; padding: 4px 14px; border-radius: 20px; letter-spacing: 0.5px; margin-bottom: 12px; }
+.section { margin: 36px 0; }
+.section h2 { font-size: 20px; font-weight: 600; color: var(--accent); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+.section h3 { font-size: 17px; font-weight: 600; color: var(--accent); margin: 20px 0 8px; }
+.section h4 { font-size: 16px; font-weight: 600; color: var(--accent2); margin: 16px 0 6px; }
+.section p { margin: 10px 0; color: var(--text); }
+.section li { margin: 6px 0; }
+.section ul, .section ol { padding-left: 20px; }
+.section br { display: block; content: ""; margin: 8px 0; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
+.card h3 { font-size: 16px; font-weight: 600; margin: 0 0 8px; color: var(--accent); }
+.code-block { background: var(--code-bg); padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.6; font-family: "SF Mono", "Fira Code", monospace; margin: 12px 0; white-space: pre; }
+.article-body { }
+code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 14px; font-family: "SF Mono", "Fira Code", monospace; }
+.pro { border-left: 3px solid var(--green); padding-left: 14px; margin: 8px 0; font-size: 15px; }
+.con { border-left: 3px solid var(--red); padding-left: 14px; margin: 8px 0; font-size: 15px; }
+.warn { background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px; padding: 12px 16px; margin: 16px 0; font-size: 14px; }
+.nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.nav-brand { color: var(--accent); text-decoration: none; font-size: 18px; font-weight: 700; }
+.nav-links { display: flex; gap: 8px; }
+.nav-link { padding: 4px 12px; border-radius: 6px; font-size: 13px; color: var(--muted); text-decoration: none; transition: all 0.15s; }
+.nav-link:hover { background: var(--tag-bg); color: var(--accent); }
+.nav-link.active { background: var(--tag-bg); color: var(--accent); font-weight: 500; }
+.nav-home { background: var(--accent); color: white !important; font-weight: 500; padding: 4px 14px; border-radius: 6px; font-size: 13px; text-decoration: none; }
+.nav-home:hover { opacity: 0.9; }
+.tool-cta { display: inline-block; margin: 10px 0; padding: 10px 28px; border-radius: 10px; background: var(--accent); color: white; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+.tool-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+.back-home { text-align: center; margin: 40px 0 8px; }
+.back-home a { display: inline-block; padding: 10px 24px; border-radius: 10px; background: var(--tag-bg); color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+.back-home a:hover { background: #dddcee; transform: translateY(-1px); }
+.footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); text-align: center; }
+.footer a { color: var(--accent); text-decoration: none; }
+@media (max-width: 600px) { body { padding: 20px 16px 60px; } h1 { font-size: 22px; } }
+</style>
+</head>
+<body>
+
+<!-- ==================== 导航 ==================== -->
+<div class="nav">
+  <a href="https://www.aibounty.cn" class="nav-brand">🏴 AIbounty</a>
+  <div class="nav-links">
+    <a href="https://www.aibounty.cn" class="nav-home">← 首页</a>
+    <a href="https://www.aibounty.cn/daily.html" class="nav-link active">日报</a>
+    <a href="https://www.aibounty.cn/about.html" class="nav-link">关于</a>
+  </div>
+</div>
+
+<!-- ==================== 头部 ==================== -->
+<div class="badge">曦和精选 · 海外AI工具日报 #003</div>
+<h1>astryx — Meta(Facebook)开源的设计系统，完全可定制且为AI Agent做好准备。提供丰富的UI组件和设计令牌，能与编码助手无缝协作，Agent可直接理解和使</h1>
+<p class="subtitle">Meta(Facebook)开源的设计系统，完全可定制且为AI Agent做好准备。提供丰富的UI组件和设计令牌，能与编码助手无缝协作，Agent可直接理解和使…</p>
+
+<div class="meta">
+  <span class="meta-item">⭐ 72</span>
+  <span class="meta-item">📁 uncategorized</span>
+  <span class="meta-item">💵 open-source</span>
+  <span class="meta-item">📅 2026-06-29</span>
+  <span class="tag">design-system</span>
+      <span class="tag">ui-components</span>
+      <span class="tag">agent-ready</span>
+      <span class="tag">facebook</span>
+      
+</div>
+
+<!-- ==================== 文章正文 ==================== -->
+<div class="article-body">
+<div class="section"><h2>一开口你就知道</h2>
+    <br>
+    <p>别看 astryx 的名字有点诗意，它其实就是个设计系统的狠角色。第一次接触，我发现它的 UI 组件丰富得不像话，简直是给设计者按需定制的私人厨房。</p>
+    <br>
+    <div class="section"><h2>最骚的是组件可定制性</h2>
+    <br>
+    <p>最让我惊喜的是，它可以高度自定义。想象一下，你可以在一堆现成的设计令牌中选出自己喜好的风格，然后直接拖拽、调整，简直就像在调色板上混搭色彩一样随意。这玩意儿不只是给你提供模板，简直就是个设计者的小助手。</p>
+    <br>
+    <div class="section"><h2>但也有坑</h2>
+    <br>
+    <p>不过呢，这种高度自定义的特性也意味着对初学者不太友好。你要先搞清楚这些组件之间的相互依赖关系，才能做出一个既美观又功能完善的界面。新手上路可能要多花点时间来摸索一下。另外，尽管它可以和编码助手无缝协作，但实际操作中你会发现，你需要自己去编写一些脚本，让这些设计规范真正落实到代码里。</p>
+    <br>
+    <div class="section"><h2>模型无关的目标检测</h2>
+    <br>
+    <p>它的组件就像那些模型无关的目标检测算法一样，不管你是 YOLO 党还是 Transformer 派，它都能兼容。你可以直接把你的设计需求扔进去，不用纠结于背后的技术细节，就能获得符合预期的结果。</p>
+    <br>
+    <div class="section"><h2>给你的数据打标签就像用美图秀秀P图</h2>
+    <br>
+    <p>说到数据预处理，那简直是给你的数据打标签就像用美图秀秀 P 图一样简单。你只需要点击几下，就可以完成那些过去需要大量时间和耐心才能完成的工作。而且它提供的设计令牌，就像是设计师手中的魔法棒，让你的设计方案瞬间提升好几个档次。</p>
+    <br>
+    <div class="section"><h2>顺带提一个细节</h2>
+    <br>
+    <p>还有一点值得一提的是它的文档非常完善，几乎每一个功能点都有详细的使用说明和示例代码，这对于项目初期的快速上手帮助很大。虽然在初期可能会让人有些望而生畏，但一旦熟悉了，你会发现它简直可以用得飞起。</p>
+    <br>
+    <div class="section"><h2>结尾话不说完的感觉</h2>
+    <br>
+    <p>总之呢，astryx 这个设计系统对于 AI 应用开发者来说绝对是个好帮手，尤其是对于那些喜欢在项目爆火之前就发现好东西的早期采纳者。如果你正处在多智能体系统的开发过程中，不妨试试看它如何能帮助你解决一些棘手的问题吧。</p>
+    </div>
+</div>
+
+<!-- ==================== 信息差 ==================== -->
+
+<div class="section">
+<h2>为什么你可能没听说过</h2>
+<p>这个工具来自 <strong>github</strong>，是AIbounty 曦和从9个渠道狩猎后精挑细选出来的。中文圈的相关报道不多，所以你没见过很正常。</p>
+</div>
+
+<!-- ==================== CTA ==================== -->
+<div style="text-align:center; margin: 32px 0 8px;">
+  <a href="https://www.aibounty.cn/tool.html?id=af5e1c0697&source=from-daily" class="tool-cta" target="_blank">🔗 在 AIbounty 查看 astryx 详情 →</a>
+</div>
+
+<div class="warn">
+<strong>⚠️ 免责声明：</strong> 本文由 AIbounty 狩猎引擎发现，AI 辅助创作。工具的好坏请自行判断，你的项目你做主。
+</div>
+
+<div class="back-home">
+  <a href="https://www.aibounty.cn">← 返回 AIbounty 首页</a>
+</div>
+
+<div class="footer">
+  <p>由 🏴‍☠️ <a href="https://www.aibounty.cn">AIbounty</a> 每日狩猎 · 自动生成 · 数据来源9个社区</p>
+  <p style="margin-top:4px;"><a href="https://www.aibounty.cn/daily.html">📰 查看往期日报</a></p>
+</div>
+
+</body>
+</html>

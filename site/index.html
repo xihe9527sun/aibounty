@@ -1,0 +1,3389 @@
+<!DOCTYPE html>
+<html lang="zh-CN" translate="no" data-version="20260701-1258">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content, viewport-fit=cover">
+<meta name="baidu-site-verification" content="codeva-7hAGfWBQ5t"/>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<title>AIbounty · AI 赏金猎人</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><text y=%2220%22 font-size=%2220%22>🏴‍☠️</text></svg>">
+<meta name="description" content="自动聚合 HackerNews、掘金、GitHub Trending，每日精选最有价值的 AI 工具与开源项目。">
+<meta property="og:title" content="AIbounty · v0624-1605">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta property="og:description" content="自动聚合 HackerNews、掘金、GitHub Trending，每日精选最有价值的 AI 工具与开源项目。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aibounty.cn">
+<meta property="og:image" content="https://aibounty.cn/og-image.png">
+<meta property="og:site_name" content="AIbounty">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AIbounty · AI 赏金猎人">
+<meta name="twitter:description" content="每日精选全球 AI 社区好工具，用心推荐每一款。">
+<link rel="stylesheet" href="css/aibounty.css">
+<!-- 百度自动推送 · 零成本让百度收录 -->
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  bp.async = true;
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?5af31489d2c04d8f7b0bc8a8c852bcf2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- JSON-LD 结构化数据 · 丰富搜索结果展示 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "AIbounty · AI 赏金猎人",
+  "alternateName": "AIbounty AI Tool Directory",
+  "url": "https://www.aibounty.cn",
+  "description": "自动聚合 HackerNews、掘金、GitHub Trending，每日精选最有价值的 AI 工具与开源项目。",
+  "inLanguage": ["zh-CN", "en"],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.aibounty.cn/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script>console.log('✅ AIbounty deployed ' + Date.now());</script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-brand-icon">
+        <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
+          <rect x="1" y="1" width="20" height="20" rx="5" fill="rgba(255,255,255,0.2)"/>
+          <text x="11" y="16" text-anchor="middle" fill="white" font-size="14" font-weight="800" font-family="-apple-system, system-ui, sans-serif">A</text>
+        </svg>
+      </div>
+      <span class="nav-brand-text">AIbounty<span class="nav-brand-dot"></span></span>
+    </div>
+    <div class="nav-right">
+      <span class="nav-quick-btn" onclick="location.href='/'">
+        <span class="q-icon">🏠</span> <span class="q-label" data-i18n="navHome">首页</span>
+      </span>
+      <span class="nav-quick-btn" onclick="setSort('hot');render()">
+        <span class="q-icon">🔥</span> <span class="q-label" data-i18n="navHot">热门</span>
+      </span>
+      <span class="nav-quick-btn" onclick="var r=Math.floor(Math.random()*allItems.length);location.href='tool.html?id='+allItems[r].id">
+        <span class="q-icon">🎲</span> <span class="q-label" data-i18n="navRandom">随机</span>
+      </span>
+      <span class="nav-quick-btn" onclick="location.href='submit.html'">
+        <span class="q-icon">✚</span> <span class="q-label" data-i18n="navSubmitBtn">提交</span>
+      </span>
+      <span class="nav-quick-btn" onclick="location.href='daily.html'">
+        <span class="q-icon">📰</span> <span class="q-label" data-i18n="navDaily">日报</span>
+      </span>
+      <span class="nav-quick-btn" onclick="location.href='templates.html'">
+        <span class="q-icon">📦</span> <span class="q-label" data-i18n="navTemplate">模板</span>
+      </span>
+      <span class="nav-quick-btn" onclick="location.href='prompt.html'">
+        <span class="q-icon">🧠</span> <span class="q-label">Prompt</span>
+      </span>
+      <span class="nav-quick-btn nav-stat-mobile-hidden" onclick="location.href='api.html'">
+        <span class="q-icon">🔌</span> <span class="q-label">API</span>
+      </span>
+      <span class="nav-stat nav-stat-mobile-hidden" style="cursor:pointer;color:#64748b;font-size:13px;" onclick="location.href='about.html'">
+        <span>❓</span>
+        <span data-i18n="navAbout">关于</span>
+      </span>
+      <span class="nav-stat nav-stat-mobile-hidden" style="cursor:pointer;color:#f59e0b;font-size:13px;" onclick="location.href='submit.html'">
+        <span>📬</span>
+        <span data-i18n="navSubmit">提交</span>
+      </span>
+      <span class="nav-stat" id="langBtn" style="cursor:pointer;color:var(--accent);font-size:12px;font-weight:700;" onclick="switchLang()">EN</span>
+      <span class="nav-stat">
+        <span>📡</span>
+        <span><strong id="totalCount">—</strong></span>
+      </span>
+      <span class="nav-stat" id="statusBadge">
+        <span class="hero-live-dot" style="display:inline-block"></span>
+        <span id="updateTime" data-i18n="updateTimeDefault">实时</span>
+      </span>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-cursor-glow" id="heroGlow"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      <span data-i18n="badgeText">实时聚合 HackerNews · GitHub · 掘金</span>
+    </div>
+    <h1 id="heroTitle">
+      发现下一个<br>
+      <span class="gradient">改变世界的 AI 工具</span>
+    </h1>
+    <p class="hero-sub" id="heroSub">
+      每日精选全球 AI 社区好工具，用心推荐每一款
+    </p>
+    <div class="search-suggest" id="searchSuggest">
+      <span class="suggest-label" data-i18n="hotSearch">🔥 热门搜索：</span>
+      <span class="suggest-chip" data-q="agent">Agent</span>
+      <span class="suggest-chip" data-q="MCP">MCP</span>
+      <span class="suggest-chip" data-q="llama">LLM</span>
+      <span class="suggest-chip" data-q="video" data-i18n="suggestVideo">视频</span>
+      <span class="suggest-chip" data-q="rag">RAG</span>
+      <span class="suggest-chip" data-q="code" data-i18n="suggestCode">编程</span>
+      <span class="suggest-chip" data-q="framework" data-i18n="suggestFramework">框架</span>
+      <span class="suggest-chip" data-q="open source" data-i18n="suggestOpenSource">开源</span>
+    </div>
+    <div class="hero-search" style="position:relative;">
+      <div class="search-logo">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="slogo" x1="0" y1="0" x2="22" y2="22">
+              <stop offset="0%" stop-color="#3b82f6"/>
+              <stop offset="50%" stop-color="#8b5cf6"/>
+              <stop offset="100%" stop-color="#34d399"/>
+            </linearGradient>
+            <linearGradient id="slogob" x1="0" y1="0" x2="22" y2="22">
+              <stop offset="0%" stop-color="#60a5fa"/>
+              <stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="20" height="20" rx="5" fill="url(#slogo)" opacity="0.15"/>
+          <rect x="1" y="1" width="20" height="20" rx="5" stroke="url(#slogo)" stroke-width="1.5" opacity="0.3"/>
+          <text x="11" y="16" text-anchor="middle" fill="url(#slogob)" font-size="14" font-weight="800" font-family="-apple-system, system-ui, sans-serif">A</text>
+          <circle cx="16" cy="5" r="1.5" fill="#f59e0b" opacity="0.8"/>
+          <circle cx="6" cy="17" r="1" fill="#34d399" opacity="0.6"/>
+        </svg>
+      </div>
+      <input type="text" id="searchInput" placeholder="搜工具名、关键词..." autocomplete="off">
+      <input type="text" id="nativeSpeech" class="native-speech-input" x-webkit-speech>
+      <span class="search-kbd-hint" id="searchKbdHint">⌘K</span>
+      <div class="search-actions">
+        <span class="hero-search-icon action-btn" id="voiceBtn" title="语音搜索" onclick="startVoiceSearch()">🎤</span>
+        <span class="hero-search-icon action-btn" id="searchClear" style="display:none;" onclick="document.getElementById('searchInput').value='';searchQuery='';render();this.style.display='none';document.getElementById('autoComplete').style.display='none';acIndex=-1;document.getElementById('searchActions').classList.remove('has-text');">✕</span>
+        <span class="hero-search-icon action-btn search-go" id="searchBtn" title="搜索" onclick="doSearch()">🔍</span>
+      </div>
+      <div class="autocomplete-dropdown" id="autoComplete"></div>
+    </div>
+    <div class="search-mode-indicator" id="aiModeIndicator" style="display:none;"></div>
+    <div class="hero-live">
+      <span class="hero-live-dot"></span>
+      <span data-i18n="tracked">已追踪</span> <strong id="liveTotal">—</strong> <span data-i18n="tools">个工具</span>
+      <span>·</span>
+      <span data-i18n="dailyUpdate">每日更新</span>
+    </div>
+  </div>
+</section>
+
+  <div class="app-layout">
+  <div class="app-main">
+
+  <div class="content">
+
+  <!-- ⭐ 身份探索 -->
+  <div class="identity-panel">
+    <div class="identity-panel-inner">
+      <span class="ip-label" data-i18n="identityLabel">👤 探索身份</span>
+      <button class="identity-btn active" onclick="selectIdentity(this,'developer')">
+        💻 <span data-i18n="identityDev">开发者</span> <span class="count">32</span>
+      </button>
+      <button class="identity-btn" onclick="selectIdentity(this,'creator')">
+        🎨 <span data-i18n="identityCreator">创作者</span> <span class="count">18</span>
+      </button>
+      <button class="identity-btn" onclick="selectIdentity(this,'researcher')">
+        🔬 <span data-i18n="identityResearcher">研究者</span> <span class="count">12</span>
+      </button>
+      <button class="identity-btn" onclick="selectIdentity(this,'enterprise')">
+        🏢 <span data-i18n="identityEnt">企业</span> <span class="count">8</span>
+      </button>
+      <span class="ip-closer" onclick="this.parentElement.parentElement.style.display='none'">✕</span>
+    </div>
+  </div>
+
+  <!-- ⭐ 独立组件一：曦和精选 elite-zone -->
+  <div class="elite-zone">
+    <div class="section-header">
+      <div class="section-title">
+        <span class="picks-title" data-i18n="selectTitle">⭐ 曦和精选</span>
+        <span class="section-title-sub" id="todaySub" data-i18n="selectSub">今天用心推荐这3款</span>
+      </div>
+    </div>
+    <!-- 曦和语录（横幅版） -->
+    <div class="xihe-quote" id="xiheQuote"></div>
+    <div id="todayRecommendsArea">
+      <div class="today-grid" id="todayGrid"></div>
+      <div class="today-empty" id="todayEmpty" style="display:none;">
+        <div style="text-align:center;padding:40px;color:var(--text-secondary);">
+          <div style="font-size:32px;margin-bottom:12px;">📋</div>
+          <div data-i18n="todayEmpty">今天还没有精选推荐。狩猎进行中，20:00 会自动更新。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔥 独立组件二：热门趋势 trend-zone -->
+  <div class="trend-zone">
+    <div class="section-header">
+      <div class="section-title">
+        <span data-i18n="trendTitle">🔥 热门趋势</span>
+        <span class="section-title-sub" data-i18n="trendSub">本周最受关注</span>
+      </div>
+    </div>
+    <div class="trending-grid" id="trendingGrid"></div>
+  </div>
+
+  <!-- 📦 独立组件三：全部工具 tool-zone -->
+  <div class="tool-zone">
+    <div class="section-header">
+      <div class="section-title">
+        <span data-i18n="allTools">📦 全部工具</span>
+        <span class="section-title-sub" id="resultLabel"></span>
+      </div>
+    </div>
+
+  <div class="filters" id="filters">
+    <div class="filter-btn active" data-source="all"><span data-i18n="filterAll">✨ 全部</span> <span class="count" id="countAll">0</span></div>
+    <div class="filter-btn" data-source="github"><span data-i18n="filterGithub">⭐ GitHub</span> <span class="count" id="countGithub">0</span></div>
+    <div class="filter-btn" data-source="hn"><span data-i18n="filterHN">🌐 HackerNews</span> <span class="count" id="countHN">0</span></div>
+    <div class="filter-btn" data-source="juejin"><span data-i18n="filterJuejin">📖 掘金</span> <span class="count" id="countJuejin">0</span></div>
+    <div class="filter-btn" data-source="gitee"><span data-i18n="filterGitee">🇨🇳 Gitee</span> <span class="count" id="countGitee">0</span></div>
+    <div class="filter-btn" data-source="high-score"><span data-i18n="filterHigh">🏆 高星项目</span> <span class="count" id="countHigh">0</span></div>
+  </div>
+  <div class="sort-bar">
+    <span class="sort-btn active" data-sort="interleave" data-i18n="sortInterleave" onclick="setSort('interleave')">🔀 混排</span>
+    <span class="sort-btn" data-sort="time" data-i18n="sortTime" onclick="setSort('time')">⏱ 最新</span>
+    <span class="sort-btn" data-sort="hot" data-i18n="sortHot" onclick="setSort('hot')">🔥 最热</span>
+  </div>
+  <div class="filter-toggle-btn" id="filterToggleBtn" onclick="toggleMobileFilters()">▼ <span data-i18n="moreFilters">更多筛选</span></div>
+  <div class="filter-group-collapsible" id="filterGroupCollapsible">
+  <div class="filters" id="catFilters">
+    <div class="filter-btn active" data-cat="all"><span data-i18n="catAll">📂 全部分类</span> <span class="count" id="countCatAll">0</span></div>
+    <div class="filter-btn" data-cat="agent"><span data-i18n="catAgent">🤖 Agent</span> <span class="count" id="countCatAgent">0</span></div>
+    <div class="filter-btn" data-cat="llm"><span data-i18n="catLLM">🧠 LLM</span> <span class="count" id="countCatLLM">0</span></div>
+    <div class="filter-btn" data-cat="rag"><span data-i18n="catRAG">🔗 RAG</span> <span class="count" id="countCatRAG">0</span></div>
+    <div class="filter-btn" data-cat="dev-tool"><span data-i18n="catDev">🛠 Dev Tool</span> <span class="count" id="countCatDev">0</span></div>
+    <div class="filter-btn" data-cat="image-video"><span data-i18n="catMedia">🎨 图像/视频</span> <span class="count" id="countCatMedia">0</span></div>
+    <div class="filter-btn" data-cat="data-science"><span data-i18n="catData">📊 数据科学</span> <span class="count" id="countCatData">0</span></div>
+    <div class="filter-btn" data-cat="media"><span data-i18n="catMediaLabel">🎨 媒体</span> <span class="count" id="countCatMedia2">0</span></div>
+  </div>
+  <div class="cat-label" style="margin-top:8px;" data-i18n="filterRegionLabel">地区</div>
+  <div class="filters" id="regionFilters">
+    <div class="filter-btn active" data-region="all"><span data-i18n="regionAll">🌏 全部地区</span> <span class="count" id="countRegionAll">0</span></div>
+    <div class="filter-btn" data-region="cn"><span data-i18n="regionCN">🇨🇳 国内工具</span> <span class="count" id="countRegionCn">0</span></div>
+    <div class="filter-btn" data-region="global"><span data-i18n="regionGlobal">🌐 国际工具</span> <span class="count" id="countRegionGlobal">0</span></div>
+  </div>
+  <div class="cat-label" style="margin-top:8px;" data-i18n="filterSceneLabel">使用场景</div>
+  <div class="filters" id="sceneFilters">
+    <div class="filter-btn active" data-scene="all"><span data-i18n="sceneAll">📂 全部场景</span> <span class="count" id="countSceneAll">0</span></div>
+    <div class="filter-btn" data-scene="写代码"><span data-i18n="sceneWriteCode">💻 写代码</span> <span class="count" id="countSceneCode">0</span></div>
+    <div class="filter-btn" data-scene="写文章"><span data-i18n="sceneWriteArticle">✍️ 写文章</span> <span class="count" id="countSceneArticle">0</span></div>
+    <div class="filter-btn" data-scene="画图设计"><span data-i18n="sceneDrawDesign">🎨 画图设计</span> <span class="count" id="countSceneDraw">0</span></div>
+    <div class="filter-btn" data-scene="数据分析"><span data-i18n="sceneDataAnalysis">📊 数据分析</span> <span class="count" id="countSceneData">0</span></div>
+    <div class="filter-btn" data-scene="AI聊天"><span data-i18n="sceneAIChat">💬 AI聊天</span> <span class="count" id="countSceneChat">0</span></div>
+    <div class="filter-btn" data-scene="做视频"><span data-i18n="sceneMakeVideo">🎬 做视频</span> <span class="count" id="countSceneVideo">0</span></div>
+    <div class="filter-btn" data-scene="自动化"><span data-i18n="sceneAutomation">⚡ 自动化</span> <span class="count" id="countSceneAuto">0</span></div>
+  </div>
+
+  <!-- Lane 3: Data Insight -->
+  <div class="cat-label" style="margin-top:16px;" data-i18n="filterTagLabel">🔍 智能洞见</div>
+  <div class="filters" id="tagFilters">
+    <div class="filter-btn active" data-tag="all"><span data-i18n="tagAll">🔍 全部洞见</span> <span class="count" id="countTagAll">0</span></div>
+    <div class="filter-btn" data-tag="open_source"><span data-i18n="tagOpen">🌍 开源项目</span> <span class="count" id="countTagOpen">0</span></div>
+    <div class="filter-btn" data-tag="high_stars"><span data-i18n="tagStars">⭐ 高星项目</span> <span class="count" id="countTagStars">0</span></div>
+    <div class="filter-btn" data-tag="fresh"><span data-i18n="tagFresh">🆕 今日新发</span> <span class="count" id="countTagFresh">0</span></div>
+    <div class="filter-btn" data-tag="made_in_china"><span data-i18n="tagChina">🇨🇳 国产工具</span> <span class="count" id="countTagChina">0</span></div>
+    <div class="filter-btn" data-tag="has_demo"><span data-i18n="tagDemo">🚀 有Demo</span> <span class="count" id="countTagDemo">0</span></div>
+  </div>
+
+  <!-- Lane 4: Price Model -->
+  <div class="cat-label" style="margin-top:16px;" data-i18n="filterPriceLabel">💰 价格模式</div>
+  <div class="filters" id="priceFilters">
+    <div class="filter-btn active" data-price="all"><span>📂 全部价格</span> <span class="count" id="countPriceAll">0</span></div>
+    <div class="filter-btn" data-price="open-source"><span>🔓 开源</span> <span class="count" id="countPriceOS">0</span></div>
+    <div class="filter-btn" data-price="paid"><span>💰 付费</span> <span class="count" id="countPricePaid">0</span></div>
+  </div>
+
+  <!-- Lane 5: Radar Tags -->
+  <div class="cat-label" style="margin-top:16px;" data-i18n="filterRadarLabel">📡 技术雷达</div>
+  <div class="filters" id="radarFilters">
+    <div class="filter-btn active" data-radar="all"><span>📡 全部</span> <span class="count" id="countRadarAll">0</span></div>
+    <div class="filter-btn" data-radar="hot-new"><span>🔥 最新</span> <span class="count" id="countRadarHot">0</span></div>
+    <div class="filter-btn" data-radar="star-certified"><span>⭐ 高星认证</span> <span class="count" id="countRadarStar">0</span></div>
+    <div class="filter-btn" data-radar="price-open-source"><span>🔓 开源项目</span> <span class="count" id="countRadarOS">0</span></div>
+  </div>
+
+  <!-- Lane 6: Sponsored Spotlight -->
+  <div id="sponsoredSlot" style="margin-top:16px;display:none;">
+    <div class="cat-label" style="display:flex;align-items:center;gap:6px;">
+      <span>⭐ 赞助推荐</span>
+      <span style="font-size:11px;color:var(--text-tertiary);font-weight:400;">让您的工具触达全球AI开发者</span>
+      <a href="mailto:sponsor@aibounty.cn" style="margin-left:auto;font-size:11px;color:var(--accent);text-decoration:none;font-weight:500;">了解赞助 →</a>
+    </div>
+    <div class="sponsored-card" id="sponsoredCard">
+      <div class="sponsored-placeholder" style="padding:16px;text-align:center;border:1px dashed var(--border);border-radius:8px;">
+        <span style="color:var(--text-tertiary);font-size:13px;">📢 广告位招租 · 联系 sponsor@aibounty.cn</span>
+      </div>
+    </div>
+  </div>
+
+  </div> <!-- end filter-group-collapsible -->
+
+  <!-- 顶部翻页 -->
+  <div id="paginationContainerTop" class="pagination-container">
+    <div id="pageNavTop" class="pagination"></div>
+  </div>
+
+  <div class="tool-grid" id="toolGrid">
+    <div class="loading-skeleton" id="loadingSkeleton">
+      <div class="skeleton-row"><div class="s-line-1"></div><div class="s-line-2"></div><div class="s-line-3"></div></div>
+      <div class="skeleton-row"><div class="s-line-1"></div><div class="s-line-2"></div><div class="s-line-3"></div></div>
+      <div class="skeleton-row"><div class="s-line-1"></div><div class="s-line-2"></div><div class="s-line-3"></div></div>
+      <div class="skeleton-row"><div class="s-line-1"></div><div class="s-line-2"></div><div class="s-line-3"></div></div>
+    </div>
+  </div> <!-- end tool-grid -->
+
+  <div id="paginationContainer" class="pagination-container">
+    <div id="pageNav" class="pagination"></div>
+  </div>
+
+<!-- Stats Bar & How it works -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-value" id="statTotal">—</div>
+      <div class="stat-label" data-i18n="statTotalLabel">工具总数</div>
+      <div class="stat-change up" id="statTotalChange"></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value" id="statGithub">—</div>
+      <div class="stat-label" data-i18n="statGithubLabel">GitHub 项目</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value" id="statHN">—</div>
+      <div class="stat-label" data-i18n="statHNLabel">HackerNews 热议</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value" id="statJuejin">—</div>
+      <div class="stat-label" data-i18n="statJuejinLabel">掘金技术文章</div>
+    </div>
+  </div>
+</div>
+<div style="max-width:1200px;margin:0 auto;padding:0 24px 24px;display:flex;gap:12px;flex-wrap:wrap;" class="how-it-works">
+  <div style="flex:1;min-width:140px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;text-align:center;">
+    <div style="font-size:22px;margin-bottom:4px;">🌐</div>
+    <div style="font-size:13px;font-weight:600;margin-bottom:2px;" data-i18n="how1">多源聚合</div>
+    <div style="font-size:11px;color:var(--text-secondary);" data-i18n="how1Desc">HN + GitHub + 掘金</div>
+  </div>
+  <div style="flex:1;min-width:140px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;text-align:center;">
+    <div style="font-size:22px;margin-bottom:4px;">🤖</div>
+    <div style="font-size:13px;font-weight:600;margin-bottom:2px;" data-i18n="how2">AI 分类</div>
+    <div style="font-size:11px;color:var(--text-secondary);" data-i18n="how2Desc">自动识别工具类型</div>
+  </div>
+  <div style="flex:1;min-width:140px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;text-align:center;">
+    <div style="font-size:22px;margin-bottom:4px;">⏰</div>
+    <div style="font-size:13px;font-weight:600;margin-bottom:2px;" data-i18n="how3">每日更新</div>
+    <div style="font-size:11px;color:var(--text-secondary);" data-i18n="how3Desc">08 / 14 / 20 点</div>
+  </div>
+  <div style="flex:1;min-width:140px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;text-align:center;">
+    <div style="font-size:22px;margin-bottom:4px;">🎯</div>
+    <div style="font-size:13px;font-weight:600;margin-bottom:2px;" data-i18n="how4">精准推荐</div>
+    <div style="font-size:11px;color:var(--text-secondary);" data-i18n="how4Desc">按热度+分类排序</div>
+  </div>
+  </div> <!-- end how-it-works -->
+
+  </div> <!-- end .tool-zone -->
+
+  </div> <!-- end .content -->
+  </div> <!-- end .app-main -->
+
+  <!-- Right Sidebar: Hot List + AI Resources -->
+  <aside class="rightbar" id="rightbar">
+    <h3 data-i18n="rightbarTitle">🔥 实时热榜</h3>
+    <div id="rightbarHot"><div style="padding:16px;text-align:center;color:var(--text-tertiary);font-size:11px;" data-i18n="rightbarLoading">⏳ 加载中...</div></div>
+    <div id="debugCounts" style="display:none;"></div>
+    <div class="rb-footer" id="rightbarFooter" data-i18n="rightbarFooter">每 3 分钟自动刷新</div>
+
+    <div class="rb-section">
+      <div class="rb-section-title" data-i18n="rbAiResources">🚀 AI 资源</div>
+
+      <div class="rb-cat">
+        <div class="rb-cat-header"><span class="cat-icon">📰</span><span data-i18n="rbNews">AI 资讯</span></div>
+        <div class="rb-cat-links">
+          <a href="https://www.jiqizhixin.com/" target="_blank">机器之心<span class="go-icon">↗</span></a>
+          <a href="https://36kr.com/information/AI/" target="_blank">36氪 AI<span class="go-icon">↗</span></a>
+        </div>
+      </div>
+
+      <div class="rb-cat">
+        <div class="rb-cat-header"><span class="cat-icon">🤖</span><span data-i18n="rbModels">模型库</span></div>
+        <div class="rb-cat-links">
+          <a href="https://modelscope.cn/" target="_blank">ModelScope<span class="go-icon">↗</span></a>
+          <a href="https://huggingface.co/models" target="_blank">HuggingFace<span class="go-icon">↗</span></a>
+        </div>
+      </div>
+
+      <div class="rb-cat">
+        <div class="rb-cat-header"><span class="cat-icon">📚</span><span data-i18n="rbCourses">课程学习</span></div>
+        <div class="rb-cat-links">
+          <a href="https://www.deeplearning.ai/" target="_blank">DeepLearning.AI<span class="go-icon">↗</span></a>
+          <a href="https://d2l.ai/" target="_blank">动手学深度学习<span class="go-icon">↗</span></a>
+        </div>
+      </div>
+
+      <div class="rb-cat">
+        <div class="rb-cat-header"><span class="cat-icon">📝</span><span data-i18n="rbPapers">论文预印</span></div>
+        <div class="rb-cat-links">
+          <a href="https://arxiv.org/list/cs.AI/recent" target="_blank">arXiv cs.AI<span class="go-icon">↗</span></a>
+          <a href="https://paperswithcode.com/" target="_blank">PapersWithCode<span class="go-icon">↗</span></a>
+        </div>
+      </div>
+
+      <div class="rb-cat">
+        <div class="rb-cat-header"><span class="cat-icon">🏆</span><span data-i18n="rbBenchmarks">评测排行</span></div>
+        <div class="rb-cat-links">
+          <a href="https://lmarena.ai/" target="_blank">Chatbot Arena<span class="go-icon">↗</span></a>
+          <a href="https://livebench.ai/" target="_blank">LiveBench<span class="go-icon">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div> <!-- end .app-layout -->
+
+<!-- Back to Top -->
+<div class="back-top" id="backTop" onclick="scrollToTop()">↑</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span>🏴‍☠️</span> AIbounty
+    </div>
+    <div class="footer-subscribe">
+      <span class="subscribe-label" data-i18n="subscribeLabel">📬 每日精选直达邮箱</span>
+      <div class="subscribe-form">
+        <input type="email" class="subscribe-input" id="subEmail" placeholder="your@email.com" autocomplete="email">
+        <button class="subscribe-btn" onclick="subscribeEmail()" data-i18n="subscribeBtn">订阅</button>
+      </div>
+      <span class="subscribe-hint" data-i18n="subscribeHint">每天一款AI神器，不废话，不打扰</span>
+    </div>
+    <div class="footer-links">
+      <span>💬 <a href="#" onclick="showToast(t('feedbackEmail'));return false" style="color:inherit;text-decoration:none;" data-i18n="feedback">💬 反馈 & 建议</a></span>
+      <span>·</span>
+      <span><a href="#" onclick="shareSite();return false" style="color:inherit;text-decoration:none;">📤 <span data-i18n="shareBtn">分享AIbounty</span></a></span>
+      <span>·</span>
+      <span data-i18n="footerText">每天用心筛选，为你推荐最有价值的 AI 工具 ❤️</span>
+      <span>·</span>
+      <span data-i18n="footerSources">数据来源: HackerNews · GitHub · 掘金</span>
+      <span>·</span>
+      <span data-i18n="footerPowered">由曦和系统 7×24h 狩猎驱动</span>
+      <span>·</span>
+      <span><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">粤ICP备2026085776号-1</a></span>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── 中英文语言包 ──
+const I18N = {
+  zh: {
+    navData: '数据', navXihe: '曦和', navRecon: '侦察', navAsset: '资产',
+    navMaterial: '素材', navAbout: '关于', navSubmit: '提交',
+    navHome: '首页', navHot: '热门', navRandom: '随机', navSubmitBtn: '提交', navDaily: '日报', navTemplate: '模板',
+    subscribeLabel: '📬 每日精选直达邮箱', subscribeBtn: '订阅', subscribeHint: '每天一款AI神器，不废话，不打扰',
+    identityLabel: '👤 探索身份', identityDev: '💻 开发者', identityCreator: '🎨 创作者',
+    identityResearcher: '🔬 研究者', identityEnt: '🏢 企业',
+    suggestVideo: '🎬 视频', suggestCode: '💻 编程', suggestFramework: '🔧 框架', suggestOpenSource: '🌍 开源',
+    searchPlaceholder: '搜工具名、关键词...',
+    hotSearch: '🔥 热门搜索：',
+    tracked: '已追踪', tools: '个工具', dailyUpdate: '每日更新',
+    selectTitle: '⭐ 曦和精选', selectSub: '今天用心推荐这3款',
+    trendTitle: '🔥 热门趋势', trendSub: '本周最受关注',
+    allTools: '📦 全部工具',
+    filterAll: '✨ 全部', filterGithub: '⭐ GitHub', filterHN: '🌐 HackerNews',
+    filterJuejin: '📖 掘金', sourceJuejin: '掘金', filterGitee: '🇨🇳 Gitee', filterHigh: '🏆 高星项目',
+    catAll: '📂 全部分类', catAgent: '🤖 Agent', catLLM: '🧠 LLM',
+    catRAG: '🔗 RAG', catDev: '🛠 Dev Tool', catMedia: '🎨 图像/视频', catData: '📊 数据科学',
+    catMediaLabel: '🎨 媒体',
+    regionAll: '🌏 全部地区', regionCN: '🇨🇳 国内工具', regionGlobal: '🌐 国际工具',
+    sceneAll: '📂 全部场景',
+    sceneWriteCode: '💻 写代码', sceneWriteArticle: '✍️ 写文章',
+    sceneDrawDesign: '🎨 画图设计', sceneDataAnalysis: '📊 数据分析',
+    sceneAIChat: '💬 AI聊天', sceneMakeVideo: '🎬 做视频', sceneAutomation: '⚡ 自动化',
+    filterCatLabel: '分类筛选', filterRegionLabel: '地区',
+    filterSceneLabel: '使用场景', filterRoleLabel: '👤 按角色',
+    filterPriceLabel: '💰 价格模式', filterRadarLabel: '📡 技术雷达',
+    filterTagLabel: '🔍 智能洞见',
+    roleAll: '👤 全部角色', roleDev: '💻 开发者', roleCreator: '🎨 创作者',
+    roleEnt: '🏢 企业', roleRes: '🔬 研究者',
+    tagAll: '🔍 全部洞见', catFilterTool: '📦 分类筛选', tagFilterInsight: '🔍 智能洞见', countSuffix: '款',
+    tagOpen: '🌍 开源项目', tagStars: '⭐ 高星项目',
+    tagFresh: '🆕 今日新发', tagChina: '🇨🇳 国产工具', tagDemo: '🚀 有Demo',
+    tagPopular: '🔥 热门', tagEnterprise: '🏢 企业级',
+    loadMore: '📦 加载更多工具', loadedAll: '✅ 已全部加载', total: '共',
+    feedback: '💬 反馈 & 建议',
+    shareBtn: '📤 分享AIbounty',
+    voiceSearch: '🎤 请说话...',
+    langSwitch: '中',
+    footerText: '每天用心筛选，为你推荐最有价值的 AI 工具 ❤️',
+    footerSources: '数据来源: HackerNews · GitHub · 掘金',
+    footerPowered: '由曦和系统 7×24h 狩猎驱动',
+    emptySearch: '没找到', emptyRelate: '相关的工具',
+    emptySuggest: '别着急，试试换个关键词搜索',
+    emptyHot: '🔥 热门推荐',
+    moreFilters: '更多筛选',
+    todayEmpty: '今天还没有精选推荐。狩猎进行中，20:00 会自动更新。',
+    statTotal: '工具总数', statGithub: 'GitHub 项目', statHN: 'HackerNews 热议',
+    statJuejin: '掘金技术文章',
+    how1: '多源聚合', how2: 'AI 分类', how3: '每日更新', how4: '精准推荐',
+    how1Desc: 'HN + GitHub + 掘金', how2Desc: '自动识别工具类型',
+    how3Desc: '08 / 14 / 20 点', how4Desc: '按热度+分类排序',
+    badgeText: '实时聚合 HackerNews · GitHub · 掘金',
+    heroTitle: '发现下一个<br><span class="gradient">改变世界的 AI 工具</span>',
+    heroSub: '每日精选全球 AI 社区好工具，用心推荐每一款',
+    discoverTitle: '发现改变世界的 AI 工具',
+    // ── render 用 ──
+    searchResult: '🔍 搜索「{0}」· 共 {1} 个结果',
+    searchCount: '· 共 {0} 个',
+    pickAuto: '🤖 算法推荐', pickManual: '👑 曦和精选',
+    pickSponsored: '💼 赞助推荐', pickDefault: '推荐',
+    pickReasonDefault: '今日精选',
+    noTitle: '无标题', noDesc: '暂无描述', noDetailDesc: '暂无详细描述',
+    trendingRank: '热门',
+    emptyTitle: '没找到「{0}」相关的工具',
+    emptyText: '别着急，试试换个关键词搜索<br>或者看看我们推荐的热门分类',
+    emptyShowAll: '🔄 看全部',
+    huntingTitle: '正在狩猎中...',
+    huntingText: 'AI 猎人们正在全球社区搜索最新工具<br>请稍等一下，马上就会有惊喜 🎁',
+    warm0: '推荐给你', warm1: '值得关注', warm2: '开发者必看',
+    warm3: '不容错过', warm4: '曦和推荐', warm5: '不容忽视',
+    warm6: '神器', warm7: '真的强',
+    loadMoreText: '📦 加载更多工具',
+    loadCount: '（{0}/{1}）',
+    loadedAllText: '✅ 已全部加载（共 {0} 个工具）',
+    statTotalLabel: '工具总数', statGithubLabel: 'GitHub 项目',
+    statHNLabel: 'HackerNews 热议', statJuejinLabel: '掘金技术文章',
+    justNow: '刚刚', minAgo: '分钟前', hourAgo: '小时前', dayAgo: '天前',
+    // ── 问候 ──
+    greetLate: '🌙 深夜还在探索，太拼了！', greetLateNote: '给你准备了最新鲜的工具，发现几个宝贝吧',
+    greetMorning: '🌅 早安！新的一天，新的工具', greetMorningNote: '清晨的第一杯咖啡，配上今日精选刚刚好',
+    greetAm: '☀️ 上午好，精力最充沛的时候', greetAmNote: '趁状态好，来看看今天有什么新发现',
+    greetNoon: '🌤️ 午休时间，轻松一下', greetNoonNote: '随便逛逛，说不定遇到惊喜工具',
+    greetPm: '⛅ 下午好，继续加油！', greetPmNote: '工作累了？来看看新鲜工具提提神',
+    greetEvening: '🌆 傍晚好，今天收获如何？', greetEveningNote: '睡前刷一刷，明天用新工具效率翻倍',
+    greetNight: '🌃 晚上好，还在学习呢', greetNightNote: '夜猫子专属，给你准备了特别推荐',
+    // ── Toast / 反馈 / 语音 ──
+    toastSearching: '🔍 正在搜索「{0}」相关的工具...',
+    toastInputHint: '💡 输入关键词再搜索吧',
+    toastVoiceUnsupported: '⚠️ 当前浏览器不支持语音搜索，建议使用 Chrome',
+    toastVoiceResult: '🎤 已识别：「{0}」',
+    toastVoiceFailed: '⚠️ 语音识别失败',
+    toastVoicePrompt: '🎤 请说话...',
+    toastVoiceDenied: '⚠️ 麦克风权限被拒绝，请在浏览器设置中允许',
+    toastVoiceNoSpeech: '⚠️ 没有检测到声音，请再试一次',
+    toastVoiceFallback: '🎤 语音识别中，请说话...',
+    toastVoiceProcessing: '⏳ 正在识别...',
+    toastVoiceNoBackend: '❌ 语音服务暂不可用，建议使用 Chrome 浏览器',
+    feedbackTitle: '💌 感谢你的反馈！',
+    feedbackBody: '你的每一条建议，都会让 AIbounty 变得更好',
+    feedbackEmail: '📧 发送至：luffly@foxmail.com',
+    searchBtnTitle: '搜索', voiceBtnTitle: '语音搜索',
+    updateTimeDefault: '实时',
+    rightbarTitle: '🔥 实时热榜', rightbarFooter: '每 3 分钟自动刷新',
+    rightbarLoading: '⏳ 加载中...',
+    rbAiResources: 'AI 资源', rbNews: 'AI 资讯', rbModels: '模型库',
+    rbCourses: '课程学习', rbPapers: '论文预印', rbBenchmarks: '评测排行',
+    sortInterleave: '🔀 混排', sortTime: '⏱ 最新', sortHot: '🔥 最热',
+    tabSearch: '搜索', tabRefresh: '刷新',
+    acToolPreview: '🎯 实时工具预览', acRelatedCat: '🏷️ 相关分类', acSearchHistory: '🕐 搜索历史',
+    acHotRecommend: '🔥 热门推荐', acCount: '个', perPage: '每页', pgCurrent: '第', pgPerPage: '条/页',
+    sugTypeTool: '工具', sugTypeCat: '分类', sugTypeScene: '场景', sugTypeTag: '标签', sugTypeHot: '热搜',
+    loadError: '数据加载失败:', loadErrorText: '数据加载失败，请确认服务器正在运行',
+    loadErrorUrl: '访问地址应为 http://localhost:4321',
+    pageTitle: 'AIbounty · AI 赏金猎人 — 每日狩猎最前沿的 AI 工具',
+    pageDesc: '自动聚合 HackerNews、掘金、GitHub Trending，每日精选最有价值的 AI 工具与开源项目。',
+  },
+  en: {
+    navData: 'Data', navXihe: 'Xihe', navRecon: 'OSINT', navAsset: 'Assets',
+    navMaterial: 'Content', navAbout: 'About', navSubmit: 'Submit',
+    navHome: 'Home', navHot: 'Hot', navRandom: 'Random', navSubmitBtn: 'Submit', navDaily: 'Daily', navTemplate: 'Templates',
+    subscribeLabel: '📬 Daily picks in your inbox', subscribeBtn: 'Subscribe', subscribeHint: 'One AI tool a day, no spam, no noise',
+    identityLabel: '👤 Identity', identityDev: '💻 Developer', identityCreator: '🎨 Creator',
+    identityResearcher: '🔬 Researcher', identityEnt: '🏢 Enterprise',
+    suggestVideo: '🎬 Video', suggestCode: '💻 Code', suggestFramework: '🔧 Framework', suggestOpenSource: '🌍 Open Source',
+    searchPlaceholder: 'Search tools, keywords...',
+    hotSearch: '🔥 Trend:',
+    tracked: 'Tracked', tools: 'tools', dailyUpdate: 'Daily Update',
+    selectTitle: '⭐ Xihe Picks', selectSub: 'Handpicked for you',
+    trendTitle: '🔥 Trending', trendSub: 'Most popular this week',
+    allTools: '📦 All Tools',
+    filterAll: '✨ All', filterGithub: '⭐ GitHub', filterHN: '🌐 HackerNews',
+    filterJuejin: '📖 Juejin', sourceJuejin: 'Juejin', filterGitee: '🇨🇳 Gitee', filterHigh: '🏆 High Stars',
+    catAll: '📂 All', catAgent: '🤖 Agent', catLLM: '🧠 LLM',
+    catRAG: '🔗 RAG', catDev: '🛠 Dev Tool', catMedia: '🎨 Image/Video', catData: '📊 Data Science',
+    catMediaLabel: '🎨 Media',
+    regionAll: '🌏 All Regions', regionCN: '🇨🇳 China', regionGlobal: '🌐 Global',
+    sceneAll: '📂 All Scenes',
+    sceneWriteCode: '💻 Code', sceneWriteArticle: '✍️ Writing',
+    sceneDrawDesign: '🎨 Design', sceneDataAnalysis: '📊 Analysis',
+    sceneAIChat: '💬 AI Chat', sceneMakeVideo: '🎬 Video', sceneAutomation: '⚡ Automation',
+    filterCatLabel: 'Categories', filterRegionLabel: 'Region',
+    filterSceneLabel: 'Use Cases', filterRoleLabel: '👤 By Role',
+    filterPriceLabel: '💰 Price', filterRadarLabel: '📡 Radar',
+    filterTagLabel: '🔍 Insights',
+    roleAll: '👤 All Roles', roleDev: '💻 Developer', roleCreator: '🎨 Creator',
+    roleEnt: '🏢 Enterprise', roleRes: '🔬 Researcher',
+    tagAll: '🔍 All Insights', catFilterTool: '📦 Categories', tagFilterInsight: '🔍 Data Insight', countSuffix: '',
+    tagOpen: '🌍 Open Source', tagStars: '⭐ High Stars',
+    tagFresh: '🆕 Fresh', tagChina: '🇨🇳 Made in China', tagDemo: '🚀 Has Demo',
+    tagPopular: '🔥 Popular', tagEnterprise: '🏢 Enterprise',
+    loadMore: '📦 Load More', loadedAll: '✅ All Loaded', total: 'of',
+    feedback: '💬 Feedback',
+    shareBtn: '📤 Share AIbounty',
+    voiceSearch: '🎤 Speak now...',
+    langSwitch: 'EN',
+    footerText: 'Curated daily — the best AI tools, handpicked for you ❤️',
+    footerSources: 'Sources: HackerNews · GitHub · Juejin',
+    footerPowered: 'Powered by Xihe 7×24h',
+    emptySearch: 'No tools found for', emptyRelate: '',
+    emptySuggest: 'Try different keywords',
+    emptyHot: '🔥 Popular',
+    moreFilters: 'More Filters',
+    todayEmpty: 'No picks yet. Hunting in progress, updates at 20:00.',
+    statTotal: 'Total Tools', statGithub: 'GitHub Projects', statHN: 'HackerNews Hot',
+    statJuejin: 'Juejin Articles',
+    how1: 'Multi-source', how2: 'AI Sort', how3: 'Daily Update', how4: 'Precision',
+    how1Desc: 'HN + GitHub + Juejin', how2Desc: 'Auto classification',
+    how3Desc: '08 / 14 / 20 daily', how4Desc: 'By stars & categories',
+    badgeText: 'Aggregating HackerNews · GitHub · Juejin',
+    heroTitle: 'Discover the Next<br><span class="gradient">Game-Changing AI Tools</span>',
+    heroSub: 'Curated daily from global AI communities, handpicked with care',
+    discoverTitle: 'Discover Game-Changing AI Tools',
+    // ── render 用 ──
+    searchResult: '🔍 Results for "{0}" · {1} found',
+    searchCount: '· {0} total',
+    pickAuto: '🤖 AI Pick', pickManual: '👑 Xihe Pick',
+    pickSponsored: '💼 Sponsored', pickDefault: 'Recommended',
+    pickReasonDefault: "Today's Pick",
+    noTitle: 'Untitled', noDesc: 'No description', noDetailDesc: 'No detailed description',
+    trendingRank: 'Hot',
+    emptyTitle: 'No results for "{0}"',
+    emptyText: 'Try different keywords<br>or browse our popular categories',
+    emptyShowAll: '🔄 Show All',
+    huntingTitle: 'Hunting in progress...',
+    huntingText: 'AI hunters are searching global communities<br>Great tools coming soon 🎁',
+    warm0: 'Recommended', warm1: 'Worth watching', warm2: "Must-see for devs",
+    warm3: "Don't miss it", warm4: 'Xihe Pick', warm5: "Can't ignore",
+    warm6: 'Awesome', warm7: 'Powerful',
+    loadMoreText: '📦 Load More',
+    loadCount: '({0}/{1})',
+    loadedAllText: '✅ All loaded ({0} total)',
+    statTotalLabel: 'Total Tools', statGithubLabel: 'GitHub Projects',
+    statHNLabel: 'HackerNews Hot', statJuejinLabel: 'Juejin Articles',
+    justNow: 'just now', minAgo: 'm ago', hourAgo: 'h ago', dayAgo: 'd ago',
+    // ── Greeting ──
+    greetLate: '🌙 Late night explorer!', greetLateNote: 'Fresh tools waiting for you',
+    greetMorning: '🌅 Good morning! New day, new tools', greetMorningNote: 'Coffee + today\'s picks = perfect',
+    greetAm: '☀️ Good morning, prime time!', greetAmNote: 'Check out today\'s discoveries',
+    greetNoon: '🌤️ Lunch break, take it easy', greetNoonNote: 'Browse around, you might find a gem',
+    greetPm: '⛅ Good afternoon! Keep going!', greetPmNote: 'Work break? Fresh tools await',
+    greetEvening: '🌆 Good evening, how\'s your day?', greetEveningNote: 'Evening scroll = tomorrow\'s productivity',
+    greetNight: '🌃 Good evening, still learning?', greetNightNote: 'Night owl special picks for you',
+    // ── Toast / Feedback / Voice ──
+    toastSearching: '🔍 Searching &quot;{0}&quot;...',
+    toastInputHint: '💡 Type keywords to search',
+    toastVoiceUnsupported: '⚠️ Voice search unsupported, try Chrome',
+    toastVoiceResult: '🎤 Recognized: &quot;{0}&quot;',
+    toastVoiceFailed: '⚠️ Voice recognition failed',
+    toastVoicePrompt: '🎤 Speak now...',
+    toastVoiceDenied: '⚠️ Microphone access denied. Allow in browser settings',
+    toastVoiceNoSpeech: '⚠️ No speech detected, try again',
+    toastVoiceFallback: '🎤 Voice recognition, please speak...',
+    toastVoiceProcessing: '⏳ Processing voice...',
+    toastVoiceNoBackend: '❌ Voice service unavailable. Try Chrome browser',
+    feedbackTitle: '💌 Thanks for your feedback!',
+    feedbackBody: 'Every suggestion makes AIbounty better',
+    feedbackEmail: '📧 Send to: luffly@foxmail.com',
+    searchBtnTitle: 'Search', voiceBtnTitle: 'Voice Search',
+    updateTimeDefault: 'Live',
+    rightbarTitle: '🔥 Live Hot List', rightbarFooter: 'Auto-refresh every 3 min',
+    rightbarLoading: '⏳ Loading...',
+    rbAiResources: 'AI Resources', rbNews: 'News', rbModels: 'Models',
+    rbCourses: 'Courses', rbPapers: 'Papers', rbBenchmarks: 'Benchmarks',
+    sortInterleave: '🔀 Mix', sortTime: '⏱ Latest', sortHot: '🔥 Hottest',
+    tabSearch: 'Search', tabRefresh: 'Refresh',
+    acToolPreview: '🎯 Tools', acRelatedCat: '🏷️ Categories', acSearchHistory: '🕐 History',
+    acHotRecommend: '🔥 Trending', acCount: '', perPage: 'Per page', pgCurrent: 'Page', pgPerPage: '/page',
+    sugTypeTool: 'Tool', sugTypeCat: 'Category', sugTypeScene: 'Scene', sugTypeTag: 'Tag', sugTypeHot: 'Trending',
+    loadError: 'Data load failed:', loadErrorText: 'Data load failed. Make sure the server is running.',
+    loadErrorUrl: 'Expected URL: http://localhost:4321',
+    pageTitle: 'AIbounty · AI Hunter — Daily AI Tools Discovery',
+    pageDesc: 'Auto-aggregating HackerNews, Juejin, GitHub Trending — curated AI tools daily.',
+  }
+};
+let currentLang = localStorage.getItem('aibounty_lang') || 'zh';
+// 智能语言检测：浏览器是中文但设置是英文时自动切回
+(function() {
+  var bl = (navigator.language||'').toLowerCase();
+  if (bl.startsWith('zh') && currentLang === 'en') { currentLang = 'zh'; localStorage.setItem('aibounty_lang','zh'); }
+  if (!bl.startsWith('zh') && currentLang === 'zh') { currentLang = 'en'; localStorage.setItem('aibounty_lang','en'); }
+})();
+
+function t(key) { return I18N[currentLang][key] !== undefined ? I18N[currentLang][key] : key; }
+
+// 带参数替换的翻译: tpl('searchResult', query, count)
+function tpl(key) {
+  const val = I18N[currentLang][key];
+  if (!val) return key;
+  const args = Array.prototype.slice.call(arguments, 1);
+  return val.replace(/\{(\d+)\}/g, (_, idx) => args[parseInt(idx)] !== undefined ? args[parseInt(idx)] : _);
+}
+
+function switchLang() {
+  currentLang = currentLang === 'zh' ? 'en' : 'zh';
+  localStorage.setItem('aibounty_lang', currentLang);
+  applyLang();
+  render();
+  refreshCounts();
+}
+
+function applyLang() {
+  // 静态 data-i18n 元素
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (key) el.textContent = t(key);
+  });
+  // 标题（含 br / span，用 innerHTML）
+  const ht = document.getElementById('heroTitle');
+  if (ht) ht.innerHTML = t('heroTitle');
+  const hs = document.getElementById('heroSub');
+  if (hs) hs.textContent = t('heroSub');
+  // 特殊处理 placeholder
+  const si = document.getElementById('searchInput');
+  if (si) si.placeholder = t('searchPlaceholder');
+  // 语言切换按钮文字
+  const lb = document.getElementById('langBtn');
+  if (lb) lb.textContent = t('langSwitch');
+  // 按钮 title 属性
+  const vb = document.getElementById('voiceBtn');
+  if (vb) vb.title = t('voiceBtnTitle');
+  const sb = document.getElementById('searchBtn');
+  if (sb) sb.title = t('searchBtnTitle');
+  // 页面 title
+  document.title = t('pageTitle');
+  // 页面 meta description
+  const md = document.querySelector('meta[name="description"]');
+  if (md) md.content = t('pageDesc');
+  // 刷新统计数字后缀（如果数据已加载）
+  if (window._rawCounts) refreshCounts();
+}
+let allItems = [], sources = {}, dailyPicks = [], trending = [], todayRecommends = [], todayInfo = {};
+
+// ── 刷新统计数字后缀（i18n 感知） ──
+function refreshCounts() {
+  const c = window._rawCounts;
+  const sfx = currentLang === 'en' ? '' : '款';
+  if (!c) { console.warn('refreshCounts: _rawCounts 未就绪'); return; }
+  // 全部采用与"全部地区"一样的逐个 document.getElementById 赋值
+  document.getElementById('countAll').textContent = (c.all||0) + sfx;
+  document.getElementById('countCatAll').textContent = (c.catAll||0) + sfx;
+  document.getElementById('countSceneAll').textContent = (c.sceneAll||0) + sfx;
+  document.getElementById('countTagAll').textContent = (c.tagAll||0) + sfx;
+  document.getElementById('countRegionAll').textContent = (c.regionAll||0) + sfx;
+  // 其余计数用循环
+  const otherMap = {
+    countGithub: c.github||0, countHN: c.hn||0, countJuejin: c.juejin||0,
+    countGitee: c.gitee||0, countHigh: c.highScore||0,
+    countRegionCn: c.regionCn||0, countRegionGlobal: c.regionGlobal||0,
+    countTagOpen: c.tagOpen||0, countTagStars: c.tagStars||0,
+    countTagFresh: c.tagFresh||0, countTagChina: c.tagChina||0, countTagDemo: c.tagDemo||0,
+    countCatAgent: c.catAgent||0, countCatLLM: c.catLLM||0, countCatRAG: c.catRAG||0,
+    countCatDev: c.catDev||0, countCatMedia: c.catMedia||0, countCatData: c.catData||0,
+    countCatMedia2: c.catMedia2||0,
+    countSceneCode: c.sceneCode||0, countSceneArticle: c.sceneArticle||0,
+    countSceneDraw: c.sceneDraw||0, countSceneData: c.sceneData||0, countSceneChat: c.sceneChat||0,
+    countSceneVideo: c.sceneVideo||0, countSceneAuto: c.sceneAuto||0,
+    countPriceAll: c.priceAll||0, countPriceOS: c.priceOS||0, countPricePaid: c.pricePaid||0,
+    countRadarAll: c.radarAll||0, countRadarHot: c.radarHot||0, countRadarStar: c.radarStar||0,
+    countRadarOS: c.radarOS||0
+  };
+  for (const [id, val] of Object.entries(otherMap)) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val + sfx;
+  }
+}
+let currentSource = 'all', currentCat = 'all', currentScene = 'all', currentRegion = 'all', currentRole = 'all', currentTag = 'all', currentPrice = 'all', currentRadar = 'all', searchQuery = '', currentPage = 1, currentSort = 'interleave';
+
+// ── 混排算法：各来源交叉排列 ──
+function interleave(arr) {
+  const groups = {};
+  for (const item of arr) {
+    const src = item.source || 'other';
+    if (!groups[src]) groups[src] = [];
+    groups[src].push(item);
+  }
+  const keys = Object.keys(groups);
+  const maxLen = Math.max(...keys.map(k => groups[k].length));
+  const result = [];
+  for (let i = 0; i < maxLen; i++) {
+    for (const key of keys) {
+      if (groups[key][i]) result.push(groups[key][i]);
+    }
+  }
+  return result;
+}
+
+// ── 排序控制 ──
+function setSort(mode) {
+  currentSort = mode;
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.toggle('active', b.dataset.sort === mode));
+  render();
+}
+
+// ── Helpers ──
+const LABELS = { hn: 'HackerNews', github: 'GitHub', juejin: '掘金', gitee: 'Gitee', github_trending: 'GitHub热门', nav_hunter: 'AI导航', rss: 'RSS订阅', sspai: '少数派', arxiv: 'arXiv论文', producthunt: 'ProductHunt', hackernews: 'HackerNews' };
+function labelFor(src) { if (!src) return t('sourceUnknown')||'来源'; return src==='juejin' ? t('sourceJuejin') : (LABELS[src]||src); }
+const ICONS  = { hn: '🌐', github: '⭐', juejin: '📖', gitee: '🇨🇳' };
+const CLS    = { hn: 'hn', github: 'github', juejin: 'juejin', gitee: 'gitee' };
+
+function fmtStars(n) {
+  if (!n || n === '0') return null;
+  n = parseInt(n);
+  if (n >= 1000000) return (n/1000000).toFixed(1) + 'm';
+  if (n >= 1000) return (n/1000).toFixed(1).replace(/\.0$/,'') + 'k';
+  return n.toLocaleString();
+}
+
+function timeAgo(s) {
+  if (!s) return '';
+  // 已含时区则直接解析，否则补 +08:00
+  var dt = (s.indexOf('+') > 10 || s.endsWith('Z')) ? new Date(s) : new Date(s.replace(' ','T')+'+08:00');
+  if (isNaN(dt.getTime())) return '';
+  const d = (Date.now()-dt)/1000;
+  if (d<60) return t('justNow');
+  if (d<3600) return Math.floor(d/60)+t('minAgo');
+  if (d<86400) return Math.floor(d/3600)+t('hourAgo');
+  return Math.floor(d/86400)+t('dayAgo');
+}
+
+// ── 语言感知摘要：中文模式显示 abstract_zh，英文模式显示 abstract ──
+function displayAbstract(item) {
+  if (currentLang === 'zh' && item.abstract_zh) return item.abstract_zh;
+  var abs = item.abstract || '';
+  // 英文模式下防御：如果 abstract 中文字符超过 30%，显示 fallback
+  if (currentLang === 'en' && abs) {
+    var chinese = (abs.match(/[\u4e00-\u9fff\u3400-\u4dbf]/g) || []).length;
+    if (chinese > abs.length * 0.3) return t('noDetailDesc');
+  }
+  return abs || t('noDetailDesc');
+}
+
+// ── Render ──
+function render() {
+  try {  // safety: catch any error to prevent silent empty grid
+  if (typeof allItems === 'undefined' || !allItems || !allItems.length) { console.warn('render: allItems empty'); return; }
+  let items = allItems;
+
+  // ── AI 智能推荐模式 ──
+  // 检测自然语言查询：包含中文动词/意图词/较长短语
+  var isAiQuery = false;
+  window._aiQueryReason = null;  // 暴露给卡片渲染
+  if (searchQuery) {
+    var qTrim = searchQuery.trim();
+    // 自然语言检测规则
+    var aiDetect = /找|推荐|帮我|想要|需要|哪个|类似|有没有|什么|怎么|如何|适合|开源|免费|替代|类似|编程|工具/;
+    var hasChineseIntent = aiDetect.test(qTrim);
+    var wordCount = qTrim.split(/\s+/).length;
+    // 中文检测：含意图词且长度>=4即触发AI模式（中文不需要空格分词）
+    var isLongEnough = qTrim.length >= 4;
+    if (hasChineseIntent && isLongEnough) {
+      isAiQuery = true;
+    } else if (hasChineseIntent && wordCount >= 3) {
+      isAiQuery = true;
+    }
+
+    const q = qTrim.toLowerCase();
+    // 分词匹配（两种模式共用）
+    let tokens = q.split(/\s+/).filter(t => t.length > 0);
+    // 中文增强：对纯中文/中英混合token做二元组分词
+    if (tokens.length === 1 && tokens[0].length >= 4 && /[\u4e00-\u9fff]/.test(tokens[0])) {
+      const cToken = tokens[0];
+      const bigrams = [];
+      for (let bi = 0; bi < cToken.length - 1; bi++) {
+        bigrams.push(cToken.substring(bi, bi + 2));
+      }
+      tokens = bigrams;  // 用二元组替换原长token
+    }
+    // 中文意图词过滤（用于AI模式提取关键词）
+    var stopWords = ['找','推荐','帮我','想要','需要','哪个','类似','有没有','什么','怎么','如何','适合','一个','的','了','在','是','我','你','它','和','与','或','吗','啊','吧','呢','要','能','可以','这个','那个'];
+    var keywords = tokens.filter(function(t) {
+      return t.length >= 2 && stopWords.indexOf(t) === -1;
+    });
+    // 如果没有关键词，用所有tokens
+    if (keywords.length === 0) keywords = tokens;
+
+    var scoredItems = items.map(function(i) {
+      const searchable = [
+        i.title || '',
+        i.abstract || '',
+        i.abstract_zh || '',
+        i.source || '',
+        ((i.category && typeof i.category === 'string') ? i.category : (Array.isArray(i.category) ? i.category.join(' ') : '')),
+        ((i.scene && typeof i.scene === 'string') ? i.scene : (Array.isArray(i.scene) ? i.scene.join(' ') : '')),
+        ((i.data_tags && Array.isArray(i.data_tags)) ? i.data_tags.join(' ') : ''),
+      ].join(' ').toLowerCase();
+
+      var titleLower = (i.title || '').toLowerCase();
+      var cats = Array.isArray(i.category) ? i.category : [];
+
+      var score = 0;
+      var hitCount = 0;
+      var matchedReason = '';
+      var matchParts = [];  // 记录匹配到的关键词
+
+      for (var ti = 0; ti < tokens.length; ti++) {
+        var t = tokens[ti];
+        if (searchable.includes(t)) {
+          hitCount++;
+          // 基础匹配得分
+          var baseScore = (t.length > 2 ? 2 : 1);
+          // AI模式：标题匹配权重翻倍
+          if (isAiQuery && titleLower.includes(t)) baseScore += 2;
+          // 分类/标签匹配额外加分
+          for (var ci = 0; ci < cats.length; ci++) {
+            if (cats[ci].toLowerCase().includes(t) || t.includes(cats[ci].toLowerCase())) {
+              baseScore += 1;
+              break;
+            }
+          }
+          score += baseScore;
+          if (matchParts.indexOf(t) === -1) matchParts.push(t);
+        } else if (t.length >= 4 && typeof fuzzyMatch === 'function' && fuzzyMatch(titleLower, t, 1)) {
+          // 模糊匹配降级：编辑距离 <= 1 的拼写容错（半分数值）
+          hitCount++;
+          score += 1;
+          if (matchParts.indexOf(t) === -1) matchParts.push(t + '~');
+        }
+      }
+
+      // AI模式：额外语义匹配
+      if (isAiQuery) {
+        // 关键词与abstract_zh的语义相关性（关键词命中abstract_zh）
+        for (var ki = 0; ki < keywords.length; ki++) {
+          var kw = keywords[ki];
+          var absZh = (i.abstract_zh || '').toLowerCase();
+          var abs = (i.abstract || '').toLowerCase();
+          if (absZh.includes(kw) || abs.includes(kw)) {
+            if (matchParts.indexOf(kw) === -1) {
+              score += (kw.length > 2 ? 2 : 1);
+              matchParts.push(kw);
+            }
+          }
+        }
+        // 高分工具额外加分
+        if ((parseInt(i.score)||0) > 10000) score += 1;
+        // 有price-open-source标签或price_model=open-source的匹配"开源"
+        if (keywords.indexOf('开源') !== -1 || tokens.indexOf('开源') !== -1 || q.indexOf('开源') !== -1) {
+          var dataTags = Array.isArray(i.data_tags) ? i.data_tags : [];
+          if (dataTags.indexOf('price-open-source') !== -1 || dataTags.indexOf('source-github') !== -1 || i.price_model === 'open-source') score += 3;
+        }
+        // 匹配"编程"/"代码"等开发关键词
+        var devKeywords = ['编程','代码','开发','ide','ide-'];
+        for (var di = 0; di < devKeywords.length; di++) {
+          if (q.indexOf(devKeywords[di]) !== -1) {
+            if ((i.category||[]).includes('dev-tool')) score += 3;
+            if (Array.isArray(i.data_tags) && i.data_tags.includes('ai-agent')) score += 2;
+          }
+        }
+      }
+
+      // 构建匹配理由
+      if (isAiQuery && score > 0 && matchParts.length > 0) {
+        matchedReason = '匹配: ' + matchParts.slice(0,3).join(' › ');
+      }
+
+      return { item: i, _score: score, _hits: hitCount, _reason: matchedReason, _aiTags: matchParts };
+    });
+
+    items = scoredItems.filter(function(r) { return r._score > 0; })
+      .sort(function(a, b) {
+        var cmp = b._score - a._score;
+        if (cmp !== 0) return cmp;
+        return b._hits - a._hits;
+      })
+      .map(function(r) {
+        // 保存AI推荐理由到item上供卡片渲染
+        if (isAiQuery && r._reason) r.item._aiReason = r._reason;
+        return r.item;
+      });
+  }
+
+  // 更新搜索框AI模式指示器
+  var aiIndicator = document.getElementById('aiModeIndicator');
+  if (aiIndicator) {
+    if (isAiQuery && searchQuery) {
+      aiIndicator.style.display = '';
+      aiIndicator.textContent = '🤖 AI 智能推荐';
+    } else if (searchQuery) {
+      aiIndicator.style.display = '';
+      aiIndicator.textContent = '🔍 关键词匹配';
+    } else {
+      aiIndicator.style.display = 'none';
+    }
+  }
+
+  let filtered = items;
+  window._filteredForPagination = filtered;
+  if (currentSource === 'high-score') {
+    filtered = items.filter(i => i.source === 'github' && parseInt(i.score||0) > 10000);
+  } else if (currentSource !== 'all') {
+    filtered = items.filter(i => i.source === currentSource);
+  }
+  if (currentCat !== 'all') {
+    filtered = filtered.filter(i => (i.category||[]).includes(currentCat));
+  }
+  if (currentScene !== 'all') {
+    filtered = filtered.filter(i => (i.scene||[]).includes(currentScene));
+  }
+  if (currentRegion !== 'all') {
+    filtered = filtered.filter(i => i.region === currentRegion);
+  }
+  if (currentRole !== 'all') {
+    filtered = filtered.filter(i => (i.roles||[]).includes(currentRole));
+  }
+  if (currentTag !== 'all') {
+    filtered = filtered.filter(i => (i.data_tags||[]).includes(currentTag));
+  }
+  // 价格筛选
+  if (currentPrice !== 'all') {
+    filtered = filtered.filter(i => i.price_model === currentPrice);
+  }
+  // 雷达标签筛选
+  if (currentRadar !== 'all') {
+    filtered = filtered.filter(i => (i.data_tags||[]).includes(currentRadar));
+  }
+
+  // ── 排序：无搜索时应用排序 ──
+  // 分类筛选结果强制按分数降序排列（规律性），以免混排导致排列不可预测
+  if (!searchQuery && currentCat !== 'all') {
+    filtered = [...filtered].sort((a, b) => (parseInt(b.score)||0) - (parseInt(a.score)||0));
+  } else if (!searchQuery) {
+    if (currentSort === 'interleave') {
+      filtered = interleave(filtered);
+    } else if (currentSort === 'time') {
+      filtered = [...filtered].sort((a, b) => (b.captured_at||'').localeCompare(a.captured_at||''));
+    } else if (currentSort === 'hot') {
+      filtered = [...filtered].sort((a, b) => (parseInt(b.score)||0) - (parseInt(a.score)||0));
+    }
+  }
+
+  const resultEl = document.getElementById('resultLabel');
+  if (resultEl) {
+    if (searchQuery) {
+      resultEl.innerHTML = tpl('searchResult', searchQuery, filtered.length);
+      resultEl.style.color = 'var(--text-secondary)';
+    } else {
+      resultEl.textContent = tpl('searchCount', filtered.length);
+      resultEl.style.color = '';
+    }
+  }
+
+  // ── 曦和精选（前端实时精选兜底） ──
+  const tg = document.getElementById('todayGrid');
+  const te = document.getElementById('todayEmpty');
+  var cardCount = window.innerWidth <= 768 ? 4 : 3;
+
+  // 垃圾数据过滤函数（与铁律第7条一致）
+  function isGarbageTool(item) {
+    if (!item) return true;
+    var t = (item.title || '').toLowerCase();
+    var a = (item.abstract || '').toLowerCase();
+    // Show HN / Ask HN / Tell HN / Launch HN 原始标题
+    if (/^(show|ask|tell|launch)\s+hn:/.test(t)) return true;
+    // "HN discussion (X pts)" 元数据伪装成描述
+    if (/hn\s+(discussion|hot)/.test(a) && a.length < 35) return true;
+    // 过短描述（英文<15词 且无中文）
+    var enWords = (item.abstract || '').split(/\s+/).length;
+    var zhChars = ((item.abstract_zh || '').match(/[\u4e00-\u9fff]/g) || []).length;
+    if (enWords < 20 && zhChars < 10 && !item.abstract_zh) return true;
+    // 垃圾标签
+    if (item.data_tags && item.data_tags.indexOf('__garbage__') >= 0) return true;
+    return false;
+  }
+
+  // 策略：优先 todayRecommends → 次选 daily_picks → 最后前端实时按 score 精选
+  var picks = [];
+  if (todayRecommends && todayRecommends.length) {
+    picks = todayRecommends.slice(0, cardCount);
+    // 如果当天推荐不够，从 daily_picks 取补
+    if (picks.length < cardCount && dailyPicks && dailyPicks.length) {
+      var need = cardCount - picks.length;
+      var usedIds = picks.map(p => p.id);
+      var extras = window.dailyPicks.filter(p => !usedIds.includes(p.id)).slice(0, need);
+      picks = picks.concat(extras);
+    }
+  } else if (dailyPicks && dailyPicks.length) {
+    picks = dailyPicks.slice(0, cardCount);
+  }
+
+  // 如果都没数据 → 前端实时精选：取 score 最高前 10 名，随机挑 cardCount 个
+  if (!picks.length) {
+    var topScored = [...allItems].sort((a,b) => (b.score||0) - (a.score||0)).slice(0, 10);
+    // 用日期做随机种子，确保同一天刷新页面结果一致，但每天不同
+    var dateSeed = new Date().toISOString().slice(0, 10);
+    var seedHash = dateSeed.split('-').reduce(function(a,b){return a*31 + parseInt(b)}, 0);
+    var shuffled = topScored.sort(function() {
+      var r = Math.sin(seedHash++ % 10000) * 10000;
+      return r - Math.floor(r);
+    });
+    picks = shuffled.slice(0, cardCount);
+  }
+
+  // ── 曦和语录（每日一条，内联渲染，零依赖） ──
+  var xiheQuotes = [
+    { text: '工具是手的延伸，但选择永远是心的自由。', w: 8 },
+    { text: '每天发现一个好工具，就是给未来的自己存了一颗糖。', w: 9 },
+    { text: '我不挑工具，我只挑值得你花时间的那一个。', w: 7 },
+    { text: '狩猎不是为了数量，而是为了不让你错过那个"原来还有这种东西"的瞬间。', w: 10 },
+    { text: '好的工具像好茶，第一口可能不惊艳，但越喝越离不开。', w: 9 },
+    { text: '今天帮你挑的这几杯，都是我亲自尝过的。', w: 7 },
+    { text: '效率不是目的，把时间留给重要的人和事才是。', w: 10 },
+    { text: 'AI 工具千千万，能让你会心一笑的就是好工具。', w: 8 }
+  ];
+  // 用日期 hash 确定今日语录（同一天一致，每天不同）
+  var todayStr = new Date().toISOString().slice(0,10);
+  var qHash = todayStr.split('-').reduce(function(a,b){return a*31 + parseInt(b)},0);
+  var todaysQuote = xiheQuotes[qHash % xiheQuotes.length];
+
+  // ── 曦和点评生成器（每张卡片一句有趣的短评） ──
+  var xiheComments = [
+    '这货我试过，真香。',
+    '别被名字骗了，里面藏着的可能是你下个效率神器。',
+    '开源界的宝藏，GitHub 星数说明一切。',
+    '第一次用的时候我也怀疑，后来就离不开了。',
+    '推荐给想偷懒又想把事情做好的朋友。',
+    '不是所有工具都值得你的时间，但这一个值得。',
+    '趁还没火遍全网，赶紧收藏起来。',
+    '我替你踩过坑了，这个没问题。'
+  ];
+  function generateXiheComment(item, idx) {
+    var score = item.score || 0;
+    var stars = fmtStars(item.score);
+    var cmt = xiheComments[(qHash + idx) % xiheComments.length];
+    return '<span class="xqc-icon">✦</span> <span class="xqc-text">' + cmt +
+      (score > 50 ? ' ⭐' + stars : '') + '</span>';
+  }
+
+  // ── 渲染曦和语录横幅（零依赖） ──
+  (function renderXiheQuoteBanner() {
+    var qBox = document.getElementById('xiheQuote');
+    if (!qBox) return;
+    qBox.innerHTML =
+      '<div class="xihe-quote-mark">&ldquo;</div>' +
+      '<p class="xihe-quote-text">' + todaysQuote.text + '</p>' +
+      '<div class="xihe-quote-meta">' +
+        '<span class="xihe-quote-author">— 曦和</span>' +
+        '<span class="xihe-quote-warmth">' + '●'.repeat(Math.min(todaysQuote.w,10)) + ' 暖度 ' + todaysQuote.w + '/10</span>' +
+      '</div>';
+  })();
+
+  if (tg && te && picks.length) {
+    // 最终防线：过滤垃圾工具（即使数据端漏网了，前端也兜底）
+    var cleanPicks = [];
+    for (var pi = 0; pi < picks.length; pi++) {
+      if (!isGarbageTool(picks[pi])) {
+        // 确保有完整描述才展示（铁律第7条）
+        cleanPicks.push(picks[pi]);
+      }
+    }
+    // 如果过滤后太少了，从全量补
+    if (cleanPicks.length < Math.min(cardCount, 3)) {
+      var usedIds = cleanPicks.map(function(p){ return p.id || ''; });
+      var fallbacks = (allItems || []).filter(function(it){
+        return it.id && !usedIds.includes(it.id) && !isGarbageTool(it);
+      }).sort(function(a,b){ return (b.score||0) - (a.score||0); });
+      for (var fi = 0; fi < fallbacks.length && cleanPicks.length < cardCount * 2; fi++) {
+        cleanPicks.push(fallbacks[fi]);
+      }
+    }
+    tg.style.display = 'grid';
+    te.style.display = 'none';
+    tg.innerHTML = cleanPicks.slice(0, cardCount).map(function(item, idx) {
+      const src = item.source, cls = CLS[src]||'';
+      const stars = fmtStars(item.score);
+      const pickType = item.pick_type || 'auto';
+      const bKey = {auto:'pickAuto',manual:'pickManual',sponsored:'pickSponsored'}[pickType] || 'pickDefault';
+      const badge = t(bKey);
+      const reason = (currentLang === 'zh' ? (item.reason_cn || item.reason) : (item.reason_en || item.reason))
+        || displayAbstract(item).substring(0, 60)
+        || t('pickReasonDefault');
+
+      // 分类→专属精美emoji映射
+      const catEmojiMap = {
+        'agent': '🤖', 'llm': '🧠', 'rag': '🔗',
+        'dev-tool': '⚡', 'media': '🎨', 'data-science': '📊',
+        'uncategorized': '💎'
+      };
+      let cardEmoji = '✨';
+      const cats = Array.isArray(item.category) ? item.category : (typeof item.category === 'string' ? (item.category ? [item.category] : []) : []);
+      for (const c of cats) {
+        if (catEmojiMap[c]) { cardEmoji = catEmojiMap[c]; break; }
+      }
+      // 根据标题关键词二次匹配
+      const tLower = (item.title||'').toLowerCase();
+      if (cardEmoji === '✨') {
+        if (/agent|agentic/i.test(tLower)) cardEmoji = '🤖';
+        else if (/llm|model|gpt|claude|gemini/i.test(tLower)) cardEmoji = '🧠';
+        else if (/langflow|visual|builder|drag/i.test(tLower)) cardEmoji = '🎯';
+        else if (/code|coding|dev|cursor|openhands/i.test(tLower)) cardEmoji = '⚡';
+        else if (/image|video|art|gen|draw|paint/i.test(tLower)) cardEmoji = '🎨';
+        else if (/data|analysis|trading|quant/i.test(tLower)) cardEmoji = '📊';
+        else if (/superpowers|skill|framework/i.test(tLower)) cardEmoji = '🏆';
+      }
+
+      return `
+      <a class="today-card ${pickType==='sponsored'?'sponsored':''}" href="tool.html?id=${item.id}" role="button" tabindex="0" aria-label="${(item.title||'').replace(/\"/g,'&quot;')}">
+        <div class="today-card-header">
+          <div class="today-card-emoji">${cardEmoji}</div>
+          <div class="today-card-title-area">
+            <h3>${item.title||t('noTitle')}</h3>
+          </div>
+          <div class="today-card-badge ${pickType}">${badge}</div>
+        </div>
+        <div class="reason ${pickType==='sponsored'?'sponsored':''}">${reason}</div>
+        <div class="xihe-card-comment">${generateXiheComment(item, idx)}</div>
+        <div class="today-meta">
+          ${src ? `<span class="source-tag ${cls}">${labelFor(src)}</span>` : ''}
+          ${stars?`<span style="color:var(--accent);font-weight:600;">⭐ ${stars}</span>`:''}
+          <span style="color:var(--text-tertiary);margin-left:auto;">${timeAgo(item.captured_at)||''}</span>
+        </div>
+      </a>`;
+    }).join('');
+  } else {
+    tg.style.display = 'none';
+    te.style.display = 'block';
+  }
+
+  // 热门趋势（手机上4个，桌面3个）
+  const hotCount = window.innerWidth <= 768 ? 4 : 3;
+  const hot = trending.length ? trending.slice(0, hotCount) : [...items].sort((a,b)=>(b.score||0)-(a.score||0)).slice(0, hotCount);
+  const trGrid = document.getElementById('trendingGrid');
+  if (hot.length) {
+    trGrid.style.display = 'grid';
+    trGrid.innerHTML = hot.map((item,i) => {
+      const src = item.source, cls = CLS[src]||'';
+      const rankColors = ['r1','r2','r3'];
+      const stars = fmtStars(item.score);
+      const avatarSeed = encodeURIComponent((item.title||'tool').replace(/[^a-zA-Z0-9]/g,''));
+      const score = item.score||0;
+      const heatPercent = Math.min(100, Math.round((score / 150) * 100));
+      return `
+      <a class="trending-card" href="tool.html?id=${item.id}" role="button" tabindex="0" aria-label="${(item.title||'').replace(/\"/g,'&quot;')}">
+        <div class="trending-rank">
+          <span class="trending-rank-badge ${rankColors[i]}">${i+1}</span>
+          <span style="font-size:12px;color:var(--text-tertiary);font-weight:500;">${t('trendingRank')}</span>
+        </div>
+        <div class="trending-heat-bar" style="width:${heatPercent}%"></div>
+        <div class="trending-card-content">
+          <img src="https://api.dicebear.com/9.x/bottts-neutral/svg?seed=${avatarSeed}" alt="" loading="lazy" class="trending-card-avatar">
+          <div style="display:flex;flex-direction:column;flex:1;min-width:0;">
+            <h3>${item.title||t('noTitle')}</h3>
+            <p>${displayAbstract(item).slice(0,80)}</p>
+          </div>
+        </div>
+        <div class="trending-meta">
+          <span class="source-tag ${cls}">${labelFor(src)}</span>
+          ${stars?`<span class="trending-stars">🔥 ${stars}</span>`:''}
+          <span style="margin-left:auto;">${timeAgo(item.captured_at)}</span>
+        </div>
+      </a>`;
+    }).join('');
+  } else {
+    trGrid.style.display = 'none';
+  }
+
+  // ── Grid（分页） ──
+  const grid = document.getElementById('toolGrid');
+  const totalItems = filtered.length;
+  const maxPage = Math.ceil(totalItems / activePageSize);
+  // 筛选重置时重置页数
+  if (currentPage > maxPage) currentPage = 1;
+  if (!totalItems) {
+    if (searchQuery) {
+      grid.innerHTML = `
+        <div class="empty-state-warm">
+          <div class="icon">🔍</div>
+          <h3>${tpl('emptyTitle', searchQuery)}</h3>
+          <p>${t('emptyText')}</p>
+          <div class="suggestions">
+            <span class="chip" onclick="quickSearch('agent')">🤖 Agent</span>
+            <span class="chip" onclick="quickSearch('mcp')">🔗 MCP</span>
+            <span class="chip" onclick="quickSearch('video')">${t('suggestVideo')}</span>
+            <span class="chip" onclick="quickSearch('llm')">🧠 LLM</span>
+            <span class="chip" onclick="quickSearch('rag')">📚 RAG</span>
+            <span class="chip" onclick="clearSearch()">${t('emptyShowAll')}</span>
+          </div>
+        </div>`;
+    } else {
+      grid.innerHTML = `
+        <div class="empty-state-warm">
+          <div class="icon">🌱</div>
+          <h3>${t('huntingTitle')}</h3>
+          <p>${t('huntingText')}</p>
+        </div>`;
+    }
+    var pc = document.getElementById('paginationContainer');
+    if (pc) pc.innerHTML = '';
+    return;
+  }
+
+  // 分页：取当前页的数据
+  const start = (currentPage - 1) * activePageSize;
+  const pageItems = filtered.slice(start, start + activePageSize);
+
+  // ── 增强版工具卡片渲染（雷达风格） ──
+  grid.innerHTML = pageItems.map(function(item) {
+    var src = item.source, cls = CLS[src]||'';
+    var avatarSeed = encodeURIComponent((item.title||'tool').replace(/[^a-zA-Z0-9]/g,''));
+    var fallbackLetter = (item.title||'T').charAt(0).toUpperCase();
+    var icon = '<img src="https://api.dicebear.com/9.x/bottts-neutral/svg?seed='+avatarSeed+'" alt="" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.classList.add(\'show\')"><div class="fallback">'+fallbackLetter+'</div>';
+    var stars = fmtStars(item.score);
+    var warmKeys = ['warm0','warm1','warm2','warm3','warm4','warm5','warm6','warm7'];
+    var warm = t(warmKeys[pageItems.indexOf(item) % warmKeys.length]);
+    var CAT_MAP = {agent:t('catAgent'),llm:t('catLLM'),rag:t('catRAG'),'dev-tool':t('catDev'),media:t('catMedia'),'data-science':t('catData'),uncategorized:'其他','ai_framework':'AI框架','agent_tools':'Agent工具','ai_application':'AI应用','llm_tools':'LLM工具','data_tool':'数据工具','multimodal':'多模态','education':'教育'};
+    var TAG_MAP = {open_source:t('tagOpen'),high_stars:t('tagStars'),fresh:t('tagFresh'),made_in_china:t('tagChina'),has_demo:t('tagDemo'),popular:t('tagPopular'),enterprise_grade:t('tagEnterprise')};
+
+    // 标签转视觉芯片
+    var tagChips = '';
+    var tags = item.data_tags||[];
+    if (Array.isArray(tags) && tags.length) {
+      var chipKeys = {open_source:'tag-chip-green', high_stars:'tag-chip-gold', fresh:'tag-chip-blue', made_in_china:'tag-chip-red', has_demo:'tag-chip-purple', popular:'tag-chip-orange', enterprise_grade:'tag-chip-teal', 'star-certified':'tag-chip-gold', 'hot-new':'tag-chip-blue', 'status-dead':'tag-chip-gray-dead'};
+      var chipLabels = {open_source:'🔓 '+t('tagOpen'), high_stars:'⭐ '+t('tagStars'), fresh:'🔥 '+t('tagFresh'), made_in_china:'🇨🇳 '+t('tagChina'), has_demo:'🎮 '+t('tagDemo'), popular:'🏆 '+t('tagPopular'), enterprise_grade:'💼 '+t('tagEnterprise'), 'star-certified':'⭐ 高星认证', 'hot-new':'🔥 最新', 'status-dead':'💀 已失效'};
+      for (var ti=0; ti<tags.length; ti++) {
+        var tagname = tags[ti];
+        // 跳过元标签（不在卡片展示，在筛选栏）
+        if (tagname.indexOf('scene-')===0 || tagname.indexOf('source-')===0 || tagname.indexOf('star-')===0 || tagname.indexOf('price-')===0 || tagname === 'recent') continue;
+        var chipLabel = chipLabels[tagname];
+        // 只显示有中文映射的已知标签，隐藏原始来源技术标签（video/llm/pdf-processing等）
+        if (!chipLabel) continue;
+        tagChips += '<span class="data-tag '+(chipKeys[tagname]||'tag-chip-gray')+'">'+chipLabel+'</span>';
+      }
+    }
+
+    // 等级徽章（A=金🥇, B=银🥈, C=铜🥉）
+    var gradeBadgeHtml = '';
+    var grade = item.grade || '';
+    if (grade === 'A') gradeBadgeHtml = '<span class="grade-badge grade-a" title="高质量·高星精选">✦ A</span>';
+    else if (grade === 'B') gradeBadgeHtml = '<span class="grade-badge grade-b" title="优质·值得关注">✦ B</span>';
+    else if (grade === 'C') gradeBadgeHtml = '<span class="grade-badge grade-c" title="普通">✦ C</span>';
+
+    // 来源标签强化
+    var sourceLabel = labelFor(src);
+    var sourceIcon = {'github':'🐙','hn':'🔺','rss':'📡','juejin':'📕','nav_hunter':'🎯','producthunt':'🚀','github_trending':'🐙','sspai':'📝','arxiv':'📄','hackernews':'🔺'}[src]||'📦';
+
+    // 新鲜度：7天内捕获的标记为新
+    var isFresh = false;
+    if (item.captured_at) {
+      var cap = new Date(item.captured_at.replace(' ','T')+'+08:00');
+      var now = new Date();
+      var diffDays = (now - cap) / (1000*60*60*24);
+      if (diffDays <= 7) isFresh = true;
+    }
+
+    // 价格徽章
+    var priceBadge = '';
+    var pm = item.price_model;
+    if (pm === 'open-source') priceBadge = '<span class="price-badge price-os">🔓 开源</span>';
+    else if (pm === 'paid') priceBadge = '<span class="price-badge price-paid">💰 付费</span>';
+
+    // 死链标记
+    var isDead = tags.indexOf('status-dead') !== -1;
+
+    // 场景图标
+    var sceneIconsHtml = '';
+    if (Array.isArray(tags)) {
+      var sceneMap = { 'scene-code':'💻', 'scene-writing':'✍️', 'scene-image':'🎨', 'scene-video':'🎬', 'scene-audio':'🎵', 'scene-chat':'💬', 'scene-data':'📊', 'scene-automation':'⚡', 'scene-game':'🎮', 'scene-research':'🔬', 'scene-business':'💼', 'scene-education':'📚' };
+      for (var si=0; si<tags.length; si++) {
+        var ico = sceneMap[tags[si]];
+        if (ico) sceneIconsHtml += '<span title="'+tags[si].replace('scene-','')+'">'+ico+'</span>';
+      }
+      if (sceneIconsHtml) sceneIconsHtml = '<span class="scene-icons">'+sceneIconsHtml+'</span>';
+    }
+
+    // HN score显示
+    var hnScore = (src==='hn' && item.score && item.score!=='0') ? ('<span class="hn-score"><span style="color:#ff6b35;">🔺</span> '+item.score+'</span>') : '';
+
+    // 多标签行
+    var catsHtml = '';
+    var _c = item.category;
+    if (typeof _c === 'string') { try { _c=JSON.parse(_c); } catch(e) { _c=[]; } }
+    if (_c && _c.length) {
+      catsHtml = '<div class="cat-tags cat-tags-enhanced">'+_c.map(function(c){ return '<span class="cat-tag '+c+'">'+(CAT_MAP[c]||c)+'</span>'; }).join('')+'</div>';
+    }
+
+    return '<a class="tool-card'+(isDead?' card-dead':'')+'" href="tool.html?id='+item.id+'" role="button" tabindex="0" aria-label="'+(item.title||'').replace(/\"/g,'&quot;')+'">'+
+      '<div class="tool-card-header">'+
+        '<div class="tool-icon '+cls+'">'+icon+'</div>'+
+        '<div class="tool-info">'+
+          '<div class="tool-card-topline">'+
+            '<span class="tool-source '+cls+'">'+sourceIcon+' '+sourceLabel+'</span>'+
+            gradeBadgeHtml+
+            priceBadge+
+          '</div>'+
+          '<h3>'+(isDead?'<span class="dead-mark">💀</span> ':'')+item.title+'</h3>'+
+        '</div>'+
+      '</div>'+
+      (stars ? '<div class="tool-stars-row"><span class="tool-stars-big">⭐ '+stars+'</span>'+hnScore+sceneIconsHtml+'<span class="tool-freshness'+(isFresh?' fresh':'')+'">'+(isFresh?'🟢 新':'')+'</span></div>' : (sceneIconsHtml ? '<div class="tool-stars-row">'+sceneIconsHtml+'</div>' : ''))+
+      catsHtml+
+      '<p>'+displayAbstract(item)+'</p>'+
+      (item._aiReason ? '<div class="ai-match-reason">🤖 <span>'+item._aiReason+'</span></div>' : '')+
+      '<div class="tool-card-footer">'+
+        tagChips+
+      '</div>'+
+    '</a>';
+  }).join('');
+
+  // 加载更多按钮改成页面导航 — 现在放在 tool-grid 外部的独立容器
+  var paginationHtml = '<div id="pageNav" class="pagination"></div>';
+  var pageContainer = document.getElementById('paginationContainer');
+  if (pageContainer) pageContainer.innerHTML = paginationHtml;
+  // 顶部翻页容器已预置在HTML中，确保可见
+  var pageTopContainer = document.getElementById('paginationContainerTop');
+  if (pageTopContainer) pageTopContainer.style.display = '';
+  renderPagination();
+  } catch(e) { console.error('Render error:', e); 
+    document.getElementById('toolGrid').innerHTML = '<div class="empty-state"><div class="icon">⚠️</div><p>'+t('loadErrorText')+'</p></div>';
+  }
+}
+
+// ── 全局错误兜底：任何未捕获异常不白屏 ──
+window.onerror = function(msg, url, line, col, err) {
+  console.error('🌐 全局捕获:', msg, 'at', line+':'+col, err);
+  var grid = document.getElementById('toolGrid');
+  if (grid && !grid.children.length) {
+    grid.innerHTML = '<div class="empty-state"><div class="icon">⚠️</div><p>页面遇到异常，已自动恢复</p><p style="font-size:12px;color:#64748b;margin-top:8px;">错误: ' + (String(msg).slice(0,80)) + '</p><button onclick="loadData()" style="margin-top:12px;padding:8px 20px;background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.2);border-radius:8px;cursor:pointer;font-size:13px;">🔄 重新加载</button></div>';
+  }
+  return true;
+};
+
+// ── 加载更多 ──
+function loadMore() {
+  currentPage++;
+  render();
+  // 滚动到新加载的第一个卡片
+  setTimeout(() => {
+    const cards = document.querySelectorAll('.tool-card');
+    if (cards.length > 20) {
+      const target = cards[cards.length - 20];
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, 100);
+}
+
+// ── 快速检测后端API是否存在（2秒超时，不阻塞后续加载） ──
+var BACKEND_ALIVE = null;  // null=未知, true=在线, false=下线
+function probeBackend() {
+  var ctrl = new AbortController();
+  setTimeout(function() { ctrl.abort(); }, 2000);
+  return fetch(API_BASE + '/api/tools?size=1', { method: 'GET', signal: ctrl.signal })
+    .then(function(r) { return r.ok; })
+    ["catch"](function() { return false; });
+}
+
+// ── API 加载适配器（优先走 API，降级到 data.json） ──
+var API_BASE = '';  // 同源，FastAPI 挂载了静态文件和 API
+
+function loadFromApi() {
+  var controller = new AbortController();
+  var timeoutId = setTimeout(function() { controller.abort(); }, 15000);
+
+  return Promise.all([
+    fetch(API_BASE + '/api/stats', { signal: controller.signal }).then(function(r) {
+      clearTimeout(timeoutId); return r.json();
+    }),
+    fetch(API_BASE + '/api/daily', { signal: controller.signal }).then(function(r) { return r.json(); }),
+    fetch(API_BASE + '/api/tools?size=2000', { signal: controller.signal }).then(function(r) { return r.json(); }),
+    fetch(API_BASE + '/api/categories', { signal: controller.signal }).then(function(r) { return r.json(); }),
+  ]).then(function(results) {
+    var stats = results[0], daily = results[1], toolsResp = results[2], categories = results[3];
+    // 组装成和 data.json 一致的结构
+    return {
+      items: toolsResp.items || [],
+      total: stats.total || toolsResp.items.length,
+      sources: stats.sources || {},
+      regions: stats.regions || {},
+      categories: categories || {},
+      scenes: stats.scenes || {},
+      updated_at: stats.updated_at || daily.updated_at || '',
+      today_recommends: daily.today_recommends || [],
+      trending: daily.trending || [],
+      daily_picks: daily.daily_picks || [],
+      today_info: daily.today_info || {},
+      validated_at: stats.validated_at || '',
+      _from_api: true,
+    };
+  })["catch"](function(err) {
+    console.warn('API 不可用，降级到 data.json', err);
+    return null;  // 触发降级
+  });
+}
+
+// ── 降级：直接从 data.json 加载 ──
+function loadFromJson() {
+  var controller = new AbortController();
+  var timeoutId = setTimeout(function() { controller.abort(); }, 10000);  // 10s 超时，不卡死页面
+  return fetch('data.json?_='+Date.now(), { signal: controller.signal })
+    .then(function(r) {
+      clearTimeout(timeoutId);
+      return r.json();
+    })
+    .then(function(d) {
+      d._from_api = false;
+      return d;
+    });
+}
+
+// ── 统一数据加载入口 ──
+function loadData() {
+  // 显示加载骨架（保留 DOM 节点，不销毁）
+  var grid = document.getElementById('toolGrid');
+  var skeleton = document.getElementById('loadingSkeleton');
+  if (skeleton) skeleton.style.display = 'flex';
+  // 清空网格但保留骨架
+  if (grid) grid.innerHTML = '';
+  if (skeleton && grid) grid.appendChild(skeleton);
+
+  // 先用 2 秒快速探测后端是否在线
+  // 后端在线 -> 走 API；不在线 -> 直接加载 data.json，不等 15 秒
+  probeBackend().then(function(alive) {
+    BACKEND_ALIVE = alive;
+    if (alive) {
+      console.log('后端在线，走 API');
+      return loadFromApi().then(function(d) {
+        return d ? d : loadFromJson();
+      });
+    } else {
+      console.log('静态部署，跳过 API，直接加载 data.json');
+      return loadFromJson();
+    }
+  })
+  .then(function(r) {
+    if (typeof r === 'object' && r !== null) {
+      if (typeof r.json === 'function') return r.json();
+      return r;
+    }
+    return null;
+  })
+  .then(function(d) {
+    if (d) renderData(d);
+    else {
+      console.error('数据加载失败');
+      document.getElementById('loadingSkeleton').style.display = 'none';
+      document.getElementById('totalCount').textContent='⚠';
+      document.getElementById('liveTotal').textContent='⚠';
+      document.getElementById('toolGrid').innerHTML='<div class="empty-state"><div class="icon">⚠️</div><p>数据加载失败</p><p style="font-size:12px;color:#ef4444;margin-top:8px;">请检查网络后重试</p><button onclick="loadData()" style="margin-top:12px;padding:8px 20px;background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.2);border-radius:8px;cursor:pointer;font-size:13px;">🔄 重新加载</button></div>';
+    }
+  });
+}
+
+function renderData(d) {
+      // 预设 _rawCounts 默认值（即使 try 块中途报错，后面的 refreshCounts 也能用）
+      window._rawCounts = window._rawCounts || {};
+      let tags = null;  // 在 try 内外都要使用
+      try {
+      const seen=new Set();
+      allItems=[];
+      for (const item of d.items||[]) {
+        const k=item.title+'|'+item.source+'|'+(item.url||'');
+        if (!seen.has(k)){seen.add(k);allItems.push(item);}
+      }
+      window.allItems = allItems;
+      sources=d.sources||{};
+      dailyPicks = d.daily_picks || [];
+      todayRecommends = d.today_recommends || [];
+      todayInfo = d.today_info || {};
+      trending = d.trending || [];
+
+      // ── 关键修复：将ID引用解析为完整item对象 ──
+      // data.json 中 today_recommends/daily_picks 存的是 {id, type}
+      // trending 存的是纯字符串ID，需要从 allItems 中查找完整对象
+      const itemById = new Map();
+      for (const item of allItems) { itemById.set(item.id, item); }
+      function resolveItem(ref) {
+        if (!ref) return null;
+        if (typeof ref === 'string') return itemById.get(ref) || null;  // trending: 纯ID
+        if (ref.id && !ref.title && itemById.has(ref.id)) {
+          return Object.assign({}, itemById.get(ref.id), ref);  // 合并原始字段(type/reason)
+        }
+        return ref;  // 已经是完整对象
+      }
+      todayRecommends = todayRecommends.map(resolveItem).filter(Boolean);
+      dailyPicks = dailyPicks.map(resolveItem).filter(Boolean);
+      trending = trending.map(resolveItem).filter(Boolean);
+      window.dailyPicks = dailyPicks;
+      window.todayRecommends = todayRecommends;
+
+      const totalCnt=allItems.length;
+      window._rawCounts = window._rawCounts || {};
+      window._rawCounts.total = totalCnt;
+      window._rawCounts.sourceAll = totalCnt;
+      window._rawCounts.github = sources.github||0;
+      window._rawCounts.hn = sources.hn||0;
+      window._rawCounts.juejin = sources.juejin||0;
+      window._rawCounts.gitee = sources.gitee||0;
+      window._rawCounts.highScore = (d.items||[]).filter(i=>i.source==='github'&&parseInt(i.score||0)>10000).length;
+      document.getElementById('totalCount').textContent=totalCnt||0;
+      document.getElementById('liveTotal').textContent=totalCnt||0;
+      document.getElementById('statTotal').textContent=totalCnt||0;
+      document.getElementById('statGithub').textContent=sources.github||0;
+      document.getElementById('statHN').textContent=sources.hn||0;
+      document.getElementById('statJuejin').textContent=sources.juejin||0;
+      document.getElementById('updateTime').textContent=d.updated_at||t('updateTimeDefault');
+
+      const suffix = '款'; // 硬编码，不依赖任何变量
+      document.getElementById('countAll').textContent=(totalCnt||0) + suffix;
+      document.getElementById('countGithub').textContent=(sources.github||0) + suffix;
+      document.getElementById('countHN').textContent=(sources.hn||0) + suffix;
+      document.getElementById('countJuejin').textContent=(sources.juejin||0) + suffix;
+      document.getElementById('countGitee').textContent=(sources.gitee||0) + suffix;
+      document.getElementById('countHigh').textContent=((d.items||[]).filter(i=>i.source==='github'&&parseInt(i.score||0)>10000).length||0) + suffix;
+
+      const regions=d.regions||{cn:0,global:0};
+      document.getElementById('countRegionAll').textContent=((regions.cn||0)+(regions.global||0)) + suffix;
+      document.getElementById('countRegionCn').textContent=(regions.cn||0) + suffix;
+      document.getElementById('countRegionGlobal').textContent=(regions.global||0) + suffix;
+
+      // Tag counts
+      tags = {open_source: 0, high_stars: 0, fresh: 0, made_in_china: 0, has_demo: 0};
+      for (const item of allItems) {
+        var dt=item.data_tags;if(typeof dt==='string'){try{dt=JSON.parse(dt)}catch(e){dt=[]}}
+        for (const tag of dt||[]) {
+          if (tags[tag]!==undefined) tags[tag]++;
+        }
+      }
+      document.getElementById('countTagAll').textContent=totalCnt+ suffix;
+      document.getElementById('countTagOpen').textContent=tags.open_source+ suffix;
+      document.getElementById('countTagStars').textContent=tags.high_stars+ suffix;
+      document.getElementById('countTagFresh').textContent=tags.fresh+ suffix;
+      document.getElementById('countTagChina').textContent=tags.made_in_china+ suffix;
+      document.getElementById('countTagDemo').textContent=tags.has_demo+ suffix;
+
+      // Category counts
+      const catMap = {agent:0, llm:0, rag:0, 'dev-tool':0, 'image-video':0, 'data-science':0, media:0};
+      for (const item of allItems) {
+        for (const c of (function(){var _c=item.category;if(typeof _c==='string'){try{_c=JSON.parse(_c)}catch(e){_c=[]}}return _c||[]})()) {
+          if (catMap[c]!==undefined) catMap[c]++;
+          // 'uncategorized' items still counted in 'all'
+        }
+      }
+      document.getElementById('countCatAll').textContent=totalCnt+ suffix;
+      document.getElementById('countCatAgent').textContent=catMap.agent+ suffix;
+      document.getElementById('countCatLLM').textContent=catMap.llm+ suffix;
+      document.getElementById('countCatRAG').textContent=catMap.rag+ suffix;
+      document.getElementById('countCatDev').textContent=catMap['dev-tool']+ suffix;
+      document.getElementById('countCatMedia').textContent=catMap['image-video']+ suffix;
+      document.getElementById('countCatData').textContent=catMap['data-science']+ suffix;
+      document.getElementById('countCatMedia2').textContent=catMap.media+ suffix;
+
+      // Scene counts
+      const sceneMap = {all:totalCnt, '写代码':0, '写文章':0, '画图设计':0, '数据分析':0, 'AI聊天':0, '做视频':0, '自动化':0};
+      for (const item of allItems) {
+        for (const s of item.scene||[]) {
+          if (sceneMap[s]!==undefined) sceneMap[s]++;
+        }
+      }
+      document.getElementById('countSceneAll').textContent=totalCnt+ suffix;
+      document.getElementById('countSceneCode').textContent=sceneMap['写代码']+ suffix;
+      document.getElementById('countSceneArticle').textContent=sceneMap['写文章']+ suffix;
+      document.getElementById('countSceneDraw').textContent=sceneMap['画图设计']+ suffix;
+      document.getElementById('countSceneData').textContent=sceneMap['数据分析']+ suffix;
+      document.getElementById('countSceneChat').textContent=sceneMap['AI聊天']+ suffix;
+      document.getElementById('countSceneVideo').textContent=sceneMap['做视频']+ suffix;
+      document.getElementById('countSceneAuto').textContent=sceneMap['自动化']+ suffix;
+
+      // Store raw count values for i18n refresh
+      const rawBase = {
+        total: totalCnt||0, all: totalCnt||0,
+        github: sources.github||0, hn: sources.hn||0, juejin: sources.juejin||0,
+        gitee: sources.gitee||0, highScore: (d.items||[]).filter(i=>i.source==='github'&&parseInt(i.score||0)>10000).length,
+        regionAll: (regions.cn||0)+(regions.global||0), regionCn: regions.cn||0, regionGlobal: regions.global||0,
+        tagAll: totalCnt||0, tagOpen: 0, tagStars: 0, tagFresh: 0, tagChina: 0, tagDemo: 0,
+        catAll: totalCnt||0, catAgent: 0, catLLM: 0, catRAG: 0, catDev: 0,
+        catMedia: 0, catData: 0, catMedia2: 0,
+        sceneAll: totalCnt||0, sceneCode: 0, sceneArticle: 0, sceneDraw: 0,
+        sceneData: 0, sceneChat: 0, sceneVideo: 0, sceneAuto: 0,
+        priceAll: totalCnt||0, priceOS: 0, pricePaid: 0,
+        radarAll: totalCnt||0, radarHot: 0, radarStar: 0, radarOS: 0, radarDead: 0
+      };
+      // Merge with computed values (if try block completed)
+      Object.assign(rawBase, {
+        tagOpen: tags.open_source||0, tagStars: tags.high_stars||0, tagFresh: tags.fresh||0, tagChina: tags.made_in_china||0, tagDemo: tags.has_demo||0,
+        catAgent: (catMap&&catMap.agent)||0, catLLM: (catMap&&catMap.llm)||0, catRAG: (catMap&&catMap.rag)||0, catDev: (catMap&&catMap['dev-tool'])||0,
+        catMedia: (catMap&&catMap['image-video'])||0, catData: (catMap&&catMap['data-science'])||0, catMedia2: (catMap&&catMap.media)||0,
+        sceneCode: (sceneMap&&sceneMap['写代码'])||0, sceneArticle: (sceneMap&&sceneMap['写文章'])||0, sceneDraw: (sceneMap&&sceneMap['画图设计'])||0,
+        sceneData: (sceneMap&&sceneMap['数据分析'])||0, sceneChat: (sceneMap&&sceneMap['AI聊天'])||0,         sceneVideo: (sceneMap&&sceneMap['做视频'])||0, sceneAuto: (sceneMap&&sceneMap['自动化'])||0,
+        priceOS: (allItems.filter(i => i.price_model === 'open-source')).length,
+        pricePaid: (allItems.filter(i => i.price_model === 'paid')).length,
+        radarHot: (allItems.filter(i => Array.isArray(i.data_tags) && i.data_tags.includes('hot-new'))).length,
+        radarStar: (allItems.filter(i => Array.isArray(i.data_tags) && i.data_tags.includes('star-certified'))).length,
+        radarOS: (allItems.filter(i => i.price_model === 'open-source' || (Array.isArray(i.data_tags) && i.data_tags.includes('source-github')))).length,
+        radarDead: (allItems.filter(i => Array.isArray(i.data_tags) && i.data_tags.includes('status-dead'))).length
+      });
+      window._rawCounts = rawBase;
+      // 初始化排序按钮状态
+      document.querySelectorAll('.sort-btn').forEach(b => b.classList.toggle('active', b.dataset.sort === currentSort));
+
+      render();
+      // 安全隐藏骨架（可能已被 innerHTML 移除）
+      var sk = document.getElementById('loadingSkeleton');
+      if (sk) sk.style.display = 'none';
+      applyLang();
+      } catch(e) { console.error('Data process error:', e); }
+      // refreshCounts 必须在 try-catch 之后执行，确保始终运行
+      refreshCounts();
+      // 双重保险：延迟再刷新一次（应对 DOM 未就绪的情况）
+      setTimeout(refreshCounts, 200);
+
+      // ── 构建智能搜索建议词库（延迟，不阻塞首屏渲染） ──
+      setTimeout(function(){
+      window._suggestions = [];      // 纯词列表
+      window._suggestionItems = [];  // 带权重的对象列表
+
+      // 1. 从工具标题提取完整短语
+      const titleMap = new Map();  // title -> {count, source, stars}
+      for (const item of allItems) {
+        if (item.title) {
+          const titleClean = item.title.replace(/[\[\]()]/g,'').trim();
+          if (!titleMap.has(titleClean) || parseInt(item.score||0) > parseInt(titleMap.get(titleClean).stars||0)) {
+            titleMap.set(titleClean, { count: (titleMap.get(titleClean)?.count||0) + 1, source: item.source, stars: item.score });
+          }
+        }
+      }
+
+      // 2. 生成智能建议（按类型分组）
+      window._suggestionItems = [];
+
+      // 工具名（完整标题，去重后取 Top 15）
+      let toolIdx = 0;
+      for (const [title, meta] of titleMap) {
+        if (toolIdx >= 15) break;
+        window._suggestionItems.push({
+          text: title,
+          type: t('sugTypeTool'),
+          icon: '🛠️',
+          score: parseInt(meta.stars||0),
+          count: allItems.filter(i => i.title === title).length
+        });
+        toolIdx++;
+      }
+
+      // 分类
+      const categories = ['agent','llm','rag','dev-tool','media','data-science'];
+      for (const c of categories) {
+        const count = allItems.filter(i => (i.category||[]).includes(c)).length;
+        if (count > 0) {
+          window._suggestionItems.push({
+            text: c,
+            type: t('sugTypeCat'),
+            icon: '📂',
+            count
+          });
+        }
+      }
+
+      // 场景
+      const scenes = new Set();
+      for (const item of allItems) {
+        for (const s of (item.scene||[])) scenes.add(s);
+      }
+      for (const s of scenes) {
+        const count = allItems.filter(i => (i.scene||[]).includes(s)).length;
+        window._suggestionItems.push({
+          text: s,
+          type: t('sugTypeScene'),
+          icon: '🎯',
+          count
+        });
+      }
+
+      // 热门标签
+      window._suggestionItems.push(
+        { text: 'open source', type: t('sugTypeTag'), icon: '🌍', count: tags.open_source },
+        { text: 'high stars', type: t('sugTypeTag'), icon: '⭐', count: tags.high_stars },
+        { text: 'made in china', type: t('sugTypeTag'), icon: '🇨🇳', count: tags.made_in_china },
+        { text: 'has demo', type: t('sugTypeTag'), icon: '🚀', count: tags.has_demo }
+      );
+
+      // 3. 纯词集合（用于旧兼容）
+      window._suggestions = window._suggestionItems.map(s => s.text);
+      // 常用搜索词补全
+      const extra = ['agent','mcp','llm','rag','gpt','api','framework','chat','video','code',
+       'open source','model','search','data','image','audio','自动化','编程','视频','开源',
+       'ai agent','chatgpt','embedding','transformer','generative ai'];
+      for (const w of extra) {
+        if (!window._suggestions.includes(w)) {
+          window._suggestions.push(w);
+          window._suggestionItems.push({
+            text: w,
+            type: t('sugTypeHot'),
+            icon: '🔥',
+            count: allItems.filter(i => (i.title||'').toLowerCase().includes(w)).length
+          });
+        }
+      }
+
+      // 初始化热门搜索建议标签（从真实数据动态生成）
+      buildHotSuggestions();
+
+      // 初始化赞助位
+      initSponsoredSlot();
+
+      // 4. 加载搜索历史（本地存储）
+      window._searchHistory = [];
+      try {
+        const saved = localStorage.getItem('aibounty_search_history');
+        if (saved) window._searchHistory = JSON.parse(saved).slice(0, 6);
+      } catch(e) {}
+      }, 100);  // 延迟构建搜索建议，不阻塞首屏
+}  // end renderData
+
+// ── Source filter ──
+document.getElementById('filters').addEventListener('click',e=>{
+  const btn=e.target.closest('.filter-btn');
+  if(!btn)return;
+  document.querySelectorAll('#filters .filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentSource=btn.dataset.source; currentPage = 1;
+  render();
+});
+
+// ── Category filter ──
+document.getElementById('catFilters').addEventListener('click',e=>{
+  const btn=e.target.closest('.filter-btn');
+  if(!btn)return;
+  document.querySelectorAll('#catFilters .filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentCat=btn.dataset.cat; currentPage = 1;
+  render();
+});
+
+// ── Scene filter ──
+document.getElementById('sceneFilters').addEventListener('click',e=>{
+  const btn=e.target.closest('.filter-btn');
+  if(!btn)return;
+  document.querySelectorAll('#sceneFilters .filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentScene=btn.dataset.scene; currentPage = 1;
+  render();
+});
+
+// ── Region filter ──
+document.getElementById('regionFilters').addEventListener('click',e=>{
+  const btn=e.target.closest('.filter-btn');
+  if(!btn)return;
+  document.querySelectorAll('#regionFilters .filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentRegion=btn.dataset.region; currentPage = 1;
+  render();
+});
+
+// ── Data Tag filter (Lane 3) ──
+document.getElementById('tagFilters').addEventListener('click',e=>{
+  const btn=e.target.closest('.filter-btn');
+  if(!btn)return;
+  document.querySelectorAll('#tagFilters .filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentTag=btn.dataset.tag; currentPage = 1;
+  render();
+});
+
+// ── 价格筛选 ──
+document.getElementById('priceFilters').addEventListener('click',e=>{
+  const btn=e.target.closest('.filter-btn');
+  if(!btn)return;
+  document.querySelectorAll('#priceFilters .filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentPrice=btn.dataset.price; currentPage = 1;
+  render();
+});
+
+// ── 雷达标签筛选 ──
+document.getElementById('radarFilters').addEventListener('click',e=>{
+  const btn=e.target.closest('.filter-btn');
+  if(!btn)return;
+  document.querySelectorAll('#radarFilters .filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentRadar=btn.dataset.radar; currentPage = 1;
+  render();
+});
+
+// ── 赞助位：轮播展示 ──
+var _sponsoredPool = [];
+function initSponsoredSlot() {
+  // 从工具中随机选几个高星+有质量的展示作为赞助示例
+  if (!window.allItems) return;
+  var candidates = window.allItems.filter(function(i) {
+    return (parseInt(i.score)||0) > 5000 && i.source === 'github' && i.price_model === 'open-source';
+  });
+  _sponsoredPool = candidates.sort(function() { return Math.random() - 0.5; }).slice(0, 5);
+  if (_sponsoredPool.length >= 3) {
+    cycleSponsored();
+  }
+}
+function cycleSponsored() {
+  var container = document.getElementById('sponsoredSlot');
+  var card = document.getElementById('sponsoredCard');
+  if (!container || !card || !_sponsoredPool.length) return;
+  container.style.display = '';
+  var idx = Math.floor(Math.random() * _sponsoredPool.length);
+  var item = _sponsoredPool[idx];
+  if (!item) return;
+  card.innerHTML = '<div class="sponsored-item" onclick="location.href=\'tool.html?id=' + item.id + '\'" style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-glass);border-radius:8px;border:1px solid var(--border-glass-light);cursor:pointer;">' +
+    '<div style="width:36px;height:36px;border-radius:8px;background:rgba(245,158,11,0.1);display:flex;align-items:center;justify-content:center;font-size:16px;">⭐</div>' +
+    '<div style="flex:1;min-width:0;">' +
+      '<div style="font-size:13px;font-weight:600;">' + (item.title||'') + '</div>' +
+      '<div style="font-size:11px;color:var(--text-tertiary);">' + (item.price_model==='open-source'?'🔓 开源':item.price_model==='paid'?'💰 付费':'') + ' · ⭐ ' + formatStars(item.score) + '</div>' +
+    '</div>' +
+    '<span style="font-size:11px;color:var(--accent);font-weight:500;">推荐</span>' +
+  '</div>';
+  // 每10秒轮播
+  setTimeout(cycleSponsored, 10000);
+}
+function formatStars(s) {
+  if(!s||s==='0')return'';var n=parseInt(s);if(n>=1000000)return(n/1000000).toFixed(1).replace(/\.0$/,'')+'m';if(n>=1000)return(n/1000).toFixed(1).replace(/\.0$/,'')+'k';return String(n);
+}
+
+// ── 生成热门搜索建议（从工具数据动态提取）──
+function buildHotSuggestions() {
+  if (!window.allItems || !window.allItems.length) return;
+  const cats = {}, tags = {};
+  window.allItems.forEach(item => {
+    var _cat=item.category;if(typeof _cat==='string'){try{_cat=JSON.parse(_cat)}catch(e){_cat=[]}}
+    (_cat||[]).forEach(c => { cats[c] = (cats[c]||0) + 1; });
+    var _dt=item.data_tags;if(typeof _dt==='string'){try{_dt=JSON.parse(_dt)}catch(e){_dt=[]}}
+    (_dt||[]).forEach(t => { if (t!=='fresh'&&t!=='popular') tags[t] = (tags[t]||0) + 1; });
+  });
+  const topCats = Object.entries(cats).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  const topTags = Object.entries(tags).sort((a,b)=>b[1]-a[1]).slice(0,4);
+  const CAT_LABEL = {agent:'Agent',llm:'LLM',rag:'RAG','dev-tool':'开发工具',media:'图像/视频','data-science':'数据分析',academic:'学术',design:'设计',finance:'金融',game:'游戏',marketing:'营销','project-management':'项目管理',security:'安全',testing:'测试',support:'客服'};
+  const sug = document.getElementById('searchSuggest');
+  if (!sug) return;
+  let html = '<span class="suggest-label" data-i18n="hotSearch">🔥 热门搜索：</span>';
+  topCats.concat(topTags).forEach(([key, count]) => {
+    const label = CAT_LABEL[key] || key;
+    html += `<span class="suggest-chip" data-q="${key}">${label}</span>`;
+  });
+  sug.innerHTML = html;
+}
+
+// ── 搜索自动补全 v2：实时工具预览 + 联想 ──
+function showAutoComplete(inputVal) {
+  const box = document.getElementById('autoComplete');
+  if (!inputVal) { if (box) box.style.display='none'; return; }
+
+  const q = inputVal.toLowerCase().trim();
+  let html = '';
+  const history = window._searchHistory || [];
+
+  // 1. 实时工具预览（分词匹配，与主搜索逻辑一致）
+  let matchedTools = [];
+  if (window.allItems && window.allItems.length) {
+    const tokens = q.split(/\s+/).filter(t => t.length > 0);
+    if (tokens.length > 0) {
+      matchedTools = window.allItems.map(function(item) {
+        const searchable = [
+          item.title || '',
+          item.abstract || '',
+          item.abstract_zh || '',
+          item.source || '',
+          ((item.category && typeof item.category === 'string') ? item.category : (Array.isArray(item.category) ? item.category.join(' ') : '')),
+          ((item.scene && typeof item.scene === 'string') ? item.scene : (Array.isArray(item.scene) ? item.scene.join(' ') : '')),
+          ((item.data_tags && Array.isArray(item.data_tags)) ? item.data_tags.join(' ') : ''),
+        ].join(' ').toLowerCase();
+        let score = 0;
+        let hitCount = 0;
+        for (const t of tokens) {
+          if (searchable.includes(t)) { hitCount++; score += (t.length > 2 ? 2 : 1); }
+          else if (t.length >= 4 && typeof fuzzyMatch === 'function' && fuzzyMatch(item.title||'', t, 1)) { hitCount++; score += 1; }
+        }
+        return { item: item, _score: score, _hits: hitCount };
+      }).filter(function(r) { return r._score > 0; })
+        .sort(function(a, b) { return b._score - a._score || b._hits - a._hits; })
+        .slice(0, 4)
+        .map(function(r) { return r.item; });
+    }
+
+    if (matchedTools.length) {
+      html += `<div class="autocomplete-group">${t('acToolPreview')}</div>`;
+      html += matchedTools.map(item => {
+        const icon = {hn:'🌐',github:'⭐',juejin:'📖'}[item.source]||'🔧';
+        const avatarSeed = encodeURIComponent((item.title||'tool').replace(/[^a-zA-Z0-9]/g,''));
+        const avatarIcon = `<img src="https://api.dicebear.com/9.x/bottts-neutral/svg?seed=${avatarSeed}&size=20" alt="" style="width:18px;height:18px;border-radius:4px;display:block;object-fit:cover;">`;
+        const stars = item.score && item.score !== '0' ? (parseInt(item.score)>=1000 ? (parseInt(item.score)/1000).toFixed(1).replace(/\.0$/,'')+'k' : item.score) : '';
+        const cats = (item._catCache||(item._catCache=(function(){var _c=item.category;if(typeof _c==='string'){try{_c=JSON.parse(_c)}catch(e){_c=[]}}return _c})())).slice(0,2).map(c => ({agent:'🤖',llm:'🧠',rag:'🔗','dev-tool':'🛠',media:'🎨','data-science':'📊'}[c]||'')).join(' ');
+        return `<div class="autocomplete-item tool-preview" data-val="${item.title}" onclick="quickSearch('${item.title.replace(/'/g,"\\'")}')">
+          <span class="ac-icon" style="opacity:1;display:flex;align-items:center;justify-content:center;width:20px;height:20px;">${avatarIcon}</span>
+          <span class="ac-text" style="flex:1;">
+            <span class="ac-title">${highlightMatch(item.title, q)}</span>
+            <span class="ac-desc">${displayAbstract(item).slice(0,40)}${cats ? ' · '+cats : ''}</span>
+          </span>
+          ${stars ? `<span class="ac-stars">⭐ ${stars}</span>` : ''}
+        </div>`;
+      }).join('');
+    }
+  }
+
+  // 2. 分类/场景/标签联想
+  if (window._suggestionItems) {
+    let tagMatches = window._suggestionItems.filter(s => {
+      if (!s.text) return false;
+      // 排除已经在工具预览中显示的
+      if (matchedTools.some(t => (t.title||'').toLowerCase() === s.text.toLowerCase())) return false;
+      return s.text.toLowerCase().includes(q);
+    }).slice(0, 6);
+
+    if (tagMatches.length) {
+      html += `<div class="autocomplete-group">${t('acRelatedCat')}</div>`;
+      html += tagMatches.map(m => {
+        const idx = m.text.toLowerCase().indexOf(q);
+        let before='', match='', after='';
+        if (idx>=0) { before=m.text.slice(0,idx); match=m.text.slice(idx,idx+q.length); after=m.text.slice(idx+q.length); }
+        return `<div class="autocomplete-item" data-val="${m.text}" onclick="quickSearch('${m.text.replace(/'/g,"\\'")}')">
+          <span class="ac-icon">${m.icon||'🔍'}</span>
+          <span class="ac-text">${before}<span class="ac-match">${match}</span>${after}</span>
+          ${m.count ? `<span class="ac-count">${m.count}${t('acCount')}</span>` : ''}
+          <span class="ac-type">${m.type||''}</span>
+        </div>`;
+      }).join('');
+    }
+  }
+
+  // 3. 搜索历史（输入短时显示）
+  if (history.length && q.length < 2) {
+    html += `<div class="autocomplete-group">${t('acSearchHistory')}</div>`;
+    html += history.slice(0,4).map(h => `
+      <div class="autocomplete-item" data-val="${h}" onclick="quickSearch('${h.replace(/'/g,"\\'")}')">
+        <span class="ac-icon ac-history-icon">🕐</span>
+        <span class="ac-text">${h}</span>
+      </div>
+    `).join('');
+  }
+
+  // 4. 无匹配时推荐
+  if (!html) {
+    html = `<div class="autocomplete-group">${t('acHotRecommend')}</div>` +
+      (window._suggestionItems||[]).slice(0,5).map(m => `
+        <div class="autocomplete-item" data-val="${m.text}" onclick="quickSearch('${m.text.replace(/'/g,"\\'")}')">
+          <span class="ac-icon">${m.icon||'🔍'}</span>
+          <span class="ac-text">${m.text}</span>
+          ${m.count ? `<span class="ac-count">${m.count}${t('acCount')}</span>` : ''}
+        </div>
+      `).join('');
+  }
+
+  box.innerHTML = html;
+  box.style.display = 'block';
+}
+
+// 关键词高亮
+function highlightMatch(text, q) {
+  if (!text || !q) return text||'';
+  const idx = text.toLowerCase().indexOf(q);
+  if (idx < 0) return text;
+  return text.slice(0,idx) + '<span class="ac-match">' + text.slice(idx, idx+q.length) + '</span>' + text.slice(idx+q.length);
+}
+
+// 自动补全点击 + 保存搜索历史
+document.getElementById('autoComplete').addEventListener('click', e => {
+  const item = e.target.closest('.autocomplete-item');
+  if (!item || !item.dataset.val) return;
+  const val = item.dataset.val;
+  document.getElementById('searchInput').value = val;
+  searchQuery = val; currentPage = 1;
+  render();
+  document.getElementById('searchClear').style.display = 'inline';
+  document.getElementById('autoComplete').style.display = 'none';
+  // 保存搜索历史
+  try {
+    let hist = JSON.parse(localStorage.getItem('aibounty_search_history') || '[]');
+    hist = [val, ...hist.filter(h => h !== val)].slice(0, 10);
+    localStorage.setItem('aibounty_search_history', JSON.stringify(hist));
+    window._searchHistory = hist;
+  } catch(e) {}
+});
+
+// 点击外部关闭自动补全
+document.addEventListener('click', e => {
+  if (!e.target.closest('.hero-search')) {
+    document.getElementById('autoComplete').style.display = 'none';
+  }
+});
+
+// 点击外部关闭自动补全
+document.addEventListener('click', e => {
+  if (!e.target.closest('.hero-search')) {
+    document.getElementById('autoComplete').style.display = 'none';
+  }
+});
+
+// ── 搜索增强：键盘导航 + 回车跳转 ──
+let st;
+let acIndex = -1;  // 当前选中的自动补全项索引
+
+// ── 查找最佳匹配工具（用于回车直达，分词增强） ──
+function findBestToolMatch(query) {
+  if (!window.allItems || !query) return null;
+  const q = query.toLowerCase().trim();
+  // 分词
+  const tokens = q.split(/\s+/).filter(t => t.length > 0);
+  let best = null, bestScore = -1;
+  for (const item of window.allItems) {
+    const title = (item.title || '').toLowerCase();
+    const abstract = (item.abstract || '').toLowerCase();
+    const searchable = title + ' ' + abstract;
+    let score = 0;
+    // 精确匹配整句 → 最高分
+    if (title === q || searchable.includes(q)) score = 100;
+    // 分词匹配：每个 token 命中加权
+    else if (tokens.length > 0) {
+      for (const t of tokens) {
+        if (searchable.includes(t)) score += t.length > 2 ? 15 : 8;
+      }
+      if (score === 0) continue; // 完全不匹配跳过
+    }
+    // 热度加权：高星项目/高分的优先
+    if (item.score) {
+      const s = parseInt(item.score);
+      if (s > 1000) score += 15;
+      else if (s > 100) score += 10;
+      else score += 5;
+    }
+    if (score > bestScore) { bestScore = score; best = item; }
+  }
+  // 只有分数 >= 70（标题级匹配）才直达，否则返回 null 走搜索列表
+  return bestScore >= 70 ? best : null;
+}
+
+document.getElementById('searchInput').addEventListener('keydown', e => {
+  const box = document.getElementById('autoComplete');
+  const items = box.querySelectorAll('.autocomplete-item');
+
+  if (e.key === 'Enter') {
+    // 如果自动补全有选中项，使用选中项搜索
+    if (acIndex >= 0 && items[acIndex]) {
+      const val = items[acIndex].dataset.val;
+      document.getElementById('searchInput').value = val;
+      searchQuery = val;
+    } else {
+      // 从输入框读取当前值
+      searchQuery = document.getElementById('searchInput').value.trim();
+    }
+
+    // 尝试直达最佳匹配工具
+    const bestMatch = findBestToolMatch(searchQuery);
+    if (bestMatch && bestMatch.id) {
+      // 保存搜索历史
+      try {
+        let hist = JSON.parse(localStorage.getItem('aibounty_search_history') || '[]');
+        hist = [searchQuery, ...hist.filter(h => h !== searchQuery)].slice(0, 10);
+        localStorage.setItem('aibounty_search_history', JSON.stringify(hist));
+      } catch(e) {}
+      document.getElementById('autoComplete').style.display = 'none';
+      acIndex = -1;
+      // 直达工具详情页
+      location.href = 'tool.html?id=' + bestMatch.id;
+      return;
+    }
+
+    // 没有精确匹配 → 正常搜索
+    currentPage = 1;
+    render();
+    document.getElementById('searchClear').style.display = 'inline';
+    document.getElementById('autoComplete').style.display = 'none';
+    acIndex = -1;
+    // 保存搜索历史
+    if (searchQuery) {
+      try {
+        let hist = JSON.parse(localStorage.getItem('aibounty_search_history') || '[]');
+        hist = [searchQuery, ...hist.filter(h => h !== searchQuery)].slice(0, 10);
+        localStorage.setItem('aibounty_search_history', JSON.stringify(hist));
+      } catch(e) {}
+    }
+    // 平滑滚动到结果区域顶部
+    setTimeout(() => {
+      const resultTop = document.querySelector('.section-header');
+      if (resultTop) {
+        const top = resultTop.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+      // 高亮搜索结果计数
+      const resultLabel = document.getElementById('resultLabel');
+      if (resultLabel && searchQuery) {
+        resultLabel.style.color = 'var(--accent)';
+        resultLabel.style.fontWeight = '700';
+        // 3秒后恢复
+        setTimeout(() => { resultLabel.style.color = ''; resultLabel.style.fontWeight = ''; }, 3000);
+      }
+    }, 150);
+    return;
+  }
+
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+    e.preventDefault();
+    if (!items.length) return;
+    if (e.key === 'ArrowDown') {
+      acIndex = (acIndex + 1) % items.length;
+    } else {
+      acIndex = (acIndex - 1 + items.length) % items.length;
+    }
+    items.forEach((el, i) => {
+      el.classList.toggle('ac-selected', i === acIndex);
+    });
+    // 确保选中项可见
+    items[acIndex]?.scrollIntoView({ block: 'nearest' });
+    return;
+  }
+
+  // 按其他键重置选中索引
+  acIndex = -1;
+  items.forEach(el => el.classList.remove('ac-selected'));
+});
+
+document.getElementById('searchInput').addEventListener('input',e=>{
+  clearTimeout(st);
+  const val = e.target.value;
+  const clearBtn = document.getElementById('searchClear');
+  showAutoComplete(val);
+  st=setTimeout(()=>{searchQuery=val;currentPage=1;render();clearBtn.style.display=val?'inline':'none';},250);
+});
+
+// 聚焦搜索框时，如果空输入显示热门建议
+document.getElementById('searchInput').addEventListener('focus',()=>{
+  const val = document.getElementById('searchInput').value;
+  if (!val) {
+    buildHotSuggestions();
+    // 显示联想下拉（工具预览为空时显示空白，但suggest已更新）
+    const box = document.getElementById('autoComplete');
+    if (box) box.style.display = 'none';
+  }
+});
+
+  // 建议搜索词点击
+document.getElementById('searchSuggest').addEventListener('click',function(e){
+  const chip = e.target.closest('.suggest-chip');
+  if (!chip) return;
+  const q = chip.dataset.q;
+  // 先清空输入定时器，避免干扰
+  clearTimeout(st);
+  document.getElementById('searchInput').value = q;
+  searchQuery = q; currentPage = 1;
+  render();
+  document.getElementById('searchClear').style.display = 'inline';
+  document.getElementById('autoComplete').style.display = 'none';
+  // 滚动到结果区域顶部
+  setTimeout(scrollToResults, 150);
+});
+
+// 延迟初始化，确保 DOM 完全就绪
+(function() {
+  applyLang();
+  loadData();
+  setTimeout(applyLang, 100);
+})();
+setInterval(loadData, 180000);  // 每3分钟刷新数据，减少网络/渲染负担
+// 持续尝试刷新统计数字（每2秒刷新一次，最多30次，确保数字最终正确）
+(function pollCounts() {
+  if (!window._rawCounts) { setTimeout(pollCounts, 300); return; }
+  refreshCounts();
+  // 如果数字还没出来（比如数据还在加载中），2秒后再试，最多30次
+  var tries = parseInt(sessionStorage.getItem('_pollTries')||'0') + 1;
+  sessionStorage.setItem('_pollTries', tries);
+  if (tries < 30) setTimeout(pollCounts, 2000);
+})();
+
+// ── 温情细节：问候 ──
+(function setGreeting() {
+  const h = new Date().getHours();
+  const title = document.getElementById('heroTitle');
+  const sub = document.getElementById('heroSub');
+  let greet, note;
+  if (h < 6) { greet = t('greetLate'); note = t('greetLateNote'); }
+  else if (h < 9) { greet = t('greetMorning'); note = t('greetMorningNote'); }
+  else if (h < 12) { greet = t('greetAm'); note = t('greetAmNote'); }
+  else if (h < 14) { greet = t('greetNoon'); note = t('greetNoonNote'); }
+  else if (h < 18) { greet = t('greetPm'); note = t('greetPmNote'); }
+  else if (h < 21) { greet = t('greetEvening'); note = t('greetEveningNote'); }
+  else { greet = t('greetNight'); note = t('greetNightNote'); }
+  title.innerHTML = `<span class="hero-greeting">${greet}</span><br><span class="gradient">${t('discoverTitle')}</span>`;
+  sub.textContent = note;
+})();
+
+// ── 浮动反馈 ──
+function showFeedback() {
+  const toast = document.getElementById('toast');
+  toast.innerHTML = `
+    ${t('feedbackTitle')}<br>
+    ${t('feedbackBody')}<br>
+    <span style="font-size:11px;color:#64748b;">${t('feedbackEmail')}</span>
+  `;
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.add('hiding');
+    setTimeout(() => toast.classList.remove('show', 'hiding'), 250);
+  }, 5000);
+}
+
+// ── Toast 通用 ──
+function showToast(msg, duration = 4000) {
+  const toast = document.getElementById('toast');
+  toast.innerHTML = msg;
+  toast.classList.remove('hiding');
+  toast.classList.add('show');
+  clearTimeout(toast._hideTimer);
+  toast._hideTimer = setTimeout(() => {
+    toast.classList.add('hiding');
+    setTimeout(() => toast.classList.remove('show', 'hiding'), 250);
+  }, duration);
+}
+
+// ── 快速搜索 ──
+function quickSearch(q) {
+  document.getElementById('searchInput').value = q;
+  searchQuery = q;
+  // 尝试直达
+  const bestMatch = findBestToolMatch(q);
+  if (bestMatch && bestMatch.id) {
+    document.getElementById('autoComplete').style.display = 'none';
+    try {
+      let hist = JSON.parse(localStorage.getItem('aibounty_search_history') || '[]');
+      hist = [q, ...hist.filter(h => h !== q)].slice(0, 10);
+      localStorage.setItem('aibounty_search_history', JSON.stringify(hist));
+    } catch(e) {}
+    location.href = 'tool.html?id=' + bestMatch.id;
+    return;
+  }
+  currentPage = 1;
+  render();
+  document.getElementById('searchClear').style.display = 'inline';
+  showToast(tpl('toastSearching', q));
+  // 保存搜索历史
+  try {
+    let hist = JSON.parse(localStorage.getItem('aibounty_search_history') || '[]');
+    hist = [q, ...hist.filter(h => h !== q)].slice(0, 10);
+    localStorage.setItem('aibounty_search_history', JSON.stringify(hist));
+  } catch(e) {}
+  setTimeout(scrollToResults, 150);
+}
+
+// 滚动到结果区域顶部（通用函数）
+function scrollToResults() {
+  const resultTop = document.querySelector('.section-header');
+  if (resultTop) {
+    const top = resultTop.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+}
+
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  searchQuery = ''; currentPage = 1;
+  render();
+  document.getElementById('searchClear').style.display = 'none';
+}
+
+// ── 创意提示词点击搜索（使用 p.q 关键词搜索，空 q 展示全部） ──
+function creativeSearch(text, q) {
+  document.getElementById('searchInput').value = text;
+  if (!q) {
+    // 空关键词 → 展示全部
+    searchQuery = '';
+    currentPage = 1;
+    render();
+    document.getElementById('searchClear').style.display = 'none';
+  } else {
+    // 有关键词 → 按 q 进行全文搜索
+    searchQuery = q;
+    currentPage = 1;
+    render();
+    document.getElementById('searchClear').style.display = 'inline';
+  }
+  document.getElementById('autoComplete').style.display = 'none';
+  // 保存搜索历史（用 q 存，空 q 不存）
+  if (q) {
+    try {
+      let hist = JSON.parse(localStorage.getItem('aibounty_search_history') || '[]');
+      hist = [q, ...hist.filter(h => h !== q)].slice(0, 10);
+      localStorage.setItem('aibounty_search_history', JSON.stringify(hist));
+    } catch(e) {}
+  }
+  setTimeout(scrollToResults, 150);
+}
+
+// ── 必应风格：点击搜索按钮执行搜索 / 回车直达 ──
+function doSearch() {
+  const val = document.getElementById('searchInput').value;
+  if (!val) { document.getElementById('searchInput').focus(); showToast(t('toastInputHint')); return; }
+  searchQuery = val;
+  // 尝试直达最佳匹配工具
+  const bestMatch = findBestToolMatch(val);
+  if (bestMatch && bestMatch.id) {
+    // 保存搜索历史
+    try {
+      let hist = JSON.parse(localStorage.getItem('aibounty_search_history') || '[]');
+      hist = [val, ...hist.filter(h => h !== val)].slice(0, 10);
+      localStorage.setItem('aibounty_search_history', JSON.stringify(hist));
+    } catch(e) {}
+    document.getElementById('autoComplete').style.display = 'none';
+    location.href = 'tool.html?id=' + bestMatch.id;
+    return;
+  }
+  // 没有精确匹配 → 正常搜索
+  currentPage = 1;
+  render();
+  document.getElementById('searchClear').style.display = 'inline';
+  document.getElementById('autoComplete').style.display = 'none';
+  try {
+    let hist = JSON.parse(localStorage.getItem('aibounty_search_history') || '[]');
+    hist = [val, ...hist.filter(h => h !== val)].slice(0, 10);
+    localStorage.setItem('aibounty_search_history', JSON.stringify(hist));
+  } catch(e) {}
+  setTimeout(scrollToResults, 150);
+}
+
+// ── 语音搜索：Web Speech API + 智能降级 ──
+let voiceRecognition = null;
+let isListening = false;
+
+// 检查浏览器语音支持
+function isVoiceSupported() {
+  // Web Speech API (Chrome/Edge 桌面 + Android)
+  if (window.SpeechRecognition || window.webkitSpeechRecognition) return true;
+  // 所有手机都有键盘麦克风，所以永远返回 true
+  if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) return true;
+  return false;
+}
+
+// 🎤 主入口：语音搜索
+function startVoiceSearch() {
+  // 检测移动端（所有手机浏览器）
+  var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  var isWeChat = /MicroMessenger/i.test(navigator.userAgent);
+  var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform && navigator.platform.startsWith('Mac') && navigator.maxTouchPoints > 0);
+
+  if (isMobile) {
+    // ── 移动端策略：聚焦搜索框 → 弹出键盘 → 用户点键盘麦克风 ──
+    // 手机键盘自带麦克风按钮（iOS 听写 / Android Gboard），
+    // 这是最可靠、无兼容性问题的方案（所有手机、所有浏览器、包括微信）
+    showToast(isWeChat
+      ? (currentLang === 'zh' ? '🎤 点击键盘上的麦克风图标说话，说完后搜狗输入法会自动填入'
+         : '🎤 Tap the microphone icon on your keyboard to speak')
+      : (currentLang === 'zh' ? '🎤 点击键盘上的麦克风图标开始语音输入'
+         : '🎤 Tap the mic icon on your keyboard'));
+    var si = document.getElementById('searchInput');
+    if (si) { si.focus(); si.click(); }
+    return;
+  }
+
+  // ── 桌面端：Web Speech API（Chrome/Edge） ──
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (SR) {
+    startWebSpeechAPI();
+    return;
+  }
+
+  // 桌面端也没有 Web Speech → 引导
+  showToast(currentLang === 'zh'
+    ? '⚠️ 语音搜索请使用 Chrome 或 Edge 浏览器'
+    : '⚠️ Voice search works best in Chrome or Edge');
+}
+
+// ── 方案A: Web Speech API (核心) ──
+var voiceGotResult = false;
+function startWebSpeechAPI() {
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { showToast(t('toastVoiceUnsupported')); return; }
+  if (isListening) { try { voiceRecognition.stop(); } catch(e) {} return; }
+  if (voiceRecognition) { try { voiceRecognition.abort(); } catch(e) {} voiceRecognition = null; }
+
+  voiceGotResult = false;
+  voiceRecognition = new SR();
+
+  // 智能语言选择：中文环境优先 zh-CN，但兼容多方言
+  var lang = 'en-US';
+  var navLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  if (navLang.startsWith('zh')) {
+    lang = 'zh-CN'; // 普通话，最佳识别率
+  } else if (navLang.startsWith('ja')) {
+    lang = 'ja-JP';
+  } else if (navLang.startsWith('ko')) {
+    lang = 'ko-KR';
+  }
+  voiceRecognition.lang = lang;
+  voiceRecognition.continuous = false;
+  voiceRecognition.interimResults = true;  // 启用中间结果，更快反馈
+  voiceRecognition.maxAlternatives = 3;     // 3个候选结果提高准确率
+
+  voiceRecognition.onresult = function(ev) {
+    voiceGotResult = true;
+    if (!ev.results || !ev.results[0]) return;
+    // 取置信度最高的结果
+    var bestText = '';
+    var bestConf = 0;
+    for (var i = 0; i < ev.results[0].length; i++) {
+      var alt = ev.results[0][i];
+      if (alt.confidence > bestConf) {
+        bestConf = alt.confidence;
+        bestText = alt.transcript;
+      }
+    }
+    if (!bestText) return;
+    finishVoiceSearch(bestText);
+  };
+
+  voiceRecognition.onerror = function(ev) {
+    document.getElementById('voiceBtn').classList.remove('listening');
+    isListening = false;
+    voiceRecognition = null;
+    if (ev.error === 'not-allowed') { showToast(t('toastVoiceDenied')); return; }
+    if (ev.error === 'no-speech') { showToast(t('toastVoiceNoSpeech')); return; }
+    if (ev.error === 'aborted') return;
+    if (ev.error === 'language-not-supported') {
+      // 语言不支持，降级为英文
+      if (voiceRecognition) {
+        try { voiceRecognition.abort(); } catch(e) {}
+        voiceRecognition = new SR();
+        voiceRecognition.lang = 'en-US';
+        voiceRecognition.continuous = false;
+        voiceRecognition.interimResults = true;
+        voiceRecognition.maxAlternatives = 3;
+        voiceRecognition.onresult = arguments.callee.caller ? null : null; // skip
+        voiceRecognition.start();
+        return;
+      }
+    }
+    showToast(tpl('toastVoiceFailed', ev.error));
+  };
+
+  voiceRecognition.onend = function() {
+    document.getElementById('voiceBtn').classList.remove('listening');
+    isListening = false;
+    voiceRecognition = null;
+    if (!voiceGotResult) {
+      // 自然结束但无结果 — 某些浏览器静默结束，再试一次
+      try {
+        if (SR) {
+          var retry = new SR();
+          retry.lang = voiceRecognition ? voiceRecognition.lang : 'zh-CN';
+          retry.start();
+          retry.onresult = function(ev) {
+            if (ev.results && ev.results[0] && ev.results[0][0]) {
+              finishVoiceSearch(ev.results[0][0].transcript);
+            }
+          };
+        }
+      } catch(e) {}
+    }
+  };
+
+  isListening = true;
+  document.getElementById('voiceBtn').classList.add('listening');
+  try { if (navigator.vibrate) navigator.vibrate(30); } catch(e) {}
+  showToast(t('toastVoicePrompt'));
+  try { voiceRecognition.start(); }
+  catch(e) {
+    document.getElementById('voiceBtn').classList.remove('listening');
+    isListening = false; voiceRecognition = null;
+    showToast(t('toastVoiceFailed') + ': ' + e.message);
+  }
+}
+
+// ── 语音识别完成后的统一处理 ──
+function finishVoiceSearch(text) {
+  if (!text) return;
+  document.getElementById('searchInput').value = text;
+  searchQuery = text;
+  document.getElementById('searchClear').style.display = 'inline';
+
+  const bestMatch = findBestToolMatch(text);
+  if (bestMatch && bestMatch.id) {
+    try {
+      let hist = JSON.parse(localStorage.getItem('aibounty_search_history') || '[]');
+      hist = [text, ...hist.filter(h => h !== text)].slice(0, 10);
+      localStorage.setItem('aibounty_search_history', JSON.stringify(hist));
+    } catch(e) {}
+    document.getElementById('autoComplete').style.display = 'none';
+    document.getElementById('voiceBtn').classList.remove('listening');
+    isListening = false;
+    showToast(tpl('toastVoiceResult', text));
+    setTimeout(() => { location.href = 'tool.html?id=' + bestMatch.id; }, 400);
+    return;
+  }
+
+  currentPage = 1; render();
+  document.getElementById('voiceBtn').classList.remove('listening');
+  isListening = false;
+  showToast(tpl('toastVoiceResult', text));
+  try {
+    let hist = JSON.parse(localStorage.getItem('aibounty_search_history') || '[]');
+    hist = [text, ...hist.filter(h => h !== text)].slice(0, 10);
+    localStorage.setItem('aibounty_search_history', JSON.stringify(hist));
+  } catch(e) {}
+}
+
+// ── placeholder 热词轮换（中英文自适应） ──
+(function() {
+  const input = document.getElementById('searchInput');
+  const tipsZh = [
+    '搜工具名、关键词，例如：agent、MCP、RAG...',
+    '试试搜索：视频生成、LLM、框架...',
+    '搜搜看：AI编码助手、Agent开发...',
+    '输入：开源、高星项目、国产工具...',
+    '想知道：大模型、Embedding、RAG...'
+  ];
+  const tipsEn = [
+    'Search tools: agent, MCP, RAG...',
+    'Try: video generation, LLM, framework...',
+    'Look for: AI coding assistant, Agent...',
+    'Keywords: open source, trending, made in China...',
+    'Explore: LLM, Embedding, model search...'
+  ];
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % tipsZh.length;
+    const tips = currentLang === 'zh' ? tipsZh : tipsEn;
+    if (!input.value && !document.activeElement?.matches('#searchInput:focus')) input.placeholder = tips[i];
+  }, 5000);
+})();
+// ── 语言切换快捷键 Ctrl+L ──
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'l') { e.preventDefault(); switchLang(); }
+});
+// ── 全局搜索快捷键 Ctrl+K / Cmd+K ──
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    e.preventDefault();
+    const si = document.getElementById('searchInput');
+    if (si) { si.focus(); si.select(); }
+  }
+  // Esc 关闭自动补全
+  if (e.key === 'Escape') {
+    const ac = document.getElementById('autoComplete');
+    if (ac && ac.style.display !== 'none') { ac.style.display = 'none'; acIndex = -1; }
+  }
+});
+
+// ── 创意搜索联想提示词 ──
+(function() {
+  var input = document.getElementById('searchInput');
+  var ac = document.getElementById('autoComplete');
+  if (!input || !ac) return;
+
+  // 中英文创意提示词
+  var promptsZh = [
+    { icon: '🔥', text: '今天最火的 AI 工具是什么？', q: '' },
+    { icon: '🔧', text: '找一款开源的 AI 编码助手', q: '开源编码' },
+    { icon: '🤖', text: '推荐一个国产大模型', q: '国产LLM' },
+    { icon: '🎨', text: '免费的图片生成 AI', q: '图片生成' },
+    { icon: '🎬', text: 'AI 视频生成工具推荐', q: '视频生成' },
+    { icon: '📝', text: '帮我写代码的 AI 工具', q: '写代码' },
+    { icon: '💰', text: '最好用的免费 AI 工具', q: '免费' },
+    { icon: '⭐', text: 'GitHub 高星 AI 项目', q: '高星' },
+    { icon: '🏠', text: '国产好用的 AI 工具', q: '国内' },
+    { icon: '📊', text: '数据分析 AI 助手', q: '数据分析' },
+    { icon: '💬', text: '聊天机器人 LLM 哪个好', q: '聊天' },
+    { icon: '🧩', text: 'Agent 开发框架推荐', q: 'agent' },
+  ];
+  var promptsEn = [
+    { icon: '🔥', text: 'Hottest AI tool today?', q: '' },
+    { icon: '🔧', text: 'Best open-source AI coding tool', q: 'coding' },
+    { icon: '🤖', text: 'Top LLM models', q: 'LLM' },
+    { icon: '🎨', text: 'Free AI image generator', q: 'image' },
+    { icon: '🎬', text: 'AI video creation tools', q: 'video' },
+    { icon: '⭐', text: 'High-star GitHub AI projects', q: 'high star' },
+    { icon: '📊', text: 'AI data analysis tools', q: 'data analysis' },
+    { icon: '💬', text: 'Best AI chatbot frameworks', q: 'chatbot' },
+    { icon: '🧩', text: 'Agent development frameworks', q: 'agent' },
+    { icon: '🎵', text: 'AI music generation tools', q: 'music' },
+    { icon: '📚', text: 'RAG framework comparison', q: 'RAG' },
+    { icon: '🧠', text: 'AI knowledge base tools', q: 'knowledge' },
+  ];
+
+  var keys = ['title', 'scene', 'category', 'source'];
+  var failedKeys = {};
+
+  function renderAc(html) {
+    ac.innerHTML = html;
+    ac.style.display = html ? 'block' : 'none';
+  }
+
+  // 创意提示词（搜索框为空时显示）
+  function showCreative() {
+    var prompts = currentLang === 'zh' ? promptsZh : promptsEn;
+    // 随机打乱取前 8 个
+    var shuffled = prompts.slice().sort(function(){ return Math.random() - 0.5; });
+    var chips = shuffled.slice(0, 8).map(function(p){
+      return '<div class="ac-creative-chip" onclick="creativeSearch(\'' + p.text.replace(/'/g,"\\'") + '\',\'' + p.q.replace(/'/g,"\\'") + '\');">' +
+        '<span class="ac-chip-icon">' + p.icon + '</span>' + p.text + '</div>';
+    }).join('');
+    // 搜索历史
+    var historyHtml = '';
+    try {
+      var hist = JSON.parse(localStorage.getItem('aibounty_search_history') || '[]');
+      if (hist.length) {
+        historyHtml = '<div class="ac-creative-title" style="margin-top:4px;">🕐 搜索历史</div>' +
+          hist.slice(0,5).map(function(h){
+            return '<div class="ac-creative-chip" style="grid-column:span 2;" onclick="document.getElementById(\'searchInput\').value=\'' + h.replace(/'/g,"\\'") + '\';doSearch();">' +
+              '<span style="opacity:0.4;font-size:11px;">🕐</span> ' + h + '</div>';
+          }).join('');
+      }
+    } catch(e) {}
+    renderAc(
+      '<div class="ac-creative"><div class="ac-creative-title">🎯 ' + (currentLang === 'zh' ? '创意搜索灵感' : 'Creative Search Ideas') + '</div>' +
+      '<div class="ac-creative-grid">' + chips + '</div>' + historyHtml + '</div>'
+    );
+  }
+
+  // 输入匹配提示词
+  function showMatches(val) {
+    if (!val || !allItems || !allItems.length) { showCreative(); return; }
+    var v = val.toLowerCase();
+    var tools = [], cats = [], scenes = [], sources = [];
+
+    allItems.forEach(function(item) {
+      // 标题匹配（模糊 + 自动补全）
+      var t = (item.title || '').toLowerCase();
+      if (t.indexOf(v) !== -1) {
+        tools.push(item);
+        if (tools.length >= 6) return;
+      }
+    });
+
+    // 分类/场景/来源匹配
+    var catNames = {agent:'Agent',llm:'LLM',rag:'RAG','dev-tool':'Dev Tool',media:'图像/视频','data-science':'数据科学',uncategorized:'其他'};
+    Object.keys(catNames).forEach(function(k) {
+      if (k.indexOf(v) !== -1 || catNames[k].toLowerCase().indexOf(v) !== -1) cats.push({key:k, label:catNames[k]});
+    });
+    if (v === '写代码' || '写代码'.indexOf(v) !== -1) scenes.push('写代码');
+    if (v === '写文章' || '写文章'.indexOf(v) !== -1) scenes.push('写文章');
+    if (v.indexOf('画画') !== -1 || v.indexOf('设计') !== -1 || v.indexOf('画图') !== -1) scenes.push('画图设计');
+    if (v.indexOf('数据') !== -1) scenes.push('数据分析');
+    if (v.indexOf('聊天') !== -1 || v.indexOf('chat') !== -1) scenes.push('AI聊天');
+    if (v.indexOf('视频') !== -1) scenes.push('做视频');
+    if (v.indexOf('自动') !== -1) scenes.push('自动化');
+
+    if (!tools.length && !cats.length && !scenes.length) {
+      // 无匹配：显示一个搜索提示
+      renderAc('<div class="ac-creative" style="padding:16px;text-align:center;color:var(--text-tertiary);font-size:12px;">' +
+        (currentLang === 'zh' ? '🔍 按回车搜索所有包含「' : '🔍 Search all tools containing "') + val + '"' +
+        (currentLang === 'zh' ? '」的结果' : '') + '</div>');
+      return;
+    }
+
+    var html = '';
+    if (tools.length) {
+      html += '<div class="autocomplete-group">🔧 ' + (currentLang === 'zh' ? '工具' : 'Tools') + '</div>';
+      tools.forEach(function(t) {
+        var idx = (t.title || '').toLowerCase().indexOf(v);
+        var title = t.title || '';
+        if (idx !== -1) {
+          title = title.slice(0, idx) + '<span class="ac-match">' + title.slice(idx, idx + v.length) + '</span>' + title.slice(idx + v.length);
+        }
+        html += '<div class="autocomplete-item tool-preview" onclick="location.href=\'tool.html?id=' + t.id + '\'">' +
+          '<div><span class="ac-title">' + title + '</span>' +
+          '<span class="ac-desc">' + (t.description_zh || t.description || '').slice(0,60) + '</span></div>' +
+          '<span class="ac-stars">' + ((parseInt(t.score)||0) >= 1000 ? (parseInt(t.score)/1000).toFixed(1).replace(/\.0$/,'')+'k' : t.score||'') + '</span></div>';
+      });
+    }
+    if (cats.length) {
+      html += '<div class="autocomplete-group">🏷️ ' + (currentLang === 'zh' ? '分类' : 'Categories') + '</div>';
+      cats.forEach(function(c) {
+        html += '<div class="autocomplete-item" onclick="document.getElementById(\'searchInput\').value=\'\';categoryFilter=\'' + c.key + '\';render();ac.style.display=\'none\';">' +
+          '<span class="ac-icon">📂</span><span class="ac-text">' + c.label + '</span><span class="ac-type">' + (currentLang === 'zh' ? '分类' : 'Cat') + '</span></div>';
+      });
+    }
+    if (scenes.length) {
+      html += '<div class="autocomplete-group">🎯 ' + (currentLang === 'zh' ? '场景' : 'Scenes') + '</div>';
+      scenes.forEach(function(s) {
+        html += '<div class="autocomplete-item" onclick="document.getElementById(\'searchInput\').value=\'\';currentScene=\'' + s + '\';render();ac.style.display=\'none\';">' +
+          '<span class="ac-icon">🎯</span><span class="ac-text">' + s + '</span><span class="ac-type">' + (currentLang === 'zh' ? '场景' : 'Scene') + '</span></div>';
+      });
+    }
+    renderAc(html);
+  }
+
+  // 输入事件
+  var timer;
+  input.addEventListener('input', function() {
+    clearTimeout(timer);
+    var val = this.value.trim();
+    if (!val) {
+      showCreative();
+      return;
+    }
+    timer = setTimeout(function() { showMatches(val); }, 100);
+  });
+
+  // 聚焦事件
+  input.addEventListener('focus', function() {
+    if (!this.value.trim()) {
+      showCreative();
+    }
+  });
+
+  // 失焦延迟关闭
+  input.addEventListener('blur', function() {
+    setTimeout(function() { ac.style.display = 'none'; }, 200);
+  });
+
+  // 点击下拉菜单内部不关闭
+  ac.addEventListener('mousedown', function(e) { e.preventDefault(); });
+
+  // 键盘导航
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      var items = ac.querySelectorAll('.autocomplete-item, .ac-creative-chip');
+      if (!items.length) return;
+      e.preventDefault();
+      var idx = Array.prototype.indexOf.call(items, document.querySelector('.ac-selected'));
+      items.forEach(function(el) { el.classList.remove('ac-selected'); });
+      if (e.key === 'ArrowDown') idx = Math.min((idx + 1), items.length - 1);
+      else idx = Math.max((idx - 1), 0);
+      items[idx].classList.add('ac-selected');
+      items[idx].scrollIntoView({ block: 'nearest' });
+    }
+  });
+})();
+
+// ── 移动端键盘听写自动搜索 ──
+// 当用户使用手机键盘麦克风输入后，静默 1.5 秒自动执行搜索
+(function() {
+  var si = document.getElementById('searchInput');
+  if (!si) return;
+  var voiceTimer = null;
+  si.addEventListener('input', function() {
+    // 仅在移动端 + 搜索框有值时触发
+    if (!/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) return;
+    if (!this.value.trim()) return;
+    clearTimeout(voiceTimer);
+    voiceTimer = setTimeout(function() {
+      // 键盘听写完成 → 自动搜索
+      if (si.value.trim() && si.value.trim().length > 1) {
+        searchQuery = si.value.trim();
+        // 保存搜索历史
+        try {
+          var hist = JSON.parse(localStorage.getItem('aibounty_search_history') || '[]');
+          hist = [si.value.trim(), ...hist.filter(function(h) { return h !== si.value.trim(); })].slice(0, 10);
+          localStorage.setItem('aibounty_search_history', JSON.stringify(hist));
+        } catch(e) {}
+        document.getElementById('autoComplete').style.display = 'none';
+        currentPage = 1;
+        render();
+        setTimeout(scrollToResults, 150);
+      }
+    }, 1500);
+  });
+})();
+
+// ── 侧栏 ──
+function toggleSidebar() {}
+function closeSidebar() {}
+function toggleNav(id) { document.getElementById(id).classList.toggle('open'); }
+
+// ── 身份选择 ──
+function selectIdentity(btn, role) {
+  document.querySelectorAll('.identity-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentRole = role || 'all';
+  currentPage = 1;
+  render();
+}
+
+// ── 热榜渲染（实时排序，零虚假数据） ──
+function renderRightbar() {
+  try {
+    var rb = document.getElementById('rightbarHot');
+    if (!rb) return;
+    var items = (typeof allItems !== 'undefined' && allItems && allItems.length) ? allItems : [];
+    // 按 region 过滤（与当前筛选联动）
+    var regionItems = (typeof currentRegion !== 'undefined' && currentRegion !== 'all')
+      ? items.filter(function(i){ return i.region === currentRegion; })
+      : items;
+    // 按 score 降序排列
+    var sorted = regionItems.slice().sort(function(a,b){
+      return (parseInt(b.score)||0) - (parseInt(a.score)||0);
+    });
+    var top = sorted.slice(0,10);
+    if (!top.length) {
+      rb.innerHTML = '<div style="padding:16px;text-align:center;color:var(--text-tertiary);font-size:11px;">'+t('rightbarLoading')+'</div>';
+      return;
+    }
+    rb.innerHTML = top.map(function(item,i){
+      var cls = i===0?'gold':i===1?'silver':i===2?'bronze':'';
+      var topCls = i===0?'top-gold':i===1?'top-silver':i===2?'top-bronze':'';
+      // 真实新鲜度标记
+      var freshness = '';
+      if (item.captured_at) {
+        var dt = (item.captured_at.indexOf('+') > 10 || item.captured_at.endsWith('Z'))
+          ? new Date(item.captured_at) : new Date(item.captured_at.replace(' ','T')+'+08:00');
+        if (!isNaN(dt.getTime())) {
+          var hours = (Date.now() - dt) / 3600000;
+          if (hours < 24) freshness = '<span class="rb-badge-new">NEW</span>';
+          else if (hours < 72) freshness = '<span class="rb-badge-hot">HOT</span>';
+        }
+      }
+      var s = (item.score&&parseInt(item.score)>0)?(parseInt(item.score)>=1000?(parseInt(item.score)/1000).toFixed(1).replace(/\.0$/,'')+'k':item.score):'';
+      return '<div class="rb-item '+topCls+'" onclick="location.href=\'tool.html?id='+item.id+'\'">'+
+        '<div class="rank '+cls+'">'+(i+1)+'</div>'+
+        '<div class="info"><div class="name">'+(item.title||'').slice(0,24)+' '+freshness+'</div>'+
+        '<div class="detail">'+(item.source||'')+' · '+timeAgo(item.captured_at)+'</div></div>'+
+        '<div class="score">'+(s||'')+'</div></div>';
+    }).join('');
+  } catch(e) {
+    console.error('Rightbar render error:', e);
+  }
+}
+
+// ── 截取 render 并注入热榜 ──
+var _origRender = render;
+render = function() {
+  try {
+    _origRender();
+    setTimeout(renderRightbar, 50);
+    // 侧栏统计已移除
+  } catch(e) {
+    console.error('Render error:', e);
+  }
+};
+
+// ── 分页器 ──
+var PAGE_SIZES = [45,90,135];
+var activePageSize = localStorage.getItem('aibounty_page_size') ? parseInt(localStorage.getItem('aibounty_page_size')) : 45;
+var _filteredForPagination = [];
+
+function renderPagination() {
+  try {
+  var total = (window._filteredForPagination||allItems||[]).length;
+  var maxPage = Math.ceil(total / activePageSize);
+  if (maxPage <= 1) {
+    var pm = document.getElementById('pageNav');
+    if (pm) pm.style.display = 'none';
+    var pt = document.getElementById('pageNavTop');
+    if (pt) pt.style.display = 'none';
+    return;
+  }
+  // 顶部翻页（紧凑版，无page-size）
+  var pt = document.getElementById('pageNavTop');
+  if (pt) {
+    pt.style.display = 'flex';
+    var htmlTop = '<button class="page-btn'+(currentPage<=1?' disabled':'')+'" onclick="goPage(1)">«</button>';
+    htmlTop += '<button class="page-btn'+(currentPage<=1?' disabled':'')+'" onclick="goPage('+(currentPage-1)+')">‹</button>';
+    var start = Math.max(1, currentPage-2);
+    var end = Math.min(maxPage, start+4);
+    if (end-start < 4) start = Math.max(1, end-4);
+    for (var p=start; p<=end; p++) {
+      htmlTop += '<button class="page-btn'+(p===currentPage?' active':'')+'" onclick="goPage('+p+')">'+p+'</button>';
+    }
+    htmlTop += '<button class="page-btn'+(currentPage>=maxPage?' disabled':'')+'" onclick="goPage('+(currentPage+1)+')">›</button>';
+    htmlTop += '<button class="page-btn'+(currentPage>=maxPage?' disabled':'')+'" onclick="goPage('+maxPage+')">»</button>';
+    pt.innerHTML = htmlTop;
+  }
+  // 底部翻页（含page-size）
+  var pm = document.getElementById('pageNav');
+  if (!pm) return;
+  pm.style.display = 'flex';
+  var html = '<span class="page-info">'+t('pgCurrent')+' '+currentPage+'/'+maxPage+' '+(currentLang==='zh'?'页':'')+'</span>';
+  html += '<button class="page-btn'+(currentPage<=1?' disabled':'')+'" onclick="goPage(1)">«</button>';
+  html += '<button class="page-btn'+(currentPage<=1?' disabled':'')+'" onclick="goPage('+(currentPage-1)+')">‹</button>';
+  var start = Math.max(1, currentPage-2);
+  var end = Math.min(maxPage, start+4);
+  if (end-start < 4) start = Math.max(1, end-4);
+  for (var p=start; p<=end; p++) {
+    html += '<button class="page-btn'+(p===currentPage?' active':'')+'" onclick="goPage('+p+')">'+p+'</button>';
+  }
+  html += '<button class="page-btn'+(currentPage>=maxPage?' disabled':'')+'" onclick="goPage('+(currentPage+1)+')">›</button>';
+  html += '<button class="page-btn'+(currentPage>=maxPage?' disabled':'')+'" onclick="goPage('+maxPage+')">»</button>';
+  html += '<span class="page-size-select"><select onchange="changePageSize(this.value)">';
+  PAGE_SIZES.forEach(function(s){
+    html += '<option value="'+s+'"'+(s===activePageSize?' selected':'')+'>'+s+'</option>';
+  });
+  html += '</select> '+t('pgPerPage')+'</span>';
+  pm.innerHTML = html;
+  } catch(e) { console.error('Pagination error:', e); }
+}
+
+function goPage(p) {
+  if (p < 1) return;
+  currentPage = p;
+  render();
+  document.getElementById('toolGrid').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function changePageSize(s) {
+  s = parseInt(s);
+  activePageSize = s;
+  localStorage.setItem('aibounty_page_size', s);
+  currentPage = 1;
+  render();
+}
+
+// ── 回到顶部（防抖） ──
+var _scrollTimer;
+window.addEventListener('scroll', function(){
+  if (_scrollTimer) clearTimeout(_scrollTimer);
+  _scrollTimer = setTimeout(function(){
+    var bt = document.getElementById('backTop');
+    if (!bt) return;
+    if (window.scrollY > 600) bt.classList.add('show');
+    else bt.classList.remove('show');
+  }, 100);
+});
+function scrollToTop() {
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── 手机端筛选折叠切换 ──
+function toggleMobileFilters() {
+  var el = document.getElementById('filterGroupCollapsible');
+  var btn = document.getElementById('filterToggleBtn');
+  if (!el) return;
+  var expanded = el.classList.toggle('expanded');
+  if (btn) btn.innerHTML = expanded ? '▲ <span>收起筛选</span>' : '▼ <span>更多筛选</span>';
+}
+
+// ── 一键分享 ──
+function shareSite() {
+  const text = `🏴‍☠️ AIbounty — AI 赏金猎人\n\n` +
+    `我搞了个网站，每天自动搜刮 GitHub/Gitee/HN 上最火的 AI 工具，\n` +
+    `按 Agent/LLM/RAG/DevTool 分类整理好，带中英文介绍。\n\n` +
+    `📊 已收录 ${document.getElementById('totalCount').textContent} 个工具，每天自动新增\n\n` +
+    `来看：https://aibounty.cn`;
+  if (navigator.share) {
+    navigator.share({title:'AIbounty', text, url:'https://aibounty.cn'}).catch(()=>{});
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast('✅ 分享文案已复制，去发朋友圈吧！');
+    });
+  }
+}
+
+// ── 邮件订阅 ──
+function subscribeEmail() {
+  var input = document.getElementById('subEmail');
+  var email = input.value.trim();
+  if (!email || !email.includes('@') || !email.includes('.')) {
+    showToast('请输入有效的邮箱地址 📧');
+    input.focus();
+    return;
+  }
+  try {
+    var subs = JSON.parse(localStorage.getItem('aibounty_subs') || '[]');
+    if (subs.includes(email)) {
+      showToast('这个邮箱已经订阅过了 😊');
+      return;
+    }
+    subs.push(email);
+    localStorage.setItem('aibounty_subs', JSON.stringify(subs));
+    input.value = '';
+    showToast('✅ 订阅成功！每天精选直达你的邮箱');
+    // 同时发邮件通知盘古
+    fetch('https://www.aibounty.cn/subscribe?email=' + encodeURIComponent(email), {method:'GET', mode:'no-cors'}).catch(function(){});
+  } catch(e) {
+    showToast('订阅失败，请稍后再试');
+  }
+}
+
+// ── iOS Safari 原生语音输入监听 ──
+document.addEventListener('DOMContentLoaded', function() {
+  var ns = document.getElementById('nativeSpeech');
+  if (ns) {
+    ns.addEventListener('input', function() {
+      if (this.value) {
+        finishVoiceSearch(this.value);
+        this.value = '';
+      }
+    });
+    ns.addEventListener('blur', function() {
+      if (this.value) {
+        finishVoiceSearch(this.value);
+        this.value = '';
+      }
+    });
+    // 如果在iOS上原生语音不支持，点语音按钮时聚焦到搜索框
+    ns.addEventListener('focus', function() {
+      if (!this.value) {
+        setTimeout(function() {
+          document.getElementById('searchInput').focus();
+        }, 100);
+      }
+    });
+    // 移除 hidden 样式测试（部分iOS需要）
+    setTimeout(function() {
+      ns.style.display = 'none';
+      ns.style.width = '1px';
+      ns.style.height = '1px';
+    }, 500);
+  }
+});
+</script>
+  <div class="toast" id="toast"></div>
+  <button class="feedback-btn" id="feedbackBtn" onclick="showFeedback()" data-i18n="feedback">
+    💬 反馈 & 建议
+  </button>
+
+<!-- Mobile Bottom Tab Bar -->
+<div class="mobile-tab-bar" id="mobileTabBar">
+  <div class="mobile-tab-item active" onclick="setSort('hot');scrollTo(0,0)">
+    <span class="tab-icon">🔥</span>
+    <span class="tab-label" data-i18n="navHot">最热</span>
+  </div>
+  <div class="mobile-tab-item" onclick="document.getElementById('searchInput').focus()">
+    <span class="tab-icon">🔍</span>
+    <span class="tab-label" data-i18n="tabSearch">搜索</span>
+  </div>
+  <div class="mobile-tab-item" onclick="setSort('interleave');scrollTo(0,0)">
+    <span class="tab-icon">🔀</span>
+    <span class="tab-label" data-i18n="sortInterleave">混排</span>
+  </div>
+  <div class="mobile-tab-item" onclick="location.href=location.href">
+    <span class="tab-icon">🔄</span>
+    <span class="tab-label" data-i18n="tabRefresh">刷新</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     曦和升级包 · 高级交互效果
+     新增于 2026-07-04
+     — 鼠标视差光晕 (Hero)
+     — 卡片 IntersectionObserver 入场动画
+     ═══════════════════════════════════════ -->
+<script>
+(function(){
+  'use strict';
+
+  // ── 1. Hero 鼠标跟踪光晕 ──
+  var hero = document.querySelector('.hero');
+  var glow = document.getElementById('heroGlow');
+  if (hero && glow) {
+    var heroRect = hero.getBoundingClientRect();
+    hero.addEventListener('mousemove', function(e) {
+      var x = e.clientX - heroRect.left;
+      var y = e.clientY - heroRect.top;
+      glow.style.transform = 'translate(' + (x - 250) + 'px, ' + (y - 250) + 'px)';
+      glow.style.opacity = '1';
+    });
+    hero.addEventListener('mouseleave', function() {
+      glow.style.opacity = '0';
+    });
+    // 窗口改变时更新 rect
+    window.addEventListener('resize', function() {
+      heroRect = hero.getBoundingClientRect();
+    });
+  }
+
+  // ── 2. Hero 视差浮动（Orbs 跟随鼠标微移）─
+  var orb1 = document.querySelector('.hero-orb-1');
+  var orb2 = document.querySelector('.hero-orb-2');
+  if (hero && orb1 && orb2) {
+    hero.addEventListener('mousemove', function(e) {
+      var x = (e.clientX / window.innerWidth - 0.5) * 20;
+      var y = (e.clientY / window.innerHeight - 0.5) * 20;
+      orb1.style.transform = 'translate(' + (x * 1.2) + 'px, ' + (y * 1.2) + 'px)';
+      orb2.style.transform = 'translate(' + (x * -0.8) + 'px, ' + (y * -0.8) + 'px)';
+    });
+    hero.addEventListener('mouseleave', function() {
+      orb1.style.transform = '';
+      orb2.style.transform = '';
+    });
+  }
+
+  // ── 3. IntersectionObserver: 卡片入场动画 ──
+  var cardObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        // 错开延迟：根据卡片位置
+        var delay = 0;
+        var parent = entry.target.parentElement;
+        if (parent) {
+          var idx = Array.prototype.indexOf.call(parent.children, entry.target);
+          delay = Math.min(idx * 40, 300);
+        }
+        setTimeout(function() {
+          entry.target.classList.add('visible');
+        }, delay);
+        cardObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  // 观察所有卡片类型
+  function observeCards() {
+    document.querySelectorAll('.tool-card:not(.observed), .today-card:not(.observed), .trending-card:not(.observed)').forEach(function(card) {
+      card.classList.add('observed');
+      cardObserver.observe(card);
+    });
+  }
+
+  // 初始观察
+  observeCards();
+
+  // 当渲染新卡片时（翻页/搜索）重新观察
+  var origRender = window.render;
+  if (typeof origRender === 'function') {
+    window.render = function() {
+      origRender.apply(this, arguments);
+      // 下一帧再观察（等 DOM 更新）
+      requestAnimationFrame(function() { requestAnimationFrame(observeCards); });
+    };
+  }
+
+  // ── 4. Stats 计数动画 ──
+  var statsObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        var target = parseInt(el.textContent.replace(/[^0-9]/g, ''), 10);
+        if (isNaN(target) || target < 10) return;
+        var duration = 1200;
+        var start = performance.now();
+        function step(now) {
+          var p = Math.min((now - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.floor(eased * target) + (el.textContent.includes('+') ? '+' : '');
+          if (p < 1) requestAnimationFrame(step);
+          else el.textContent = target + (el.textContent.includes('+') ? '+' : '');
+        }
+        requestAnimationFrame(step);
+        statsObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.stat-value').forEach(function(el) {
+    el.classList.add('counted');
+    statsObserver.observe(el);
+  });
+
+  // ── 5. 导航栏滚动状态 ──
+  var nav = document.querySelector('.nav');
+  var heroEl = document.querySelector('.hero');
+  if (nav && heroEl) {
+    function checkScroll() {
+      var heroBottom = heroEl.getBoundingClientRect().bottom;
+      nav.classList.toggle('scrolled', heroBottom < 80);
+    }
+    checkScroll();
+    window.addEventListener('scroll', checkScroll, { passive: true });
+  }
+
+  // ── 6. 标题逐词光效（页面加载后执行）─
+  setTimeout(function() {
+    var h1 = document.getElementById('heroTitle');
+    if (h1 && !h1.dataset.shimmered) {
+      h1.dataset.shimmered = '1';
+      var words = h1.querySelectorAll('.gradient');
+      if (words.length) {
+        words[0].style.transition = 'background-position 1.5s cubic-bezier(0.22,1,0.36,1)';
+        words[0].style.backgroundPosition = '0% 50%';
+      }
+    }
+  }, 100);
+
+  // ── 7. 模糊搜索（Levenshtein 距离，拼写容错）──
+  function levenshteinDistance(a, b) {
+    var m = a.length, n = b.length;
+    var prev = new Array(n + 1), curr = new Array(n + 1);
+    for (var j = 0; j <= n; j++) prev[j] = j;
+    for (var i = 1; i <= m; i++) {
+      curr[0] = i;
+      for (var j = 1; j <= n; j++) {
+        var cost = a[i-1] === b[j-1] ? 0 : 1;
+        curr[j] = Math.min(prev[j] + 1, curr[j-1] + 1, prev[j-1] + cost);
+      }
+      var tmp = prev; prev = curr; curr = tmp;
+    }
+    return prev[n];
+  }
+  function fuzzyMatch(text, query, maxDist) {
+    if (!text || !query) return false;
+    text = text.toLowerCase(); query = query.toLowerCase();
+    maxDist = maxDist || Math.max(1, Math.floor(query.length / 4));
+    if (text.includes(query)) return true;
+    if (Math.abs(text.length - query.length) > maxDist) return false;
+    var ws = query.length + maxDist;
+    for (var s = 0; s <= text.length - query.length + maxDist; s++) {
+      var e = Math.min(text.length, s + ws);
+      if (e - s < query.length - maxDist) continue;
+      if (levenshteinDistance(text.substring(s, e), query) <= maxDist) return true;
+    }
+    return false;
+  }
+
+  // 给搜素评分增加模糊匹配层
+  window._fuzzyMatch = fuzzyMatch;
+
+  // ── 8. 无限滚动（移动端替代分页，桌面保留分页可选）──
+  var infSentinel = null, infObserver = null, isLoadingMore = false;
+  function initInfScroll() {
+    if (!infSentinel) {
+      infSentinel = document.createElement('div');
+      infSentinel.id = 'infScrollSentinel';
+      infSentinel.style.cssText = 'height:2px;width:100%;pointer-events:none;';
+      var grid = document.getElementById('toolGrid');
+      if (grid) grid.parentNode.appendChild(infSentinel);
+    }
+    if (infObserver) infObserver.disconnect();
+    infObserver = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting && !isLoadingMore) {
+        var total = (window._filteredForPagination || window.allItems || []).length;
+        var maxPage = Math.ceil(total / activePageSize);
+        if (currentPage < maxPage) {
+          isLoadingMore = true;
+          currentPage++;
+          render();
+          requestAnimationFrame(function() { setTimeout(function() { isLoadingMore = false; }, 200); });
+        }
+      }
+    }, { rootMargin: '300px' });
+    infObserver.observe(infSentinel);
+  }
+
+  // 仅在移动端启用无限滚动
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    var _origRenderInf = window.render;
+    if (typeof _origRenderInf === 'function') {
+      window.render = function() {
+        _origRenderInf.apply(this, arguments);
+        requestAnimationFrame(initInfScroll);
+      };
+    }
+    // 隐藏桌面分页元素（移动端用无限滚动）
+    var _hidePagination = function() {
+      var pn = document.getElementById('pageNav');
+      var pt = document.getElementById('pageNavTop');
+      if (pn) pn.style.display = 'none';
+      if (pt) pt.style.display = 'none';
+    };
+    _hidePagination();
+    setTimeout(initInfScroll, 800);
+  }
+})();
+</script>
+</body>
+</html>

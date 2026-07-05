@@ -1,0 +1,49 @@
+# ── 密钥与凭证 ──
+scripts/purge_cdn.py
+scripts/deploy_cos.py
+scripts/upload_datajson.py
+scripts/juejin/juejin.env
+scripts/aibounty_daily_pipeline.bat
+check_bucket.py
+cos_capacity.py
+list_buckets.py
+deploy_cos.py
+*.env
+
+# ── 系统文件 ──
+.workbuddy/
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
+Thumbs.db
+
+# ── 备份文件 ──
+*.bak
+*.bak.*
+*.bak2
+
+# ── 本地配置 ──
+.vscode/
+.idea/
+local_server.bat
+start_aibounty_server.bat
+start-aibounty-server.ps1
+watchdog.bat
+
+# ── 临时数据 ──
+prey/
+recon/
+quality/
+config/
+_check_tool.py
+submit.py
+
+# ── 内部项目 ──
+XiheQuant/
+_archive/
+_backup/
+海外AI工具日报/
+reports/
+aibounty-v2/
+aibounty/

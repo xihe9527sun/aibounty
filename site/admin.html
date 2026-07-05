@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AIbounty 管理</title>
+<style>
+body{background:#0a0a0f;color:#e0e0e0;font-family:sans-serif;padding:20px;max-width:1000px;margin:0 auto}
+input{width:100%;padding:10px;background:#14141e;border:1px solid #2a2a3e;border-radius:8px;color:#fff;font-size:14px;margin-bottom:16px}
+.card{background:#14141e;border:1px solid #2a2a3e;border-radius:10px;padding:16px;margin-bottom:12px}
+h3{margin:0 0 4px;font-size:15px}
+.meta{font-size:12px;color:#888;margin-bottom:8px}
+.meta span{margin-right:12px}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;background:rgba(245,158,11,0.15);color:#f59e0b;font-size:11px;margin-right:4px}
+textarea{width:100%;padding:8px;background:#0d0d16;border:1px solid #2a2a3e;border-radius:6px;color:#e0e0e0;font-size:13px;min-height:50px;margin-top:4px;font-family:inherit}
+.btn{padding:6px 16px;border:none;border-radius:6px;cursor:pointer;font-size:13px;margin-top:8px;float:right;margin-left:6px}
+.btn-save{background:#f59e0b;color:#000}
+.btn-reset{background:#2a2a3e;color:#e0e0e0}
+.count{color:#888;font-size:13px;text-align:right;margin-bottom:8px}
+.pages{text-align:center;margin-top:16px}
+.pages button{background:#14141e;border:1px solid #2a2a3e;border-radius:6px;color:#e0e0e0;padding:4px 12px;margin:2px;cursor:pointer}
+.pages .on{border-color:#f59e0b;color:#f59e0b}
+#msg{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:8px 20px;border-radius:8px;font-size:13px;display:none}
+.loading{text-align:center;padding:40px;color:#888}
+</style>
+</head>
+<body>
+<h1 style="color:#f59e0b;font-size:20px;margin-bottom:16px">🏴‍☠️ AIbounty 工具管理</h1>
+<input id="q" placeholder="搜索工具名..." oninput="search()">
+<div class="count" id="info"></div>
+<div id="list"><div class="loading">加载中...</div></div>
+<div class="pages" id="pages"></div>
+<div id="msg"></div>
+<script>
+let all=[], pg=1, PS=20, dirty={};
+
+function $(id){return document.getElementById(id)}
+
+function search(){
+  var v=$('q').value.trim().toLowerCase();
+  var r=v ? all.filter(function(i){return (i.title||'').toLowerCase().indexOf(v)>=0}) : all;
+  pg=1; render(r);
+}
+
+function render(items){
+  var total=items.length;
+  var start=(pg-1)*PS, end=Math.min(start+PS, total);
+  var page=items.slice(start, end);
+  
+  $('info').textContent=total+' 个工具';
+  
+  if(!page.length){
+    $('list').innerHTML='<div class="loading">'+(total?'没有了':'没找到')+'</div>';
+    $('pages').innerHTML=''; return;
+  }
+  
+  $('list').innerHTML=page.map(function(i){
+    var id=i.id||'';
+    var d=dirty[id]||{};
+    var zh=d.abstract_zh!==undefined ? d.abstract_zh : (i.abstract_zh||'');
+    var en=d.abstract!==undefined ? d.abstract : (i.abstract||'');
+    var cats=Array.isArray(i.category)?i.category.join(', '):(typeof i.category==='string'?i.category:'');
+    return '<div class="card">'+
+      '<h3>'+(i.title||'?')+'</h3>'+
+      '<div class="meta"><span>⭐'+(i.score||0)+'</span><span>📦'+(i.source||'')+'</span>'+(cats?'<span class="tag">'+cats+'</span>':'')+'</div>'+
+      '<label style="font-size:12px;color:#888">🇬🇧 英文 ('+en.length+'字)</label>'+
+      '<textarea id="en_'+id+'" oninput="edit(\''+id+'\',\'en\',this.value)">'+en.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</textarea>'+
+      '<label style="font-size:12px;color:#888">🀄 中文 ('+zh.length+'字)</label>'+
+      '<textarea id="zh_'+id+'" oninput="edit(\''+id+'\',\'zh\',this.value)">'+zh.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</textarea>'+
+      '<button class="btn btn-reset" onclick="rst(\''+id+'\')">重置</button>'+
+      '<button class="btn btn-save" onclick="save(\''+id+'\')">💾 保存</button><div style="clear:both"></div>'+
+    '</div>';
+  }).join('');
+  
+  var tp=Math.ceil(total/PS), phtml='';
+  for(var i=1;i<=tp&&i<=10;i++) phtml+='<button class="'+(i===pg?'on':'')+'" onclick="go('+i+')">'+i+'</button>';
+  $('pages').innerHTML=phtml;
+}
+
+function edit(id,f,v){ if(!dirty[id]) dirty[id]={}; dirty[id][f==='en'?'abstract':'abstract_zh']=v; }
+function rst(id){ delete dirty[id]; search(); }
+function go(n){ pg=n; search(); }
+
+function save(id){
+  var d=dirty[id]; if(!d){msg('没有改动');return}
+  var body={}; if(d.abstract!==undefined) body.abstract=d.abstract; if(d.abstract_zh!==undefined) body.abstract_zh=d.abstract_zh;
+  fetch('/api/tools/'+id,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+  .then(function(r){return r.json()})
+  .then(function(r){if(r.success){delete dirty[id];msg('✅ 已保存');search()}else msg('❌ 保存失败',1)})
+  .catch(function(e){msg('❌ 网络错误',1)});
+}
+
+function msg(t,e){var m=$('msg');m.textContent=t;m.style.background=e?'#ef4444':'#22c55e';m.style.display='block';m.style.color=e?'#fff':'#000';setTimeout(function(){m.style.display='none'},2500)}
+
+// 开始
+fetch('/api/tools?size=9999').then(function(r){return r.json()}).then(function(d){
+  all=d.items||[]; search();
+}).catch(function(e){$('list').innerHTML='<div class="loading">❌ 加载失败: '+e.message+'</div>'});
+</script>
+</body>
+</html>

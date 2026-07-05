@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AIbounty - AI 工具日报</title>
+    <link>https://www.aibounty.cn</link>
+    <description>AIbounty - 每日狩猎全球最新 AI 工具。一站式发现 Agent、LLM、开发工具、RAG 框架等。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 05 Jul 2026 09:22:20 +0800</lastBuildDate>
+    <atom:link href="https://www.aibounty.cn/feed.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://www.aibounty.cn/favicon.ico</url>
+      <title>AIbounty</title>
+      <link>https://www.aibounty.cn</link>
+    </image>
+    <item>
+      <title>obra/superpowers</title>
+      <link>https://www.aibounty.cn/tool.html?id=f065b4edc6</link>
+      <description>伙计们！有福同享有难同当的时候到了，给大家安利个神器——superpowers。这货简直是对抗日常效率低下的终极武器！想象一下，写周报时突然灵感枯竭？调Bug时又遇到死循环？这时只需轻轻一召唤 **superpowers** ，各种繁琐的工作瞬间化繁为简，效率嗖嗖直线上升！不信你试试！ (⭐ 231,451)</description>
+      <category>agent | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=f065b4edc6</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>Significant-Gravitas/AutoGPT</title>
+      <link>https://www.aibounty.cn/tool.html?id=0be7439034</link>
+      <description>AutoGPT，让AI不再高冷难懂，就像微信小程序一样随手可得！我们就是要给你一个“技能树”，让你能轻松搞不定各种难题。别再苦逼手敲代码了，让我们帮你从日常琐事中解放出来，把时间花在更有意义的事情上吧！ (⭐ 185,008)</description>
+      <category>llm | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=0be7439034</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>langflow-ai/langflow</title>
+      <link>https://www.aibounty.cn/tool.html?id=a608866166</link>
+      <description>听说了吗？有个叫 **langflow** 的小能手，专治工作中的效率低下的顽疾。写周报时再也不会头疼了，只需要几个指令，它就能帮你搞定文案和数据整理；调Bug时更是得心应手，自动分析问题所在，省去你大量的排查时间。赶紧试试吧，效率提升看得见！🚀 (⭐ 149,808)</description>
+      <category>agent</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=a608866166</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>x1xhlol/system-prompts-and-models-of-ai-tools</title>
+      <link>https://www.aibounty.cn/tool.html?id=278282b91f</link>
+      <description>伙计们，快来看看这个叫 **system-prompts-and-models-of-ai-tools** 的神器吧！它就像是你的私人助理，能帮你高效处理各种繁琐的工作。比如说写周报时，你只需要给它几个提示，它就能帮你生成专业的报告；调Bug的时候，它能快速找出问题所在，省去了大量手动排查的时间。简直是太强了，比其他工具快多了，还不带累脑子的！快来试试吧！ (⭐ 140,820)</description>
+      <category>llm | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=278282b91f</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>langchain-ai/langchain</title>
+      <link>https://www.aibounty.cn/tool.html?id=583f75d12a</link>
+      <description>今天给大家安利个狠家伙——**langchain**！这货简直就是效率杀手锏，特别是在写周报时，再也不用绞尽脑汁拼凑资料了；调Bug时，也能快速定位问题所在。它强大的语言处理能力，比同类工具更智能、更灵活，简直是代码界的“超能力者”！快来加入它的阵营，一起提升生产力吧！🚀 (⭐ 139,604)</description>
+      <category>agent | llm | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=583f75d12a</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>msitarzewski/agency-agents</title>
+      <link>https://www.aibounty.cn/tool.html?id=caa3d5839c</link>
+      <description>指尖上的完整AI代理机构！从前端高手到Reddit社区忍者，每个Agent都是具有个性、流程和可交付成果的专家。包含16个业务部门、232+个AI Agent，覆盖工程、营销、产品、运营等全领域。 (⭐ 125,000)</description>
+      <category>uncategorized</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=caa3d5839c</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>garrytan/gstack</title>
+      <link>https://www.aibounty.cn/tool.html?id=14c1792adb</link>
+      <description>团队，快来看看这个**gstack**！它可是个效率神器哦。我最近写周报时，直接把它叫来帮忙，结果一小时搞定的报告，平时得花半天时间。**gstack**不仅帮你搜集数据、整理信息，还能根据你的思路快速生成初稿，省去了大量繁琐的工作。写到一半灵感断了？它还能帮你润色、优化文字！调Bug时，更是能一键检测代码错误，大大提升了修复效率。这波操作，岂止是提升效率，简直是解放生产力啊！ (⭐ 113,188)</description>
+      <category>llm | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=14c1792adb</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>punkpeye/awesome-mcp-servers</title>
+      <link>https://www.aibounty.cn/tool.html?id=e335883d69</link>
+      <description>伙计们，快来看看这个叫 **awesome-mcp-servers** 的神器！它能帮你高效管理游戏服务器状态，再也不怕写周报时被问“服务器咋样”而慌了手脚。调Bug时也能快速定位问题节点，比其他工具强在哪儿？它简直是你的私人服务器优化顾问，随时随地提升效率，让你从繁琐的工作中解脱出来，专心搞开发！赶紧试试吧！ (⭐ 89,388)</description>
+      <category>uncategorized</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=e335883d69</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>TauricResearch/TradingAgents</title>
+      <link>https://www.aibounty.cn/tool.html?id=33f0733920</link>
+      <description>伙儿，来个超燃的好物推荐！有木有人在搞交易？试试这个 **TradingAgents** 吧！它能让你的分析和决策像坐上了火箭一样快，简直比其他工具强出不止一个level！比如写周报时，一键生成数据洞见，简直省得你敲键盘的手都在颤抖。调Bug的时候也不用担心，因为它能模拟各种交易场景，提前帮你找出那些隐藏的小怪兽！赶紧加入吧，让你的交易效率up up又high high！ (⭐ 87,034)</description>
+      <category>agent | llm</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=33f0733920</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>fighting41love/funNLP</title>
+      <link>https://www.aibounty.cn/tool.html?id=d866b424f7</link>
+      <description>伙伴们，别再为查资料发愁了！**funNLP** 让你瞬间变身知识小能手，效率翻倍不是梦，快来体验不一样的“速成”快乐吧！ (⭐ 81,326)</description>
+      <category>rag</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=d866b424f7</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>JuliusBrussee/caveman</title>
+      <link>https://www.aibounty.cn/tool.html?id=9671d97e8d</link>
+      <description>能用少Token何须多用？一个Claude Code技能，让AI用原始语说话，减少65%的Token消耗！结合RTK堆叠压缩可节省15-95% Token，支持智能自动回退。Token不够用？这是你的省钱利器。 (⭐ 81,000)</description>
+      <category>uncategorized</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=9671d97e8d</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>thedotmack/claude-mem</title>
+      <link>https://www.aibounty.cn/tool.html?id=3074f32278</link>
+      <description>给 AI 编码 Agent 装上持久记忆。Claude-mem 是一个观察者 Agent，自动捕获工具使用和决策过程，生成语义摘要。下次开启新会话时，Agent 能想起来之前做了什么——告别每次从头开始的痛苦。 (⭐ 80,800)</description>
+      <category>agent</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=3074f32278</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>OpenHands/OpenHands</title>
+      <link>https://www.aibounty.cn/tool.html?id=2732eb26e0</link>
+      <description>伙计们，来个推荐！今天我找到了一个超能小伙伴——**OpenHands**！写周报时，它能帮你迅速梳理思路，生成亮点总结；调Bug时，它还能为你提供多种解决方案，效率嗖嗖上升。关键是操作超简单，就像拥有了隐形的帮手，干活儿不累也不慌。快来试试吧，保证让你爱不释手！ (⭐ 77,696)</description>
+      <category>media | agent | llm | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=2732eb26e0</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>bytedance/deer-flow</title>
+      <link>https://www.aibounty.cn/tool.html?id=65379a2427</link>
+      <description>伙伴们，别再被繁琐的工作缠身了！试试咱们的**deer-flow**吧。它能帮你自动抓取数据、生成周报，调Bug也不在话下。以前写周报得熬夜苦思，现在只需一键搞定，岂不美哉？快来一起告别加班狗的日子，享受高效生活！ (⭐ 71,442)</description>
+      <category>agent | rag | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=65379a2427</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>FoundationAgents/MetaGPT</title>
+      <link>https://www.aibounty.cn/tool.html?id=a80ccc4307</link>
+      <description>伙计们！别再为写周报头疼了，试试 **MetaGPT** 吧！它能帮你自动总结工作进度，简直是效率提升的“神助攻”！写报告时还能智能补充数据和案例，比那些死板的模板强多了。调Bug时更是得力帮手，一键分析代码问题，让你从繁琐工作中解放出来，专心搞创新。快来加入效率革命吧！ (⭐ 68,880)</description>
+      <category>agent | llm</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=a80ccc4307</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>ComposioHQ/awesome-claude-skills</title>
+      <link>https://www.aibounty.cn/tool.html?id=2e5f5cfaf8</link>
+      <description>伙计们！来来来，给大家安利个神器——**awesome-claude-skills**。这货简直是我的效率小帮手，写周报时它能一键整理数据，调Bug时还能帮我排查逻辑。简直是比其他工具强N倍的宝藏啊！快来试试，让你的工作也变得轻松有趣吧！ (⭐ 65,031)</description>
+      <category>agent | llm</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=2e5f5cfaf8</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>ruvnet/ruflo</title>
+      <link>https://www.aibounty.cn/tool.html?id=645af21dda</link>
+      <description>伙计们，来个震惊的好物推荐！这次是 **ruflo** 这个小能手，在效率提升上可是一把好手。你还在为写周报加班加点吗？别怕，**ruflo** 能帮你一键生成漂亮的数据报告；调Bug时头大不已？试试它，几分钟搞定复杂问题。别犹豫了，让它成为你的得力小助手吧！ (⭐ 60,022)</description>
+      <category>agent | llm | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=645af21dda</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>microsoft/autogen</title>
+      <link>https://www.aibounty.cn/tool.html?id=f28f7b77be</link>
+      <description>AutoGen是个搞事情的框架，让你的小AI们既能独立作战，也能和人类和谐共处。现在它进入了“维修模式”，正在给自己打补丁呢！别担心，它还在顽强地坚守岗位，虽然可能有点小bug……不过放心，用起来依旧能给你带来满满的惊喜！ (⭐ 59,048)</description>
+      <category>agent | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=f28f7b77be</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>mem0ai/mem0</title>
+      <link>https://www.aibounty.cn/tool.html?id=55733f1c7f</link>
+      <description>伙计们！来点新鲜货——**mem0**！这AI小能手专治效率低下这个顽疾。写周报时它能帮你自动整理数据；调Bug时它还能分析代码，找问题一针见血。比市面上其他工具强在哪？简单说，那就是它像老朋友一样懂你，让你的工作不再枯燥无味！赶紧试试吧～ (⭐ 58,823)</description>
+      <category>agent | llm</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=55733f1c7f</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>santifer/career-ops</title>
+      <link>https://www.aibounty.cn/tool.html?id=f8d79b4ea3</link>
+      <description>基于Claude Code的AI求职系统！14种技能模式、Go仪表盘、PDF生成、批量处理。自动帮你定制简历、匹配职位、追踪投递进度。找工作这件事，让AI替你搞定。 (⭐ 57,800)</description>
+      <category>uncategorized</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=f8d79b4ea3</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>AntonOsika/gpt-engineer</title>
+      <link>https://www.aibounty.cn/tool.html?id=b538e828e5</link>
+      <description>你们有没有过这样的经历：写周报累得像狗，调试代码急得像热锅上的蚂蚁？别怕，来了个狠角色——**gpt-engineer**！这家伙不仅文笔流畅，还能精准定位Bug，简直就像多了一个聪明的小助手。比如写周报时，直接丢给他一堆数据和空洞的文字模板，转眼间就能得到一份结构清晰、内容充实的报告。调Bug时更是牛逼哄哄，给它个错误提示，它就能迅速找出症结所在，效率嗖嗖嗖地飙上去！快来试试吧，保证 (⭐ 55,205)</description>
+      <category>llm | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=b538e828e5</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>NanmiCoder/MediaCrawler</title>
+      <link>https://www.aibounty.cn/tool.html?id=8124c4da7c</link>
+      <description>全网社交媒体爬虫！支持小红书、抖音、快手、B站、微博、百度贴吧、知乎等全平台内容采集。AI驱动的社交媒体数据挖掘工具，为AI训练和内容分析提供数据源。国产项目。 (⭐ 55,000)</description>
+      <category>uncategorized</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=8124c4da7c</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>crewAIInc/crewAI</title>
+      <link>https://www.aibounty.cn/tool.html?id=5b7df3c845</link>
+      <description>伙计们！来来来，今天给大家安利个神器——**crewAI**。你还在为写周报繁琐、找资料费劲而头疼吗？还是在开发中调Bug到怀疑人生？**crewAI**简直是你的救星！它不仅能自动抓取关键信息，还能帮你一键生成专业报告，让你从繁重的文档编写中解脱出来，把时间留给更有意义的工作。比如写周报时，输入几个关键词，它就秒变小助手，快速整理出满满干货，简直不要太方便！快来试试吧，让效率升级，生活更轻 (⭐ 53,851)</description>
+      <category>agent</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=5b7df3c845</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>Leonxlnx/taste-skill</title>
+      <link>https://www.aibounty.cn/tool.html?id=4eaacc6c5a</link>
+      <description>Taste-Skill，你的AI不再生产千篇一律的口水文！它会像一个挑剔的大厨，精心挑选每一句话，确保输出既独特又美味。别让你的AI再吃“剩菜”了，给它来点“味精”吧！ (⭐ 51,591)</description>
+      <category>llm</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=4eaacc6c5a</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>dbeaver/dbeaver</title>
+      <link>https://www.aibounty.cn/tool.html?id=0aa20b8a28</link>
+      <description>伙计们，今天给你们安利一个神器——**DBeaver**！写周报的时候数据整理超费劲？调Bug时数据库连接又麻烦？来来来，DBeaver秒变你的得力助手！它不仅支持多种数据库无缝切换，还能自动生成报表和图表，简直效率翻倍。不信你试试，在Excel里挣扎半天不如用它半小时搞定！ (⭐ 50,602)</description>
+      <category>media | dev-tool | data-science</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=0aa20b8a28</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>run-llama/llama_index</title>
+      <link>https://www.aibounty.cn/tool.html?id=3fce13de50</link>
+      <description>如果你在写周报时还在苦恼如何整理海量资料，或者在调Bug时翻箱倒柜找文档——试试 **llama_index** 吧！它就像一个私人知识库，帮你一键检索所有相关信息。相比那些老式工具，**llama_index** 响应速度更快，还能智能过滤无用信息，简直就是效率杀手啊！快来体验一下吧！🚀 (⭐ 50,200)</description>
+      <category>rag | data-science</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=3fce13de50</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>hesreallyhim/awesome-claude-code</title>
+      <link>https://www.aibounty.cn/tool.html?id=b7ff0f0934</link>
+      <description>**awesome-claude-code** 绝对是你们写周报、调Bug时的超级小帮手！它不仅功能强大，还能大大提升效率，就像你的私人AI助理，随时帮你搞定技术难题。赶紧试试吧，保证让你们的工作变得更轻松愉快！ (⭐ 46,748)</description>
+      <category>agent | llm | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=b7ff0f0934</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>Aider-AI/aider</title>
+      <link>https://www.aibounty.cn/tool.html?id=eccac71cfe</link>
+      <description>伙计们，来个超实用的小玩意儿——**aider**！它可不是一般的工具，而是能让你在写周报时灵感爆棚，在调Bug时轻松定位的超级大脑。相比那些只能干巴巴记录的家伙，**aider** 能帮你生成文案、优化代码，简直就像多了一位24小时在线的智慧伙伴！快来试试吧，效率提升看得见！ (⭐ 46,448)</description>
+      <category>llm | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=eccac71cfe</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>zhayujie/CowAgent</title>
+      <link>https://www.aibounty.cn/tool.html?id=e187d3adde</link>
+      <description>伙计们！有木有觉得每天写周报简直比写论文还折磨？试试**CowAgent**吧！它能自动抓取你一周的工作数据，生成漂亮报告，让你从枯燥中解放出来。相比那些只会吐冷冰冰代码的家伙，**CowAgent**更懂人性，还能加入一些小彩蛋，让你的周报不仅专业还带点幽默感。调Bug时也别急，“找”它帮忙吧！效率up up，轻松拿捏！ (⭐ 45,387)</description>
+      <category>agent</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=e187d3adde</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>HKUDS/nanobot</title>
+      <link>https://www.aibounty.cn/tool.html?id=678fd33e72</link>
+      <description>今天给大家安利一个超级能打的小帮手——**nanobot**。它就像你的私人小助手，在效率提升上简直是无敌的存在！写周报时，它帮你快速整理数据；调Bug时，它帮你高效定位问题。而且啊，它的操作简单到让你怀疑人生，简直就是懒人必备的神器！赶紧试试吧，让工作效率翻倍，生活品质UP UP~ (⭐ 44,405)</description>
+      <category>agent | llm</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=678fd33e72</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>ChromeDevTools/chrome-devtools-mcp</title>
+      <link>https://www.aibounty.cn/tool.html?id=3ce1475e78</link>
+      <description>Chrome DevTools 团队官方出品的 MCP 服务器。让 Claude Code、Cursor 等编码 Agent 直接控制真实 Chrome 浏览器，能做性能分析、网络请求检查、控制台调试、Source Map 堆栈追踪——Agent 自己就能 debug 前端问题了。 (⭐ 43,000)</description>
+      <category>dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=3ce1475e78</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>asgeirtj/system_prompts_leaks</title>
+      <link>https://www.aibounty.cn/tool.html?id=adf1c0abe5</link>
+      <description>给大家安利个神器——system_prompts_leaks！这货简直是个大模型界的“隐秘的角落”，在写周报时能帮你一键生成高质量文本；调Bug时更是如同有了专属技术顾问，精准定位问题所在。相比其他工具，它简直是效率提升的秘密武器哦！快来体验吧！🎉 (⭐ 40,263)</description>
+      <category>llm | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=adf1c0abe5</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>danny-avila/LibreChat</title>
+      <link>https://www.aibounty.cn/tool.html?id=danny-avila-librechat</link>
+      <description>来个福利！LibreChat **就像你的私人秘书**，写周报时再也不怕加班狗；调Bug时能帮你快速定位问题，效率提升到飞起！相比其他工具，它不仅智能还幽默，简直就是你工作中不可或缺的小伙伴。快来试试吧！🚀 (⭐ 39,381)</description>
+      <category>llm</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=danny-avila-librechat</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>mindsdb/minds</title>
+      <link>https://www.aibounty.cn/tool.html?id=8a86fc34d5</link>
+      <description>伙伴们！来个硬核推荐：**minds**！这货简直是数据分析界的“效率王”！写周报时再也不怕数据堆成山了——它能瞬间帮你整理出清晰的报告框架；调Bug时更是得心应手，各种复杂的数据轻松搞定。比同类工具强在哪？因为它不仅快还特智能，简直就是你的数据分析“小帮手”啊！赶紧试试吧！ (⭐ 39,318)</description>
+      <category>data-science</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=8a86fc34d5</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>ToolJet/ToolJet</title>
+      <link>https://www.aibounty.cn/tool.html?id=f86c2337b5</link>
+      <description>伙计们！快来试试 **ToolJet** 吧！这款工具就像是你的私人助理，帮你一键搞定所有繁琐的工作。写周报时，它能自动汇总数据；调Bug时，它可以智能筛选并标注关键信息。再也不用费劲查资料了，简直是效率提升的秘密武器！快来和它一起干活吧！ (⭐ 38,035)</description>
+      <category>agent | llm</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=f86c2337b5</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>router-for-me/CLIProxyAPI</title>
+      <link>https://www.aibounty.cn/tool.html?id=69d0eaa97e</link>
+      <description>伙计们，来一波真的猛料！CLIProxyAPI，这个小玩意简直是个效率提升大师！想象下你写周报的时候还在为数据整理头疼？调Bug时还在一遍遍手动检查？**CLIProxyAPI** 就能帮你告别这些烦恼。它不仅能快速抓取和处理大量数据，还能一键生成专业的分析报告。比那些笨拙的手动操作强太多了，简直就是你的个人小助手！ (⭐ 37,868)</description>
+      <category>llm | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=69d0eaa97e</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>google/langextract</title>
+      <link>https://www.aibounty.cn/tool.html?id=4125f26753</link>
+      <description>这是一款用Python写的小工具，叫Google的langextract，就像从一堆乱七八糟的文字里捞金子一样，但它不是人工挖的，是靠先进的LLMs技术！简直就像是教小白龙找宝藏，但这次宝藏是结构化的文本哦～用它，让你的文档分析事半功倍，再也不怕文字迷宫了！ (⭐ 36,800)</description>
+      <category>llm</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=4125f26753</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>bytedance/UI-TARS-desktop</title>
+      <link>https://www.aibounty.cn/tool.html?id=918f25c039</link>
+      <description>ByteDance的GUI Agent桌面版——再也不用苦练编程，对着电脑说句话，界面就能听话地变！就像和电脑玩儿魔法游戏，一键启动，界面秒懂你的心思，操作变得比吃瓜还简单！ (⭐ 36,200)</description>
+      <category>agent</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=918f25c039</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>patchy631/ai-engineering-hub</title>
+      <link>https://www.aibounty.cn/tool.html?id=b5efad826f</link>
+      <description>这是你的AI工程宝典，里面不仅有LLMs和RAGs的深度教程，还有如何把它们变成现实中的超级英雄！比如教你用这些技术让聊天机器人瞬间变身情感大师，或者让你家扫地机学会讲段子逗你乐。这可比看肥皂剧有用多了！ (⭐ 35,844)</description>
+      <category>agent | llm | rag</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=b5efad826f</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>langchain-ai/langgraph</title>
+      <link>https://www.aibounty.cn/tool.html?id=8f5f51f7b8</link>
+      <description>来个硬核推荐——别看我老了，但我对 **langgraph** 依然充满爱意！这货能在写周报时帮你生成段子，调Bug时给你提供金点子。关键是它超懂你，理解度堪比你的灵魂知己，但效率却高出N倍！再也不怕加班到深夜啦，快来试试吧！ (⭐ 35,093)</description>
+      <category>agent | llm | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=8f5f51f7b8</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>PDFMathTranslate/PDFMathTranslate</title>
+      <link>https://www.aibounty.cn/tool.html?id=b762c34c37</link>
+      <description>PDFMathTranslate？别名PDF数学魔术师，专治学术论文里的高深魔咒！啥是高数符号堆成的天书？它来了，一键破解，让你瞬间秒懂那些让人头秃的公式和定理。再也不用担心被复杂的PDF文档唬住，轻松掌握知识的真谛！ (⭐ 34,938)</description>
+      <category>rag | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=b762c34c37</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>AstrBotDevs/AstrBot</title>
+      <link>https://www.aibounty.cn/tool.html?id=7adc4d46e4</link>
+      <description>快来看看这个叫 **AstrBot** 的小能手！写周报时再也不会被一堆数据困住，AstrBot帮你一键生成！调Bug时也不怕繁琐，它能快速定位问题，让你省心又省力。快来加入它的队伍吧，效率提升不止一点点哦~ (⭐ 34,874)</description>
+      <category>agent | llm | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=7adc4d46e4</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>microsoft/playwright-mcp</title>
+      <link>https://www.aibounty.cn/tool.html?id=44182be920</link>
+      <description>别再为写周报头疼了！来试试 **playwright-mcp** 吧！它能自动抓取数据，整理成一份清爽的报告，比你手动敲字快多了。而且，调Bug的时候，它还能帮你快速定位问题，效率嗖嗖上升。这不，昨天我在调试一个复杂项目时，差点被Bug搞疯了，多亏 **playwright-mcp** 跑了几轮测试，才帮我揪出那个捣蛋鬼！快试试，效率提升看得见！ (⭐ 34,067)</description>
+      <category>agent | llm | dev-tool | data-science</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=44182be920</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>microsoft/graphrag</title>
+      <link>https://www.aibounty.cn/tool.html?id=microsoft-graphrag</link>
+      <description>伙计们！有波好玩的好东西要安利给你们——**GraphRag**！你知道的，写周报时抓狂找数据？调Bug时翻半天没头绪？这货简直是个救星！它能快速从海量知识库中抓取信息，让你的工作效率嗖嗖提升。相比其他工具，GraphRag简直就是搜索神器，精准又高效。不信？试试就知道啦！ (⭐ 33,829)</description>
+      <category>rag</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=microsoft-graphrag</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>VectifyAI/PageIndex</title>
+      <link>https://www.aibounty.cn/tool.html?id=9fea7d3b8a</link>
+      <description>PageIndex：再也不用担心“碎碎念”了！不需要建向量库，也不需要分段子，纯靠逻辑思维就能给你精准检索。金融数据上测试，准确率98.7%，简直秒杀一切！妥妥的职场小能手，让文档搜索从此不迷路！ (⭐ 33,515)</description>
+      <category>rag | llm</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=9fea7d3b8a</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>ashishpatel26/500-AI-Agents-Projects</title>
+      <link>https://www.aibounty.cn/tool.html?id=5cbdfb53bb</link>
+      <description>500个AI Agent用例大全！跨越医疗、金融、教育、零售等多个行业，每个用例都附有开源项目链接。既是AI Agent的百科全书，也是快速搭建项目的灵感库。 (⭐ 33,000)</description>
+      <category>uncategorized</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=5cbdfb53bb</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>jamiepine/voicebox</title>
+      <link>https://www.aibounty.cn/tool.html?id=a61e8b8630</link>
+      <description>伙计们，试试 **VoiceBox** 吧！这个家伙简直就是你日常工作的救星。想象一下：写周报时，它能帮你快速整理要点、提炼精华；调Bug时，它就像你的私人代码顾问，瞬间点破问题所在。相比那些笨拙的工具，VoiceBox就像是个混AI圈的老炮儿，操作简单又高效！快来试试，保证让你眼前一亮！ (⭐ 32,308)</description>
+      <category>llm | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=a61e8b8630</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>chopratejas/headroom</title>
+      <link>https://www.aibounty.cn/tool.html?id=678c4c23d8</link>
+      <description>伙伴们，头秃加班的时候到了吗？别急，来个 **headroom** 试试！它能像私人助手一样帮你梳理工作流程，让你的效率up up又high high。比如写周报时，它自动整理数据、提炼关键点，简直比加班狗还敬业！调Bug时也能一键分析问题原因，省去了手动搜寻的时间。快来体验，保证你告别“拖延症晚期”！ (⭐ 32,186)</description>
+      <category>agent | llm</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=678c4c23d8</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>github/github-mcp-server</title>
+      <link>https://www.aibounty.cn/tool.html?id=2110f18a46</link>
+      <description>伙计们，别让写周报成为你每周的噩梦了！来试试 **github-mcp-server** 吧。这玩意儿简直就像是你的私人代码顾问，能自动整理代码改动，省去了你手动罗列的繁琐。特别是当你在调试那些让人抓狂的Bug时，它还能帮你记录每次尝试后的变化，让你不再迷失在复杂的代码迷宫里。快来加入吧，让写报告和修复Bug变得更轻松！ (⭐ 30,779)</description>
+      <category>agent | llm | dev-tool | data-science</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=2110f18a46</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+    <item>
+      <title>heygen-com/hyperframes</title>
+      <link>https://www.aibounty.cn/tool.html?id=a1626c8dfa</link>
+      <description>伙计们！来个强力推荐——**hyperframes**！这货简直是效率提升的“火箭燃料”！想象一下，你在写周报时，只需一键生成图表和数据概览，省去了手动整理的繁琐；或者在调Bug时，它能智能匹配最优解方案，让你直接绕过坑洼。相比于其他工具，hyperframes就像是你的私人AI助手，不仅效率更高，还超好用！赶紧试试吧！ (⭐ 28,534)</description>
+      <category>agent | dev-tool</category>
+      <guid isPermaLink="true">https://www.aibounty.cn/tool.html?id=a1626c8dfa</guid>
+      <pubDate>Sun, 05 Jul 2026 09:22:20 +0800</pubDate>
+    </item>
+  </channel>
+</rss>

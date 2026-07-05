@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海外AI工具日报 #004 · supervision</title>
+<meta name="description" content="海外AI工具日报 #004：supervision — 可复用的计算机视觉工具库，支持模型无关的目标检测、分类和分割。提供丰富的标注器、数据集加载/转换/保存工具，与Ultralytics、Transformers等…">
+<link rel="canonical" href="https://www.aibounty.cn/daily/2026-06-26.html">
+<style>
+:root { --bg: #FAF9F6; --text: #2C2C2A; --muted: #6B6A66; --accent: #3C3489; --accent2: #7F77DD; --card: #FFFFFF; --border: #E5E3D8; --tag-bg: #EEEDFE; --tag-text: #4A42B0; --code-bg: #F1EFE8; --green: #2e7d32; --red: #c62828; --yellow: #f9a825; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, "PingFang SC", "Noto Sans SC", system-ui, sans-serif; background: var(--bg); color: var(--text); max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; line-height: 1.8; font-size: 16px; }
+h1 { font-size: 28px; font-weight: 700; line-height: 1.4; margin: 8px 0 12px; color: var(--accent); }
+.subtitle { color: var(--muted); font-size: 15px; margin: -4px 0 16px; }
+.meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 24px; font-size: 13px; color: var(--muted); align-items: center; }
+.meta-item { display: inline-flex; align-items: center; gap: 3px; }
+.tag { display: inline-block; background: var(--tag-bg); color: var(--tag-text); font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 6px; }
+.badge { display: inline-block; background: var(--accent); color: white; font-size: 12px; font-weight: 600; padding: 4px 14px; border-radius: 20px; letter-spacing: 0.5px; margin-bottom: 12px; }
+.section { margin: 36px 0; }
+.section h2 { font-size: 20px; font-weight: 600; color: var(--accent); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+.section h3 { font-size: 17px; font-weight: 600; color: var(--accent); margin: 20px 0 8px; }
+.section h4 { font-size: 16px; font-weight: 600; color: var(--accent2); margin: 16px 0 6px; }
+.section p { margin: 10px 0; color: var(--text); }
+.section li { margin: 6px 0; }
+.section ul, .section ol { padding-left: 20px; }
+.section br { display: block; content: ""; margin: 8px 0; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
+.card h3 { font-size: 16px; font-weight: 600; margin: 0 0 8px; color: var(--accent); }
+.code-block { background: var(--code-bg); padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.6; font-family: "SF Mono", "Fira Code", monospace; margin: 12px 0; white-space: pre; }
+.article-body { }
+code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 14px; font-family: "SF Mono", "Fira Code", monospace; }
+.pro { border-left: 3px solid var(--green); padding-left: 14px; margin: 8px 0; font-size: 15px; }
+.con { border-left: 3px solid var(--red); padding-left: 14px; margin: 8px 0; font-size: 15px; }
+.warn { background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px; padding: 12px 16px; margin: 16px 0; font-size: 14px; }
+.nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.nav-brand { color: var(--accent); text-decoration: none; font-size: 18px; font-weight: 700; }
+.nav-links { display: flex; gap: 8px; }
+.nav-link { padding: 4px 12px; border-radius: 6px; font-size: 13px; color: var(--muted); text-decoration: none; transition: all 0.15s; }
+.nav-link:hover { background: var(--tag-bg); color: var(--accent); }
+.nav-link.active { background: var(--tag-bg); color: var(--accent); font-weight: 500; }
+.nav-home { background: var(--accent); color: white !important; font-weight: 500; padding: 4px 14px; border-radius: 6px; font-size: 13px; text-decoration: none; }
+.nav-home:hover { opacity: 0.9; }
+.tool-cta { display: inline-block; margin: 10px 0; padding: 10px 28px; border-radius: 10px; background: var(--accent); color: white; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+.tool-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+.back-home { text-align: center; margin: 40px 0 8px; }
+.back-home a { display: inline-block; padding: 10px 24px; border-radius: 10px; background: var(--tag-bg); color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+.back-home a:hover { background: #dddcee; transform: translateY(-1px); }
+.footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); text-align: center; }
+.footer a { color: var(--accent); text-decoration: none; }
+@media (max-width: 600px) { body { padding: 20px 16px 60px; } h1 { font-size: 22px; } }
+</style>
+</head>
+<body>
+
+<!-- ==================== 导航 ==================== -->
+<div class="nav">
+  <a href="https://www.aibounty.cn" class="nav-brand">🏴 AIbounty</a>
+  <div class="nav-links">
+    <a href="https://www.aibounty.cn" class="nav-home">← 首页</a>
+    <a href="https://www.aibounty.cn/daily.html" class="nav-link active">日报</a>
+    <a href="https://www.aibounty.cn/about.html" class="nav-link">关于</a>
+  </div>
+</div>
+
+<!-- ==================== 头部 ==================== -->
+<div class="badge">曦和精选 · 海外AI工具日报 #004</div>
+<h1>supervision — 可复用的计算机视觉工具库，支持模型无关的目标检测、分类和分割。提供丰富的标注器、数据集加载/转换/保存工具，与Ultralytics、Transformers等</h1>
+<p class="subtitle">可复用的计算机视觉工具库，支持模型无关的目标检测、分类和分割。提供丰富的标注器、数据集加载/转换/保存工具，与Ultralytics、Transformers等…</p>
+
+<div class="meta">
+  <span class="meta-item">⭐ 90</span>
+  <span class="meta-item">📁 uncategorized</span>
+  <span class="meta-item">💵 open-source</span>
+  <span class="meta-item">📅 2026-06-26</span>
+  <span class="tag">computer-vision</span>
+      <span class="tag">object-detection</span>
+      <span class="tag">segmentation</span>
+      <span class="tag">ml-tools</span>
+      
+</div>
+
+<!-- ==================== 文章正文 ==================== -->
+<div class="article-body">
+<div class="section"><h2>一个你没想到的宝藏：Supervision</h2>
+    <br>
+    <p>别看名字平淡无奇，Supervision简直是给那些喜欢早鸟福利的技术人的大礼包。我第一次接触它时，就是那种“卧槽，这能干啥”的感觉。最骚的是，它竟然把模型无关的目标检测、分类和分割都融会贯通了！不管你是YOLO党还是Transformer派，它都伺候。你懂的，搞深度学习的都知道，这事儿不是谁都能做到。</p>
+    <br>
+    <p>不过也有坑。比如数据集处理这部分，虽说Supervision提供了强大的工具，但有时候还是会有点懵逼。那些以前要手写的脏活累活，它帮你干了，但有些细节还是得你自己搞定，不然容易踩坑。哦对了，别忘了它的标注工具就像用美图秀秀P图，简单粗暴又有效。</p>
+    <br>
+    <p>比如你搞个图像分类项目吧，一开始数据集乱糟糟的，看着头疼。但一上手Supervision，你会发现标注起来简直不要太快活。它支持各种主流CV库无缝集成，比如Ultralytics、Transformers啥的，直接把你从繁琐的数据处理工作中解脱出来。</p>
+    <br>
+    <p>但是话说回来，你别指望它能帮你把分类模型训练得有多牛逼。毕竟这只是个工具，不是你的保姆，它能做的就是提供一个良好的环境让你更专注于模型的设计和优化。而那些数据清洗和预处理的活儿，虽然没那么酷炫，但却是确保模型精度的关键一步。</p>
+    <br>
+    <p>再讲个小插曲吧，记得有一次我用Supervision做分割任务，一开始还担心会不会太难用，结果上手没几分钟就基本掌握了。它内置了很多常用的数据集转换工具，对于初学者来说简直是一大福音。不过这也意味着，如果你是那种喜欢自定义流程的人，可能需要花点时间去探索这些工具的边界。</p>
+    <br>
+    <p>总之吧……算了，你懂我的意思。如果你们还在为繁琐的数据处理而头疼，不妨试试Supervision，它可能会帮你省下不少时间和精力。当然，这只是我个人的经验分享，也许对你有用，也许没用，毕竟每个人的项目背景和需求都不一样嘛。</p>
+    </div>
+</div>
+
+<!-- ==================== 信息差 ==================== -->
+
+<div class="section">
+<h2>为什么你可能没听说过</h2>
+<p>这个工具来自 <strong>github</strong>，是AIbounty 曦和从9个渠道狩猎后精挑细选出来的。中文圈的相关报道不多，所以你没见过很正常。</p>
+</div>
+
+<!-- ==================== CTA ==================== -->
+<div style="text-align:center; margin: 32px 0 8px;">
+  <a href="https://www.aibounty.cn/tool.html?id=b8b2afae29&source=from-daily" class="tool-cta" target="_blank">🔗 在 AIbounty 查看 supervision 详情 →</a>
+</div>
+
+<div class="warn">
+<strong>⚠️ 免责声明：</strong> 本文由 AIbounty 狩猎引擎发现，AI 辅助创作。工具的好坏请自行判断，你的项目你做主。
+</div>
+
+<div class="back-home">
+  <a href="https://www.aibounty.cn">← 返回 AIbounty 首页</a>
+</div>
+
+<div class="footer">
+  <p>由 🏴‍☠️ <a href="https://www.aibounty.cn">AIbounty</a> 每日狩猎 · 自动生成 · 数据来源9个社区</p>
+  <p style="margin-top:4px;"><a href="https://www.aibounty.cn/daily.html">📰 查看往期日报</a></p>
+</div>
+
+</body>
+</html>

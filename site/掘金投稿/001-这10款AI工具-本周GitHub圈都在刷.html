@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="本周 GitHub/掘金/ProductHunt 等9大社区最值得关注的10款AI工具精选，含 superpowers、Langflow、OpenHands、TradingAgents 等热门项目。由 AIbounty 每日狩猎引擎自动采集。">
+<title>这10款AI工具，本周GitHub圈都在刷 · AIbounty</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --bg:#0a0e17; --card:#111827; --border:#1e3a5f;
+    --text:#f1f5f9; --text2:#94a3b8; --text3:#64748b;
+    --primary:#3b82f6; --accent:#f59e0b; --green:#34d399;
+  }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;
+    background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased;
+    max-width:720px; margin:0 auto; padding:40px 20px;
+  }
+  .header { margin-bottom:40px; }
+  .header .tag {
+    display:inline-block; font-size:12px; font-weight:600; padding:4px 12px;
+    border-radius:6px; background:rgba(59,130,246,0.1); color:#60a5fa; margin-bottom:12px;
+  }
+  h1 { font-size:28px; font-weight:800; line-height:1.3; margin-bottom:12px; }
+  .meta { font-size:13px; color:var(--text3); margin-bottom:24px; }
+  .intro {
+    font-size:15px; color:var(--text2); line-height:1.8;
+    background:var(--card); border:1px solid var(--border); border-radius:12px;
+    padding:20px; margin-bottom:32px;
+  }
+  .tool-card {
+    background:var(--card); border:1px solid var(--border); border-radius:12px;
+    padding:20px; margin-bottom:16px; transition:all 0.2s;
+    cursor:pointer; position:relative;
+  }
+  .tool-card:hover { border-color:rgba(59,130,246,0.25); transform:translateY(-2px); }
+  .tool-card:active { transform:translateY(0); }
+  .tool-rank {
+    display:inline-flex; align-items:center; justify-content:center;
+    width:28px; height:28px; border-radius:50%;
+    background:rgba(59,130,246,0.1); color:#60a5fa;
+    font-size:13px; font-weight:700; margin-bottom:8px;
+  }
+  .tool-card h2 { font-size:17px; font-weight:700; margin-bottom:4px; }
+  .tool-card h2 a { color:var(--text); text-decoration:none; }
+  .tool-card h2 a:hover { color:var(--primary); }
+  .tool-meta { font-size:12px; color:var(--text3); margin-bottom:10px; }
+  .tool-meta span { margin-right:12px; }
+  .tool-meta a { color:var(--primary); text-decoration:none; }
+  .tool-meta a:hover { text-decoration:underline; }
+  .tool-desc { font-size:14px; color:var(--text2); line-height:1.7; margin-bottom:10px; }
+  .tool-tags { display:flex; gap:6px; flex-wrap:wrap; }
+  .tool-tag {
+    font-size:11px; padding:3px 10px; border-radius:5px;
+    background:rgba(245,158,11,0.08); color:#fbbf24; border:1px solid rgba(245,158,11,0.12);
+  }
+  .tool-tag.github { background:rgba(52,211,153,0.08); color:#34d399; border-color:rgba(52,211,153,0.12); }
+  .tool-tag.opensource { background:rgba(52,211,153,0.08); color:#34d399; border-color:rgba(52,211,153,0.12); }
+  .tool-card .view-detail {
+    position:absolute; bottom:16px; right:20px;
+    font-size:11px; color:var(--text3); opacity:0; transition:opacity 0.2s;
+  }
+  .tool-card:hover .view-detail { opacity:0.7; }
+  .outro {
+    background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(139,92,246,0.06));
+    border:1px solid rgba(59,130,246,0.12); border-radius:12px;
+    padding:24px; margin:32px 0; text-align:center;
+  }
+  .outro p { font-size:14px; color:var(--text2); line-height:1.7; }
+  .outro a {
+    display:inline-block; margin-top:12px;
+    padding:10px 28px; border-radius:100px; font-size:14px; font-weight:600;
+    background:var(--primary); color:white; text-decoration:none; transition:0.2s;
+  }
+  .outro a:hover { background:#2563eb; transform:translateY(-1px); }
+  .footer { text-align:center; font-size:12px; color:var(--text3); padding:20px 0; border-top:1px solid var(--border); margin-top:32px; }
+  .footer a { color:var(--primary); text-decoration:none; }
+  @media(max-width:600px){
+    body{padding:24px 16px;}
+    h1{font-size:22px;}
+    .tool-card{padding:16px;}
+    .tool-card h2{font-size:15px;}
+    .tool-card .view-detail{display:none;}
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="tag">🏴‍☠️ AIbounty 精选</div>
+  <h1>这10款AI工具，本周GitHub圈都在刷</h1>
+  <div class="meta">2026年7月1日 · 由 AIbounty 狩猎引擎自动采集 · 阅读约 8 分钟</div>
+</div>
+
+<div class="intro">
+  <p>AI 工具一周不看，就跟不上了。不是你的问题——是实在太多了。</p>
+  <p style="margin-top:8px;">这一周我们逛了 HackerNews、GitHub Trending、掘金、ProductHunt 等9个社区，筛出这10款最值得关注的项目。从 Agent 框架到量化交易，从 PDF 翻译到 UI 自动化，各取所需。</p>
+  <p style="margin-top:8px;font-size:13px;color:var(--text3);">👇 点击卡片查看详细介绍，点击标题跳转 GitHub。</p>
+</div>
+
+<script>
+const TOOL_DATA = {
+  superpowers: {id:'f065b4edc6', gh:'https://github.com/obra/superpowers'},
+  langflow:    {id:'a608866166', gh:'https://github.com/langflow-ai/langflow'},
+  openhands:   {id:'2732eb26e0', gh:'https://github.com/OpenHands/OpenHands'},
+  trading:     {id:'33f0733920', gh:'https://github.com/TauricResearch/TradingAgents'},
+  gptengineer: {id:'b538e828e5', gh:'https://github.com/AntonOsika/gpt-engineer'},
+  taste:       {id:'4eaacc6c5a', gh:'https://github.com/Leonxlnx/taste-skill'},
+  uitars:      {id:'918f25c039', gh:'https://github.com/bytedance/UI-TARS-desktop'},
+  pdfmath:     {id:'b762c34c37', gh:'https://github.com/PDFMathTranslate/PDFMathTranslate'},
+  fastgpt:     {id:'eb3cbd11a5', gh:'https://github.com/labring/FastGPT'},
+  gstack:      {id:'14c1792adb', gh:'https://github.com/garrytan/gstack'},
+};
+function goDetail(key) { location.href = 'https://aibounty.cn/tool.html?id=' + TOOL_DATA[key].id; }
+function goGH(e, key) { e.stopPropagation(); window.open(TOOL_DATA[key].gh, '_blank'); }
+</script>
+
+<!-- 1 -->
+<div class="tool-card" onclick="goDetail('superpowers')">
+  <div class="tool-rank">1</div>
+  <h2><a href="#" onclick="goGH(event,'superpowers')">obra/superpowers</a></h2>
+  <div class="tool-meta">
+    <span>⭐ 231,451</span>
+    <span>📂 Agent / Dev Tool</span>
+    <span><a href="#" onclick="goGH(event,'superpowers')">🔗 GitHub →</a></span>
+  </div>
+  <div class="tool-desc">本周最炸的项目，没有之一。23万星不是白给的。一个开源的Agent超级工具箱，能把各种AI能力像搭积木一样组合起来。翻过源码了，架构设计确实干净，不是那种堆功能的大杂烩。如果你只跟一个项目，跟这个就够了。</div>
+  <div class="tool-tags"><span class="tool-tag github">GitHub</span><span class="tool-tag opensource">开源</span><span class="tool-tag">Agent</span></div>
+  <span class="view-detail">查看详情 →</span>
+</div>
+
+<!-- 2 -->
+<div class="tool-card" onclick="goDetail('langflow')">
+  <div class="tool-rank">2</div>
+  <h2><a href="#" onclick="goGH(event,'langflow')">langflow-ai/langflow</a></h2>
+  <div class="tool-meta">
+    <span>⭐ 149,808</span>
+    <span>📂 Agent</span>
+    <span><a href="#" onclick="goGH(event,'langflow')">🔗 GitHub →</a></span>
+  </div>
+  <div class="tool-desc">拖拽式 AI 工作流构建器。不想写代码又想搭AI流程？Langflow 是现在最稳的选择。支持各种LLM、向量数据库、工具链的可视化编排，跟 LangChain 一套生态。适合快速原型和团队协作。</div>
+  <div class="tool-tags"><span class="tool-tag github">GitHub</span><span class="tool-tag opensource">开源</span><span class="tool-tag">可视化</span></div>
+  <span class="view-detail">查看详情 →</span>
+</div>
+
+<!-- 3 -->
+<div class="tool-card" onclick="goDetail('openhands')">
+  <div class="tool-rank">3</div>
+  <h2><a href="#" onclick="goGH(event,'openhands')">OpenHands/OpenHands</a></h2>
+  <div class="tool-meta">
+    <span>⭐ 77,696</span>
+    <span>📂 Dev Tool</span>
+    <span><a href="#" onclick="goGH(event,'openhands')">🔗 GitHub →</a></span>
+  </div>
+  <div class="tool-desc">AI 编程助手，但不是那种"+1s"补全代码的。OpenHands 能独立理解 Issue、写代码、跑测试、提PR——一条龙。之前叫 OpenDevin，改名后社区反而更活跃了。实测过，写个小工具完全不用人管。</div>
+  <div class="tool-tags"><span class="tool-tag github">GitHub</span><span class="tool-tag opensource">开源</span><span class="tool-tag">AI编程</span></div>
+  <span class="view-detail">查看详情 →</span>
+</div>
+
+<!-- 4 -->
+<div class="tool-card" onclick="goDetail('trading')">
+  <div class="tool-rank">4</div>
+  <h2><a href="#" onclick="goGH(event,'trading')">TauricResearch/TradingAgents</a></h2>
+  <div class="tool-meta">
+    <span>⭐ 87,034</span>
+    <span>📂 Agent / LLM</span>
+    <span><a href="#" onclick="goGH(event,'trading')">🔗 GitHub →</a></span>
+  </div>
+  <div class="tool-desc">多智能体量化交易框架。翻译成人话：一群AI Agent 帮你炒股。有的看数据、有的做分析、有的执行交易，互相讨论后再下单。8.7万星说明市场对AI交易的需求是真的。适合有量化基础想上AI的人玩玩。</div>
+  <div class="tool-tags"><span class="tool-tag github">GitHub</span><span class="tool-tag opensource">开源</span><span class="tool-tag">量化</span><span class="tool-tag">Agent</span></div>
+  <span class="view-detail">查看详情 →</span>
+</div>
+
+<!-- 5 -->
+<div class="tool-card" onclick="goDetail('gptengineer')">
+  <div class="tool-rank">5</div>
+  <h2><a href="#" onclick="goGH(event,'gptengineer')">AntonOsika/gpt-engineer</a></h2>
+  <div class="tool-meta">
+    <span>⭐ 55,205</span>
+    <span>📂 Dev Tool</span>
+    <span><a href="#" onclick="goGH(event,'gptengineer')">🔗 GitHub →</a></span>
+  </div>
+  <div class="tool-desc">说需求，它写代码。gpt-engineer 做了很多人想做但没做成的事：让AI根据自然语言描述生成完整项目。输入"帮我写一个TODO应用"，它从数据库设计到前端页面一条龙搞定。适合快速原型和探索性开发。</div>
+  <div class="tool-tags"><span class="tool-tag github">GitHub</span><span class="tool-tag opensource">开源</span><span class="tool-tag">代码生成</span></div>
+  <span class="view-detail">查看详情 →</span>
+</div>
+
+<!-- 6 -->
+<div class="tool-card" onclick="goDetail('taste')">
+  <div class="tool-rank">6</div>
+  <h2><a href="#" onclick="goGH(event,'taste')">Leonxlnx/taste-skill</a></h2>
+  <div class="tool-meta">
+    <span>⭐ 51,591</span>
+    <span>📂 LLM</span>
+    <span><a href="#" onclick="goGH(event,'taste')">🔗 GitHub →</a></span>
+  </div>
+  <div class="tool-desc">这名字起得好——"品味技能包"。解决AI内容"千篇一律"的问题，给大模型注入筛选优质输出的能力。说实话，市面上AI工具最大的毛病就是产出太"AI味"了，这个项目方向对了。5万星说明大家受够了模板化输出。</div>
+  <div class="tool-tags"><span class="tool-tag github">GitHub</span><span class="tool-tag opensource">开源</span><span class="tool-tag">内容质量</span></div>
+  <span class="view-detail">查看详情 →</span>
+</div>
+
+<!-- 7 -->
+<div class="tool-card" onclick="goDetail('uitars')">
+  <div class="tool-rank">7</div>
+  <h2><a href="#" onclick="goGH(event,'uitars')">bytedance/UI-TARS-desktop</a></h2>
+  <div class="tool-meta">
+    <span>⭐ 36,200</span>
+    <span>📂 Agent / Dev Tool</span>
+    <span><a href="#" onclick="goGH(event,'uitars')">🔗 GitHub →</a></span>
+  </div>
+  <div class="tool-desc">字节跳动开源的GUI Agent。它会"看"屏幕——截图+视觉语言模型理解界面，然后用自然语言驱动鼠标键盘操作。相当于给你配了一个会看屏幕的AI手。实测：在桌面上说"帮我打开Chrome搜一下XXX"，它真能一步步操作。</div>
+  <div class="tool-tags"><span class="tool-tag github">GitHub</span><span class="tool-tag opensource">开源</span><span class="tool-tag">字节跳动</span><span class="tool-tag">GUI Agent</span></div>
+  <span class="view-detail">查看详情 →</span>
+</div>
+
+<!-- 8 -->
+<div class="tool-card" onclick="goDetail('pdfmath')">
+  <div class="tool-rank">8</div>
+  <h2><a href="#" onclick="goGH(event,'pdfmath')">PDFMathTranslate/PDFMathTranslate</a></h2>
+  <div class="tool-meta">
+    <span>⭐ 34,938</span>
+    <span>📂 Dev Tool</span>
+    <span><a href="#" onclick="goGH(event,'pdfmath')">🔗 GitHub →</a></span>
+  </div>
+  <div class="tool-desc">PDF 翻译工具，专攻数学公式。用过的都懂：PDF里带复杂公式的文档翻译有多痛苦。这个项目能把PDF里的数学符号和公式精准翻译成LaTeX代码，格式不丢。适合经常看英文论文和技术文档的朋友。</div>
+  <div class="tool-tags"><span class="tool-tag github">GitHub</span><span class="tool-tag opensource">开源</span><span class="tool-tag">PDF翻译</span><span class="tool-tag">实用</span></div>
+  <span class="view-detail">查看详情 →</span>
+</div>
+
+<!-- 9 -->
+<div class="tool-card" onclick="goDetail('fastgpt')">
+  <div class="tool-rank">9</div>
+  <h2><a href="#" onclick="goGH(event,'fastgpt')">labring/FastGPT</a></h2>
+  <div class="tool-meta">
+    <span>⭐ 28,512</span>
+    <span>📂 Agent / LLM / Dev Tool</span>
+    <span><a href="#" onclick="goGH(event,'fastgpt')">🔗 GitHub →</a></span>
+  </div>
+  <div class="tool-desc">国产AI知识库方案，支持私有化部署。FastGPT 让你用自己的数据建AI问答机器人，支持多模型接入（OpenAI、文心、通义等），可视化流程编排。适合企业做内部知识库。比 Dify 轻量，部署更简单。</div>
+  <div class="tool-tags"><span class="tool-tag github">GitHub</span><span class="tool-tag opensource">开源</span><span class="tool-tag">国产</span><span class="tool-tag">知识库</span></div>
+  <span class="view-detail">查看详情 →</span>
+</div>
+
+<!-- 10 -->
+<div class="tool-card" onclick="goDetail('gstack')">
+  <div class="tool-rank">10</div>
+  <h2><a href="#" onclick="goGH(event,'gstack')">garrytan/gstack</a></h2>
+  <div class="tool-meta">
+    <span>⭐ 113,188</span>
+    <span>📂 LLM / Dev Tool</span>
+    <span><a href="#" onclick="goGH(event,'gstack')">🔗 GitHub →</a></span>
+  </div>
+  <div class="tool-desc">YC总裁亲自开源的AI项目（就是Garry Tan）。一个全栈AI应用模板，前端+后端+AI一条龙。11万星不仅仅是技术价值，更是一个信号：大人物们也在all-in AI。想快速搭AI应用的话，这是目前最好的脚手架之一。</div>
+  <div class="tool-tags"><span class="tool-tag github">GitHub</span><span class="tool-tag opensource">开源</span><span class="tool-tag">YC</span><span class="tool-tag">全栈模板</span></div>
+  <span class="view-detail">查看详情 →</span>
+</div>
+
+<div class="outro">
+  <p>以上10款工具全部来自 <strong>AIbounty</strong> 的每日自动狩猎。</p>
+  <p style="margin-top:4px;font-size:13px;">我们每天从 HackerNews / GitHub / 掘金 / ProductHunt 等9个社区采集最新AI工具，去重、分类、评分后呈现给你。</p>
+  <a href="https://www.aibounty.cn">🏴‍☠️ 查看更多 AI 工具 →</a>
+</div>
+
+<div class="footer">
+  🏴‍☠️ <a href="https://www.aibounty.cn">AIbounty</a> · 每日狩猎全球AI工具 · 数据自动更新
+</div>
+</body>
+</html>

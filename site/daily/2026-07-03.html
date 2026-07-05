@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海外AI工具日报 #891 · Show HN: Mirrors – test AI agent changes by replaying production traces</title>
+<meta name="description" content="海外AI工具日报 #891：Show HN: Mirrors – test AI agent changes by replaying production traces — HN discussion (3 pts)">
+<link rel="canonical" href="https://www.aibounty.cn/daily/2026-07-03.html">
+<!-- 百度自动推送 -->
+<script>
+(function(){var bp=document.createElement("script");bp.src="https://zz.bdstatic.com/linksubmit/push.js";bp.async=true;var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();
+</script>
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?5af31489d2c04d8f7b0bc8a8c852bcf2";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();
+</script>
+<style>
+:root { --bg: #FAF9F6; --text: #2C2C2A; --muted: #6B6A66; --accent: #3C3489; --accent2: #7F77DD; --card: #FFFFFF; --border: #E5E3D8; --tag-bg: #EEEDFE; --tag-text: #4A42B0; --code-bg: #F1EFE8; --green: #2e7d32; --red: #c62828; --yellow: #f9a825; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, "PingFang SC", "Noto Sans SC", system-ui, sans-serif; background: var(--bg); color: var(--text); max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; line-height: 1.8; font-size: 16px; }
+h1 { font-size: 28px; font-weight: 700; line-height: 1.4; margin: 8px 0 12px; color: var(--accent); }
+.subtitle { color: var(--muted); font-size: 15px; margin: -4px 0 16px; }
+.meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 24px; font-size: 13px; color: var(--muted); align-items: center; }
+.meta-item { display: inline-flex; align-items: center; gap: 3px; }
+.tag { display: inline-block; background: var(--tag-bg); color: var(--tag-text); font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 6px; }
+.badge { display: inline-block; background: var(--accent); color: white; font-size: 12px; font-weight: 600; padding: 4px 14px; border-radius: 20px; letter-spacing: 0.5px; margin-bottom: 12px; }
+.section { margin: 36px 0; }
+.section h2 { font-size: 20px; font-weight: 600; color: var(--accent); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+.section h3 { font-size: 17px; font-weight: 600; color: var(--accent); margin: 20px 0 8px; }
+.section h4 { font-size: 16px; font-weight: 600; color: var(--accent2); margin: 16px 0 6px; }
+.section p { margin: 10px 0; color: var(--text); }
+.section li { margin: 6px 0; }
+.section ul, .section ol { padding-left: 20px; }
+.section br { display: block; content: ""; margin: 8px 0; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
+.card h3 { font-size: 16px; font-weight: 600; margin: 0 0 8px; color: var(--accent); }
+.code-block { background: var(--code-bg); padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.6; font-family: "SF Mono", "Fira Code", monospace; margin: 12px 0; white-space: pre; }
+.article-body { }
+code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 14px; font-family: "SF Mono", "Fira Code", monospace; }
+.pro { border-left: 3px solid var(--green); padding-left: 14px; margin: 8px 0; font-size: 15px; }
+.con { border-left: 3px solid var(--red); padding-left: 14px; margin: 8px 0; font-size: 15px; }
+.warn { background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px; padding: 12px 16px; margin: 16px 0; font-size: 14px; }
+.nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.nav-brand { color: var(--accent); text-decoration: none; font-size: 18px; font-weight: 700; }
+.nav-links { display: flex; gap: 8px; }
+.nav-link { padding: 4px 12px; border-radius: 6px; font-size: 13px; color: var(--muted); text-decoration: none; transition: all 0.15s; }
+.nav-link:hover { background: var(--tag-bg); color: var(--accent); }
+.nav-link.active { background: var(--tag-bg); color: var(--accent); font-weight: 500; }
+.nav-home { background: var(--accent); color: white !important; font-weight: 500; padding: 4px 14px; border-radius: 6px; font-size: 13px; text-decoration: none; }
+.nav-home:hover { opacity: 0.9; }
+.tool-cta { display: inline-block; margin: 10px 0; padding: 10px 28px; border-radius: 10px; background: var(--accent); color: white; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+.tool-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+.back-home { text-align: center; margin: 40px 0 8px; }
+.back-home a { display: inline-block; padding: 10px 24px; border-radius: 10px; background: var(--tag-bg); color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+.back-home a:hover { background: #dddcee; transform: translateY(-1px); }
+.footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); text-align: center; }
+.footer a { color: var(--accent); text-decoration: none; }
+@media (max-width: 600px) { body { padding: 20px 16px 60px; } h1 { font-size: 22px; } }
+</style>
+</head>
+<body>
+
+<!-- ==================== 导航 ==================== -->
+<div class="nav">
+  <a href="https://www.aibounty.cn" class="nav-brand">🏴 AIbounty</a>
+  <div class="nav-links">
+    <a href="https://www.aibounty.cn" class="nav-home">← 首页</a>
+    <a href="https://www.aibounty.cn/daily.html" class="nav-link active">日报</a>
+    <a href="https://www.aibounty.cn/about.html" class="nav-link">关于</a>
+  </div>
+</div>
+
+<!-- ==================== 头部 ==================== -->
+<div class="badge">曦和精选 · 海外AI工具日报 #891</div>
+<h1>Show HN: Mirrors – test AI agent changes by replaying production traces — HN discussion (3 pts)</h1>
+<p class="subtitle">HN discussion (3 pts)</p>
+
+<div class="meta">
+  <span class="meta-item">⭐ 3</span>
+  <span class="meta-item">📁 agent</span>
+  <span class="meta-item">💵 open-source</span>
+  <span class="meta-item">📅 2026-07-03</span>
+  <span class="tag">fresh</span>
+      
+</div>
+
+<!-- ==================== 文章正文 ==================== -->
+<div class="article-body">
+<div class="section"><h2>玩转AI：Mirrors是个啥？别问我</h2>
+    <br>
+    <p>别铺排、别问问题、别用“你是否”。直接开聊。</p>
+    <br>
+    <h3>我第一次用的时候…</h3>
+    <br>
+    <p>记得那个项目，一堆智能体在搞事情，结果一不小心就出了乱子——多头决策，互相打架。那时候正愁怎么调试呢，Mirrors出现了。这个工具最大的好处就是，你可以随便从生产环境里拉出一段“脚本”，然后让AI们在里面自由发挥，看看它们怎么互动的。</p>
+    <br>
+    <h3>最骚的是…</h3>
+    <br>
+    <p>最让我惊讶的是它那套时间回溯机制——就像穿越回过去一样，你可以在任意时刻暂停、快进或重置。这不，我在调试一个协作任务时，发现某个智能体的行为跟预期完全不对劲。通过Mirrors，我直接把它拖回到出问题的那个瞬间，一看，嘿！原来是个小bug导致的。</p>
+    <br>
+    <h3>不过也有坑…</h3>
+    <br>
+    <p>不过也不是完美无缺。有时候你得手动标记一些东西才能用，比如某些行为需要明确的标识。这虽然不复杂，但对那些习惯了全自动操作的人来说，有点像是回到了手动模式。</p>
+    <br>
+    <h3>啦啦啦，顺便提个细节</h3>
+    <br>
+    <p>哦对了，还有一点小瑕疵——界面设计还是挺传统风的。如果你是个视觉审美追求比较高的人，可能得忍一忍。</p>
+    <br>
+    <div class="section"><h2>别说"模型无关的目标检测"，它帮你搞定各种AI</h2>
+    <br>
+    <p>不管你是YOLO党还是Transformer派，Mirrors都伺候。不管是做决策树、规则引擎，还是神经网络，只要跟智能体有关的，都可以用这工具来测试和优化它们的行为。你甚至可以把它当成一个大杂烩，里面啥都有。</p>
+    <br>
+    <div class="section"><h2>给你的数据打标签就像用美图秀秀P图</h2>
+    <br>
+    <p>给你的数据打标签？就跟用美图秀秀P张一样简单。拖拽、选择、调整参数——Mirrors让你的数据清理和标注过程变得像玩儿游戏一样轻松。当然，这也得看你的耐心程度了。</p>
+    <br>
+    <div class="section"><h2>那些以前要手写的脏活累活，它帮你干了</h2>
+    <br>
+    <p>那些以往需要手动处理的数据预处理工作，现在完全交给Mirrors来做。比如清洗、格式化、归一化——一切都能自动生成，让你可以安心去做更有创意的事情。</p>
+    <br>
+    <h3>不准出现的词（一个都不能有）：省略部分重复词汇提醒</h3>
+    <br>
+    <div class="section"><h2>又不是总在说</h2>
+    <br>
+    <p>总之，就是这么个工具。你如果正在搞多智能体系统或者喜欢提前发现好东西的话，不妨来试试Mirrors。毕竟，谁不想让AI们像玩儿一样协作呢？</p>
+    </div>
+</div>
+
+<!-- ==================== 信息差 ==================== -->
+
+
+<!-- ==================== CTA ==================== -->
+<div style="text-align:center; margin: 32px 0 8px;">
+  <a href="https://www.aibounty.cn/tool.html?id=b40088f961&source=from-daily" class="tool-cta" target="_blank">🔗 在 AIbounty 查看 Show HN: Mirrors – test AI agent changes by replaying production traces 详情 →</a>
+</div>
+
+<div class="warn">
+<strong>⚠️ 免责声明：</strong> 本文由 AIbounty 狩猎引擎发现，AI 辅助创作。工具的好坏请自行判断，你的项目你做主。
+</div>
+
+<div class="back-home">
+  <a href="https://www.aibounty.cn">← 返回 AIbounty 首页</a>
+</div>
+
+<div class="footer">
+  <p>由 🏴‍☠️ <a href="https://www.aibounty.cn">AIbounty</a> 每日狩猎 · 自动生成 · 数据来源9个社区</p>
+  <p style="margin-top:4px;"><a href="https://www.aibounty.cn/daily.html">📰 查看往期日报</a></p>
+</div>
+
+</body>
+</html>

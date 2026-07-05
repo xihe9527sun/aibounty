@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>模板库 · AIbounty</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0f; color: #eaeaea; font-family: -apple-system, system-ui, sans-serif;
+    min-height: 100vh;
+  }
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,10,15,0.85); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; gap: 24px;
+    padding: 12px 24px;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #eaeaea; }
+  .nav-brand-text { font-size: 18px; font-weight: 700; letter-spacing: -0.5px; }
+  .nav-right { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+  .nav-btn {
+    padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 500;
+    color: #9ca3af; cursor: pointer; transition: all 0.15s; text-decoration: none;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .nav-btn:hover { background: rgba(255,255,255,0.06); color: #eaeaea; }
+  .nav-btn.active { background: rgba(245,158,11,0.1); color: #f59e0b; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px 80px; }
+  h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .subtitle { color: #9ca3af; font-size: 15px; margin-bottom: 40px; line-height: 1.6; }
+  .template-card {
+    background: #0f0f17; border: 1px solid rgba(255,255,255,0.05); border-radius: 12px;
+    padding: 28px; margin-bottom: 28px; transition: border-color 0.2s;
+  }
+  .template-card:hover { border-color: rgba(245,158,11,0.2); }
+  .template-card h2 { font-size: 20px; font-weight: 600; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .template-card .meta { color: #6b7280; font-size: 13px; margin-bottom: 16px; }
+  .template-card .desc { color: #9ca3af; font-size: 14px; line-height: 1.7; margin-bottom: 16px; }
+  .template-card .features { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .feature-tag {
+    background: rgba(245,158,11,0.06); color: #fbbf24; font-size: 12px;
+    padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(245,158,11,0.1);
+  }
+  .code-block {
+    background: #06060b; border: 1px solid rgba(255,255,255,0.06); border-radius: 8px;
+    padding: 16px; font-family: 'SF Mono', monospace; font-size: 13px;
+    color: #9ca3af; overflow-x: auto; margin-bottom: 16px; line-height: 1.6;
+  }
+  .dl-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: linear-gradient(135deg, #f59e0b, #92400e); color: white;
+    border: none; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600;
+    cursor: pointer; text-decoration: none; transition: opacity 0.2s;
+  }
+  .dl-btn:hover { opacity: 0.85; }
+  .dl-btn.sec {
+    background: rgba(255,255,255,0.08); color: #eaeaea;
+  }
+  .dl-btn.sec:hover { background: rgba(255,255,255,0.12); }
+  .footer { text-align: center; color: #6b7280; font-size: 13px; padding: 40px 24px; border-top: 1px solid rgba(255,255,255,0.05); }
+  @media (max-width: 640px) {
+    .container { padding: 24px 16px 60px; }
+    h1 { font-size: 22px; }
+    .template-card { padding: 20px; }
+    .nav-inner { padding: 10px 12px; gap: 8px; }
+    .nav-btn .label { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <span class="nav-brand-text">AIbounty</span>
+    </a>
+    <div class="nav-right">
+      <a href="/" class="nav-btn">🏠 <span class="label">首页</span></a>
+      <a href="daily.html" class="nav-btn">📰 <span class="label">日报</span></a>
+      <a href="templates.html" class="nav-btn active">📦 <span class="label">模板</span></a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+<h1>📦 AI 自动化模板库</h1>
+<p class="subtitle">
+  开箱即用的 AI 自动化工作流模板。下载到本地，配置好环境就能跑。<br>
+  全部基于 Python，零外部付费 API，完全本地运行。
+</p>
+
+<div class="template-card">
+  <h2>🧮 XiheQuant — A股量化分析引擎</h2>
+  <div class="meta">v0.1 · 2026-06-22 · 7个模块</div>
+  <div class="desc">
+    <strong>融合五因子模型 + 技术面 + LLM解读</strong>，纯本地运行的 A 股量化分析工具。
+    输入股票代码，自动拉取数据、计算因子、生成分析报告。
+  </div>
+  <div class="features">
+    <span class="feature-tag">🏛️ 五因子模型</span>
+    <span class="feature-tag">📈 技术面分析</span>
+    <span class="feature-tag">🧠 LLM 解读</span>
+    <span class="feature-tag">📊 HTML 报告</span>
+    <span class="feature-tag">🏠 纯本地运行</span>
+    <span class="feature-tag">🧩 模块化设计</span>
+  </div>
+  <div class="code-block">
+    # 安装依赖<br>
+    pip install akshare pandas numpy<br><br>
+    # 分析一只股票<br>
+    python main.py 600519.SS<br><br>
+    # 搜索股票代码<br>
+    python main.py search 茅台
+  </div>
+  <p style="color:#6b7280;font-size:13px;margin-bottom:16px;">
+    📂 7个模块：config.py / data_layer.py / factors.py / llm_analyst.py / main.py / memory.py / reporter.py
+  </p>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <span class="dl-btn" onclick="alert('打包下载已就绪，路径：E:\\ToolPilot\\AI自动化模板包\\2026-06-22_XiheQuant')">📥 查看源码</span>
+    <a class="dl-btn sec" href="https://github.com" target="_blank" onclick="alert('XiheQuant 是盘古私有模板，暂未开源。需要源码请联系盘古。')">🔗 GitHub (私有)</a>
+  </div>
+</div>
+
+<div class="template-card">
+  <h2>📡 选股雷达 — 自动扫描 A 股异动</h2>
+  <div class="meta">v1.0 · 2026-06-22 · 1个主脚本 + 报告模板</div>
+  <div class="desc">
+    A 股异动扫描工具，自动筛选放量突破、资金流入等信号。
+    单脚本可跑，支持批量扫描和 HTML 报告输出。
+  </div>
+  <div class="features">
+    <span class="feature-tag">📡 实时行情扫描</span>
+    <span class="feature-tag">⚡ 放量突破检测</span>
+    <span class="feature-tag">💰 资金流向分析</span>
+    <span class="feature-tag">📊 HTML 报告</span>
+  </div>
+  <div class="code-block">
+    python stock_radar.py<br><br>
+    # 输出报告示例<br>
+    StockRadar_600519_20260622_222945.html
+  </div>
+  <p style="color:#6b7280;font-size:13px;margin-bottom:16px;">
+    📂 已生成3份示例报告（茅台、宁德时代、平安银行）
+  </p>
+  <span class="dl-btn sec" onclick="alert('选股雷达在：E:\\ToolPilot\\AI自动化模板包\\2026-06-22_选股雷达')">📂 查看目录</span>
+</div>
+
+<div class="template-card" style="border-color:rgba(245,158,11,0.08);background:linear-gradient(135deg,#0f0f17,rgba(245,158,11,0.02));">
+  <h2>🔜 更多模板即将上线</h2>
+  <div class="desc" style="margin-bottom:0;">
+    数据采集模板、自动化日报模板、AI 分析工作流……<br>
+    陆续整理中。有想要的模板方向？<a href="submit.html" style="color:#f59e0b;text-decoration:none;">告诉我们 →</a>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  AIbounty · <a href="/" style="color:#6b7280;text-decoration:none;">回到首页</a>
+</div>
+
+</body>
+</html>

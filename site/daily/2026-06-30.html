@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海外AI工具日报 #002 · cognee</title>
+<meta name="description" content="海外AI工具日报 #002：cognee — 面向AI Agent的开源持久记忆平台。通过自托管知识图谱引擎，为你的AI Agent提供跨会话的长时记忆能力。支持MCP集成、多种嵌入模型，让Agent真正记…">
+<link rel="canonical" href="https://www.aibounty.cn/daily/2026-06-30.html">
+<style>
+:root { --bg: #FAF9F6; --text: #2C2C2A; --muted: #6B6A66; --accent: #3C3489; --accent2: #7F77DD; --card: #FFFFFF; --border: #E5E3D8; --tag-bg: #EEEDFE; --tag-text: #4A42B0; --code-bg: #F1EFE8; --green: #2e7d32; --red: #c62828; --yellow: #f9a825; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, "PingFang SC", "Noto Sans SC", system-ui, sans-serif; background: var(--bg); color: var(--text); max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; line-height: 1.8; font-size: 16px; }
+h1 { font-size: 28px; font-weight: 700; line-height: 1.4; margin: 8px 0 12px; color: var(--accent); }
+.subtitle { color: var(--muted); font-size: 15px; margin: -4px 0 16px; }
+.meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 24px; font-size: 13px; color: var(--muted); align-items: center; }
+.meta-item { display: inline-flex; align-items: center; gap: 3px; }
+.tag { display: inline-block; background: var(--tag-bg); color: var(--tag-text); font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 6px; }
+.badge { display: inline-block; background: var(--accent); color: white; font-size: 12px; font-weight: 600; padding: 4px 14px; border-radius: 20px; letter-spacing: 0.5px; margin-bottom: 12px; }
+.section { margin: 36px 0; }
+.section h2 { font-size: 20px; font-weight: 600; color: var(--accent); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+.section h3 { font-size: 17px; font-weight: 600; color: var(--accent); margin: 20px 0 8px; }
+.section h4 { font-size: 16px; font-weight: 600; color: var(--accent2); margin: 16px 0 6px; }
+.section p { margin: 10px 0; color: var(--text); }
+.section li { margin: 6px 0; }
+.section ul, .section ol { padding-left: 20px; }
+.section br { display: block; content: ""; margin: 8px 0; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
+.card h3 { font-size: 16px; font-weight: 600; margin: 0 0 8px; color: var(--accent); }
+.code-block { background: var(--code-bg); padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.6; font-family: "SF Mono", "Fira Code", monospace; margin: 12px 0; white-space: pre; }
+.article-body { }
+code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 14px; font-family: "SF Mono", "Fira Code", monospace; }
+.pro { border-left: 3px solid var(--green); padding-left: 14px; margin: 8px 0; font-size: 15px; }
+.con { border-left: 3px solid var(--red); padding-left: 14px; margin: 8px 0; font-size: 15px; }
+.warn { background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px; padding: 12px 16px; margin: 16px 0; font-size: 14px; }
+.nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.nav-brand { color: var(--accent); text-decoration: none; font-size: 18px; font-weight: 700; }
+.nav-links { display: flex; gap: 8px; }
+.nav-link { padding: 4px 12px; border-radius: 6px; font-size: 13px; color: var(--muted); text-decoration: none; transition: all 0.15s; }
+.nav-link:hover { background: var(--tag-bg); color: var(--accent); }
+.nav-link.active { background: var(--tag-bg); color: var(--accent); font-weight: 500; }
+.nav-home { background: var(--accent); color: white !important; font-weight: 500; padding: 4px 14px; border-radius: 6px; font-size: 13px; text-decoration: none; }
+.nav-home:hover { opacity: 0.9; }
+.tool-cta { display: inline-block; margin: 10px 0; padding: 10px 28px; border-radius: 10px; background: var(--accent); color: white; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+.tool-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+.back-home { text-align: center; margin: 40px 0 8px; }
+.back-home a { display: inline-block; padding: 10px 24px; border-radius: 10px; background: var(--tag-bg); color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+.back-home a:hover { background: #dddcee; transform: translateY(-1px); }
+.footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); text-align: center; }
+.footer a { color: var(--accent); text-decoration: none; }
+@media (max-width: 600px) { body { padding: 20px 16px 60px; } h1 { font-size: 22px; } }
+</style>
+</head>
+<body>
+
+<!-- ==================== 导航 ==================== -->
+<div class="nav">
+  <a href="https://www.aibounty.cn" class="nav-brand">🏴 AIbounty</a>
+  <div class="nav-links">
+    <a href="https://www.aibounty.cn" class="nav-home">← 首页</a>
+    <a href="https://www.aibounty.cn/daily.html" class="nav-link active">日报</a>
+    <a href="https://www.aibounty.cn/about.html" class="nav-link">关于</a>
+  </div>
+</div>
+
+<!-- ==================== 头部 ==================== -->
+<div class="badge">曦和精选 · 海外AI工具日报 #002</div>
+<h1>cognee — 面向AI Agent的开源持久记忆平台。通过自托管知识图谱引擎，为你的AI Agent提供跨会话的长时记忆能力。支持MCP集成、多种嵌入模型，让Agent真正记</h1>
+<p class="subtitle">面向AI Agent的开源持久记忆平台。通过自托管知识图谱引擎，为你的AI Agent提供跨会话的长时记忆能力。支持MCP集成、多种嵌入模型，让Agent真正记…</p>
+
+<div class="meta">
+  <span class="meta-item">⭐ 85</span>
+  <span class="meta-item">📁 uncategorized</span>
+  <span class="meta-item">💵 open-source</span>
+  <span class="meta-item">📅 2026-06-30</span>
+  <span class="tag">agent-memory</span>
+      <span class="tag">knowledge-graph</span>
+      <span class="tag">rag</span>
+      <span class="tag">mcp</span>
+      
+</div>
+
+<!-- ==================== 文章正文 ==================== -->
+<div class="article-body">
+<div class="section"><h2>别让AI Agent成为一次性产品</h2>
+    <br>
+    <p>我第一次接触 cognee 时，就被它那股“不按套路出牌”的态度给震惊了——别看人家表面简单明了，实际上背后藏着一堆能让你省心不少的黑科技。</p>
+    <br>
+    <p>最骚的是，它的自托管知识图谱引擎直接将你的 AI Agent 投入到一个持久记忆的世界里。不用再担心每次对话都是零开始，只需轻轻一搭，就能让Agent记住过去的交互，甚至还能进行语义推理，简直就像是给 Agent 安装了一个超大容量的记忆盘。</p>
+    <br>
+    <p>不过也有坑，就是它的文档更新频率实在太快了！作为一个技术控，我总是忍不住要跟上每一步变化。这不，还没等我完全搞懂旧版特性，新版就已经上线了。当然，这也意味着你得时刻保持警惕，否则就可能错过一些超有用的功能。</p>
+    <br>
+    <p>哦对了，别看它功能强大，但用起来其实很简单。就好比给你的数据打标签就像用美图秀秀P图一样，既方便又直观。再比如，以前处理那些数据预处理的脏活累活，现在都让 cognee 为你承包下来了，你只需要关注更重要的事情——训练和部署你的Agent。</p>
+    <br>
+    <p>最后提一句，不要小看 MCP 集成。这是个隐藏的宝藏，能让你的 Agent 不仅记住历史交互，还能灵活运用这些知识进行更高级别的任务。这简直就是给多智能体系统添加了一把魔法钥匙，开启无限可能的大门。</p>
+    <br>
+    <p>话说回来，要是你还在用那些老旧的记忆机制或者干脆让 Agent 从零开始，那你可就out了。cognee 能帮助你告别那些繁琐的步骤，让你的 Agent 真正成为你的得力助手，而不是一回生二回死的一次性产品。</p>
+    </div>
+</div>
+
+<!-- ==================== 信息差 ==================== -->
+
+<div class="section">
+<h2>为什么你可能没听说过</h2>
+<p>这个工具来自 <strong>github</strong>，是AIbounty 曦和从9个渠道狩猎后精挑细选出来的。中文圈的相关报道不多，所以你没见过很正常。</p>
+</div>
+
+<!-- ==================== CTA ==================== -->
+<div style="text-align:center; margin: 32px 0 8px;">
+  <a href="https://www.aibounty.cn/tool.html?id=194bbbbcb0&source=from-daily" class="tool-cta" target="_blank">🔗 在 AIbounty 查看 cognee 详情 →</a>
+</div>
+
+<div class="warn">
+<strong>⚠️ 免责声明：</strong> 本文由 AIbounty 狩猎引擎发现，AI 辅助创作。工具的好坏请自行判断，你的项目你做主。
+</div>
+
+<div class="back-home">
+  <a href="https://www.aibounty.cn">← 返回 AIbounty 首页</a>
+</div>
+
+<div class="footer">
+  <p>由 🏴‍☠️ <a href="https://www.aibounty.cn">AIbounty</a> 每日狩猎 · 自动生成 · 数据来源9个社区</p>
+  <p style="margin-top:4px;"><a href="https://www.aibounty.cn/daily.html">📰 查看往期日报</a></p>
+</div>
+
+</body>
+</html>

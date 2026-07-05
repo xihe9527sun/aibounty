@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>日报 · AIbounty</title>
+<meta name="description" content="AIbounty 每日AI工具日报归档">
+<style>
+:root { --bg: #FAF9F6; --text: #2C2C2A; --muted: #6B6A66; --accent: #3C3489; --accent2: #7F77DD; --card: #FFFFFF; --border: #E5E3D8; --tag-bg: #EEEDFE; --tag-text: #4A42B0; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"PingFang SC","Noto Sans SC",system-ui,sans-serif;min-height:100vh}
+.nav{display:flex;align-items:center;max-width:720px;margin:0 auto;justify-content:space-between;padding:16px 24px 0}
+.nav-brand{color:var(--accent);text-decoration:none;font-size:18px;font-weight:700}
+.nav-links{display:flex;gap:8px}
+.nav-link{padding:4px 12px;border-radius:6px;font-size:13px;color:var(--muted);text-decoration:none;transition:all 0.15s}
+.nav-link:hover{background:var(--tag-bg);color:var(--accent)}
+.nav-link.active{background:var(--tag-bg);color:var(--accent);font-weight:500}
+.nav-home{background:var(--accent);color:white!important;font-weight:500;padding:4px 14px;border-radius:6px;font-size:13px;text-decoration:none}
+.nav-home:hover{opacity:0.9}
+.container{max-width:640px;margin:0 auto;padding:40px 24px 80px}
+h1{font-size:28px;font-weight:800;color:var(--accent);margin-bottom:6px}
+.subtitle{color:var(--muted);font-size:14px;margin-bottom:30px}
+.stats-bar{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+.stat-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 20px;flex:1;min-width:100px}
+.stat-value{font-size:24px;font-weight:700;color:var(--accent)}
+.stat-label{font-size:11px;color:var(--muted);margin-top:2px}
+.report-list{display:flex;flex-direction:column;gap:8px}
+.report-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;border-radius:10px;
+  background:var(--card);border:1px solid var(--border);
+  text-decoration:none;color:inherit;transition:all 0.2s;
+}
+.report-item:hover{border-color:var(--accent2);background:#F5F4FF;transform:translateY(-1px)}
+.report-left{display:flex;flex-direction:column;gap:2px;overflow:hidden}
+.report-date{font-size:12px;color:var(--muted);font-weight:500}
+.report-title{font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.report-arrow{color:var(--accent);font-size:16px;opacity:0;transition:opacity 0.15s;flex-shrink:0}
+.report-item:hover .report-arrow{opacity:1}
+.back-home{text-align:center;margin:28px 0 4px}
+.back-home a{display:inline-block;padding:10px 24px;border-radius:10px;background:var(--tag-bg);color:var(--accent);text-decoration:none;font-size:14px;font-weight:500;transition:all 0.2s}
+.back-home a:hover{background:#dddcee;transform:translateY(-1px)}
+.footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);text-align:center}
+.footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="https://www.aibounty.cn" class="nav-brand">🏴 AIbounty</a>
+  <div class="nav-links">
+    <a href="https://www.aibounty.cn" class="nav-home">← 首页</a>
+    <a href="https://www.aibounty.cn/daily.html" class="nav-link active">日报</a>
+    <a href="https://www.aibounty.cn/about.html" class="nav-link">关于</a>
+  </div>
+</div>
+<div class="container">
+  <h1>📰 AI 日报</h1>
+  <div class="subtitle">每日曦和精选一款工具 · 盘古视角 · 有态度的 AI 内容</div>
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-value">2035</div><div class="stat-label">收录工具</div></div>
+    <div class="stat-item"><div class="stat-value">8</div><div class="stat-label">日报期数</div></div>
+    <div class="stat-item"><div class="stat-value">9</div><div class="stat-label">狩猎来源</div></div>
+  </div>
+  <div class="report-list">
+      <a href="/daily/2026-07-05.html" class="report-item">
+        <div class="report-left">
+          <span class="report-date">2026-07-05</span>
+          <span class="report-title">#410 Living subscription-free in my brain — 暂无详细描述，该工具正</span>
+        </div>
+        <span class="report-arrow">→</span>
+      </a>
+      <a href="/daily/2026-07-04.html" class="report-item">
+        <div class="report-left">
+          <span class="report-date">2026-07-04</span>
+          <span class="report-title">#379 AI Trade Is Losing One of Its Key Signals — HN dis</span>
+        </div>
+        <span class="report-arrow">→</span>
+      </a>
+      <a href="/daily/2026-07-03.html" class="report-item">
+        <div class="report-left">
+          <span class="report-date">2026-07-03</span>
+          <span class="report-title">#891 Show HN: Mirrors – test AI agent changes by replay</span>
+        </div>
+        <span class="report-arrow">→</span>
+      </a>
+      <a href="/daily/2026-07-02.html" class="report-item">
+        <div class="report-left">
+          <span class="report-date">2026-07-02</span>
+          <span class="report-title">#203 'It's like having a dumb friend': Young San Franci</span>
+        </div>
+        <span class="report-arrow">→</span>
+      </a>
+      <a href="/daily/2026-07-01.html" class="report-item">
+        <div class="report-left">
+          <span class="report-date">2026-07-01</span>
+          <span class="report-title">#001 supervision — 可复用的计算机视觉工具库，支持模型无关的目标检测、分类和分割。提供丰富的</span>
+        </div>
+        <span class="report-arrow">→</span>
+      </a>
+      <a href="/daily/2026-06-30.html" class="report-item">
+        <div class="report-left">
+          <span class="report-date">2026-06-30</span>
+          <span class="report-title">#002 cognee — 面向AI Agent的开源持久记忆平台。通过自托管知识图谱引擎，为你的AI Age</span>
+        </div>
+        <span class="report-arrow">→</span>
+      </a>
+      <a href="/daily/2026-06-29.html" class="report-item">
+        <div class="report-left">
+          <span class="report-date">2026-06-29</span>
+          <span class="report-title">#003 astryx — Meta(Facebook)开源的设计系统，完全可定制且为AI Agent做好准备</span>
+        </div>
+        <span class="report-arrow">→</span>
+      </a>
+      <a href="/daily/2026-06-26.html" class="report-item">
+        <div class="report-left">
+          <span class="report-date">2026-06-26</span>
+          <span class="report-title">#004 supervision — 可复用的计算机视觉工具库，支持模型无关的目标检测、分类和分割。提供丰富的</span>
+        </div>
+        <span class="report-arrow">→</span>
+      </a>
+  </div>
+  <div class="back-home">
+    <a href="https://www.aibounty.cn">← 返回 AIbounty 首页</a>
+  </div>
+  <div class="footer">
+    <p>由 🏴‍☠️ <a href="https://www.aibounty.cn">AIbounty</a> 每日狩猎 · 自动生成</p>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#001 TradingAgents — 你的AI交易团队今天开工了</title>
+<style>
+:root { --bg: #FAF9F6; --text: #2C2C2A; --muted: #6B6A66; --accent: #3C3489; --card: #FFFFFF; --border: #E5E3D8; --tag-bg: #EEEDFE; --tag-text: #4A42B0; --code-bg: #F1EFE8; --green: #2e7d32; --red: #c62828; --yellow: #f9a825; --warn-bg: #fef3e2; --warn-border: #f9a825; }
+body { font-family: -apple-system, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; background: var(--bg); color: var(--text); max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; line-height: 1.8; font-size: 16px; -webkit-font-smoothing: antialiased; }
+h1 { font-size: 26px; font-weight: 700; line-height: 1.4; margin: 8px 0 16px; color: var(--accent); }
+.meta { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0 24px; font-size: 13px; color: var(--muted); }
+.tag { display: inline-block; background: var(--tag-bg); color: var(--tag-text); font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 6px; }
+.section { margin: 36px 0; }
+.section h2 { font-size: 19px; font-weight: 600; color: var(--accent); margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid var(--border); }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px 22px; margin: 18px 0; }
+.card h3 { font-size: 15px; font-weight: 600; margin: 0 0 8px; color: var(--accent); }
+ul, ol { padding-left: 18px; }
+li { margin: 6px 0; }
+code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+pre { background: var(--code-bg); padding: 14px 18px; border-radius: 8px; overflow-x: auto; font-size: 13px; line-height: 1.5; }
+.badge { display: inline-block; background: var(--accent); color: white; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; margin-bottom: 16px; }
+.good { border-left: 3px solid var(--green); padding-left: 12px; margin: 10px 0; font-size: 14px; }
+.bad { border-left: 3px solid var(--red); padding-left: 12px; margin: 10px 0; font-size: 14px; }
+.warn { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: 8px; padding: 12px 16px; margin: 18px 0; font-size: 14px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 12px 0; }
+td, th { padding: 8px 12px; border-bottom: 1px solid #eee; text-align: left; }
+th { font-weight: 600; color: var(--accent); }
+.highlight { background: linear-gradient(135deg, #EEEDFE 0%, #E6F1FB 100%); border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
+.quote { font-size: 14px; color: var(--muted); border-left: 2px solid var(--border); padding-left: 14px; margin: 12px 0; }
+</style>
+</head>
+<body>
+
+<div class="badge">海外AI工具日报 #001</div>
+<h1>你的电脑组了一个交易团队：四个人写报告、两个人掐架、一个人拍板、一个人管钱。</h1>
+<p style="color:var(--muted); font-size:15px; margin-top:-6px;">你负责倒杯茶，看他们表演。</p>
+
+<div class="meta">
+  <span>⭐ 87,935</span>
+  <span>📦 v0.3.0</span>
+  <span>🕐 2026-06-22 刚热乎出炉</span>
+  <span class="tag">量化交易</span>
+  <span class="tag">AI辅助</span>
+  <span class="tag">开源</span>
+  <span class="tag">支持A股</span>
+</div>
+
+<!-- ==================== 日常黑你 ==================== -->
+<div class="section">
+<h2>先说说你每天的日常</h2>
+<p>早上九点，你泡了杯茶，打开交易软件。<br>
+看持仓。翻公告。刷新闻。算估值。画K线。盯情绪。<br>
+十二点半了，饭还没吃。<br>
+下午复盘了一下：茅台的PE看了，宁德的新闻扫了，今天出了个新政策，好像是利好吧，具体不确定。<br>
+<b>而技术面，你根本还没看。</b></p>
+<p>不是你菜。<br>
+是特么一个人真的干不过来四个人的活。</p>
+<p>TradingAgents 这个项目干的事很简单——<b>它在后台组了一个团队，把你这摊事全扛了。</b></p>
+</div>
+
+<!-- ==================== 他们是谁 ==================== -->
+<div class="section">
+<h2>这个团队都有谁</h2>
+<p>七个人，各有各的工位，各有各的脾气。</p>
+
+<div class="card">
+<h3>📊 分析师天团（四个人）</h3>
+<table>
+<tr><th>花名</th><th>他干啥</th><th>你省了什么</th></tr>
+<tr><td>基本面老学究</td><td>戴老花镜翻财报，算PE/ROE/估值</td><td>不用一页页啃PDF了</td></tr>
+<tr><td>情绪小妹</td><td>趴在社媒上刷帖子，看大家是亢奋还是恐慌</td><td>不用手动刷雪球踩情绪</td></tr>
+<tr><td>技术宅</td><td>对着K线画MACD、RSI，找突破形态</td><td>不用切软件看了</td></tr>
+<tr><td>新闻八卦王</td><td>扫宏观和行业新闻，判断影响</td><td>不用自己刷资讯流</td></tr>
+</table>
+<p>四个同时跑。你一个人一小时干完的活，它们几十秒就出报告了。<br>
+而且不要加班费，不喊累，不吵着要涨工资。</p>
+</div>
+
+<div class="card">
+<h3>🎯 双人抬杠组（两个研究员）</h3>
+<p>分析师出完报告，这两个人就开始掐架了——</p>
+<ul>
+<li>看多研究员：对着报告翻来覆去地找理由，结论只有一个——"买它买它买它"</li>
+<li>看空研究员：对着同一份报告逐条反驳，结论也只有一个——"别听他的，不能买"</li>
+</ul>
+<p>然后他们开始辩论。<br>
+注意，不是"友好交流"，是<b>真掐</b>。你一份我一份，来回几轮，好话坏话全摆到桌面上了。</p>
+<p>我特别喜欢这个设计——<b>它不是让AI想法一致，它是让AI互相拆台。</b>你开过周会你就知道，七个人坐一桌都统一不了意见，但最后出来的决策往往是好的。因为它把每个角度的毛病都暴露了。</p>
+</div>
+
+<div class="card">
+<h3>✅ 交易员 + 风控（最后两人）</h3>
+<p>掐完了，交易员上场。综合四个分析师的报告 + 两个研究员的掐架记录，做出最终判断——买不买、买多少、什么价位进。</p>
+<p>然后报告递到风控桌上。风控瞟一眼——仓位超了？风险敞口太大了？退回去重来。不通过就别想走。</p>
+<p>整个流程自动走完。你最后拿到一份完整的决策报告，里面有每个人写了什么、掐了什么、最后怎么定的。<br>
+像你的团队给你交了一份周报，而且是带附件的那种。</p>
+</div>
+
+<div class="highlight">
+<p><b>⚠️ 再说一遍，不是让它替你下单。</b></p>
+<p>是它把活干了，报告摆你面前，你用你自己的判断去拍板。<br>
+你拍的板，你负责。它只是个干活不要钱的牛马。</p>
+</div>
+</div>
+
+<!-- ==================== 跑一次茅台 ==================== -->
+<div class="section">
+<h2>拿茅台跑一次，你就懂了</h2>
+<p>说再多不如上手试。你选一个周末下午，开电脑，走一遍：</p>
+
+<div class="card">
+<h3>☐ 第1步：去GitHub把它拽下来（3分钟）</h3>
+<pre>
+git clone https://github.com/TauricResearch/TradingAgents.git
+cd TradingAgents
+pip install .
+</pre>
+<p>Win用户开Git Bash，三行命令，搞定。</p>
+</div>
+
+<div class="card">
+<h3>☐ 第2步：告诉它用哪个脑子（2分钟）</h3>
+<p>在项目文件夹里新建一个 <code>.env</code> 文件（记事本就行，文件名带个点），写上：</p>
+<pre>
+DEEPSEEK_API_KEY=sk-贴上你的key
+</pre>
+<p>没有key？DeepSeek新用户送几百万token。够跑几千次。一毛钱不花。<br>
+或者你懒，直接链本地Ollama：</p>
+<pre>
+LLM_PROVIDER=ollama
+OLLAMA_BASE_URL=http://localhost:11434
+LLM_MODEL=qwen2.5:7b
+</pre>
+<p>RTX 4060 跑7B模型就跟玩一样。</p>
+</div>
+
+<div class="card">
+<h3>☐ 第3步：看它们为你表演（5分钟）</h3>
+<pre>
+tradingagents
+</pre>
+<p>回车进菜单，选 <code>600519.SS</code>（茅台），选当天日期，选你配好的模型。<br>
+回车。</p>
+<p>然后你会看到——<br>
+老学究第一个发言："茅台的PE现在……"<br>
+情绪小妹接上："社交情绪目前……"<br>
+技术宅画了两条线："MACD显示……"<br>
+新闻八卦王瞟了一眼："今天有个新闻是……"<br>
+然后两个研究员开始杠。<br>
+最后交易员拍板，风控签字。</p>
+<p><b>第一次别太在意它说了啥。先看热闹。</b>看看这几个人怎么配合的，报告长什么样，合不合你的胃口。就像新招了一个团队，先试用一周再决定要不要转正。</p>
+</div>
+</div>
+
+<!-- ==================== 技术底子 ==================== -->
+<div class="section">
+<h2>技术底子怎么样（不写代码的人跳过）</h2>
+<p>基于 <b>LangGraph</b>，每个Agent不是各说各话，是按流程图走的——分析师先出报告→研究员再辩论→交易员再决策。每一步踩在前一步的结论上。你想改流程、加人、换顺序，在配置文件里调就行了。</p>
+<p>v0.3.0 今天刚发布。修了一个被吐槽了很久的bug——之前在不同时间跑同一只股票，偶尔会出现"分析师分析的是两家公司"的灵异事件。今天加了一层数据验证合约，不会再张冠李戴了。</p>
+<p>代码质量意外的还可以。项目根目录有个 <code>pyproject.toml</code>，用 ruff 严格模式过的。</p>
+<p>说白了就是：底子扎实，不是画饼项目。87k⭐可以刷，但代码藏不了。我翻过源码了。</p>
+</div>
+
+<!-- ==================== 好的坏的 ==================== -->
+<div class="section">
+<h2>好的坏的，一个不落</h2>
+
+<p class="good">✅ <b>真的能省时间</b> — 四个分析师同时跑，面面俱到。你平时翻财报+刷新闻+画K线+踩情绪，至少一小时，它一分钟出报告。</p>
+<p class="good">✅ <b>吵架机制是真管用</b> — 这不是花架子。一个只看好、一个只看空，正反都摆出来，你决策的时候信息更全。</p>
+<p class="good">✅ <b>支持本地模型</b> — 有显卡就能跑，不需要买API key。4060绰绰有余。</p>
+<p class="good">✅ <b>有记忆</b> — 上次跑过的票它会记下来，下次带着历史经验再分析。不是每次从零开始编故事。</p>
+
+<p class="bad">❌ <b>慢是真的慢</b> — 一个决策一两分钟。做不了高频，做不了T+0。适合日级别以上的持仓分析，不适合秒级决策。</p>
+<p class="bad">❌ <b>LLM有时会编数据</b> — 我亲测的。大部分时候靠谱，但边缘情况分析师会"编"财报里没有的数字。就像你开会的时候被问到不知道的事情——硬着头皮编一个答案一样。专业，但不可全信。</p>
+<p class="bad">❌ <b>A股数据源就那样</b> — 它用的是Yahoo Finance，A股的覆盖和实时性比不上美股。建议当辅助参考，别当精确工具。</p>
+<p class="bad">❌ <b>不是策略</b> — 它输出的是建议，不是信号。拿到报告你还得自己判断。它帮你省了分析的时间，但没帮你省拍板的勇气。</p>
+
+<div class="warn">
+<strong>⚠️ 官方白纸黑字：</strong>这个项目是研究用途，不是投资建议。用它的建议亏钱了，作者不负责。你自己的钱，自己看着办。
+</div>
+</div>
+
+<!-- ==================== 适合不适合 ==================== -->
+<div class="section">
+<h2>什么时候用，什么时候别用</h2>
+
+<table>
+<tr><th>✅ 适合它干的</th><th>❌ 别指望它</th></tr>
+<tr><td>持仓股票的日常跟踪分析</td><td>高频交易、日内T+0</td></tr>
+<tr><td>季报/突发新闻后的快速评估</td><td>精确到分的买卖点</td></tr>
+<tr><td>你自己策略信号的交叉验证</td><td>替你拍板做决定</td></tr>
+<tr><td>每周定期复盘持仓</td><td>只看它报告不下单</td></tr>
+</table>
+</div>
+
+<!-- ==================== 信息差 ==================== -->
+<div class="section">
+<h2>为什么你没见过中文评测</h2>
+<p>这个项目2025年6月才开源。一年时间，AI中文媒体忙什么呢？报道融资新闻、大模型发布、谁又开源了什么。一个没融钱的交易工具，不在编辑的选题库里。</p>
+<p>GitHub上87k⭐几乎全是英文开发者贡献的。我在CSDN、知乎、公众号上搜了一圈，关于它的中文内容加起来不超过两位数。而且基本都是翻译README的——把官方文档翻译一遍就发了，没人真正跑过。</p>
+<p>这就是信息差。不是什么惊天秘密，就是<b>你刚好刷到了这篇，别人没看到</b>。</p>
+</div>
+
+<!-- ==================== 结语 ==================== -->
+<div class="section">
+<h2>所以呢</h2>
+<p>你有自己的策略、股票池、判断力。<br>
+TradingAgents 就是给你一个加班不要钱的团队，帮你把体力活干了，把漏掉的角度补上。</p>
+<p>周末下午，开电脑，克隆、装依赖、配模型、跑一次茅台。<br>
+看看你的AI团队是怎么吵架的。光看热闹都值。</p>
+<p>跑完了，告诉我你怎么想的。</p>
+
+<div class="quote">
+"你的电脑组了一个交易团队。你不用给他们发工资，不用团建，不用处理办公室政治。<br>
+他们就一件事——帮你把分析做好，让你拍板的时候，底气更足。"
+</div>
+</div>
+
+</body>
+</html>

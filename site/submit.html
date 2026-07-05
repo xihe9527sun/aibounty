@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>提交工具 - AIbounty</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --bg: #0a0a0f; --bg-card: #13131a; --bg-elevated: #1a1a24;
+    --border: rgba(255,255,255,0.06); --border-light: rgba(255,255,255,0.04);
+    --text: #e2e8f0; --text-secondary: #94a3b8; --text-tertiary: #64748b;
+    --accent: #818cf8; --primary: #6366f1;
+    --radius-lg: 12px; --radius-md: 8px;
+    --font-sans: -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --transition: all 0.2s ease;
+  }
+  body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.6; }
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    padding: 0 40px; height: 60px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,15,0.8); backdrop-filter: blur(12px);
+  }
+  .nav a { color: var(--text-secondary); text-decoration: none; font-size: 13px; transition: var(--transition); }
+  .nav a:hover { color: var(--accent); }
+  .nav-brand { font-size: 16px; font-weight: 700; background: linear-gradient(135deg,var(--accent),#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .nav-spacer { flex: 1; }
+  .nav-back { color: var(--text-secondary); font-size: 13px; text-decoration: none; }
+  .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+  h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; background: linear-gradient(135deg,var(--accent),#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  p.sub { color: var(--text-secondary); font-size: 14px; margin-bottom: 40px; }
+  .form-group { margin-bottom: 24px; }
+  .form-group label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; color: var(--text-secondary); }
+  .form-group input,.form-group textarea,.form-group select {
+    width: 100%; padding: 12px 16px; background: var(--bg-card);
+    border: 1px solid var(--border); border-radius: var(--radius-md);
+    color: var(--text); font-size: 14px; font-family: var(--font-sans);
+    transition: var(--transition);
+  }
+  .form-group input:focus,.form-group textarea:focus,.form-group select:focus {
+    outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(129,140,248,0.1);
+  }
+  .form-group textarea { min-height: 100px; resize: vertical; }
+  .form-group .hint { font-size: 12px; color: var(--text-tertiary); margin-top: 4px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 12px 32px; border: none; border-radius: var(--radius-md);
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    background: linear-gradient(135deg,var(--accent),#a78bfa); color: white;
+    transition: var(--transition);
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(129,140,248,0.3); }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .success { display: none; padding: 20px; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); border-radius: var(--radius-md); margin-top: 20px; }
+  .success h3 { color: #10b981; margin-bottom: 6px; }
+  .success p { color: var(--text-secondary); font-size: 13px; }
+  @media(max-width:768px){
+    body{padding:10px;}
+    .container{padding:0 8px;}
+    .nav{padding:0 16px;flex-wrap:wrap;gap:8px;}
+    .form-group input,.form-group textarea,.form-group select{font-size:14px;}
+  }
+</style>
+</head>
+<body>
+<div class="nav">
+  <div class="nav-brand">🏴‍☠️ AIbounty</div>
+  <div class="nav-spacer"></div>
+  <a href="index.html">🏠 首页</a>
+  <a href="about.html">❓ 关于</a>
+  <a class="nav-back" href="index.html" style="margin-left:12px;">← 返回</a>
+</div>
+<div class="container">
+  <h1>📬 提交 AI 工具</h1>
+  <p class="sub">想让你的工具出现在 AIbounty 上？提交后盘古会审核。合作推广请在描述中备注。</p>
+
+  <form id="submitForm">
+    <div class="form-group">
+      <label>工具名称 *</label>
+      <input type="text" id="toolName" placeholder="例如: Super AI Writer" required>
+    </div>
+    <div class="form-group">
+      <label>官网链接 *</label>
+      <input type="url" id="toolUrl" placeholder="https://example.com" required>
+      <div class="hint">GitHub 链接也可以</div>
+    </div>
+    <div class="form-group">
+      <label>一句话描述 *</label>
+      <input type="text" id="toolDesc" placeholder="用一句话说明这个工具做什么的" required>
+    </div>
+    <div class="form-group">
+      <label>详细描述</label>
+      <textarea id="toolDetail" placeholder="详细功能介绍、适用场景、技术特色..."></textarea>
+    </div>
+    <div class="form-group">
+      <label>工具分类</label>
+      <select id="toolCat">
+        <option value="">自动识别</option>
+        <option value="agent">🤖 Agent 智能体</option>
+        <option value="llm">🧠 LLM 大语言模型</option>
+        <option value="rag">🔗 RAG 知识检索</option>
+        <option value="dev-tool">🛠 开发者工具</option>
+        <option value="media">🎨 图像/视频</option>
+        <option value="audio">🎵 音频</option>
+        <option value="data-science">📊 数据科学</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>你的联系方式</label>
+      <input type="text" id="toolContact" placeholder="微信 / 邮箱 / 电话（用于审核通知）">
+      <div class="hint">如果你希望合作推广（付费推荐），我们会在审核后联系你</div>
+    </div>
+    <div class="form-group">
+      <label>提交目的</label>
+      <select id="toolPurpose">
+        <option value="free">🙋 免费收录（展示工具）</option>
+        <option value="sponsored">💼 合作推广（付费推荐 + 首页展示）</option>
+      </select>
+    </div>
+    <button type="submit" class="btn">📨 提交工具</button>
+  </form>
+
+  <div class="success" id="successMsg">
+    <h3>✅ 提交成功！</h3>
+    <p>盘古会审核你的提交。如果是合作推广，我们会在 24 小时内联系你。<br>
+    你也可以直接联系盘古：<strong>luffly@foxmail.com</strong></p>
+    <p style="margin-top:12px;"><a href="index.html" style="color:var(--accent);">← 返回首页</a></p>
+  </div>
+</div>
+
+<script>
+document.getElementById('submitForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('toolName').value.trim();
+  const url = document.getElementById('toolUrl').value.trim();
+  const desc = document.getElementById('toolDesc').value.trim();
+  const detail = document.getElementById('toolDetail').value.trim();
+  const cat = document.getElementById('toolCat').value;
+  const contact = document.getElementById('toolContact').value.trim();
+  const purpose = document.getElementById('toolPurpose').value;
+
+  // 构建提交数据（目前存本地JSON，后续可扩展为发送邮件）
+  const submission = {
+    name, url, desc, detail, cat, contact, purpose,
+    submitted_at: new Date().toISOString()
+  };
+
+  // 显示成功消息（实际应用中应该提交到后端）
+  document.getElementById('submitForm').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+
+  // Log 到控制台（开发阶段）
+  console.log('📬 新工具提交:', submission);
+
+  // 存到 submissions 目录
+  fetch('/submit.php?' + new URLSearchParams({data: JSON.stringify(submission)}))
+    .catch(() => {});
+});
+</script>
+</body>
+</html>
